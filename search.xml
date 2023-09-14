@@ -1,132 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hax&amp;Woiden</title>
-    <url>/2022/12/01/Hax-Woiden/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
-</div>
-<hr>
-<h2 id="Hax">Hax</h2>
-<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
-<ul>
-<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
-</ul>
-<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
-<ul>
-<li>翻译一下就看懂，其实很简单的，没啥<br>
-创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
-<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
-</ul>
-<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-复制粘贴进ssh回车运行：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-（也可以用其他的warp脚本，见）<br>
-点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="woiden">woiden</h2>
-<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
-<ul>
-<li>
-<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
-<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
-</li>
-<li>
-<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
-</li>
-</ul>
-<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
-点击第一个，添加warp ipv4网络接口</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="套cf加速">套cf加速</h2>
-<ul>
-<li>
-<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
-</li>
-<li>
-<p>教程：<br>
-一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
-二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
-<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
-<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
-</li>
-</ul>
-<hr>
-<h2 id="注意事项">注意事项</h2>
-<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
-2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
-3.可以不用节点，只不过网站进去有点慢<br>
-4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
-①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
-②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
-③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
-5.也可以不用x-ui面板，把命令换成下面这个就行<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
-6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
-7.WARP 各大一键脚本<br>
-①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
-<li>日常维护 <code>warp</code></li>
-</ul>
-<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
-<ul>
-<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
-<li>日常维护 <code>bash warp.sh</code></li>
-</ul>
-<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
-<li>日常维护 <code>warp-go</code><br>
-8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
-①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
-卸载内核版本 (一般用这个即可)<br>
-<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
-不卸载内核版本<br>
-<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
-</ul>
-<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>VPS</category>
-      </categories>
-      <tags>
-        <tag>白嫖VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2023/08/21/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -144,105 +18,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code><br>
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
-启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
-部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本<br>
-<code>hexo version</code></li>
-</ul>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Hexo命令</tag>
-      </tags>
   </entry>
   <entry>
     <title>Linux常用命令</title>
@@ -370,6 +145,231 @@ CentOS<br>
       </categories>
       <tags>
         <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hax&amp;Woiden</title>
+    <url>/2022/12/01/Hax-Woiden/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
+</div>
+<hr>
+<h2 id="Hax">Hax</h2>
+<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
+<ul>
+<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
+<ul>
+<li>翻译一下就看懂，其实很简单的，没啥<br>
+创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
+<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
+</ul>
+<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+复制粘贴进ssh回车运行：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+（也可以用其他的warp脚本，见）<br>
+点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="woiden">woiden</h2>
+<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
+<ul>
+<li>
+<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
+<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
+</li>
+<li>
+<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
+</li>
+</ul>
+<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
+点击第一个，添加warp ipv4网络接口</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="套cf加速">套cf加速</h2>
+<ul>
+<li>
+<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
+</li>
+<li>
+<p>教程：<br>
+一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
+二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
+<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
+<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
+</li>
+</ul>
+<hr>
+<h2 id="注意事项">注意事项</h2>
+<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
+2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
+3.可以不用节点，只不过网站进去有点慢<br>
+4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
+①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
+②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
+③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
+5.也可以不用x-ui面板，把命令换成下面这个就行<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
+6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
+7.WARP 各大一键脚本<br>
+①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
+<li>日常维护 <code>warp</code></li>
+</ul>
+<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
+<ul>
+<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
+<li>日常维护 <code>bash warp.sh</code></li>
+</ul>
+<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
+<li>日常维护 <code>warp-go</code><br>
+8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
+①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
+卸载内核版本 (一般用这个即可)<br>
+<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
+不卸载内核版本<br>
+<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
+</ul>
+<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>白嫖VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code><br>
+清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
+启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
+部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本<br>
+<code>hexo version</code></li>
+</ul>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Hexo命令</tag>
       </tags>
   </entry>
 </search>

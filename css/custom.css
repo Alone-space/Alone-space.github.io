@@ -36,8 +36,8 @@ hr:before {
     -ms-transition: all .2s ease-out;
     transition: all .2s ease-out;
     /* 若要使用风车效果，请去掉下面的注释 */
-    /* content: '\f863'; 
-    animation: avatar_turn_around 1s linear infinite; */
+     content: '\f863'; 
+    animation: avatar_turn_around 1s linear infinite; 
 }
 #article-container h1 {
     padding-left: 1.4rem
@@ -149,3 +149,20 @@ hr:before {
     padding-left: 1.2rem
 }
 
+/* 鼠标在有序标签上会旋转 */
+#article-container ol li:hover:before
+{
+-webkit-transform: rotate(360deg);
+-moz-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+transform: rotate(360deg)
+}
+
+/* 导航栏居中 */
+
+
+/* 子菜单横向布局 */
+
+
+/* 去掉导航栏项目底下的蓝色长条 */
