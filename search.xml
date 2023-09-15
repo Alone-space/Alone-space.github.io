@@ -1,153 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/08/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Linux常用命令</title>
-    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1>常用命令</h1>
-<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：apt-get update &amp;&amp; apt-get upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：apt-get install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：apt-get install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：apt-get install lrzsz</span><br></pre></td></tr></table></figure>
-<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：apt-get update</span><br><span class="line">更新升级所有软件：apt-get upgrade</span><br><span class="line"></span><br><span class="line">清理旧版本的软件缓存：sudo apt-get autoclean</span><br><span class="line">清理所有软件缓存：sudo apt-get clean</span><br><span class="line">删除系统不再使用的孤立软件：sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -a</span><br><span class="line">查看ubuntu版本：cat /etc/issue</span><br><span class="line"></span><br><span class="line">查看当前的内存使用情况：free -m</span><br><span class="line">查看当前有哪些进程：ps -A</span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id</span><br><span class="line">安装 openssh-server：sudo apt-get install openssh-server</span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh</span><br><span class="line"></span><br><span class="line">Linux开启原版BBR：</span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
-<p>一、经常使用的脚本</p>
-<ul>
-<li>
-<p>X-UI 一键脚本<br>
-<a href="https://github.com/vaxilu/x-ui">原版</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
-<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-<li>
-<p>V2ray-233blog<br>
-<code> bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
-</li>
-<li>
-<p>WARP 各大一键脚本<br>
-①FSCARMEN (<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fgitlab.com%2Ffscarmen%2Fwarp.git">https://gitlab.com/fscarmen/warp.git</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp</code><br>
-②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
-首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
-日常维护 <code>bash warp.sh</code><br>
-③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp-go</code></p>
-</li>
-<li>
-<p>bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
-卸载内核版本 (一般用这个即可)<br>
-<code>wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
-不卸载内核版本<br>
-<code>wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
-一般BBR+FQ加速就行，当然也可以不使用bbr<br>
-二、以下一键脚本本人未测试，来自网上搜集，自行决定</p>
-</li>
-</ul>
-<p>①V2ray-agent：<br>
-Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
-支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
-<p>②Latest Version<br>
-<code>wget -P /root -N --no-check-certificate      &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-<p>③Stable-v2.4.16【无gRPC】<br>
-<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-<p>④UnixBench跑分工具测试<br>
-UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
-<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
-<p><a href="http://xn--bench-d98b.sh">⑤bench.sh</a> 测速脚本<br>
-Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
-<code>wget -qO- bench.sh | bash</code><br>
-或者<br>
-<code>curl -Lso- bench.sh | bash</code></p>
-<p>⑥BestTrace 路由追踪<br>
-<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip unzip besttrace4linux.zip chmod +x besttrace ./besttrace 114.114.114.114</code></p>
-<p>⑦流媒体解锁检测脚本<br>
-Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
-<p>⑧Netflix 解锁检测脚本<br>
-<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
-<p>⑨一键DD纯净系统脚本(萌咖) CentOS/Debian/Ubuntu<br>
-系统安装完成后的默认用户名为root，默认密码为: <a href="http://MoeClub.org">MoeClub.org</a><br>
-<code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -d 11 -v 64 -a</code> # Debian 11 64位</p>
-<p><code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -u 20.04 -v 64 -a</code> # Ubuntu 20.04 64位</p>
-<h1>进阶命令</h1>
-<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
-<ul>
-<li>
-<p>安装docker<br>
-以 root 用户登录，执行一键脚本安装 Docker<br>
-升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
-Debian / Ubuntu<br>
-<code>apt-get update &amp;&amp; apt-get install -y wget vim</code><br>
-CentOS<br>
-<code>yum update &amp;&amp; yum install -y wget vim</code></p>
-<p>执行此命令等候安装 Docker</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun</span><br></pre></td></tr></table></figure>
-<p>也可以使用国内 daocloud 一键安装命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
-<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker，。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
-</li>
-<li>
-<p>安装docker-compose<br>
-1、最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a><br>
-2、运行以下命令以下载Docker Compose的当前稳定版本：</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
-</blockquote>
-<p>①将可执行权限应用于二进制文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
-</blockquote>
-<p>②测试安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
-<p>3、bash 命令补齐</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.8.0/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
-<p>4、卸载docker-compose</p>
-<blockquote>
-<p>直接移除二进制包即可</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<h2 id="docker常用命令">docker常用命令</h2>
-<ul>
-<li>常用</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动</span><br><span class="line"></span><br><span class="line">systemctl stop docker                     #停止</span><br><span class="line"></span><br><span class="line">systemctl restart docker                  #重启</span><br><span class="line"></span><br><span class="line">systemctl enable docker                   #开机自启动</span><br><span class="line"></span><br><span class="line">systemctl status docker                   #运行状态</span><br><span class="line"></span><br><span class="line">docker version                            #Docker 版本信息</span><br><span class="line"></span><br><span class="line">docker info                               #Docker 系统信息</span><br><span class="line"></span><br><span class="line">docker ps                                 #查看正在运行的容器</span><br><span class="line">docker ps –a                              #查看所有容器</span><br><span class="line">docker ps –qa                             #仅显示 id 号，常用于批量删除容器</span><br><span class="line">docker rm 容器id                          #删除指定容器</span><br><span class="line"></span><br><span class="line">docker images                             #查看本地所有的镜像</span><br><span class="line">docker images –q                          #仅显示镜像id，常用于批量删除镜像</span><br><span class="line"></span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像</span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像</span><br><span class="line"></span><br><span class="line">#进入容器</span><br><span class="line">docker exec -it 容器名 bash</span><br><span class="line"></span><br><span class="line">#退出容器</span><br><span class="line">exit                                      #容器直接退出</span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	</span><br><span class="line"></span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps	        #列出容器</span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename       #重命名容器</span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程</span><br><span class="line">docker stats 容器名称                     #查看资源占⽤</span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
-<ul>
-<li>命令大全（网上搜集）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器</span><br><span class="line">docker build	#使用 Dockerfile 创建镜像</span><br><span class="line">docker builder	#管理builds</span><br><span class="line">    docker builder prune	#清除build缓存</span><br><span class="line">docker checkpoint	#管理checkpoints</span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点</span><br><span class="line">    docker checkpoint ls	#列出容器的检查点</span><br><span class="line">    docker checkpoint rm	#删除指定的检查点</span><br><span class="line">docker commit	#从容器创建一个新的镜像</span><br><span class="line">docker config	#管理Docker配置</span><br><span class="line">    docker config create	#创建配置文件</span><br><span class="line">    docker config inspect	#查看配置文件信息</span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件</span><br><span class="line">    docker config rm		#删除配置文件</span><br><span class="line">docker container	#管理容器</span><br><span class="line">    docker container prune	#删除所有已停止的容器</span><br><span class="line">docker context	#管理contexts</span><br><span class="line">    docker context create	#创建一个上下文</span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中</span><br><span class="line">    docker context import	#从tar或zip文件导入上下文</span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息</span><br><span class="line">    docker context ls		#列出上下文</span><br><span class="line">    docker context rm		#删除一个或多个上下文</span><br><span class="line">    docker context update	#更新</span><br><span class="line">    docker context use		#设置当前docker的上下文</span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝</span><br><span class="line">docker create	#创建一个新的容器但不启动它</span><br><span class="line">docker diff		#检查容器里文件结构的更改</span><br><span class="line">docker events	#从服务器获取实时事件</span><br><span class="line">docker exec		#在运行的容器中执行命令</span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT</span><br><span class="line">docker history	#查看指定镜像的创建历史</span><br><span class="line">docker image	#管理镜像</span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据</span><br><span class="line">    docker image ls			#列出本地镜像</span><br><span class="line">    docker image prune		#删除没有使用的镜像</span><br><span class="line">    docker image rm			#删除一个或多个镜像</span><br><span class="line">docker images	#列出本地镜像</span><br><span class="line">docker import	#从归档文件中创建镜像</span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数</span><br><span class="line">docker inspect	#获取容器/镜像的元数据</span><br><span class="line">docker kill		#杀掉一个运行中的容器</span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像</span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logs		#获取容器的日志</span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)</span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息</span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表</span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表</span><br><span class="line">    docker manifest push		#将清单列表推入仓库</span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表</span><br><span class="line">docker network	#管理网络</span><br><span class="line">    docker network connect		#将容器连接到网络</span><br><span class="line">    docker network create		#创建一个网络</span><br><span class="line">    docker network disconnect	#断开容器的网络</span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据</span><br><span class="line">    docker network ls			#列出网络</span><br><span class="line">    docker network prune		#删除所有没有使用的网络</span><br><span class="line">    docker network rm			#删除一个或多个网络</span><br><span class="line">docker node		#管理集群(swarm)节点</span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点</span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据</span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点</span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中</span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点</span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点</span><br><span class="line">    docker node update			#更新一个节点</span><br><span class="line">docker pause	#暂停容器中所有的进程</span><br><span class="line">docker plugin	#管理插件</span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。</span><br><span class="line">    docker plugin disable		#禁用插件</span><br><span class="line">    docker plugin enable		#启用插件</span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据</span><br><span class="line">    docker plugin install		#安装一个插件</span><br><span class="line">    docker plugin ls			#列出所有插件</span><br><span class="line">    docker plugin push			#将插件推送到注册表</span><br><span class="line">    docker plugin rm			#删除一个或多个插件</span><br><span class="line">    docker plugin set			#更改插件的设置</span><br><span class="line">    docker plugin upgrade		#升级现有插件</span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps		#列出容器</span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename	#重命名容器</span><br><span class="line">docker restart	#重启容器</span><br><span class="line">docker rm		#删除一个或多个容器</span><br><span class="line">docker rmi		#删除一个或多个镜像</span><br><span class="line">docker run		#创建一个新的容器并运行一个命令</span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件</span><br><span class="line">docker search	#从Docker Hub查找镜像</span><br><span class="line">docker secret	#管理Docker secrets</span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容</span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息</span><br><span class="line">    docker secret ls		#列出秘密</span><br><span class="line">    docker secret rm		#删除一个或多个秘密</span><br><span class="line">docker service	#管理服务</span><br><span class="line">    docker service create	#创建一个服务</span><br><span class="line">    docker service inspect	#查看服务的元数据</span><br><span class="line">    docker service logs		#获取服务的日志</span><br><span class="line">    docker service ls		#列出服务</span><br><span class="line">    docker service ps		#列出一个或多个服务的任务</span><br><span class="line">    docker service rm		#删除一个或多个服务</span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置</span><br><span class="line">    docker service scale	#缩放一个或多个复制服务</span><br><span class="line">    docker service update	#更新服务</span><br><span class="line">docker stack	#管理堆栈</span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈</span><br><span class="line">    docker stack ls			#列出现有堆栈</span><br><span class="line">    docker stack ps			#列出堆栈中的任务</span><br><span class="line">    docker stack rm			#删除堆栈	</span><br><span class="line">    docker stack services	#列出堆栈中的服务</span><br><span class="line">docker start	#启动一个或多个已经被停止的容器</span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息</span><br><span class="line">docker stop		#停止一个运行中的容器</span><br><span class="line">docker swarm	#管理集群(Swarm)</span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点</span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)</span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器</span><br><span class="line">    docker swarm join-token	#管理加入令牌</span><br><span class="line">    docker swarm leave		#离开群集(Swarm)</span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)</span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙</span><br><span class="line">    docker swarm update		#更新群集(Swarm)</span><br><span class="line">docker system	#管理Docker</span><br><span class="line">    docker system df		#显示docker磁盘使用情况</span><br><span class="line">    docker system events	#从服务器获取实时事件</span><br><span class="line">    docker system info		#显示系统范围的信息</span><br><span class="line">    docker system prune		#删除未使用的数据</span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库</span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数</span><br><span class="line">docker trust	#管理Docker镜像的信任</span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息</span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys</span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对</span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名</span><br><span class="line">    docker trust revoke		#删除对镜像的认证</span><br><span class="line">    docker trust sign		#镜像签名</span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体</span><br><span class="line">    	docker trust signer add		#新增一个签名者</span><br><span class="line">		docker trust signer remove	#删除一个签名者</span><br><span class="line">docker unpause	#恢复容器中所有的进程</span><br><span class="line">docker update	#更新一个或多个容器的配置</span><br><span class="line">docker version	#显示 Docker 版本信息</span><br><span class="line">docker volume	#管理volumes</span><br><span class="line">    docker volume create	#创建一个卷</span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据</span><br><span class="line">    docker volume ls		#列出卷</span><br><span class="line">    docker volume prune		#删除所有未使用的卷</span><br><span class="line">    docker volume rm		#删除一个或多个卷</span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hax&amp;Woiden</title>
     <url>/2022/12/01/Hax-Woiden/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
@@ -370,6 +223,153 @@ CentOS<br>
       </categories>
       <tags>
         <tag>Hexo命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/08/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1>常用命令</h1>
+<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：apt-get update &amp;&amp; apt-get upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：apt-get install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：apt-get install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：apt-get install lrzsz</span><br></pre></td></tr></table></figure>
+<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：apt-get update</span><br><span class="line">更新升级所有软件：apt-get upgrade</span><br><span class="line"></span><br><span class="line">清理旧版本的软件缓存：sudo apt-get autoclean</span><br><span class="line">清理所有软件缓存：sudo apt-get clean</span><br><span class="line">删除系统不再使用的孤立软件：sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -a</span><br><span class="line">查看ubuntu版本：cat /etc/issue</span><br><span class="line"></span><br><span class="line">查看当前的内存使用情况：free -m</span><br><span class="line">查看当前有哪些进程：ps -A</span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id</span><br><span class="line">安装 openssh-server：sudo apt-get install openssh-server</span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh</span><br><span class="line"></span><br><span class="line">Linux开启原版BBR：</span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
+<p>一、经常使用的脚本</p>
+<ul>
+<li>
+<p>X-UI 一键脚本<br>
+<a href="https://github.com/vaxilu/x-ui">原版</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
+<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+<li>
+<p>V2ray-233blog<br>
+<code> bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
+</li>
+<li>
+<p>WARP 各大一键脚本<br>
+①FSCARMEN (<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fgitlab.com%2Ffscarmen%2Fwarp.git">https://gitlab.com/fscarmen/warp.git</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp</code><br>
+②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
+首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
+日常维护 <code>bash warp.sh</code><br>
+③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp-go</code></p>
+</li>
+<li>
+<p>bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
+卸载内核版本 (一般用这个即可)<br>
+<code>wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
+不卸载内核版本<br>
+<code>wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
+一般BBR+FQ加速就行，当然也可以不使用bbr<br>
+二、以下一键脚本本人未测试，来自网上搜集，自行决定</p>
+</li>
+</ul>
+<p>①V2ray-agent：<br>
+Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
+支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
+<p>②Latest Version<br>
+<code>wget -P /root -N --no-check-certificate      &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+<p>③Stable-v2.4.16【无gRPC】<br>
+<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+<p>④UnixBench跑分工具测试<br>
+UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
+<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
+<p><a href="http://xn--bench-d98b.sh">⑤bench.sh</a> 测速脚本<br>
+Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
+<code>wget -qO- bench.sh | bash</code><br>
+或者<br>
+<code>curl -Lso- bench.sh | bash</code></p>
+<p>⑥BestTrace 路由追踪<br>
+<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip unzip besttrace4linux.zip chmod +x besttrace ./besttrace 114.114.114.114</code></p>
+<p>⑦流媒体解锁检测脚本<br>
+Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
+<p>⑧Netflix 解锁检测脚本<br>
+<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
+<p>⑨一键DD纯净系统脚本(萌咖) CentOS/Debian/Ubuntu<br>
+系统安装完成后的默认用户名为root，默认密码为: <a href="http://MoeClub.org">MoeClub.org</a><br>
+<code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -d 11 -v 64 -a</code> # Debian 11 64位</p>
+<p><code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -u 20.04 -v 64 -a</code> # Ubuntu 20.04 64位</p>
+<h1>进阶命令</h1>
+<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
+<ul>
+<li>
+<p>安装docker<br>
+以 root 用户登录，执行一键脚本安装 Docker<br>
+升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
+Debian / Ubuntu<br>
+<code>apt-get update &amp;&amp; apt-get install -y wget vim</code><br>
+CentOS<br>
+<code>yum update &amp;&amp; yum install -y wget vim</code></p>
+<p>执行此命令等候安装 Docker</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun</span><br></pre></td></tr></table></figure>
+<p>也可以使用国内 daocloud 一键安装命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker，。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
+</li>
+<li>
+<p>安装docker-compose<br>
+1、最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a><br>
+2、运行以下命令以下载Docker Compose的当前稳定版本：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
+</blockquote>
+<p>①将可执行权限应用于二进制文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
+</blockquote>
+<p>②测试安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<p>3、bash 命令补齐</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.8.0/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+<p>4、卸载docker-compose</p>
+<blockquote>
+<p>直接移除二进制包即可</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h2 id="docker常用命令">docker常用命令</h2>
+<ul>
+<li>常用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动</span><br><span class="line"></span><br><span class="line">systemctl stop docker                     #停止</span><br><span class="line"></span><br><span class="line">systemctl restart docker                  #重启</span><br><span class="line"></span><br><span class="line">systemctl enable docker                   #开机自启动</span><br><span class="line"></span><br><span class="line">systemctl status docker                   #运行状态</span><br><span class="line"></span><br><span class="line">docker version                            #Docker 版本信息</span><br><span class="line"></span><br><span class="line">docker info                               #Docker 系统信息</span><br><span class="line"></span><br><span class="line">docker ps                                 #查看正在运行的容器</span><br><span class="line">docker ps –a                              #查看所有容器</span><br><span class="line">docker ps –qa                             #仅显示 id 号，常用于批量删除容器</span><br><span class="line">docker rm 容器id                          #删除指定容器</span><br><span class="line"></span><br><span class="line">docker images                             #查看本地所有的镜像</span><br><span class="line">docker images –q                          #仅显示镜像id，常用于批量删除镜像</span><br><span class="line"></span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像</span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像</span><br><span class="line"></span><br><span class="line">#进入容器</span><br><span class="line">docker exec -it 容器名 bash</span><br><span class="line"></span><br><span class="line">#退出容器</span><br><span class="line">exit                                      #容器直接退出</span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	</span><br><span class="line"></span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps	        #列出容器</span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename       #重命名容器</span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程</span><br><span class="line">docker stats 容器名称                     #查看资源占⽤</span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
+<ul>
+<li>命令大全（网上搜集）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器</span><br><span class="line">docker build	#使用 Dockerfile 创建镜像</span><br><span class="line">docker builder	#管理builds</span><br><span class="line">    docker builder prune	#清除build缓存</span><br><span class="line">docker checkpoint	#管理checkpoints</span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点</span><br><span class="line">    docker checkpoint ls	#列出容器的检查点</span><br><span class="line">    docker checkpoint rm	#删除指定的检查点</span><br><span class="line">docker commit	#从容器创建一个新的镜像</span><br><span class="line">docker config	#管理Docker配置</span><br><span class="line">    docker config create	#创建配置文件</span><br><span class="line">    docker config inspect	#查看配置文件信息</span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件</span><br><span class="line">    docker config rm		#删除配置文件</span><br><span class="line">docker container	#管理容器</span><br><span class="line">    docker container prune	#删除所有已停止的容器</span><br><span class="line">docker context	#管理contexts</span><br><span class="line">    docker context create	#创建一个上下文</span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中</span><br><span class="line">    docker context import	#从tar或zip文件导入上下文</span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息</span><br><span class="line">    docker context ls		#列出上下文</span><br><span class="line">    docker context rm		#删除一个或多个上下文</span><br><span class="line">    docker context update	#更新</span><br><span class="line">    docker context use		#设置当前docker的上下文</span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝</span><br><span class="line">docker create	#创建一个新的容器但不启动它</span><br><span class="line">docker diff		#检查容器里文件结构的更改</span><br><span class="line">docker events	#从服务器获取实时事件</span><br><span class="line">docker exec		#在运行的容器中执行命令</span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT</span><br><span class="line">docker history	#查看指定镜像的创建历史</span><br><span class="line">docker image	#管理镜像</span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据</span><br><span class="line">    docker image ls			#列出本地镜像</span><br><span class="line">    docker image prune		#删除没有使用的镜像</span><br><span class="line">    docker image rm			#删除一个或多个镜像</span><br><span class="line">docker images	#列出本地镜像</span><br><span class="line">docker import	#从归档文件中创建镜像</span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数</span><br><span class="line">docker inspect	#获取容器/镜像的元数据</span><br><span class="line">docker kill		#杀掉一个运行中的容器</span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像</span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logs		#获取容器的日志</span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)</span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息</span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表</span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表</span><br><span class="line">    docker manifest push		#将清单列表推入仓库</span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表</span><br><span class="line">docker network	#管理网络</span><br><span class="line">    docker network connect		#将容器连接到网络</span><br><span class="line">    docker network create		#创建一个网络</span><br><span class="line">    docker network disconnect	#断开容器的网络</span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据</span><br><span class="line">    docker network ls			#列出网络</span><br><span class="line">    docker network prune		#删除所有没有使用的网络</span><br><span class="line">    docker network rm			#删除一个或多个网络</span><br><span class="line">docker node		#管理集群(swarm)节点</span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点</span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据</span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点</span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中</span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点</span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点</span><br><span class="line">    docker node update			#更新一个节点</span><br><span class="line">docker pause	#暂停容器中所有的进程</span><br><span class="line">docker plugin	#管理插件</span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。</span><br><span class="line">    docker plugin disable		#禁用插件</span><br><span class="line">    docker plugin enable		#启用插件</span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据</span><br><span class="line">    docker plugin install		#安装一个插件</span><br><span class="line">    docker plugin ls			#列出所有插件</span><br><span class="line">    docker plugin push			#将插件推送到注册表</span><br><span class="line">    docker plugin rm			#删除一个或多个插件</span><br><span class="line">    docker plugin set			#更改插件的设置</span><br><span class="line">    docker plugin upgrade		#升级现有插件</span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps		#列出容器</span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename	#重命名容器</span><br><span class="line">docker restart	#重启容器</span><br><span class="line">docker rm		#删除一个或多个容器</span><br><span class="line">docker rmi		#删除一个或多个镜像</span><br><span class="line">docker run		#创建一个新的容器并运行一个命令</span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件</span><br><span class="line">docker search	#从Docker Hub查找镜像</span><br><span class="line">docker secret	#管理Docker secrets</span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容</span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息</span><br><span class="line">    docker secret ls		#列出秘密</span><br><span class="line">    docker secret rm		#删除一个或多个秘密</span><br><span class="line">docker service	#管理服务</span><br><span class="line">    docker service create	#创建一个服务</span><br><span class="line">    docker service inspect	#查看服务的元数据</span><br><span class="line">    docker service logs		#获取服务的日志</span><br><span class="line">    docker service ls		#列出服务</span><br><span class="line">    docker service ps		#列出一个或多个服务的任务</span><br><span class="line">    docker service rm		#删除一个或多个服务</span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置</span><br><span class="line">    docker service scale	#缩放一个或多个复制服务</span><br><span class="line">    docker service update	#更新服务</span><br><span class="line">docker stack	#管理堆栈</span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈</span><br><span class="line">    docker stack ls			#列出现有堆栈</span><br><span class="line">    docker stack ps			#列出堆栈中的任务</span><br><span class="line">    docker stack rm			#删除堆栈	</span><br><span class="line">    docker stack services	#列出堆栈中的服务</span><br><span class="line">docker start	#启动一个或多个已经被停止的容器</span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息</span><br><span class="line">docker stop		#停止一个运行中的容器</span><br><span class="line">docker swarm	#管理集群(Swarm)</span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点</span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)</span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器</span><br><span class="line">    docker swarm join-token	#管理加入令牌</span><br><span class="line">    docker swarm leave		#离开群集(Swarm)</span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)</span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙</span><br><span class="line">    docker swarm update		#更新群集(Swarm)</span><br><span class="line">docker system	#管理Docker</span><br><span class="line">    docker system df		#显示docker磁盘使用情况</span><br><span class="line">    docker system events	#从服务器获取实时事件</span><br><span class="line">    docker system info		#显示系统范围的信息</span><br><span class="line">    docker system prune		#删除未使用的数据</span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库</span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数</span><br><span class="line">docker trust	#管理Docker镜像的信任</span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息</span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys</span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对</span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名</span><br><span class="line">    docker trust revoke		#删除对镜像的认证</span><br><span class="line">    docker trust sign		#镜像签名</span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体</span><br><span class="line">    	docker trust signer add		#新增一个签名者</span><br><span class="line">		docker trust signer remove	#删除一个签名者</span><br><span class="line">docker unpause	#恢复容器中所有的进程</span><br><span class="line">docker update	#更新一个或多个容器的配置</span><br><span class="line">docker version	#显示 Docker 版本信息</span><br><span class="line">docker volume	#管理volumes</span><br><span class="line">    docker volume create	#创建一个卷</span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据</span><br><span class="line">    docker volume ls		#列出卷</span><br><span class="line">    docker volume prune		#删除所有未使用的卷</span><br><span class="line">    docker volume rm		#删除一个或多个卷</span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
       </tags>
   </entry>
 </search>
