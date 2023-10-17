@@ -1,102 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Butterfly 一些魔改美化</title>
-    <url>/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
-</div>
-<hr>
-<h3 id="站点动态-title">站点动态 title</h3>
-<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="修改标题样式">修改标题样式</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
-<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
-<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
-<p>​</p>
-</div>
-<p><strong>①下载</strong></p>
-<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
-<p><code>npm uninstall hexo-helper-live2d</code></p>
-<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
-<p><strong>②设置绝对路径</strong></p>
-<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
-<p><code>/live2d-widget/</code></p>
-<p><strong>③引入</strong></p>
-<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
-<p><code>script(src='/live2d-widget/autoload.js')</code></p>
-<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-<p><strong>④自定义配置（随你）</strong></p>
-<ol>
-<li>修改看板娘的位置</li>
-</ol>
-<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
-具体在#waifu选择器下修改</p>
-<ol start="2">
-<li>修改聊天内容</li>
-</ol>
-<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
-<ol start="3">
-<li>修改首次加载的模型</li>
-</ol>
-<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
-</div></details>
-<h3 id="鼠标样式">鼠标样式</h3>
-<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
-<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
-<h3 id="樱花飘落效果">樱花飘落效果</h3>
-<h3 id="背景一图流">背景一图流</h3>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
-</div>
-<p>①<strong>设置背景</strong></p>
-<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
-<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
-<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
-<p>②<strong>引入相关样式</strong></p>
-<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
-<p>③<strong>增加插件脚本</strong></p>
-<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
-<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
-<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
-<h3 id="添加贡献日历">添加贡献日历</h3>
-<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
-<h3 id="留言板信封">留言板信封</h3>
-<h3 id="文章加密">文章加密</h3>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Butterfly</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>美化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hax&amp;Woiden</title>
     <url>/2022/12/01/Hax-Woiden/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
@@ -223,6 +127,286 @@
       </tags>
   </entry>
   <entry>
+    <title>Butterfly 一些魔改美化</title>
+    <url>/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
+</div>
+<hr>
+<h3 id="站点动态-title">站点动态 title</h3>
+<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="修改标题样式">修改标题样式</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
+<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
+<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
+<p>​</p>
+</div>
+<p><strong>①下载</strong></p>
+<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
+<p><code>npm uninstall hexo-helper-live2d</code></p>
+<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
+<p><strong>②设置绝对路径</strong></p>
+<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
+<p><code>/live2d-widget/</code></p>
+<p><strong>③引入</strong></p>
+<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
+<p><code>script(src='/live2d-widget/autoload.js')</code></p>
+<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<p><strong>④自定义配置（随你）</strong></p>
+<ol>
+<li>修改看板娘的位置</li>
+</ol>
+<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
+具体在#waifu选择器下修改</p>
+<ol start="2">
+<li>修改聊天内容</li>
+</ol>
+<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
+<ol start="3">
+<li>修改首次加载的模型</li>
+</ol>
+<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
+</div></details>
+<h3 id="鼠标样式">鼠标样式</h3>
+<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
+<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
+<h3 id="樱花飘落效果">樱花飘落效果</h3>
+<h3 id="背景一图流">背景一图流</h3>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
+</div>
+<p>①<strong>设置背景</strong></p>
+<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
+<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
+<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
+<p>②<strong>引入相关样式</strong></p>
+<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
+<p>③<strong>增加插件脚本</strong></p>
+<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
+<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
+<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
+<h3 id="添加贡献日历">添加贡献日历</h3>
+<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
+<h3 id="留言板信封">留言板信封</h3>
+<h3 id="文章加密">文章加密</h3>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1>常用命令</h1>
+<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：apt-get update &amp;&amp; apt-get upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：apt-get install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：apt-get install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：apt-get install lrzsz</span><br><span class="line"></span><br><span class="line">总结：apt-get install curl wget lrzsz vim cron unzip screen</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。<br></li>
+<li><code>wget</code>：用于从Web服务器下载文件，支持HTTP、HTTPS和FTP协议，具有断点续传功能。<br></li>
+<li><code>lrzsz</code>：提供了Xmodem、Ymodem和Zmodem等协议的文件传输功能，用于通过终端与远程主机进行文件传输。<br></li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。<br></li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。<br></li>
+<li><code>unzip</code>：用于解压缩ZIP格式的压缩文件。<br></li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：apt-get update  </span><br><span class="line">更新升级所有软件：apt-get upgrade  </span><br><span class="line">  </span><br><span class="line">清理旧版本的软件缓存：sudo apt-get autoclean  </span><br><span class="line">清理所有软件缓存：sudo apt-get clean  </span><br><span class="line">删除系统不再使用的孤立软件：sudo apt-get autoremove  </span><br><span class="line">  </span><br><span class="line">screen的一些基本命令：  </span><br><span class="line">- #创建一个名为session_name的新窗口  </span><br><span class="line">  screen -S session_name  </span><br><span class="line">- #查看创建的窗口  </span><br><span class="line"> screen -ls  </span><br><span class="line">- #退出当前会话  </span><br><span class="line"> Ctrl+c+d  </span><br><span class="line">- #关闭当前窗口  </span><br><span class="line"> Ctrl-a k  </span><br><span class="line">- #删除cs窗口  </span><br><span class="line"> screen -X -S session_name quit  </span><br><span class="line">- #回到某个窗口  </span><br><span class="line"> screen -r 窗口名  </span><br><span class="line">   </span><br><span class="line">查看内置存储设备的使用寿命信息：cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time  </span><br><span class="line">  </span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">关闭系统电源：sudo systemctl poweroff  </span><br><span class="line">文件系统的磁盘使用情况：df -h  </span><br><span class="line">查看Debian系统的交换内存使用情况free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line">安装 openssh-server：sudo apt-get install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line">  </span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
+<h3 id="一、经常使用的脚本">一、经常使用的脚本</h3>
+<ol>
+<li>
+<p>X-UI 一键脚本<br>
+①<a href="https://github.com/vaxilu/x-ui">原版</a> :<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
+②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a> :<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code><br>
+③V2ray-233blog 一键创建节点<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
+</li>
+<li>
+<p>WARP 一键脚本<br>
+①FSCARMEN (<a href="https://gitlab.com/fscarmen/warp.git">fscarmen / warp · GitLab</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp</code><br>
+②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
+首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
+日常维护 <code>bash warp.sh</code><br>
+③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp-go</code></p>
+</li>
+<li>
+<p>bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）</p>
+</li>
+</ol>
+<details class="toggle" ><summary class="toggle-button" style="">官网链接地址，点击打开</summary><div class="toggle-content"><p><a href="https://blog.ylx.me/archives/783.html">Linux 一键安装常见/最新内核脚本锐速/BBRPLUS/BBR2 [100.0.1.25] - HJM</a> <br><br>
+<a href="https://github.com/ylx2016/Linux-NetSpeed">GitHub - ylx2016/Linux-NetSpeed: 将Linux现常用的网络加速集成在一起</a></p>
+</div></details>
+<blockquote>
+<p>一般 BBR+FQ 加速就行，当然也可以不使用 bbr</p>
+</blockquote>
+<h3 id="二、以下一键脚本本人未测试，来自网上搜集，自行决定">二、以下一键脚本本人未测试，来自网上搜集，自行决定</h3>
+<ol>
+<li>
+<p>V2ray-agent：<br>
+Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
+支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
+</li>
+<li>
+<p>Latest Version<br>
+<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+</li>
+<li>
+<p>Stable-v2.4.16【无gRPC】<br>
+<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+</li>
+<li>
+<p>UnixBench跑分工具测试<br>
+UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
+<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
+</li>
+<li>
+<p><a href="http://bench.sh">bench.sh</a> 测速脚本<br>
+Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
+<code>wget -qO- bench.sh | bash</code><br>
+或者<br>
+<code>curl -Lso- bench.sh | bash</code></p>
+</li>
+<li>
+<p>BestTrace 路由追踪<br>
+<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip</code><br>
+<code>unzip besttrace4linux.zip</code><br>
+<code>chmod +x besttrace</code><br>
+<code>./besttrace 114.114.114.114</code></p>
+</li>
+<li>
+<p>流媒体解锁检测脚本<br>
+Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
+</li>
+<li>
+<p>Netflix 解锁检测脚本<br>
+<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
+</li>
+</ol>
+<hr>
+<h1>进阶命令</h1>
+<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
+<blockquote>
+<p>更多请查看：  <a href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
+<h3 id="一、安装docker">一、安装docker</h3>
+<ol>
+<li>
+<p>以 root 用户登录，执行一键脚本安装 Docker<br>
+升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
+Debian / Ubuntu<br>
+<code>apt-get update &amp;&amp; apt-get install -y wget vim</code><br>
+CentOS<br>
+<code>yum update &amp;&amp; yum install -y wget vim</code></p>
+</li>
+<li>
+<p>执行此命令等候安装 Docker</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Ubuntu  </span><br><span class="line">curl -fsSL https://test.docker.com -o test-docker.sh  </span><br><span class="line">sudo sh test-docker.sh  </span><br><span class="line">  </span><br><span class="line">#Debian  </span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh  </span><br><span class="line">sudo sh get-docker.sh  </span><br><span class="line">  </span><br><span class="line">#CentOS  </span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+<p>​		也可以使用国内 daocloud 一键安装命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
+</blockquote>
+<ol start="3">
+<li>国内源推荐  ：</li>
+</ol>
+<p>​		<a href="http://hub-mirror.c.163.com/">http://hub-mirror.c.163.com</a><br>
+​		<a href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a><br>
+​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>
+​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></p>
+<h3 id="二、安装docker-compose">二、安装docker-compose</h3>
+<ol>
+<li>最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></li>
+<li>运行以下命令以下载Docker Compose的当前稳定版本：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
+</blockquote>
+<ol start="3">
+<li>将可执行权限应用于二进制文件：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
+</blockquote>
+<ol start="4">
+<li>创建软链：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果命令 docker-compose 在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
+</blockquote>
+<ol start="5">
+<li>测试安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>bash 命令补齐(一般不需要)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/2.2.2/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>卸载docker-compose</li>
+</ol>
+<blockquote>
+<p>直接移除二进制包即可</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h2 id="docker常用命令">docker常用命令</h2>
+<ol>
+<li><strong>常用</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动  </span><br><span class="line">  </span><br><span class="line">systemctl stop docker                     #停止  </span><br><span class="line">  </span><br><span class="line">systemctl restart docker                  #重启  </span><br><span class="line">  </span><br><span class="line">systemctl enable docker                   #开机自启动  </span><br><span class="line">  </span><br><span class="line">systemctl status docker                   #运行状态  </span><br><span class="line">  </span><br><span class="line">docker version                            #Docker 版本信息  </span><br><span class="line">  </span><br><span class="line">docker info                               #Docker 系统信息  </span><br><span class="line">  </span><br><span class="line">docker ps                                 #查看正在运行的容器  </span><br><span class="line">docker ps -a                              #查看所有容器  </span><br><span class="line">docker ps -qa                             #仅显示 id 号，常用于批量删除容器  </span><br><span class="line">docker rm 容器id                          #删除指定容器  </span><br><span class="line">  </span><br><span class="line">docker images                             #查看本地所有的镜像  </span><br><span class="line">docker images -q                          #仅显示镜像id，常用于批量删除镜像  </span><br><span class="line">  </span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像  </span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像  </span><br><span class="line">  </span><br><span class="line">#进入容器  </span><br><span class="line">docker exec -it 容器名 bash  </span><br><span class="line">  </span><br><span class="line">#退出容器  </span><br><span class="line">exit                                      #容器直接退出  </span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	  </span><br><span class="line">  </span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps	        #列出容器  </span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename       #重命名容器  </span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程  </span><br><span class="line">docker stats 容器名称                     #查看资源占⽤  </span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>命令大全（网上搜集）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器  </span><br><span class="line">docker build	#使用 Dockerfile 创建镜像  </span><br><span class="line">docker builder	#管理builds  </span><br><span class="line">    docker builder prune	#清除build缓存  </span><br><span class="line">docker checkpoint	#管理checkpoints  </span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点  </span><br><span class="line">    docker checkpoint ls	#列出容器的检查点  </span><br><span class="line">    docker checkpoint rm	#删除指定的检查点  </span><br><span class="line">docker commit	#从容器创建一个新的镜像  </span><br><span class="line">docker config	#管理Docker配置  </span><br><span class="line">    docker config create	#创建配置文件  </span><br><span class="line">    docker config inspect	#查看配置文件信息  </span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件  </span><br><span class="line">    docker config rm		#删除配置文件  </span><br><span class="line">docker container	#管理容器  </span><br><span class="line">    docker container prune	#删除所有已停止的容器  </span><br><span class="line">docker context	#管理contexts  </span><br><span class="line">    docker context create	#创建一个上下文  </span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中  </span><br><span class="line">    docker context import	#从tar或zip文件导入上下文  </span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息  </span><br><span class="line">    docker context ls		#列出上下文  </span><br><span class="line">    docker context rm		#删除一个或多个上下文  </span><br><span class="line">    docker context update	#更新  </span><br><span class="line">    docker context use		#设置当前docker的上下文  </span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝  </span><br><span class="line">docker create	#创建一个新的容器但不启动它  </span><br><span class="line">docker diff		#检查容器里文件结构的更改  </span><br><span class="line">docker events	#从服务器获取实时事件  </span><br><span class="line">docker exec		#在运行的容器中执行命令  </span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT  </span><br><span class="line">docker history	#查看指定镜像的创建历史  </span><br><span class="line">docker image	#管理镜像  </span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据  </span><br><span class="line">    docker image ls			#列出本地镜像  </span><br><span class="line">    docker image prune		#删除没有使用的镜像  </span><br><span class="line">    docker image rm			#删除一个或多个镜像  </span><br><span class="line">docker images	#列出本地镜像  </span><br><span class="line">docker import	#从归档文件中创建镜像  </span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数  </span><br><span class="line">docker inspect	#获取容器/镜像的元数据  </span><br><span class="line">docker kill		#杀掉一个运行中的容器  </span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像  </span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logs		#获取容器的日志  </span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)  </span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息  </span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表  </span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表  </span><br><span class="line">    docker manifest push		#将清单列表推入仓库  </span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表  </span><br><span class="line">docker network	#管理网络  </span><br><span class="line">    docker network connect		#将容器连接到网络  </span><br><span class="line">    docker network create		#创建一个网络  </span><br><span class="line">    docker network disconnect	#断开容器的网络  </span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据  </span><br><span class="line">    docker network ls			#列出网络  </span><br><span class="line">    docker network prune		#删除所有没有使用的网络  </span><br><span class="line">    docker network rm			#删除一个或多个网络  </span><br><span class="line">docker node		#管理集群(swarm)节点  </span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点  </span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据  </span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点  </span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中  </span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点  </span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点  </span><br><span class="line">    docker node update			#更新一个节点  </span><br><span class="line">docker pause	#暂停容器中所有的进程  </span><br><span class="line">docker plugin	#管理插件  </span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。  </span><br><span class="line">    docker plugin disable		#禁用插件  </span><br><span class="line">    docker plugin enable		#启用插件  </span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据  </span><br><span class="line">    docker plugin install		#安装一个插件  </span><br><span class="line">    docker plugin ls			#列出所有插件  </span><br><span class="line">    docker plugin push			#将插件推送到注册表  </span><br><span class="line">    docker plugin rm			#删除一个或多个插件  </span><br><span class="line">    docker plugin set			#更改插件的设置  </span><br><span class="line">    docker plugin upgrade		#升级现有插件  </span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps		#列出容器  </span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename	#重命名容器  </span><br><span class="line">docker restart	#重启容器  </span><br><span class="line">docker rm		#删除一个或多个容器  </span><br><span class="line">docker rmi		#删除一个或多个镜像  </span><br><span class="line">docker run		#创建一个新的容器并运行一个命令  </span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件  </span><br><span class="line">docker search	#从Docker Hub查找镜像  </span><br><span class="line">docker secret	#管理Docker secrets  </span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容  </span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息  </span><br><span class="line">    docker secret ls		#列出秘密  </span><br><span class="line">    docker secret rm		#删除一个或多个秘密  </span><br><span class="line">docker service	#管理服务  </span><br><span class="line">    docker service create	#创建一个服务  </span><br><span class="line">    docker service inspect	#查看服务的元数据  </span><br><span class="line">    docker service logs		#获取服务的日志  </span><br><span class="line">    docker service ls		#列出服务  </span><br><span class="line">    docker service ps		#列出一个或多个服务的任务  </span><br><span class="line">    docker service rm		#删除一个或多个服务  </span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置  </span><br><span class="line">    docker service scale	#缩放一个或多个复制服务  </span><br><span class="line">    docker service update	#更新服务  </span><br><span class="line">docker stack	#管理堆栈  </span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈  </span><br><span class="line">    docker stack ls			#列出现有堆栈  </span><br><span class="line">    docker stack ps			#列出堆栈中的任务  </span><br><span class="line">    docker stack rm			#删除堆栈	  </span><br><span class="line">    docker stack services	#列出堆栈中的服务  </span><br><span class="line">docker start	#启动一个或多个已经被停止的容器  </span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息  </span><br><span class="line">docker stop		#停止一个运行中的容器  </span><br><span class="line">docker swarm	#管理集群(Swarm)  </span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点  </span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)  </span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器  </span><br><span class="line">    docker swarm join-token	#管理加入令牌  </span><br><span class="line">    docker swarm leave		#离开群集(Swarm)  </span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)  </span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙  </span><br><span class="line">    docker swarm update		#更新群集(Swarm)  </span><br><span class="line">docker system	#管理Docker  </span><br><span class="line">    docker system df		#显示docker磁盘使用情况  </span><br><span class="line">    docker system events	#从服务器获取实时事件  </span><br><span class="line">    docker system info		#显示系统范围的信息  </span><br><span class="line">    docker system prune		#删除未使用的数据  </span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库  </span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数  </span><br><span class="line">docker trust	#管理Docker镜像的信任  </span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息  </span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys  </span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对  </span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名  </span><br><span class="line">    docker trust revoke		#删除对镜像的认证  </span><br><span class="line">    docker trust sign		#镜像签名  </span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体  </span><br><span class="line">    	docker trust signer add		#新增一个签名者  </span><br><span class="line">		docker trust signer remove	#删除一个签名者  </span><br><span class="line">docker unpause	#恢复容器中所有的进程  </span><br><span class="line">docker update	#更新一个或多个容器的配置  </span><br><span class="line">docker version	#显示 Docker 版本信息  </span><br><span class="line">docker volume	#管理volumes  </span><br><span class="line">    docker volume create	#创建一个卷  </span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据  </span><br><span class="line">    docker volume ls		#列出卷  </span><br><span class="line">    docker volume prune		#删除所有未使用的卷  </span><br><span class="line">    docker volume rm		#删除一个或多个卷  </span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo常用命令</title>
     <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
@@ -341,131 +525,218 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Linux常用命令</title>
-    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1>常用命令</h1>
-<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：apt-get update &amp;&amp; apt-get upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：apt-get install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：apt-get install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：apt-get install lrzsz</span><br></pre></td></tr></table></figure>
-<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：apt-get update</span><br><span class="line">更新升级所有软件：apt-get upgrade</span><br><span class="line"></span><br><span class="line">清理旧版本的软件缓存：sudo apt-get autoclean</span><br><span class="line">清理所有软件缓存：sudo apt-get clean</span><br><span class="line">删除系统不再使用的孤立软件：sudo apt-get autoremove</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -a</span><br><span class="line">查看ubuntu版本：cat /etc/issue</span><br><span class="line"></span><br><span class="line">查看当前的内存使用情况：free -m</span><br><span class="line">查看当前有哪些进程：ps -A</span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id</span><br><span class="line">安装 openssh-server：sudo apt-get install openssh-server</span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh</span><br><span class="line"></span><br><span class="line">Linux开启原版BBR：</span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+    <title>windows 安装Git</title>
+    <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
+    <content><![CDATA[<h2 id="一、windows-安装">一、windows 安装</h2>
+<h3 id="1-官网下载安装包：-Git-Downloading-Package">1. <strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h3>
+<p><img src="https://s2.loli.net/2023/10/17/DjJWMXn13P9l2RE.png" alt="git1"></p>
+<h3 id="2-安装："><strong>2. 安装：</strong></h3>
+<h4 id="2-1-选择-Git-的安装路径：">2.1 选择 Git 的安装路径：</h4>
+<p><img src="https://s2.loli.net/2023/10/17/2ZBUPXa5YyQJFnI.png" alt="git2"></p>
+<h4 id="2-2-选择安装组件">2.2 选择安装组件</h4>
+<p><img src="https://s2.loli.net/2023/10/17/zHNxmc1utWTp5XU.png" alt="git3"></p>
+<ul>
+<li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
+<li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
+可以右键选择使用 Git Bash 和 Git GUI 两种方式的客户端</li>
+<li>Git LFS （Large File Support） 大文件支持，推荐勾选</li>
+<li>Associate .git* configuration files with the default text editor 关联.git 后缀文件，推荐勾选</li>
+<li>Associate .sh files to be run with Bash 关联<code>.sh</code> 文件，推荐勾选</li>
+<li>Check daily for Git for Windows updates 每天检查版本更新，不推荐勾选</li>
+<li>(NEW!) Add a Git Bash Profile to Windows Terminal 将 Git Bash 添加到 Windows Terminal 中推荐勾</li>
+<li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
+</ul>
+<h4 id="2-3-创建菜单文件夹">2.3 创建菜单文件夹</h4>
+<p><img src="https://s2.loli.net/2023/10/17/t3WmPdphzZNI5Ej.png" alt="git4"></p>
+<blockquote>
+<p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
+</blockquote>
+<h4 id="2-4-选择-Git-默认编辑器">2.4 选择 Git 默认编辑器</h4>
+<p>Git 安装程序里面内置了10种编辑器供你挑选，比如 Atom、Notepad、Notepad++、Sublime Text、Visual Studio Code、Vim 等等，默认的是 Vim ，选择 Vim 后可以直接进行到下一步，但是 Vim 是纯命令行，操作有点难度，需要学习。如果选其他编辑器，则还需要去其官网安装后才能进行下一步。</p>
+<blockquote>
+<p>本教程选择 Vim 编辑器</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/17/3x4BvnjOhM5iyL2.png" alt="git5"></p>
+<h4 id="2-5-决定初始化新项目（仓库）的主干名字">2.5 决定初始化新项目（仓库）的主干名字</h4>
+<p><img src="https://s2.loli.net/2023/10/17/WxCkX2EUd3TpcDZ.png" alt="git6"></p>
+<blockquote>
+<p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
+</blockquote>
+<h4 id="2-6-调整你的-path-环境变量">2.6 调整你的 path 环境变量</h4>
+<ul>
+<li>
+<p>第一种是仅从 Git Bash 使用 Git。这个的意思就是你只能通过 Git 安装后的 Git Bash 来使用 Git ，其他的什么命令提示符啊等第三方软件都不行。</p>
+</li>
+<li>
+<p>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</p>
+</li>
+<li>
+<p>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/17/gU4oXG6DnwvVj1P.png" alt="git7"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
+</div></details>
+<h4 id="2-7-选择-SSH-执行文件">2.7 选择 SSH 执行文件</h4>
+<blockquote>
+<p>勾选默认即可</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/17/m4Ef3wodubW52FJ.png" alt="git8"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
+<h4 id="2-8-选择-HTTPS-后端传输">2.8 选择 HTTPS 后端传输</h4>
+<p><img src="https://s2.loli.net/2023/10/17/tk6W7EwBq4jxQGI.png" alt="git9"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">	</span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
+<p>这两种选项有什么区别：<br>
+来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
+<blockquote>
+<p>如果在具有企业管理证书的组织中使用 Git，则将需要使用安全通道。如果你仅使用 Git 来访问公共存储库（例如 GitHub ），或者你的组织不管理自己的证书，那么使用 SSL 后端（它们只是同一协议的不同实现）就可以了。</p>
+</blockquote>
+<p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
+<h4 id="2-9-配置行尾符号转换">2.9 配置行尾符号转换</h4>
+<p><img src="https://s2.loli.net/2023/10/17/kXEIPRAartxVjDn.png" alt="git10"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>这三种选择分别是：</strong><br>
+<code>签出 Windows 样式，提交 Unix 样式的行结尾。</code><br>
+<code>按原样签出，提交Unix样式的行结尾。</code><br>
+<code>按原样签出，按原样提交。</code></p>
+</blockquote>
+<p><strong>更多：</strong></p>
+<p>那 Windows 样式和 Unix 样式到底有什么区别呢？引用《<a href="https://book.douban.com/subject/26462816/">GitHub入门与实践</a>》第 50 页内容</p>
+<blockquote>
+<p>GitHub 中公开的代码大部分都是以 Mac 或 Linux 中的 LF（Line Feed）换行。然而，由于 Windows 中是以 CRLF（Carriage Return+ Line Feed）换行的，所以在非对应的编辑器中将不能正常显示。<br>
+Git 可以通过设置自动转换这些换行符。使用 Windows 环境的各位，请选择推荐的 “Checkout Windows-style，commit Unix-style line endings” 选项。换行符在签出时会自动转换为 CRLF，在提交时则会自动转换为 LF .</p>
+</blockquote>
+<p>上面说 Mac 、Linux、Unix 的 Line Feed ，翻译过来就是换行符，用 “\n” 表示，换行符 “\n” 的 ASCII 值为 10；<br>
+Windows 的是 Carriage Return+ Line Feed（回车+换行），用 “\r\n” 表示，回车符 “\r” 的 ASCII 值为 13；<br>
+这上下两者是不一样的。<br>
+所以这就需要转换了，至于为什么选第一项？<br>
+这还用问吗？<strong><code>我们现在的教程就是介绍怎么安装 Windows 版 Git，肯定选第一项啦。</code></strong><br>
+至于 “回车”（carriage return）和 “换行”（line feed）这两个概念的来历和区别？<br>
+引用一下阮一峰老师博客的部分内容</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打 10 个字符。但是它有一个问题，就是打字机打完一行换行的时候，要用去 0.2 秒，正好可以打两个字符。要是在这 0.2 秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做&quot;回车&quot;，告诉打字机把打印头定位在左边界；另一个叫做&quot;换行&quot;，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>更多资料参考：<br>
+腾讯云 - 换行符‘\n’和回车符‘\r’的区别？[ <a href="https://cloud.tencent.com/developer/article/1353286">https://cloud.tencent.com/developer/article/1353286</a> ]<br>
+知乎 - 为什么会用\r\n 两个字符表示换行？[ <a href="https://www.zhihu.com/question/29326647">https://www.zhihu.com/question/29326647</a> ]<br>
+Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed">https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed</a> ]<br>
+点击 next 到下一步。</p>
+</div></details>
+<h4 id="2-10-配置终端模拟器以与-Git-Bash-一起使用">2.10 配置终端模拟器以与 Git Bash 一起使用</h4>
+<p><img src="https://s2.loli.net/2023/10/17/UklpJIEjFADdvB3.png" alt="git11"></p>
+<ul>
+<li>
+<p>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
+</li>
+<li>
+<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
+</li>
+<li>
+<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</p>
+</li>
+</ul>
+<h4 id="2-11-选择默认的-“git-pull”-行为">2.11 选择默认的 “git pull” 行为</h4>
+<p><img src="https://s2.loli.net/2023/10/17/GpkX2tyoJcSKIvw.png" alt="git12"></p>
+<ul>
+<li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
+上面给了三个 “git pull” 的行为：</li>
+</ul>
+<ol>
+<li>第一个是 merge</li>
+<li>第二个是 rebase</li>
+<li>第三个是直接获取</li>
+</ol>
+<ul>
+<li>第一种 git pull = git fetch + git merge<br>
+第二种 git pull = git fetch + git rebase<br>
+第三种 git pull = git fetch ？(这个没试过，纯属猜测)</li>
+</ul>
+<p>一般默认选择第一项，git rebase 绝大部分程序员都用不好或者不懂，而且风险很大，但是很多会用的人也很推崇，但是用不好就是灾难。<br>
+Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是拉取远程分支，怎么合并，选择 merge 还是 rebase ，可以再做选择。</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看更多参考资料</summary><div class="toggle-content"><ul>
+<li>知乎 - git pull 和 git fetch 的区别？ [ <a href="https://www.zhihu.com/question/38305012">https://www.zhihu.com/question/38305012</a> ]</li>
+<li>知乎 - 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ [ <a href="https://www.zhihu.com/question/36509119">https://www.zhihu.com/question/36509119</a> ]</li>
+<li>Stackoverflow - Why does git perform fast-forward merges by default? [ <a href="https://stackoverflow.com/questions/2850369">https://stackoverflow.com/questions/2850369</a> ]</li>
+<li>Stackoverflow - In git how is fetch different than pull and how is merge different than rebase? [ <a href="https://stackoverflow.com/questions/14894768/">https://stackoverflow.com/questions/14894768/</a> ]</li>
+<li>Stackoverflow - Difference between git pull and git pull --rebase [ <a href="https://stackoverflow.com/questions/18930527">https://stackoverflow.com/questions/18930527</a> ]</li>
+</ul>
+</div></details>
+<h4 id="2-12-选择一个凭证帮助程序">2.12 选择一个凭证帮助程序</h4>
+<p><img src="https://s2.loli.net/2023/10/17/jN8I9M6PdZBzkfy.png" alt="git13"></p>
+<p><strong>一共两个选项：</strong><br>
+<code>Git 凭证管理</code><br>
+<code>不使用凭证助手</code><br>
+第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
+<h4 id="2-13-配置额外的选项">2.13 配置额外的选项</h4>
+<p><img src="https://s2.loli.net/2023/10/17/HUmE8klwQ1ZOGnf.png" alt="git14"></p>
+<p><strong>有两个选项：</strong><br>
+<code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
+启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
+<p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
+<h4 id="2-14-配置实验性选项">2.14 配置实验性选项</h4>
+<p><img src="https://s2.loli.net/2023/10/17/TBWMKZHyvcnz1qm.png" alt="git15"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
+点击 install 进行安装。</p>
+</blockquote>
+<h4 id="2-15-测试安装">2.15 测试安装</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看Git版本</span><br><span class="line">git version</span><br><span class="line"></span><br><span class="line"># 查看Git路径</span><br><span class="line">where git</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
-<p>一、经常使用的脚本</p>
+<h2 id="二、将-git-与-GitHub-账号绑定">二、将 git 与 GitHub 账号绑定</h2>
+<ol>
+<li>
+<p>使用邮箱注册 <a href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。<br>
+桌面鼠标右键 -&gt; 打开Git Bash Here</p>
+</li>
+<li>
+<p><strong>设置用户名和邮箱：</strong></p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 配置用户名和邮箱</span><br><span class="line">git config --global user.name &quot;github 用户名&quot;</span><br><span class="line">git config --global user.email &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>创建 SSH 密匙</strong>：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成 ssh 密钥,输入下方命令，然后一路回车。</span><br><span class="line">ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><strong>添加密匙：</strong></li>
+</ol>
 <ul>
 <li>
-<p>X-UI 一键脚本<br>
-<a href="https://github.com/vaxilu/x-ui">原版</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
-<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+<p>一般执行上述命令之后，会生成 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，前者是我们私有的，而后者则是对外开放的。</p>
 </li>
 <li>
-<p>V2ray-233blog<br>
-<code> bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
+<p>接着找到生成的 <code>.ssh</code> 的文件夹中的 id_rsa.pub 密钥。</p>
 </li>
 <li>
-<p>WARP 各大一键脚本<br>
-①FSCARMEN (<a href="https://www.nodeseek.com/jump?to=https%3A%2F%2Fgitlab.com%2Ffscarmen%2Fwarp.git">https://gitlab.com/fscarmen/warp.git</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp</code><br>
-②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
-首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
-日常维护 <code>bash warp.sh</code><br>
-③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp-go</code></p>
+<p>进入 C:\Users\用户名.ssh 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
 </li>
 <li>
-<p>bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
-卸载内核版本 (一般用这个即可)<br>
-<code>wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
-不卸载内核版本<br>
-<code>wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
-一般BBR+FQ加速就行，当然也可以不使用bbr<br>
-二、以下一键脚本本人未测试，来自网上搜集，自行决定</p>
+<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。<br>
+即：<a href="https://github.com/settings/keys">Sign in to GitHub · GitHub</a></p>
+</li>
+<li>
+<p>选择 new ssh keys，创建一个新的 SSH key，填写 <code>Title</code> 和 <code>Key</code>。 <code>Title</code> 可以随意，而 <code>Key</code> 的内容则是我们刚才复制的 <code>id_rsa.pub</code> 中的内容，最后点击 <code>Add SSH key</code> 即可。</p>
 </li>
 </ul>
-<p>①V2ray-agent：<br>
-Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
-支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
-<p>②Latest Version<br>
-<code>wget -P /root -N --no-check-certificate      &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-<p>③Stable-v2.4.16【无gRPC】<br>
-<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-<p>④UnixBench跑分工具测试<br>
-UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
-<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
-<p><a href="http://xn--bench-d98b.sh">⑤bench.sh</a> 测速脚本<br>
-Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
-<code>wget -qO- bench.sh | bash</code><br>
-或者<br>
-<code>curl -Lso- bench.sh | bash</code></p>
-<p>⑥BestTrace 路由追踪<br>
-<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip unzip besttrace4linux.zip chmod +x besttrace ./besttrace 114.114.114.114</code></p>
-<p>⑦流媒体解锁检测脚本<br>
-Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
-<p>⑧Netflix 解锁检测脚本<br>
-<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
-<p>⑨一键DD纯净系统脚本(萌咖) CentOS/Debian/Ubuntu<br>
-系统安装完成后的默认用户名为root，默认密码为: <a href="http://MoeClub.org">MoeClub.org</a><br>
-<code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -d 11 -v 64 -a</code> # Debian 11 64位</p>
-<p><code>bash &lt;(wget --no-check-certificate -qO- 'https://www.moeelf.com/attachment/LinuxShell/InstallNET.sh') -u 20.04 -v 64 -a</code> # Ubuntu 20.04 64位</p>
-<h1>进阶命令</h1>
-<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
+<ol start="5">
+<li><strong>验证连接：</strong></li>
+</ol>
+<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。<br>
+显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<hr>
+<h2 id="三、参考文档">三、<strong>参考文档</strong></h2>
 <ul>
-<li>
-<p>安装docker<br>
-以 root 用户登录，执行一键脚本安装 Docker<br>
-升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
-Debian / Ubuntu<br>
-<code>apt-get update &amp;&amp; apt-get install -y wget vim</code><br>
-CentOS<br>
-<code>yum update &amp;&amp; yum install -y wget vim</code></p>
-<p>执行此命令等候安装 Docker</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror aliyun</span><br></pre></td></tr></table></figure>
-<p>也可以使用国内 daocloud 一键安装命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
-<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker，。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
-</li>
-<li>
-<p>安装docker-compose<br>
-1、最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a><br>
-2、运行以下命令以下载Docker Compose的当前稳定版本：</p>
-</li>
+<li><a href="https://zhuanlan.zhihu.com/p/607970211">Git安装全教程（Win11） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</a></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
-</blockquote>
-<p>①将可执行权限应用于二进制文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
-</blockquote>
-<p>②测试安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
-<p>3、bash 命令补齐</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.8.0/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
-<p>4、卸载docker-compose</p>
-<blockquote>
-<p>直接移除二进制包即可</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<h2 id="docker常用命令">docker常用命令</h2>
-<ul>
-<li>常用</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动</span><br><span class="line"></span><br><span class="line">systemctl stop docker                     #停止</span><br><span class="line"></span><br><span class="line">systemctl restart docker                  #重启</span><br><span class="line"></span><br><span class="line">systemctl enable docker                   #开机自启动</span><br><span class="line"></span><br><span class="line">systemctl status docker                   #运行状态</span><br><span class="line"></span><br><span class="line">docker version                            #Docker 版本信息</span><br><span class="line"></span><br><span class="line">docker info                               #Docker 系统信息</span><br><span class="line"></span><br><span class="line">docker ps                                 #查看正在运行的容器</span><br><span class="line">docker ps –a                              #查看所有容器</span><br><span class="line">docker ps –qa                             #仅显示 id 号，常用于批量删除容器</span><br><span class="line">docker rm 容器id                          #删除指定容器</span><br><span class="line"></span><br><span class="line">docker images                             #查看本地所有的镜像</span><br><span class="line">docker images –q                          #仅显示镜像id，常用于批量删除镜像</span><br><span class="line"></span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像</span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像</span><br><span class="line"></span><br><span class="line">#进入容器</span><br><span class="line">docker exec -it 容器名 bash</span><br><span class="line"></span><br><span class="line">#退出容器</span><br><span class="line">exit                                      #容器直接退出</span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	</span><br><span class="line"></span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps	        #列出容器</span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename       #重命名容器</span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程</span><br><span class="line">docker stats 容器名称                     #查看资源占⽤</span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
-<ul>
-<li>命令大全（网上搜集）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器</span><br><span class="line">docker build	#使用 Dockerfile 创建镜像</span><br><span class="line">docker builder	#管理builds</span><br><span class="line">    docker builder prune	#清除build缓存</span><br><span class="line">docker checkpoint	#管理checkpoints</span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点</span><br><span class="line">    docker checkpoint ls	#列出容器的检查点</span><br><span class="line">    docker checkpoint rm	#删除指定的检查点</span><br><span class="line">docker commit	#从容器创建一个新的镜像</span><br><span class="line">docker config	#管理Docker配置</span><br><span class="line">    docker config create	#创建配置文件</span><br><span class="line">    docker config inspect	#查看配置文件信息</span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件</span><br><span class="line">    docker config rm		#删除配置文件</span><br><span class="line">docker container	#管理容器</span><br><span class="line">    docker container prune	#删除所有已停止的容器</span><br><span class="line">docker context	#管理contexts</span><br><span class="line">    docker context create	#创建一个上下文</span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中</span><br><span class="line">    docker context import	#从tar或zip文件导入上下文</span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息</span><br><span class="line">    docker context ls		#列出上下文</span><br><span class="line">    docker context rm		#删除一个或多个上下文</span><br><span class="line">    docker context update	#更新</span><br><span class="line">    docker context use		#设置当前docker的上下文</span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝</span><br><span class="line">docker create	#创建一个新的容器但不启动它</span><br><span class="line">docker diff		#检查容器里文件结构的更改</span><br><span class="line">docker events	#从服务器获取实时事件</span><br><span class="line">docker exec		#在运行的容器中执行命令</span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT</span><br><span class="line">docker history	#查看指定镜像的创建历史</span><br><span class="line">docker image	#管理镜像</span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据</span><br><span class="line">    docker image ls			#列出本地镜像</span><br><span class="line">    docker image prune		#删除没有使用的镜像</span><br><span class="line">    docker image rm			#删除一个或多个镜像</span><br><span class="line">docker images	#列出本地镜像</span><br><span class="line">docker import	#从归档文件中创建镜像</span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数</span><br><span class="line">docker inspect	#获取容器/镜像的元数据</span><br><span class="line">docker kill		#杀掉一个运行中的容器</span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像</span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</span><br><span class="line">docker logs		#获取容器的日志</span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)</span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息</span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表</span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表</span><br><span class="line">    docker manifest push		#将清单列表推入仓库</span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表</span><br><span class="line">docker network	#管理网络</span><br><span class="line">    docker network connect		#将容器连接到网络</span><br><span class="line">    docker network create		#创建一个网络</span><br><span class="line">    docker network disconnect	#断开容器的网络</span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据</span><br><span class="line">    docker network ls			#列出网络</span><br><span class="line">    docker network prune		#删除所有没有使用的网络</span><br><span class="line">    docker network rm			#删除一个或多个网络</span><br><span class="line">docker node		#管理集群(swarm)节点</span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点</span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据</span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点</span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中</span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点</span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点</span><br><span class="line">    docker node update			#更新一个节点</span><br><span class="line">docker pause	#暂停容器中所有的进程</span><br><span class="line">docker plugin	#管理插件</span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。</span><br><span class="line">    docker plugin disable		#禁用插件</span><br><span class="line">    docker plugin enable		#启用插件</span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据</span><br><span class="line">    docker plugin install		#安装一个插件</span><br><span class="line">    docker plugin ls			#列出所有插件</span><br><span class="line">    docker plugin push			#将插件推送到注册表</span><br><span class="line">    docker plugin rm			#删除一个或多个插件</span><br><span class="line">    docker plugin set			#更改插件的设置</span><br><span class="line">    docker plugin upgrade		#升级现有插件</span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口</span><br><span class="line">docker ps		#列出容器</span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像</span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库</span><br><span class="line">docker rename	#重命名容器</span><br><span class="line">docker restart	#重启容器</span><br><span class="line">docker rm		#删除一个或多个容器</span><br><span class="line">docker rmi		#删除一个或多个镜像</span><br><span class="line">docker run		#创建一个新的容器并运行一个命令</span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件</span><br><span class="line">docker search	#从Docker Hub查找镜像</span><br><span class="line">docker secret	#管理Docker secrets</span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容</span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息</span><br><span class="line">    docker secret ls		#列出秘密</span><br><span class="line">    docker secret rm		#删除一个或多个秘密</span><br><span class="line">docker service	#管理服务</span><br><span class="line">    docker service create	#创建一个服务</span><br><span class="line">    docker service inspect	#查看服务的元数据</span><br><span class="line">    docker service logs		#获取服务的日志</span><br><span class="line">    docker service ls		#列出服务</span><br><span class="line">    docker service ps		#列出一个或多个服务的任务</span><br><span class="line">    docker service rm		#删除一个或多个服务</span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置</span><br><span class="line">    docker service scale	#缩放一个或多个复制服务</span><br><span class="line">    docker service update	#更新服务</span><br><span class="line">docker stack	#管理堆栈</span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈</span><br><span class="line">    docker stack ls			#列出现有堆栈</span><br><span class="line">    docker stack ps			#列出堆栈中的任务</span><br><span class="line">    docker stack rm			#删除堆栈	</span><br><span class="line">    docker stack services	#列出堆栈中的服务</span><br><span class="line">docker start	#启动一个或多个已经被停止的容器</span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息</span><br><span class="line">docker stop		#停止一个运行中的容器</span><br><span class="line">docker swarm	#管理集群(Swarm)</span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点</span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)</span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器</span><br><span class="line">    docker swarm join-token	#管理加入令牌</span><br><span class="line">    docker swarm leave		#离开群集(Swarm)</span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)</span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙</span><br><span class="line">    docker swarm update		#更新群集(Swarm)</span><br><span class="line">docker system	#管理Docker</span><br><span class="line">    docker system df		#显示docker磁盘使用情况</span><br><span class="line">    docker system events	#从服务器获取实时事件</span><br><span class="line">    docker system info		#显示系统范围的信息</span><br><span class="line">    docker system prune		#删除未使用的数据</span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库</span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数</span><br><span class="line">docker trust	#管理Docker镜像的信任</span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息</span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys</span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对</span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名</span><br><span class="line">    docker trust revoke		#删除对镜像的认证</span><br><span class="line">    docker trust sign		#镜像签名</span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体</span><br><span class="line">    	docker trust signer add		#新增一个签名者</span><br><span class="line">		docker trust signer remove	#删除一个签名者</span><br><span class="line">docker unpause	#恢复容器中所有的进程</span><br><span class="line">docker update	#更新一个或多个容器的配置</span><br><span class="line">docker version	#显示 Docker 版本信息</span><br><span class="line">docker volume	#管理volumes</span><br><span class="line">    docker volume create	#创建一个卷</span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据</span><br><span class="line">    docker volume ls		#列出卷</span><br><span class="line">    docker volume prune		#删除所有未使用的卷</span><br><span class="line">    docker volume rm		#删除一个或多个卷</span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Linux命令</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
