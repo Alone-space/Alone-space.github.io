@@ -1,132 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hax&amp;Woiden</title>
-    <url>/2022/12/01/Hax-Woiden/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
-</div>
-<hr>
-<h2 id="Hax">Hax</h2>
-<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
-<ul>
-<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
-</ul>
-<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
-<ul>
-<li>翻译一下就看懂，其实很简单的，没啥<br>
-创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
-<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
-</ul>
-<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-复制粘贴进ssh回车运行：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-（也可以用其他的warp脚本，见）<br>
-点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="woiden">woiden</h2>
-<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
-<ul>
-<li>
-<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
-<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
-</li>
-<li>
-<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
-</li>
-</ul>
-<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
-点击第一个，添加warp ipv4网络接口</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="套cf加速">套cf加速</h2>
-<ul>
-<li>
-<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
-</li>
-<li>
-<p>教程：<br>
-一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
-二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
-<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
-<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
-</li>
-</ul>
-<hr>
-<h2 id="注意事项">注意事项</h2>
-<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
-2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
-3.可以不用节点，只不过网站进去有点慢<br>
-4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
-①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
-②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
-③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
-5.也可以不用x-ui面板，把命令换成下面这个就行<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
-6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
-7.WARP 各大一键脚本<br>
-①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
-<li>日常维护 <code>warp</code></li>
-</ul>
-<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
-<ul>
-<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
-<li>日常维护 <code>bash warp.sh</code></li>
-</ul>
-<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
-<li>日常维护 <code>warp-go</code><br>
-8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
-①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
-卸载内核版本 (一般用这个即可)<br>
-<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
-不卸载内核版本<br>
-<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
-</ul>
-<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>VPS</category>
-      </categories>
-      <tags>
-        <tag>白嫖VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Butterfly 一些魔改美化</title>
     <url>/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
@@ -319,6 +193,137 @@
       <tags>
         <tag>Hexo命令</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hax&amp;Woiden</title>
+    <url>/2022/12/01/Hax-Woiden/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
+</div>
+<hr>
+<h2 id="Hax">Hax</h2>
+<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
+<ul>
+<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
+<ul>
+<li>翻译一下就看懂，其实很简单的，没啥<br>
+创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
+<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
+</ul>
+<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+复制粘贴进ssh回车运行：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+（也可以用其他的warp脚本，见）<br>
+点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="woiden">woiden</h2>
+<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
+<ul>
+<li>
+<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
+<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
+</li>
+<li>
+<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
+</li>
+</ul>
+<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
+点击第一个，添加warp ipv4网络接口</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="套cf加速">套cf加速</h2>
+<ul>
+<li>
+<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
+</li>
+<li>
+<p>教程：<br>
+一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
+二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
+<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
+<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
+</li>
+</ul>
+<hr>
+<h2 id="注意事项">注意事项</h2>
+<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
+2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
+3.可以不用节点，只不过网站进去有点慢<br>
+4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
+①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
+②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
+③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
+5.也可以不用x-ui面板，把命令换成下面这个就行<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
+6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
+7.WARP 各大一键脚本<br>
+①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
+<li>日常维护 <code>warp</code></li>
+</ul>
+<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
+<ul>
+<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
+<li>日常维护 <code>bash warp.sh</code></li>
+</ul>
+<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
+<li>日常维护 <code>warp-go</code><br>
+8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
+①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
+卸载内核版本 (一般用这个即可)<br>
+<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
+不卸载内核版本<br>
+<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
+</ul>
+<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>白嫖VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Linux常用命令</title>
@@ -606,35 +611,6 @@ CentOS<br>
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/08/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>VS Code配置</title>
     <url>/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
@@ -694,7 +670,7 @@ CentOS<br>
 <p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
 <h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
 <blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json             <strong>#launch.json可以不创建</strong></p>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong><a href="//launch.xn--json-jb5ft8bp6l55dbx6a">//launch.json可以不创建</a></strong></p>
 <p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
 </blockquote>
 <h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
@@ -749,7 +725,31 @@ CentOS<br>
 <p>c_cpp_properties.json：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,                              // 调试程序时的工作目录，一般为$&#123;workspaceFolder&#125;即代码所在目录</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,               //true       false            // 调试时是否显示控制台窗口，一般设置为false显示控制台</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来自Chatgpt的解释：</p>
+<p>一、program变量</p>
+<ol>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
+</ol>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+<p>二、cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
 </div></details>
 <hr>
 <h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
@@ -804,7 +804,8 @@ CentOS<br>
 <p>c_cpp_properties.json：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,                              // 调试程序时的工作目录，一般为$&#123;workspaceFolder&#125;即代码所在目录</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: true,                                  // 调试时是否显示控制台窗口，一般设置为true显示控制台</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: true,                                  // 调试时是否显示控制台窗口，一般设置为true显示控制台</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
 </div></details>
 <h4 id="参考">参考</h4>
 <ul>
@@ -822,6 +823,30 @@ CentOS<br>
       <tags>
         <tag>vs</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/08/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>windows 安装Git</title>
