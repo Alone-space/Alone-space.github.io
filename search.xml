@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code><br>
+清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
+启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
+部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本<br>
+<code>hexo version</code></li>
+</ul>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Hexo命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly 一些魔改美化</title>
     <url>/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
@@ -94,6 +193,301 @@
         <tag>Butterfly</tag>
         <tag>美化</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>C语言学习一：数据类型</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1>数据类型</h1>
+<h2 id="整形">整形</h2>
+<blockquote>
+<p>概念： 表示整数类型的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 123 ;      </span><br></pre></td></tr></table></figure>
+<p>①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte = 8 位 bit）；③把 123 转化为二进制存放在该内存中</p>
+<ol>
+<li><strong>介绍</strong>
+<ul>
+<li>
+<p>整型在 <code>32</code> 位系统以及 <code>64</code> 位系统中都占用 <code>4</code> 字节</p>
+</li>
+<li>
+<p>取值范围</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ getconf INT_MAX</span><br><span class="line">2147483647</span><br><span class="line">$ getconf INT_MIN</span><br><span class="line">‐2147483648</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p><strong>整型的修饰符：</strong></p>
+<ul>
+<li>short 短整型，用于修饰整型的尺寸变为原本的一半，减少内存的开支，缩小取值范围</li>
+<li>long 长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围</li>
+<li>long long 长长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围 （在64位系统中 long 与 long long 的大小一致）</li>
+<li>unsigned 无符号整型，用来修饰整型并去掉符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
+<li>整型数据在二进制存储时最高位（第31位）表示符号位，如果为1 则表示负数反之则表示正数</li>
+</ul>
+</li>
+<li>
+<p><strong>整数的存储方式：</strong></p>
+<ul>
+<li>
+<p>原码： 正整数是直接使用原码进行存储的，比如100这个正整数，则直接把100 转换成二进制直接存储。<br>
+<code>100 --&gt; 0000 0000 0000 0000 0000 0000 0110 0100</code></p>
+</li>
+<li>
+<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，<mark class="hltr-red">取反和加1时符号位都不变</mark></p>
+<p>比如-100：<br>
+<code>100 --&gt; 1000 0000 0000 0000 0000 0000 0110 0100</code><br>
+<code>取反-&gt; 1111 1111 1111 1111 1111 1111 1001 1011</code><br>
+<code>加1 --&gt; 1111 1111 1111 1111 1111 1111 1001 1100</code></p>
+<blockquote>
+<p>注：<code>取反</code> 和 <code>加1</code> 的最前面的数字 1 不改变，他为符号位，表示正负</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>溢出：</strong></p>
+</li>
+</ol>
+<p>概念：当超过取值范围时则会编程相邻的最小值/最大值<br>
+5. <strong>整型输出：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int c = 100;</span><br><span class="line">printf(&quot;十六进制：%#x\n&quot; , c);       //`#` 是格式说明符的一部分</span><br><span class="line">printf(&quot;十进制：%d\n&quot; , c);</span><br><span class="line">printf(&quot;八进制：%#o\n&quot; , c);</span><br><span class="line"></span><br><span class="line">// 输出结果：</span><br><span class="line"> 十六进制：0x64</span><br><span class="line"> 十进制：100</span><br><span class="line"> 八进制：0144</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><strong>sizeof 运算符</strong></li>
+</ol>
+<blockquote>
+<p>用于计算变量/类型的大小。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=123;</span><br><span class="line">    printf(&quot;sizeof(short):%ld\n&quot;,sizeof(short));</span><br><span class="line">    printf(&quot;sizeof(int):%ld\n&quot;,sizeof(int));</span><br><span class="line">    printf(&quot;sizeof(long):%ld\n&quot;,sizeof(long));</span><br><span class="line">    printf(&quot;sizeof(long long):%ld\n&quot;,sizeof(long long));</span><br><span class="line">&#125;</span><br><span class="line">//注意括号内部可以写变量类型， 也可以写变量名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">sizeof(a):4</span><br><span class="line">sizeof(short):2</span><br><span class="line">sizeof(int):4</span><br><span class="line">sizeof(long):8</span><br><span class="line">sizeof(long long):8</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/22/E1Awo9aXyCP6eik.png" alt="1"></p>
+<blockquote>
+<p>在 32 位平台下，int 型和 long 型是一致的，都是占用 4 个字节。Long long 是 8 个字节。<br>
+在 64 位平台下，int 型是占用 4 个字节，而 long 和 long long 都是占用 8个字节的。<br>
+尽量不要使用 long 和 long int，因为 c/c++标准中，只限制了 long int 长度不小于 int，并未限制 long 必须是 4 个字节或者 8 个字节，也就是跟平台相关，这主要是因为有一些历史兼容性原因。所以要使用明确的 long long 或者 uint64_t</p>
+</blockquote>
+<hr>
+<h2 id="浮点型（实型）：">浮点型（实型）：</h2>
+<ol>
+<li><strong>介绍</strong></li>
+</ol>
+<ul>
+<li>概念：用来表达一个实数的数据类型</li>
+<li>分类
+<ul>
+<li>单精度浮点型 float , 典型尺寸 4 字节</li>
+<li>双精度浮点型 double , 典型尺寸 8 字节</li>
+<li>长双精度 long double ，典型尺寸 16 字节<br>
+占用的内存越多则精度越高</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>浮点数的存储</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li>虽然浮点数储存的也是 <code>0，1</code> ，但和整形不一样</li>
+<li>整形是原码补码储存</li>
+<li>浮点型是通过计算得出的浮点数二进制码</li>
+</ul>
+</blockquote>
+<p>IEEE 浮点标准采用如下形式来表示一个浮点数</p>
+<p><img src="https://s2.loli.net/2023/10/22/banyZuzDo7jQsie.png" alt="2"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float f = 3.14; // 浮点数3.14 通过以上公式计算得到的二进制码，存放在在内存f中</span><br><span class="line">printf(&quot;f:%f\n&quot;,f); // 使用浮点的计算方法来解析内存f中的值(二进制)</span><br><span class="line">printf(&quot;d:%d\n&quot;,f);// 直接使用整型的计算方法来直接解析内存f 中的值 (二进制)</span><br></pre></td></tr></table></figure>
+<p>虽然所有的数据都会被转换成二进制进行存储，但如果想到的到正确的数据，必须使用正确的理解方式（类型），来解析二进制数据。所以不能用%d</p>
+<hr>
+<h2 id="字符类型">字符类型</h2>
+<h3 id="字符">字符</h3>
+<ol>
+<li><strong>介绍</strong></li>
+</ol>
+<p><code>char c = 'K' ;</code><br>
+①申请一片内存并且命名为 c<br>
+②确定内存的大小为 char （1字节）<br>
+③把字符‘K’的 ASCII 码值转换为二进制，并存储到该内存中</p>
+<blockquote>
+<p>计算机中存储的所有数据都是以二进制的形式存在的，因此字符必须映射某一个数字才能<br>
+够被存放到计算机中，这个映射的表就成为 ASCII 表，可以使用 man 手册来查看    <code>man ascii</code></p>
+</blockquote>
+<blockquote>
+<p>字符之间的比较就是比较他们的 ASCII 码</p>
+</blockquote>
+<details class="toggle" ><summary class="toggle-button" style="">点击 man ascii 解释</summary><div class="toggle-content"><ol>
+<li><strong>oct（Octal）：</strong> 这一列显示了 ASCII 字符的八进制（octal）表示。ASCII 字符可以用三位八进制数字表示，例如，大写字母’A’对应的八进制表示为101。</li>
+<li><strong>dec（Decimal）：</strong> 这一列显示了ASCII字符的十进制（decimal）表示。ASCII字符可以用十进制数字表示，例如，大写字母’A’对应的十进制表示为65。</li>
+<li><strong>hex（Hexadecimal）：</strong> 这一列显示了ASCII字符的十六进制（hexadecimal）表示。ASCII字符可以用两位十六进制数字表示，例如，大写字母’A’对应的十六进制表示为41。</li>
+<li><strong>cher（Character）：</strong> 这一列显示了对应的可打印字符或控制字符。可打印字符是可以显示在屏幕上的字符，如字母、数字和符号。控制字符是用于特殊控制目的的字符，如换行符（newline）和回车符（carriage return）。</li>
+</ol>
+</div></details>
+<p><strong>例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char c = &#x27;1&#x27; ;</span><br><span class="line">printf(&quot;字符：%c\n&quot;,c); // 以字符的形式来解析内存 c 的内容得到 对应的字符 1</span><br><span class="line">printf(&quot;整型ASCII值：%d\n&quot;,c); //以十进制整型来解析内存c 的内容 ，得到1多对应的ASCII值</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>注意：</strong></li>
+</ol>
+<p>字符实质上是一个单字节的整型，因此支持所有整型的操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char k = &#x27;H&#x27; ;</span><br><span class="line">printf(&quot;k + 1: %c\n&quot; , k + 1 );</span><br><span class="line">printf(&quot;k - 1: %c\n&quot; , k - 1 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">k + 1: I</span><br><span class="line">k - 1: G</span><br></pre></td></tr></table></figure>
+<h3 id="字符串">字符串</h3>
+<p>字符串的表现形式有两种：</p>
+<ol>
+<li><strong>数组（可读，可写）：（存储）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char s1[] = &quot;Hello&quot; ;   //使用一个数组来存放字符串 &quot;Hello&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上语句其实是把一个字符串常量 “Hello” ，复制到数组 s1 所代表的内存当中</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/22/7vFxZVAuQlY2TtL.png" alt="3"></p>
+<ol start="2">
+<li><strong>指针 （只读）：（指向）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *s2 = &quot;Even&quot;; // 使用一个指针来指向常量字符串</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/22/cfX58AwaCusixN6.png" alt="4"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s1[] = &quot;abc&quot;;</span><br><span class="line">    char *s2=&quot;def&quot;;</span><br><span class="line">    printf(&quot;%s %s\n&quot;,s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">abc def</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="布尔类型">布尔类型</h2>
+<p>概念： 布尔类型用来表示真/假 （非零则真）<br>
+真： true                                 假： false<br>
+注意在使用布尔类型是需要包含他的头文件： &lt;stdbool.h&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = 1 ; // 真</span><br><span class="line">bool a = 0 ; // 假</span><br><span class="line">bool a = true // 真</span><br><span class="line">bool a = false // 假</span><br></pre></td></tr></table></figure>
+<p>一般布尔类型的变量，可以用于逻辑判断比如 if / while ，或者用于函数的返回值。</p>
+<p>布尔类型的大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = true ;</span><br><span class="line">printf(&quot;sizeof(bool):%ld \n &quot;,sizeof(bool) );</span><br><span class="line">printf(&quot;sizeof(a):%ld \n &quot;,sizeof(a) );</span><br><span class="line">printf(&quot;sizeof(true):%ld \n &quot;,sizeof(true) );</span><br><span class="line">printf(&quot;sizeof(false):%ld \n &quot;,sizeof(false) );</span><br><span class="line">printf(&quot;false:%d \n &quot;,false );</span><br><span class="line">printf(&quot;true:%d \n &quot;,true );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">sizeof(bool):1</span><br><span class="line">sizeof(a):1</span><br><span class="line">sizeof(true):4</span><br><span class="line">sizeof(false):4</span><br><span class="line">false:0</span><br><span class="line"> true:1</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="常量与变量">常量与变量</h2>
+<p>概念： 不可以被改变的内存，被称为常量，可以被改变的内存则成为变量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;                     // a是一个变量， 而 100 则是常量</span><br><span class="line">float f = 3.1415;                 // f 是一个变量， 而 3.1415 则是常量</span><br><span class="line">char s1[] = &quot;abcdefg&quot; ;           // s1 是一个变量 , 而&quot;abcdefg&quot; 则是常量 （字符串常量）</span><br></pre></td></tr></table></figure>
+<p><strong>常量类型：</strong></p>
+<ul>
+<li>100 ：整型常量</li>
+<li>100L : 长整型 long</li>
+<li>100LL : 长长整型 long long</li>
+<li>100UL : 无符号的长整型 unsigned long</li>
+<li>3.14 : 编译器默认升级为双精度浮点型</li>
+<li>3.14L : 长的双精度浮点型</li>
+<li>‘a’ : 字符常量</li>
+<li>“Hello” : 字符串常量（指针 char * ）</li>
+</ul>
+<hr>
+<h1>标准输入与标准输出（格式化输出）</h1>
+<h2 id="标准输入">标准输入</h2>
+<p>概念： 标准输入一般指的是键盘的设备文件，从键盘获取数据就成为标准输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scanf( ); // 扫描键盘 （格式化输入数据 ‐‐&gt; 从键盘中获得指定类型的数据） </span><br><span class="line"></span><br><span class="line">	头文件：</span><br><span class="line">		#include &lt;stdio.h&gt;</span><br><span class="line">	函数原型：</span><br><span class="line">		int scanf(const char *format, ...);</span><br><span class="line">	参数分析：</span><br><span class="line">		format ‐‐&gt; 格式化</span><br><span class="line">		... ‐‐&gt; 省略号 , 根据format 所写的格式控制符，对应一个内存地址</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回具体获取到的项目数</span><br><span class="line">		失败 返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getchar( ) ; </span><br><span class="line">// 获取一个字符 （默认从标准输入文件中获取），与scanf( )配合，清空 由 scanf 所留在缓冲区的内容（比如回车\n等）</span><br><span class="line"></span><br><span class="line">	函数原型：</span><br><span class="line">		int getchar(void);</span><br><span class="line">	参数：</span><br><span class="line">		无</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回一个ASCII值，代表获得的字符 （实际上为unsigned char ）</span><br><span class="line">		失败 返回 EOF 也就是 ‐1</span><br></pre></td></tr></table></figure>
+<p><strong>实例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int num = 0;</span><br><span class="line">char c = &#x27;0&#x27;;</span><br><span class="line">int ret_val = scanf(&quot;%d&quot;, &amp;num );       // &amp; 取地址符号，获得 内存 num 的地址</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">// 如果不清空有可能会导致下一次使用标准输入缓冲区异常（有上一次的数据没有被读取）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%d\n&quot; , ret_val , num );</span><br><span class="line">ret_val = scanf(&quot;%c&quot;, &amp;c );</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%c\n&quot; , ret_val , c );</span><br><span class="line">printf(&quot;EOF:%d\n&quot; , EOF ); //EOF 实际上是一个值为‐1 的宏</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：如果以后需要从标准输入中获取数据得到乱码或未知数据，则可以尝试使用 getchar 进行清空再获取。</p>
+</blockquote>
+<h2 id="标准输出（格式化输出）">标准输出（格式化输出）</h2>
+<p>概念：屏幕（终端）对应的就是标准输出的设备文件，如果往该文件中输出内容则可以成为标准输出。<br>
+<code>printf( );</code></p>
+<ol>
+<li><strong>注意语法点</strong></li>
+</ol>
+<ul>
+<li>
+<p>% 必须有的，格式化的开头标记</p>
+</li>
+<li>
+<p>对齐的方式， 向左对齐（空格在右） ，如果没有则是向右对齐（空格在左）</p>
+</li>
+<li>
+<p>m.n   m 指的域宽（需要的字符数）， n 指的是精度（默认精度为6）<br>
+m 的值如果比实际数据小则按实际输出，反之则用空格来填补</p>
+</li>
+<li>
+<p>l 指的是 long 表示长整型</p>
+</li>
+<li>
+<p>h 指的是短整型</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>格式控制符</strong></li>
+</ol>
+<ul>
+<li>十进制的整型： %d %md %ld %u（无符号） %lu</li>
+<li>八进制： %o <code>%#o</code>                 # --&gt; 输出进制的符号</li>
+<li>十六进制： %x <code>%#x</code> <code>%#X</code></li>
+<li>字符： %c</li>
+<li>字符串： %s</li>
+<li>单精度浮点： %f %.nf --&gt; n 表示精度</li>
+<li>双精度： %lf</li>
+<li>长双精度 ： %Lf</li>
+<li>地址： %p</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;%d\n&quot; , 0123 ); // 使用十进制的格式来输出一个八进制数据 0123 ‐‐&gt;83</span><br><span class="line"></span><br><span class="line">printf(&quot;%o\n&quot; , 0123 ); // 使用八进制的格式来输出一个八进制数据 0123 ‐‐&gt;123</span><br></pre></td></tr></table></figure>
+<h2 id="类型的转换">类型的转换</h2>
+<p>概念：不同的数据类型但是可以兼容的类型之间，如果出现在同一表达式中则会发生类型的转换。</p>
+<ol>
+<li><strong>隐式转换（自动）</strong></li>
+</ol>
+<p>若在表达式中用户没有手动进行转换，则系统会自动转为高精度的类型（由低精度转换为高精度）<br>
+比如：  float + double + int   --&gt;  则系统会自动全部转为 double<br>
+2. <strong>强制转换（手动）</strong></p>
+<p>用户根据自己的需求进行强制的类型转换 ( int )a   --&gt;     强制性把 a 转换为整型</p>
+<blockquote>
+<p>注意：不管是隐式转换还是强制转换，准换的只是在运算的过程中，并不会影响到原本的数，这是一个临时的转换。</p>
+</blockquote>
+<blockquote>
+<p>运算中可能会丢失精度，但不会影响数据本来的值，只是临时转换</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=100;</span><br><span class="line">    char c=&#x27;k&#x27;;</span><br><span class="line">    float f=3.14;</span><br><span class="line">    double d=998526.153;</span><br><span class="line">  </span><br><span class="line">//只是临时转换高精度的double m，   a、c、f、d实际没变</span><br><span class="line">    double m=a+c+f+d;    //隐式转换</span><br><span class="line">    int n=(int)a+(int)c+(int)f+(int)d;   //强制转换</span><br><span class="line">    printf(&quot;m= %lf,n=%d\n&quot;,m,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>精度排序：</strong></p>
+<ol>
+<li><code>char</code>：1个字节。通常用于存储字符和小整数值。</li>
+<li><code>short</code>：2个字节。通常用于较小的整数值。</li>
+<li><code>int</code>：4个字节。通常用于一般整数值。</li>
+<li><code>float</code>：4个字节。单精度浮点数，通常用于存储小数值，具有较高的精度。</li>
+<li><code>double</code>：8个字节。双精度浮点数，通常用于存储双精度小数值，具有更高的精度。</li>
+<li><code>long double</code>：这个数据类型的大小可以因系统而异，<font color="#ff0000">通常</font>为8个字节或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
+</ol>
+<h1>补充</h1>
+<h2 id="数据类型的本质：">数据类型的本质：</h2>
+<ol>
+<li>概念：</li>
+</ol>
+<p>各种不同的数据类型，从本质上是用户与系统之间的一个约定，这个约定用来如何正<br>
+确的解析内存中的二进制编码。<br>
+比如整形使用原码补码，浮点型是通过计算得出的浮点数二进制码</p>
+<ol start="2">
+<li>推论：</li>
+</ol>
+<p>类型转换：实际上就是在临时打破之前的约定。<br>
+理论上任何的数据都可以进行转换，但是转换之后是否有意义？</p>
+<h2 id="整型的尺寸">整型的尺寸</h2>
+<ol>
+<li><strong>概念</strong>：尺寸指的是某一个数据需要多少内存来存储（占用的内存空间）<br>
+在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark class="hltr-orange">相对</mark>的大小约定</li>
+</ol>
+<p>Short 不可能比 int 长<br>
+Long 不可能比 int 短<br>
+Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</p>
+<p>如何查看系统字长：有很多方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//方法一，终端输入</span><br><span class="line">$ getconf LONG_BIT</span><br><span class="line">64</span><br><span class="line"></span><br><span class="line">//方法二，终端输入</span><br><span class="line">$ uname -a</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>典型尺寸：</strong></li>
+</ol>
+<ul>
+<li>char    占用 1 个字节</li>
+<li>short   占用 2个字节</li>
+<li>int       占用 4 个字节</li>
+<li>long    占用 4（32 位系统） /  8（64 位系统） 个字节</li>
+</ul>
+<h3 id="可移植类型">可移植类型</h3>
+<blockquote>
+<p>相同的代码在不同（位数）的系统中，它所占用的尺寸会发生变化，有可能导致数据的精度出现问题，严重的可能会导致程序无法运行。<br>
+因此，系统中会提供一些可移植类型。</p>
+</blockquote>
+<p>概念：不管在什么系统中，数据的尺寸都是固定不会发生变化的数据类型，称为可移植数据类型<br>
+关键词：typedef</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef int zzz;   //相对于用typedef给int取个别名为zzz</span><br><span class="line">typedef int __int32_t;</span><br><span class="line">typedef long __long_64_t;</span><br></pre></td></tr></table></figure>
+<p>系统提供了一些预定义的</p>
+<p>通过 cd /usr/include 后，运行 find -name types.h 会发现./x86_64-linux-gnu/bits/types.h<br>
+路径：/usr/include/x86_64-linux-gnu/bits/types.h</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Convenience types.  */</span><br><span class="line">typedef unsigned char __u_char;</span><br><span class="line">typedef unsigned short int __u_short;</span><br><span class="line">typedef unsigned int __u_int;</span><br><span class="line">typedef unsigned long int __u_long;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* Fixed-size types, underlying types depend on word size and compiler.  */</span><br><span class="line">typedef signed char __int8_t;    //有符号的8位整型</span><br><span class="line">typedef unsigned char __uint8_t;   //无符号的8位整型</span><br><span class="line">typedef signed short int __int16_t;</span><br><span class="line">typedef unsigned short int __uint16_t;</span><br><span class="line">typedef signed int __int32_t;</span><br><span class="line">typedef unsigned int __uint32_t;</span><br><span class="line">#if __WORDSIZE == 64     //判断系统的位数（字长）</span><br><span class="line">typedef signed long int __int64_t;    //64位系统中，long int就是64位的有符号整型</span><br><span class="line">typedef unsigned long int __uint64_t;  ////64位系统中，long int就是64位的无符号整型</span><br><span class="line">#else   //判断系统的位数，如果不是64位系统，则判断为32位系统</span><br><span class="line">__extension__ typedef signed long long int __int64_t;  //在32位系统中 long long 才占用64位</span><br><span class="line">__extension__ typedef unsigned long long int __uint64_t;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Hax&amp;Woiden</title>
@@ -406,103 +800,9 @@ CentOS<br>
       </tags>
   </entry>
   <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code><br>
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
-启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
-部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本<br>
-<code>hexo version</code></li>
-</ul>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Hexo命令</tag>
-      </tags>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>VMware Workstation Pro教程三：安装Debian</title>
@@ -510,9 +810,218 @@ CentOS<br>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
+    <title>VS Code配置</title>
+    <url>/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
+</div>
+<blockquote>
+<p>vs 配置参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先先安装中文扩展：搜索 Chinese</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
+<h1>配置 C/C++ 语言环境</h1>
+<h2 id="安装-MinGW-w64">安装 MinGW-w64</h2>
+<blockquote>
+<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
+</blockquote>
+<blockquote>
+<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>下载：</strong></p>
+<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
+链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
+</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
+<ul>
+<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
+<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
+<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
+</ul>
+<ol start="2">
+<li><strong>安装</strong></li>
+</ol>
+<p>方法一：在线安装（网络问题，很炸裂）</p>
+<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
+<ul>
+<li>Version 是版本，一般选最高版本；</li>
+<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
+<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
+<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
+<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
+<li>Build revision，默认值即可</li>
+</ul>
+<blockquote>
+<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
+</blockquote>
+<p>方法二：直接下载对应的压缩包</p>
+<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
+<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
+<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
+<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
+<blockquote>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
+<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
+</blockquote>
+<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
+<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程_blog.csdn.net/incredibleeimpact/article/details/10-CSDN博客</a><br>
+<a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
+<ul>
+<li>其他扩展</li>
+</ul>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
+<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello. c 文件中，保存</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>然后会自动创建文件</p>
+<p>⑤配置调试设置文件：launch.json</p>
+<p>点击左边调试，点击创建 launch.json 文件</p>
+<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
+<p>选择 C++(GDB/LLDB)</p>
+<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
+<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来自Chatgpt的解释：</p>
+<p>一、program变量</p>
+<ol>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
+</ol>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+<p>二、cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
+</div></details>
+<hr>
+<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
+<blockquote>
+<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
+</blockquote>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+<li>其他扩展：</li>
+</ul>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如 CPP 文件夹<br>
+②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello.cpp 文件中，保存</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
+<p>选择 g++</p>
+<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>⑤配置调试设置文件：launch.json<br>
+参考上面 “<code>配置 C 语言环境</code>” 部分</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
+</div></details>
+<h4 id="参考">参考</h4>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>vs</tag>
+      </tags>
   </entry>
   <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
@@ -614,6 +1123,25 @@ CentOS<br>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/08/21/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>windows 安装Git</title>
@@ -831,220 +1359,6 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
-    <title>VS Code配置</title>
-    <url>/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
-</div>
-<blockquote>
-<p>vs 配置参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>首先先安装中文扩展：搜索 Chinese</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
-<h1>配置 C/C++ 语言环境</h1>
-<h2 id="安装-MinGW-w64">安装 MinGW-w64</h2>
-<blockquote>
-<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
-</blockquote>
-<blockquote>
-<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
-</blockquote>
-<ol>
-<li>
-<p><strong>下载：</strong></p>
-<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
-链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
-</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
-<ul>
-<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
-<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
-<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
-</ul>
-<ol start="2">
-<li><strong>安装</strong></li>
-</ol>
-<p>方法一：在线安装（网络问题，很炸裂）</p>
-<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
-<ul>
-<li>Version 是版本，一般选最高版本；</li>
-<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
-<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
-<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
-<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
-<li>Build revision，默认值即可</li>
-</ul>
-<blockquote>
-<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
-</blockquote>
-<p>方法二：直接下载对应的压缩包</p>
-<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
-<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
-<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
-<blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
-<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
-</blockquote>
-<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
-<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
-<blockquote>
-<p>参考：<a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程_blog.csdn.net/incredibleeimpact/article/details/10-CSDN博客</a><br>
-<a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
-<ul>
-<li>其他扩展</li>
-</ul>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
-<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello. c 文件中，保存</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>然后会自动创建文件</p>
-<p>⑤配置调试设置文件：launch.json</p>
-<p>点击左边调试，点击创建 launch.json 文件</p>
-<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
-<p>选择 C++(GDB/LLDB)</p>
-<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
-<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>来自Chatgpt的解释：</p>
-<p>一、program变量</p>
-<ol>
-<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
-<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
-</ul>
-</li>
-<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
-<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
-</ul>
-</li>
-</ol>
-<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
-<p>二、cwd变量</p>
-<ul>
-<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
-<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
-</ul>
-<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
-<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
-</div></details>
-<hr>
-<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
-<blockquote>
-<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
-</blockquote>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-<li>其他扩展：</li>
-</ul>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如 CPP 文件夹<br>
-②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello.cpp 文件中，保存</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
-<p>选择 g++</p>
-<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>⑤配置调试设置文件：launch.json<br>
-参考上面 “<code>配置 C 语言环境</code>” 部分</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
-</div></details>
-<h4 id="参考">参考</h4>
-<ul>
-<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
-<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>vs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1>一、Node.Js</h1>
@@ -1160,25 +1474,6 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       <tags>
         <tag>环境</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/08/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>搭建免费博客：Hexo+butterfly</title>

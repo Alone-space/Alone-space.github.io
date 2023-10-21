@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C语言学习一：数据类型 | ZのBlog</title><meta name="author" content="Arbitrary"><meta name="copyright" content="Arbitrary"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   取值范围     1234$ getconf INT_MAX2147483647$ g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言学习一：数据类型">
+<meta property="og:url" content="https://fkcc.me/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="ZのBlog">
+<meta property="og:description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   取值范围     1234$ getconf INT_MAX2147483647$ g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fkcc.me/img/avatar.png">
+<meta property="article:published_time" content="2023-10-21T17:05:20.000Z">
+<meta property="article:modified_time" content="2023-10-21T17:20:25.541Z">
+<meta property="article:author" content="Arbitrary">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fkcc.me/img/avatar.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://fkcc.me/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":60,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C语言学习一：数据类型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-22 01:20:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/modify.css"><script src="/live2d-widget/autoload.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://t.mwm.moe/ycy')"><nav id="nav"><span id="blog-info"><a href="/" title="ZのBlog"><span class="site-name">ZのBlog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言学习一：数据类型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-21T17:05:20.000Z" title="发表于 2023-10-22 01:05:20">2023-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-21T17:20:25.541Z" title="更新于 2023-10-22 01:20:25">2023-10-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言学习一：数据类型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>数据类型</h1>
+<h2 id="整形">整形</h2>
+<blockquote>
+<p>概念： 表示整数类型的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a = 123 ;      </span><br></pre></td></tr></table></figure>
+<p>①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte = 8 位 bit）；③把 123 转化为二进制存放在该内存中</p>
+<ol>
+<li><strong>介绍</strong>
+<ul>
+<li>
+<p>整型在 <code>32</code> 位系统以及 <code>64</code> 位系统中都占用 <code>4</code> 字节</p>
+</li>
+<li>
+<p>取值范围</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ getconf INT_MAX</span><br><span class="line">2147483647</span><br><span class="line">$ getconf INT_MIN</span><br><span class="line">‐2147483648</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p><strong>整型的修饰符：</strong></p>
+<ul>
+<li>short 短整型，用于修饰整型的尺寸变为原本的一半，减少内存的开支，缩小取值范围</li>
+<li>long 长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围</li>
+<li>long long 长长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围 （在64位系统中 long 与 long long 的大小一致）</li>
+<li>unsigned 无符号整型，用来修饰整型并去掉符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
+<li>整型数据在二进制存储时最高位（第31位）表示符号位，如果为1 则表示负数反之则表示正数</li>
+</ul>
+</li>
+<li>
+<p><strong>整数的存储方式：</strong></p>
+<ul>
+<li>
+<p>原码： 正整数是直接使用原码进行存储的，比如100这个正整数，则直接把100 转换成二进制直接存储。<br>
+<code>100 --&gt; 0000 0000 0000 0000 0000 0000 0110 0100</code></p>
+</li>
+<li>
+<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，<mark class="hltr-red">取反和加1时符号位都不变</mark></p>
+<p>比如-100：<br>
+<code>100 --&gt; 1000 0000 0000 0000 0000 0000 0110 0100</code><br>
+<code>取反-&gt; 1111 1111 1111 1111 1111 1111 1001 1011</code><br>
+<code>加1 --&gt; 1111 1111 1111 1111 1111 1111 1001 1100</code></p>
+<blockquote>
+<p>注：<code>取反</code> 和 <code>加1</code> 的最前面的数字 1 不改变，他为符号位，表示正负</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>溢出：</strong></p>
+</li>
+</ol>
+<p>概念：当超过取值范围时则会编程相邻的最小值/最大值<br>
+5. <strong>整型输出：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int c = 100;</span><br><span class="line">printf(&quot;十六进制：%#x\n&quot; , c);       //`#` 是格式说明符的一部分</span><br><span class="line">printf(&quot;十进制：%d\n&quot; , c);</span><br><span class="line">printf(&quot;八进制：%#o\n&quot; , c);</span><br><span class="line"></span><br><span class="line">// 输出结果：</span><br><span class="line"> 十六进制：0x64</span><br><span class="line"> 十进制：100</span><br><span class="line"> 八进制：0144</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li><strong>sizeof 运算符</strong></li>
+</ol>
+<blockquote>
+<p>用于计算变量/类型的大小。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=123;</span><br><span class="line">    printf(&quot;sizeof(short):%ld\n&quot;,sizeof(short));</span><br><span class="line">    printf(&quot;sizeof(int):%ld\n&quot;,sizeof(int));</span><br><span class="line">    printf(&quot;sizeof(long):%ld\n&quot;,sizeof(long));</span><br><span class="line">    printf(&quot;sizeof(long long):%ld\n&quot;,sizeof(long long));</span><br><span class="line">&#125;</span><br><span class="line">//注意括号内部可以写变量类型， 也可以写变量名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">sizeof(a):4</span><br><span class="line">sizeof(short):2</span><br><span class="line">sizeof(int):4</span><br><span class="line">sizeof(long):8</span><br><span class="line">sizeof(long long):8</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/22/E1Awo9aXyCP6eik.png" alt="1"></p>
+<blockquote>
+<p>在 32 位平台下，int 型和 long 型是一致的，都是占用 4 个字节。Long long 是 8 个字节。<br>
+在 64 位平台下，int 型是占用 4 个字节，而 long 和 long long 都是占用 8个字节的。<br>
+尽量不要使用 long 和 long int，因为 c/c++标准中，只限制了 long int 长度不小于 int，并未限制 long 必须是 4 个字节或者 8 个字节，也就是跟平台相关，这主要是因为有一些历史兼容性原因。所以要使用明确的 long long 或者 uint64_t</p>
+</blockquote>
+<hr>
+<h2 id="浮点型（实型）：">浮点型（实型）：</h2>
+<ol>
+<li><strong>介绍</strong></li>
+</ol>
+<ul>
+<li>概念：用来表达一个实数的数据类型</li>
+<li>分类
+<ul>
+<li>单精度浮点型 float , 典型尺寸 4 字节</li>
+<li>双精度浮点型 double , 典型尺寸 8 字节</li>
+<li>长双精度 long double ，典型尺寸 16 字节<br>
+占用的内存越多则精度越高</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>浮点数的存储</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li>虽然浮点数储存的也是 <code>0，1</code> ，但和整形不一样</li>
+<li>整形是原码补码储存</li>
+<li>浮点型是通过计算得出的浮点数二进制码</li>
+</ul>
+</blockquote>
+<p>IEEE 浮点标准采用如下形式来表示一个浮点数</p>
+<p><img src="https://s2.loli.net/2023/10/22/banyZuzDo7jQsie.png" alt="2"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">float f = 3.14; // 浮点数3.14 通过以上公式计算得到的二进制码，存放在在内存f中</span><br><span class="line">printf(&quot;f:%f\n&quot;,f); // 使用浮点的计算方法来解析内存f中的值(二进制)</span><br><span class="line">printf(&quot;d:%d\n&quot;,f);// 直接使用整型的计算方法来直接解析内存f 中的值 (二进制)</span><br></pre></td></tr></table></figure>
+<p>虽然所有的数据都会被转换成二进制进行存储，但如果想到的到正确的数据，必须使用正确的理解方式（类型），来解析二进制数据。所以不能用%d</p>
+<hr>
+<h2 id="字符类型">字符类型</h2>
+<h3 id="字符">字符</h3>
+<ol>
+<li><strong>介绍</strong></li>
+</ol>
+<p><code>char c = 'K' ;</code><br>
+①申请一片内存并且命名为 c<br>
+②确定内存的大小为 char （1字节）<br>
+③把字符‘K’的 ASCII 码值转换为二进制，并存储到该内存中</p>
+<blockquote>
+<p>计算机中存储的所有数据都是以二进制的形式存在的，因此字符必须映射某一个数字才能<br>
+够被存放到计算机中，这个映射的表就成为 ASCII 表，可以使用 man 手册来查看    <code>man ascii</code></p>
+</blockquote>
+<blockquote>
+<p>字符之间的比较就是比较他们的 ASCII 码</p>
+</blockquote>
+<details class="toggle" ><summary class="toggle-button" style="">点击 man ascii 解释</summary><div class="toggle-content"><ol>
+<li><strong>oct（Octal）：</strong> 这一列显示了 ASCII 字符的八进制（octal）表示。ASCII 字符可以用三位八进制数字表示，例如，大写字母’A’对应的八进制表示为101。</li>
+<li><strong>dec（Decimal）：</strong> 这一列显示了ASCII字符的十进制（decimal）表示。ASCII字符可以用十进制数字表示，例如，大写字母’A’对应的十进制表示为65。</li>
+<li><strong>hex（Hexadecimal）：</strong> 这一列显示了ASCII字符的十六进制（hexadecimal）表示。ASCII字符可以用两位十六进制数字表示，例如，大写字母’A’对应的十六进制表示为41。</li>
+<li><strong>cher（Character）：</strong> 这一列显示了对应的可打印字符或控制字符。可打印字符是可以显示在屏幕上的字符，如字母、数字和符号。控制字符是用于特殊控制目的的字符，如换行符（newline）和回车符（carriage return）。</li>
+</ol>
+</div></details>
+<p><strong>例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">char c = &#x27;1&#x27; ;</span><br><span class="line">printf(&quot;字符：%c\n&quot;,c); // 以字符的形式来解析内存 c 的内容得到 对应的字符 1</span><br><span class="line">printf(&quot;整型ASCII值：%d\n&quot;,c); //以十进制整型来解析内存c 的内容 ，得到1多对应的ASCII值</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>注意：</strong></li>
+</ol>
+<p>字符实质上是一个单字节的整型，因此支持所有整型的操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char k = &#x27;H&#x27; ;</span><br><span class="line">printf(&quot;k + 1: %c\n&quot; , k + 1 );</span><br><span class="line">printf(&quot;k - 1: %c\n&quot; , k - 1 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">k + 1: I</span><br><span class="line">k - 1: G</span><br></pre></td></tr></table></figure>
+<h3 id="字符串">字符串</h3>
+<p>字符串的表现形式有两种：</p>
+<ol>
+<li><strong>数组（可读，可写）：（存储）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char s1[] = &quot;Hello&quot; ;   //使用一个数组来存放字符串 &quot;Hello&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上语句其实是把一个字符串常量 “Hello” ，复制到数组 s1 所代表的内存当中</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/22/7vFxZVAuQlY2TtL.png" alt="3"></p>
+<ol start="2">
+<li><strong>指针 （只读）：（指向）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char *s2 = &quot;Even&quot;; // 使用一个指针来指向常量字符串</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/22/cfX58AwaCusixN6.png" alt="4"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s1[] = &quot;abc&quot;;</span><br><span class="line">    char *s2=&quot;def&quot;;</span><br><span class="line">    printf(&quot;%s %s\n&quot;,s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">abc def</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="布尔类型">布尔类型</h2>
+<p>概念： 布尔类型用来表示真/假 （非零则真）<br>
+真： true                                 假： false<br>
+注意在使用布尔类型是需要包含他的头文件： &lt;stdbool.h&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool a = 1 ; // 真</span><br><span class="line">bool a = 0 ; // 假</span><br><span class="line">bool a = true // 真</span><br><span class="line">bool a = false // 假</span><br></pre></td></tr></table></figure>
+<p>一般布尔类型的变量，可以用于逻辑判断比如 if / while ，或者用于函数的返回值。</p>
+<p>布尔类型的大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">bool a = true ;</span><br><span class="line">printf(&quot;sizeof(bool):%ld \n &quot;,sizeof(bool) );</span><br><span class="line">printf(&quot;sizeof(a):%ld \n &quot;,sizeof(a) );</span><br><span class="line">printf(&quot;sizeof(true):%ld \n &quot;,sizeof(true) );</span><br><span class="line">printf(&quot;sizeof(false):%ld \n &quot;,sizeof(false) );</span><br><span class="line">printf(&quot;false:%d \n &quot;,false );</span><br><span class="line">printf(&quot;true:%d \n &quot;,true );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">sizeof(bool):1</span><br><span class="line">sizeof(a):1</span><br><span class="line">sizeof(true):4</span><br><span class="line">sizeof(false):4</span><br><span class="line">false:0</span><br><span class="line"> true:1</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="常量与变量">常量与变量</h2>
+<p>概念： 不可以被改变的内存，被称为常量，可以被改变的内存则成为变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 100 ;                     // a是一个变量， 而 100 则是常量</span><br><span class="line">float f = 3.1415;                 // f 是一个变量， 而 3.1415 则是常量</span><br><span class="line">char s1[] = &quot;abcdefg&quot; ;           // s1 是一个变量 , 而&quot;abcdefg&quot; 则是常量 （字符串常量）</span><br></pre></td></tr></table></figure>
+<p><strong>常量类型：</strong></p>
+<ul>
+<li>100 ：整型常量</li>
+<li>100L : 长整型 long</li>
+<li>100LL : 长长整型 long long</li>
+<li>100UL : 无符号的长整型 unsigned long</li>
+<li>3.14 : 编译器默认升级为双精度浮点型</li>
+<li>3.14L : 长的双精度浮点型</li>
+<li>‘a’ : 字符常量</li>
+<li>“Hello” : 字符串常量（指针 char * ）</li>
+</ul>
+<hr>
+<h1>标准输入与标准输出（格式化输出）</h1>
+<h2 id="标准输入">标准输入</h2>
+<p>概念： 标准输入一般指的是键盘的设备文件，从键盘获取数据就成为标准输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">scanf( ); // 扫描键盘 （格式化输入数据 ‐‐&gt; 从键盘中获得指定类型的数据） </span><br><span class="line"></span><br><span class="line">	头文件：</span><br><span class="line">		#include &lt;stdio.h&gt;</span><br><span class="line">	函数原型：</span><br><span class="line">		int scanf(const char *format, ...);</span><br><span class="line">	参数分析：</span><br><span class="line">		format ‐‐&gt; 格式化</span><br><span class="line">		... ‐‐&gt; 省略号 , 根据format 所写的格式控制符，对应一个内存地址</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回具体获取到的项目数</span><br><span class="line">		失败 返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getchar( ) ; </span><br><span class="line">// 获取一个字符 （默认从标准输入文件中获取），与scanf( )配合，清空 由 scanf 所留在缓冲区的内容（比如回车\n等）</span><br><span class="line"></span><br><span class="line">	函数原型：</span><br><span class="line">		int getchar(void);</span><br><span class="line">	参数：</span><br><span class="line">		无</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回一个ASCII值，代表获得的字符 （实际上为unsigned char ）</span><br><span class="line">		失败 返回 EOF 也就是 ‐1</span><br></pre></td></tr></table></figure>
+<p><strong>实例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int num = 0;</span><br><span class="line">char c = &#x27;0&#x27;;</span><br><span class="line">int ret_val = scanf(&quot;%d&quot;, &amp;num );       // &amp; 取地址符号，获得 内存 num 的地址</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">// 如果不清空有可能会导致下一次使用标准输入缓冲区异常（有上一次的数据没有被读取）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%d\n&quot; , ret_val , num );</span><br><span class="line">ret_val = scanf(&quot;%c&quot;, &amp;c );</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%c\n&quot; , ret_val , c );</span><br><span class="line">printf(&quot;EOF:%d\n&quot; , EOF ); //EOF 实际上是一个值为‐1 的宏</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：如果以后需要从标准输入中获取数据得到乱码或未知数据，则可以尝试使用 getchar 进行清空再获取。</p>
+</blockquote>
+<h2 id="标准输出（格式化输出）">标准输出（格式化输出）</h2>
+<p>概念：屏幕（终端）对应的就是标准输出的设备文件，如果往该文件中输出内容则可以成为标准输出。<br>
+<code>printf( );</code></p>
+<ol>
+<li><strong>注意语法点</strong></li>
+</ol>
+<ul>
+<li>
+<p>% 必须有的，格式化的开头标记</p>
+</li>
+<li>
+<p>对齐的方式， 向左对齐（空格在右） ，如果没有则是向右对齐（空格在左）</p>
+</li>
+<li>
+<p>m.n   m 指的域宽（需要的字符数）， n 指的是精度（默认精度为6）<br>
+m 的值如果比实际数据小则按实际输出，反之则用空格来填补</p>
+</li>
+<li>
+<p>l 指的是 long 表示长整型</p>
+</li>
+<li>
+<p>h 指的是短整型</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>格式控制符</strong></li>
+</ol>
+<ul>
+<li>十进制的整型： %d %md %ld %u（无符号） %lu</li>
+<li>八进制： %o <code>%#o</code>                 # --&gt; 输出进制的符号</li>
+<li>十六进制： %x <code>%#x</code> <code>%#X</code></li>
+<li>字符： %c</li>
+<li>字符串： %s</li>
+<li>单精度浮点： %f %.nf --&gt; n 表示精度</li>
+<li>双精度： %lf</li>
+<li>长双精度 ： %Lf</li>
+<li>地址： %p</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">printf(&quot;%d\n&quot; , 0123 ); // 使用十进制的格式来输出一个八进制数据 0123 ‐‐&gt;83</span><br><span class="line"></span><br><span class="line">printf(&quot;%o\n&quot; , 0123 ); // 使用八进制的格式来输出一个八进制数据 0123 ‐‐&gt;123</span><br></pre></td></tr></table></figure>
+<h2 id="类型的转换">类型的转换</h2>
+<p>概念：不同的数据类型但是可以兼容的类型之间，如果出现在同一表达式中则会发生类型的转换。</p>
+<ol>
+<li><strong>隐式转换（自动）</strong></li>
+</ol>
+<p>若在表达式中用户没有手动进行转换，则系统会自动转为高精度的类型（由低精度转换为高精度）<br>
+比如：  float + double + int   --&gt;  则系统会自动全部转为 double<br>
+2. <strong>强制转换（手动）</strong></p>
+<p>用户根据自己的需求进行强制的类型转换 ( int )a   --&gt;     强制性把 a 转换为整型</p>
+<blockquote>
+<p>注意：不管是隐式转换还是强制转换，准换的只是在运算的过程中，并不会影响到原本的数，这是一个临时的转换。</p>
+</blockquote>
+<blockquote>
+<p>运算中可能会丢失精度，但不会影响数据本来的值，只是临时转换</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=100;</span><br><span class="line">    char c=&#x27;k&#x27;;</span><br><span class="line">    float f=3.14;</span><br><span class="line">    double d=998526.153;</span><br><span class="line">  </span><br><span class="line">//只是临时转换高精度的double m，   a、c、f、d实际没变</span><br><span class="line">    double m=a+c+f+d;    //隐式转换</span><br><span class="line">    int n=(int)a+(int)c+(int)f+(int)d;   //强制转换</span><br><span class="line">    printf(&quot;m= %lf,n=%d\n&quot;,m,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>精度排序：</strong></p>
+<ol>
+<li><code>char</code>：1个字节。通常用于存储字符和小整数值。</li>
+<li><code>short</code>：2个字节。通常用于较小的整数值。</li>
+<li><code>int</code>：4个字节。通常用于一般整数值。</li>
+<li><code>float</code>：4个字节。单精度浮点数，通常用于存储小数值，具有较高的精度。</li>
+<li><code>double</code>：8个字节。双精度浮点数，通常用于存储双精度小数值，具有更高的精度。</li>
+<li><code>long double</code>：这个数据类型的大小可以因系统而异，<font color="#ff0000">通常</font>为8个字节或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
+</ol>
+<h1>补充</h1>
+<h2 id="数据类型的本质：">数据类型的本质：</h2>
+<ol>
+<li>概念：</li>
+</ol>
+<p>各种不同的数据类型，从本质上是用户与系统之间的一个约定，这个约定用来如何正<br>
+确的解析内存中的二进制编码。<br>
+比如整形使用原码补码，浮点型是通过计算得出的浮点数二进制码</p>
+<ol start="2">
+<li>推论：</li>
+</ol>
+<p>类型转换：实际上就是在临时打破之前的约定。<br>
+理论上任何的数据都可以进行转换，但是转换之后是否有意义？</p>
+<h2 id="整型的尺寸">整型的尺寸</h2>
+<ol>
+<li><strong>概念</strong>：尺寸指的是某一个数据需要多少内存来存储（占用的内存空间）<br>
+在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark class="hltr-orange">相对</mark>的大小约定</li>
+</ol>
+<p>Short 不可能比 int 长<br>
+Long 不可能比 int 短<br>
+Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</p>
+<p>如何查看系统字长：有很多方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//方法一，终端输入</span><br><span class="line">$ getconf LONG_BIT</span><br><span class="line">64</span><br><span class="line"></span><br><span class="line">//方法二，终端输入</span><br><span class="line">$ uname -a</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>典型尺寸：</strong></li>
+</ol>
+<ul>
+<li>char    占用 1 个字节</li>
+<li>short   占用 2个字节</li>
+<li>int       占用 4 个字节</li>
+<li>long    占用 4（32 位系统） /  8（64 位系统） 个字节</li>
+</ul>
+<h3 id="可移植类型">可移植类型</h3>
+<blockquote>
+<p>相同的代码在不同（位数）的系统中，它所占用的尺寸会发生变化，有可能导致数据的精度出现问题，严重的可能会导致程序无法运行。<br>
+因此，系统中会提供一些可移植类型。</p>
+</blockquote>
+<p>概念：不管在什么系统中，数据的尺寸都是固定不会发生变化的数据类型，称为可移植数据类型<br>
+关键词：typedef</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typedef int zzz;   //相对于用typedef给int取个别名为zzz</span><br><span class="line">typedef int __int32_t;</span><br><span class="line">typedef long __long_64_t;</span><br></pre></td></tr></table></figure>
+<p>系统提供了一些预定义的</p>
+<p>通过 cd /usr/include 后，运行 find -name types.h 会发现./x86_64-linux-gnu/bits/types.h<br>
+路径：/usr/include/x86_64-linux-gnu/bits/types.h</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/* Convenience types.  */</span><br><span class="line">typedef unsigned char __u_char;</span><br><span class="line">typedef unsigned short int __u_short;</span><br><span class="line">typedef unsigned int __u_int;</span><br><span class="line">typedef unsigned long int __u_long;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* Fixed-size types, underlying types depend on word size and compiler.  */</span><br><span class="line">typedef signed char __int8_t;    //有符号的8位整型</span><br><span class="line">typedef unsigned char __uint8_t;   //无符号的8位整型</span><br><span class="line">typedef signed short int __int16_t;</span><br><span class="line">typedef unsigned short int __uint16_t;</span><br><span class="line">typedef signed int __int32_t;</span><br><span class="line">typedef unsigned int __uint32_t;</span><br><span class="line">#if __WORDSIZE == 64     //判断系统的位数（字长）</span><br><span class="line">typedef signed long int __int64_t;    //64位系统中，long int就是64位的有符号整型</span><br><span class="line">typedef unsigned long int __uint64_t;  ////64位系统中，long int就是64位的无符号整型</span><br><span class="line">#else   //判断系统的位数，如果不是64位系统，则判断为32位系统</span><br><span class="line">__extension__ typedef signed long long int __int64_t;  //在32位系统中 long long 才占用64位</span><br><span class="line">__extension__ typedef unsigned long long int __uint64_t;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://fkcc.me">Arbitrary</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fkcc.me/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">https://fkcc.me/2023/10/22/C语言学习一：数据类型/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fkcc.me" target="_blank">ZのBlog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/" title="VS Code配置"><img class="cover" src="https://s2.loli.net/2023/10/19/VcWYtBZ6dAlEGxK.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">VS Code配置</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Arbitrary</div><div class="author-info__description">胡乱折腾。。。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E5%BD%A2"><span class="toc-number">1.1.</span> <span class="toc-text">整形</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B%EF%BC%88%E5%AE%9E%E5%9E%8B%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">浮点型（实型）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">字符类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6"><span class="toc-number">1.3.1.</span> <span class="toc-text">字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.3.2.</span> <span class="toc-text">字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">布尔类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E4%B8%8E%E5%8F%98%E9%87%8F"><span class="toc-number">1.5.</span> <span class="toc-text">常量与变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">标准输入与标准输出（格式化输出）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">标准输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%EF%BC%88%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">标准输出（格式化输出）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">类型的转换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%9C%AC%E8%B4%A8%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">数据类型的本质：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B%E7%9A%84%E5%B0%BA%E5%AF%B8"><span class="toc-number">3.2.</span> <span class="toc-text">整型的尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%A7%BB%E6%A4%8D%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.2.1.</span> <span class="toc-text">可移植类型</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="C语言学习一：数据类型">C语言学习一：数据类型</a><time datetime="2023-10-21T17:05:20.000Z" title="发表于 2023-10-22 01:05:20">2023-10-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/" title="VS Code配置"><img src="https://s2.loli.net/2023/10/19/VcWYtBZ6dAlEGxK.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS Code配置"/></a><div class="content"><a class="title" href="/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/" title="VS Code配置">VS Code配置</a><time datetime="2023-10-19T02:49:06.000Z" title="发表于 2023-10-19 10:49:06">2023-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/" title="VMware Workstation Pro教程三：安装Debian">VMware Workstation Pro教程三：安装Debian</a><time datetime="2023-10-18T10:04:15.000Z" title="发表于 2023-10-18 18:04:15">2023-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/" title="VMware Workstation Pro教程二：安装Ubuntu desktop"><img src="https://s2.loli.net/2023/10/18/vQBPGuVI7XeWpoS.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VMware Workstation Pro教程二：安装Ubuntu desktop"/></a><div class="content"><a class="title" href="/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/" title="VMware Workstation Pro教程二：安装Ubuntu desktop">VMware Workstation Pro教程二：安装Ubuntu desktop</a><time datetime="2023-10-18T10:03:44.000Z" title="发表于 2023-10-18 18:03:44">2023-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/" title="VMware Workstation Pro教程一：安装软件">VMware Workstation Pro教程一：安装软件</a><time datetime="2023-10-18T10:03:36.000Z" title="发表于 2023-10-18 18:03:36">2023-10-18</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Arbitrary</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addModeChange('mermaid', runMermaid)
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script><script src="/js/cursor.js"></script><script async src="/js/diytitle.js"></script><script async src="https://npm.elemecdn.com/tzy-blog/lib/js/other/sakura.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
