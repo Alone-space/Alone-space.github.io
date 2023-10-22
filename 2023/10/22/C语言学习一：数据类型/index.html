@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C语言学习一：数据类型 | ZのBlog</title><meta name="author" content="Arbitrary"><meta name="copyright" content="Arbitrary"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   &#x3D;&#x3D;取值范围&#x3D;&#x3D;     1234$ getconf INT_MAX214748364">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C语言学习一：数据类型 | ZのBlog</title><meta name="author" content="Arbitrary"><meta name="copyright" content="Arbitrary"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   取值范围     1234$ getconf INT_MAX2147483647$ g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言学习一：数据类型">
 <meta property="og:url" content="https://fkcc.me/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
 <meta property="og:site_name" content="ZのBlog">
-<meta property="og:description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   &#x3D;&#x3D;取值范围&#x3D;&#x3D;     1234$ getconf INT_MAX214748364">
+<meta property="og:description" content="数据类型 整形  概念： 表示整数类型的数据  1int a &#x3D; 123 ;       ①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte &#x3D; 8 位 bit）；③把 123 转化为二进制存放在该内存中  介绍   整型在 32 位系统以及 64 位系统中都占用 4 字节   取值范围     1234$ getconf INT_MAX2147483647$ g">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/10/22/NUwK7J6Ajpi9kCX.png">
 <meta property="article:published_time" content="2023-10-21T17:05:20.000Z">
-<meta property="article:modified_time" content="2023-10-22T05:55:40.942Z">
+<meta property="article:modified_time" content="2023-10-22T06:13:27.934Z">
 <meta property="article:author" content="Arbitrary">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-10-22 13:55:40'
+  postUpdate: '2023-10-22 14:13:27'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -162,7 +162,7 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/modify.css"><script src="/live2d-widget/autoload.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/10/22/NUwK7J6Ajpi9kCX.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ZのBlog"><span class="site-name">ZのBlog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言学习一：数据类型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-21T17:05:20.000Z" title="发表于 2023-10-22 01:05:20">2023-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-22T05:55:40.942Z" title="更新于 2023-10-22 13:55:40">2023-10-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言学习一：数据类型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>数据类型</h1>
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/modify.css"><script src="/live2d-widget/autoload.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/10/22/NUwK7J6Ajpi9kCX.png')"><nav id="nav"><span id="blog-info"><a href="/" title="ZのBlog"><span class="site-name">ZのBlog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言学习一：数据类型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-21T17:05:20.000Z" title="发表于 2023-10-22 01:05:20">2023-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-22T06:13:27.934Z" title="更新于 2023-10-22 14:13:27">2023-10-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/">C语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言学习一：数据类型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>数据类型</h1>
 <h2 id="整形">整形</h2>
 <blockquote>
 <p>概念： 表示整数类型的数据</p>
@@ -176,7 +176,7 @@
 <p>整型在 <code>32</code> 位系统以及 <code>64</code> 位系统中都占用 <code>4</code> 字节</p>
 </li>
 <li>
-<p>==取值范围==</p>
+<p><mark>取值范围</mark></p>
 </li>
 </ul>
 </li>
@@ -189,7 +189,7 @@
 <li>short 短整型，用于修饰整型的尺寸变为原本的一半，减少内存的开支，缩小取值范围</li>
 <li>long 长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围</li>
 <li>long long 长长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围 （在64位系统中 long 与 long long 的大小一致）</li>
-<li>unsigned 无符号整型，用来修饰整型并==去掉==符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
+<li>unsigned 无符号整型，用来修饰整型并<mark>去掉</mark>符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
 <li>整型数据在二进制存储时最高位（第31位）表示符号位，如果为1 则表示负数反之则表示正数</li>
 </ul>
 </li>
@@ -201,7 +201,7 @@
 <code>100 --&gt; 0000 0000 0000 0000 0000 0000 0110 0100</code></p>
 </li>
 <li>
-<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，==取反和加1时符号位都不变==</p>
+<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，<mark>取反和加1时符号位都不变</mark></p>
 <p>比如-100：<br>
 <code>100 --&gt; 1000 0000 0000 0000 0000 0000 0110 0100</code><br>
 <code>取反-&gt; 1111 1111 1111 1111 1111 1111 1001 1011</code><br>
@@ -214,11 +214,11 @@
 </li>
 <li>
 <p><strong>溢出：</strong></p>
+<p>概念：当超过取值范围时则会变成相邻的最小值/最大值</p>
 </li>
-</ol>
-<p>​	概念：当超过取值范围时则会变成相邻的最小值/最大值</p>
-<ol start="5">
-<li><strong>整型输出：</strong></li>
+<li>
+<p><strong>整型输出：</strong></p>
+</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int c = 100;</span><br><span class="line">printf(&quot;十六进制：%#x\n&quot; , c);       //`#` 是格式说明符的一部分</span><br><span class="line">printf(&quot;十进制：%d\n&quot; , c);</span><br><span class="line">printf(&quot;八进制：%#o\n&quot; , c);</span><br><span class="line"></span><br><span class="line">// 输出结果：</span><br><span class="line"> 十六进制：0x64</span><br><span class="line"> 十进制：100</span><br><span class="line"> 八进制：0144</span><br></pre></td></tr></table></figure>
 <ol start="6">
@@ -293,7 +293,7 @@
 <ol start="2">
 <li><strong>注意：</strong></li>
 </ol>
-<p>==字符实质上是一个单字节的整型，因此支持所有整型的操作==</p>
+<p><mark>字符实质上是一个单字节的整型，因此支持所有整型的操作</mark></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char k = &#x27;H&#x27; ;</span><br><span class="line">printf(&quot;k + 1: %c\n&quot; , k + 1 );</span><br><span class="line">printf(&quot;k - 1: %c\n&quot; , k - 1 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">k + 1: I</span><br><span class="line">k - 1: G</span><br></pre></td></tr></table></figure>
 <h3 id="字符串">字符串</h3>
 <p>字符串的表现形式有两种：</p>
@@ -410,7 +410,7 @@ m 的值如果比实际数据小则按实际输出，反之则用空格来填补
 <li><code>int</code>：4个字节。通常用于一般整数值。</li>
 <li><code>float</code>：4个字节。单精度浮点数，通常用于存储小数值，具有较高的精度。</li>
 <li><code>double</code>：8个字节。双精度浮点数，通常用于存储双精度小数值，具有更高的精度。</li>
-<li><code>long double</code>：这个数据类型的大小可以因系统而异，==通常为8个字节==或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
+<li><code>long double</code>：这个数据类型的大小可以因系统而异，<mark>通常为8个字节</mark>或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
 </ol>
 <h1>补充</h1>
 <h2 id="数据类型的本质：">数据类型的本质：</h2>
@@ -429,7 +429,7 @@ m 的值如果比实际数据小则按实际输出，反之则用空格来填补
 <h2 id="整型的尺寸">整型的尺寸</h2>
 <ol>
 <li><strong>概念</strong>：尺寸指的是某一个数据需要多少内存来存储（占用的内存空间）<br>
-在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark class="hltr-orange">相对</mark>的大小约定</li>
+在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark>相对</mark>的大小约定</li>
 </ol>
 <p>Short 不可能比 int 长<br>
 Long 不可能比 int 短<br>
