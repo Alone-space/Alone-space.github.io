@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly 一些魔改美化</title>
-    <url>/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
+    <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
 </div>
 <h3 id="站点动态-title">站点动态 title</h3>
@@ -88,372 +100,12 @@
 ]]></content>
       <categories>
         <category>教程</category>
+        <category>Hexo</category>
         <category>Butterfly</category>
       </categories>
       <tags>
         <tag>Butterfly</tag>
         <tag>美化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hax&amp;Woiden</title>
-    <url>/2022/12/01/Hax-Woiden/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
-</div>
-<hr>
-<h2 id="Hax">Hax</h2>
-<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
-<ul>
-<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
-</ul>
-<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
-<ul>
-<li>翻译一下就看懂，其实很简单的，没啥<br>
-创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
-<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
-</ul>
-<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-复制粘贴进ssh回车运行：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-（也可以用其他的warp脚本，见）<br>
-点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="woiden">woiden</h2>
-<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
-<ul>
-<li>
-<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
-<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
-</li>
-<li>
-<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
-</li>
-</ul>
-<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
-<ul>
-<li>
-<p>安装warp（F佬 WARP脚本）<br>
-一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
-<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
-点击第一个，添加warp ipv4网络接口</p>
-</li>
-<li>
-<p>安装x-ui面板（二选一）<br>
-①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
-直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ul>
-<hr>
-<h2 id="套cf加速">套cf加速</h2>
-<ul>
-<li>
-<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
-</li>
-<li>
-<p>教程：<br>
-一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
-二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
-<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
-<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
-<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
-</li>
-</ul>
-<hr>
-<h2 id="注意事项">注意事项</h2>
-<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
-2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
-3.可以不用节点，只不过网站进去有点慢<br>
-4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
-①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
-②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
-③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
-5.也可以不用x-ui面板，把命令换成下面这个就行<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
-6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
-7.WARP 各大一键脚本<br>
-①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
-<li>日常维护 <code>warp</code></li>
-</ul>
-<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
-<ul>
-<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
-<li>日常维护 <code>bash warp.sh</code></li>
-</ul>
-<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
-<ul>
-<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
-<li>日常维护 <code>warp-go</code><br>
-8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
-①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
-卸载内核版本 (一般用这个即可)<br>
-<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
-不卸载内核版本<br>
-<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
-</ul>
-<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>VPS</category>
-      </categories>
-      <tags>
-        <tag>白嫖VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code><br>
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
-启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
-部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本<br>
-<code>hexo version</code></li>
-</ul>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>Hexo命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1>算术运算符</h1>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h1>关系运算符</h1>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h1>逻辑运算符</h1>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h1>位运算符</h1>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p>![[图片/c语言/运算符/1.png]]</p>
-<p><code>&gt;&gt;</code>            右移<br>
-![[图片/c语言/运算符/2.png]]</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h1>特殊运算符</h1>
-<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h2 id="复合运算符">复合运算符</h2>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h2 id="sizeof-运算符">sizeof 运算符</h2>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h2 id="return-运算符">return 运算符</h2>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="优先级与结合性">优先级与结合性</h2>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-![[图片/c语言/运算符/3.png]]</p>
-<h2 id="逗号表达式">逗号表达式</h2>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -764,9 +416,442 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
+<li>语法：<code>int arr [5]</code> ;</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
+<ol start="3">
+<li><strong>初始化</strong></li>
+</ol>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用） ， 越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
+<li>初始化+引用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;Even&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+<h2 id="思考">思考</h2>
+<ol>
+<li>定义数组时没有初始化会怎么样？</li>
+</ol>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
+<ol start="2">
+<li>不完全初始化又会怎么样？</li>
+</ol>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+<ol start="3">
+<li>补充</li>
+</ol>
+<p><mark>注意：</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+<ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) &#123; printf(&quot;%c &quot;, buf[i]); &#125;</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code><br>
+清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
+启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
+部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本<br>
+<code>hexo version</code></li>
+</ul>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1>算术运算符</h1>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h1>关系运算符</h1>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h1>逻辑运算符</h1>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h1>位运算符</h1>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p>![[图片/c语言/运算符/1.png]]</p>
+<p><code>&gt;&gt;</code>            右移<br>
+![[图片/c语言/运算符/2.png]]</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h1>特殊运算符</h1>
+<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h2 id="复合运算符">复合运算符</h2>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h2 id="sizeof-运算符">sizeof 运算符</h2>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h2 id="return-运算符">return 运算符</h2>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优先级与结合性">优先级与结合性</h2>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+![[图片/c语言/运算符/3.png]]</p>
+<h2 id="逗号表达式">逗号表达式</h2>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hax&amp;Woiden</title>
+    <url>/2022/12/01/Hax-Woiden/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
+</div>
+<hr>
+<h2 id="Hax">Hax</h2>
+<h3 id="注册ssh连接hax">注册ssh连接hax</h3>
+<ul>
+<li>注册网站：<a href="https://hax.co.id">https://hax.co.id</a></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/12/01/HqMyWcrQ4gNBmLb.png" alt=""></p>
+<ul>
+<li>翻译一下就看懂，其实很简单的，没啥<br>
+创建ipv4转发后，ssh连就好了，步骤就懒得说了，我电脑用的<a href="https://www.hostbuf.com/c/131.html">FinalShell</a>（很少用了）和<a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</li>
+<li>当然也可以不用创建ipv4转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页ssh登录</a>，直接用ipv6。</li>
+</ul>
+<h3 id="安装warp和x-ui">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+复制粘贴进ssh回车运行：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+（也可以用其他的warp脚本，见）<br>
+点击第一个，添加warp ipv4网络接口(有可能刷新不出来ip，可以试试其他warp脚本)</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="woiden">woiden</h2>
+<h3 id="注册-ssh连接woiden">注册&amp;ssh连接woiden</h3>
+<ul>
+<li>
+<p>注册网站：<a href="https://woiden.id">https://woiden.id</a></p>
+<p><img src="https://s2.loli.net/2022/12/01/3PbXpuvNDyVHfWd.png" alt=""></p>
+</li>
+<li>
+<p>也是一样的，其实woiden和hax流程都差不多的，一个纯ipv6机器，一个nat机器。这里就不多说了</p>
+</li>
+</ul>
+<h3 id="安装warp和x-ui-2">安装warp和x-ui</h3>
+<ul>
+<li>
+<p>安装warp（F佬 WARP脚本）<br>
+一、复制粘贴进ssh回车运行（需要先开启TUN模块，方法在文章下方）：<br>
+<code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh [option] [lisence]</code><br>
+点击第一个，添加warp ipv4网络接口</p>
+</li>
+<li>
+<p>安装x-ui面板（二选一）<br>
+①<a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a><br>
+直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a><br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="套cf加速">套cf加速</h2>
+<ul>
+<li>
+<p>上面创建好的节点只有ipv6，没有ipv4，有些网站、软件只能用ipv4，所以还需要套cf加速</p>
+</li>
+<li>
+<p>教程：<br>
+一、注册<a href="https://dash.cloudflare.com/">cloudflre</a>和<a href="https://www.freenom.com/">freenom</a>，当然也可以不用freenom免费域名，随便你，freenom免费域名注册方法自行谷歌<br>
+二、在cf首页点击添加网站，将注册好的域名添加到cf上，点网站点进去，左侧添加dns，然后添加ssl</p>
+<p><img src="https://s2.loli.net/2022/12/01/OKyJXWL1cTiQ3Ig.png" alt="image-20221201214543449"></p>
+<p><img src="https://s2.loli.net/2022/12/01/istrzWTujABcv6K.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/pSj784milUPNKC9.png" alt=""></p>
+<p><img src="https://s2.loli.net/2022/12/01/n1aDzQYKEkT5gI7.png" alt=""></p>
+</li>
+</ul>
+<hr>
+<h2 id="注意事项">注意事项</h2>
+<p>1.hax网站可能进不去，那是因为你开启了去广告的浏览器插件<br>
+2.如果hax中你没用去广告的浏览器插件，那可能是fq软件里面的去广告规则导致的，把相应的关闭就行，以v2rayN为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到block双击打开，在geosite:category-ads-all前面加个#➡保存<br>
+3.可以不用节点，只不过网站进去有点慢<br>
+4.Hax / Woiden OpenVZ VPS开启TUN模块教程<br>
+①.在<a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或<a href="https://woiden.id/vps-control%EF%BC%89">https://woiden.id/vps-control）</a> 点击Enable TUN按钮<br>
+②.待TUN模块启动成功后，先Stop让VPS关机，然后再Start开机<br>
+③.输入此命令：<code>cat /dev/net/tun</code> ，然后看见cat: /dev/net/tun: File descriptor in bad state即为成功启用TUN模块<br>
+5.也可以不用x-ui面板，把命令换成下面这个就行<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code><br>
+6.hax和woiden每天北京时间凌晨1点补货（要抢），7天续期，tg机器人最后两天会发消息提醒<br>
+7.WARP 各大一键脚本<br>
+①FSCARMEN (<a href="https://github.com/fscarmen/warp">https://github.com/fscarmen/warp</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N   https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh &amp;&amp; bash menu.sh</code></li>
+<li>日常维护 <code>warp</code></li>
+</ul>
+<p>P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
+<ul>
+<li>首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code></li>
+<li>日常维护 <code>bash warp.sh</code></li>
+</ul>
+<p>WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :</p>
+<ul>
+<li>首次运行 <code>wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></li>
+<li>日常维护 <code>warp-go</code><br>
+8.安装bbr加速（仅限KVM，openvz不行，但可以自己网上找魔改bbr）<br>
+①可以使用virt-what查看VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行Google<br>
+卸载内核版本 (一般用这个即可)<br>
+<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code><br>
+不卸载内核版本<br>
+<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code></li>
+</ul>
+<p>一般BBR+FQ加速就行，当然也可以不使用bbr</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>白嫖VPS</tag>
+      </tags>
   </entry>
   <entry>
     <title>Linux常用命令</title>
@@ -947,120 +1032,16 @@ CentOS<br>
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
-    <content><![CDATA[<h1>概述</h1>
-<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
-<h1>下载 Ubuntu22.04 镜像</h1>
-<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
-<p><img src="https://s2.loli.net/2023/10/18/rxYV1m792E6UteC.png" alt="ubuntu1"></p>
-<h1>创建虚拟机</h1>
-<h2 id="创建">创建</h2>
-<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
-<p><img src="https://s2.loli.net/2023/10/18/27DAjitJpNmyogH.png" alt=""></p>
-<h2 id="选择硬件兼容性">选择硬件兼容性</h2>
-<p>默认点击下一步</p>
-<p><img src="https://s2.loli.net/2023/10/18/BqOnIeKUYJcbR14.png" alt="ubuntu3"></p>
-<h2 id="选择安装来源">选择安装来源</h2>
-<p>选择 【稍后安装系统】，点击下一步</p>
-<p><img src="https://s2.loli.net/2023/10/18/kchgDLiC6uH4qb3.png" alt="ubuntu4"></p>
-<h2 id="选择系统类型">选择系统类型</h2>
-<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
-<p><img src="https://s2.loli.net/2023/10/18/9sG1BZIorSYQt6u.png" alt="ubuntu5"></p>
-<h2 id="命名">命名</h2>
-<p>自定义虚拟机名称和存储位置</p>
-<p><img src="https://s2.loli.net/2023/10/18/j7hSnE4ogtMXFeW.png" alt="ubuntu6"></p>
-<h2 id="一些配置"><strong>一些配置</strong></h2>
-<h3 id="处理器配置"><strong>处理器配置</strong></h3>
-<blockquote>
-<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/18/6rQzavlnm7psJCk.png" alt="ubuntu7"></p>
-<h3 id="虚拟机内存配置"><strong>虚拟机内存配置</strong></h3>
-<blockquote>
-<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/18/SHwh5UOcavJ28WA.png" alt="ubuntu8"></p>
-<h3 id="网络和-I-O-类型"><strong>网络和 I/O 类型</strong></h3>
-<blockquote>
-<p>我一般使用 NAT</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/18/Ug2m8ceRzbn6IHk.png" alt="ubuntu9"></p>
-<p><img src="https://s2.loli.net/2023/10/18/Pl8wKR37jWhGns2.png" alt="ubuntu10"></p>
-<h3 id="磁盘类型"><strong>磁盘类型</strong></h3>
-<p>默认即可</p>
-<p><img src="https://s2.loli.net/2023/10/18/eM1aVPBt2x3ndyL.png" alt="ubuntu11"></p>
-<h3 id="创建磁盘"><strong>创建磁盘</strong></h3>
-<p><img src="https://s2.loli.net/2023/10/18/xRDXgr7KenjUAiS.png" alt="ubuntu12"></p>
-<p><img src="https://s2.loli.net/2023/10/18/47OnxaTDygfPkoB.png" alt="ubuntu13"></p>
-<h3 id="自定义硬件"><strong>自定义硬件</strong></h3>
-<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”</p>
-<p><img src="https://s2.loli.net/2023/10/18/HaDsXojdl4OTwFE.png" alt="ubuntu14"></p>
-<h2 id="启动虚拟机"><strong>启动虚拟机</strong></h2>
-<p><img src="https://s2.loli.net/2023/10/18/Ot2PVc8k4N5UTvy.png" alt="ubuntu15"></p>
-<p><img src="https://s2.loli.net/2023/10/18/zOBvtoyZmahl1kR.png" alt="ubuntu16"></p>
-<blockquote>
-<p>默认点击继续</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/18/wnVtDr3myc7OG5j.png" alt="ubuntu17"></p>
-<p><img src="https://s2.loli.net/2023/10/18/rMiWw7BEZXy32uj.png" alt="ubuntu18"></p>
-<p><img src="https://s2.loli.net/2023/10/18/mtOxGeQCE1vM84d.png" alt="ubuntu19"></p>
-<blockquote>
-<p>选择时区</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/18/Ab1KCi4cqxnm6Yh.png" alt="ubuntu20"></p>
-<p><img src="https://s2.loli.net/2023/10/18/P2b5GEMLF8SWaTe.png" alt="ubuntu21"></p>
-<p><img src="https://s2.loli.net/2023/10/18/jd5qbQIJcoTtWGY.png" alt="ubuntu22"></p>
-<p><strong>完成安装</strong></p>
-<h1>基础配置</h1>
-<h2 id="更换国内源"><strong>更换国内源</strong></h2>
-<p>打开&quot;软件和更新&quot;</p>
-<p><img src="https://s2.loli.net/2023/10/18/5cUaWLibkqR9Z6e.png" alt="ubuntu23"></p>
-<p>可自行百度选择，我这里选择的阿里云的。</p>
-<h2 id="安装常用软件"><strong>安装常用软件</strong></h2>
-<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。<br></li>
-<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。<br></li>
-<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。<br></li>
-<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。<br></li>
-<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。<br></li>
-<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。<br></li>
-<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
-</ol>
-</div></details>
-<blockquote>
-<p>更多请查看：待补充</p>
-</blockquote>
-<h2 id="其他"><strong>其他</strong></h2>
-<ul>
-<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
-<li>查看 ip：ifconfig</li>
-</ul>
-<h1>美化（待补充）</h1>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
+        <tag>命令</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
     <title>Ubuntu 美化</title>
-    <url>/2023/10/23/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<h1>主题优化</h1>
 <blockquote>
 <p><mark>参考：</mark></p>
@@ -1166,8 +1147,7 @@ CentOS<br>
 </ul>
 </blockquote>
 <p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。<br>
-建议仅普通用户使用</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
 <p>第一次运行 zsh 时会进入如下的配置引导页面：<br>
 。。。</p>
 <p><mark>这里输入<code>q</code></mark></p>
@@ -1217,7 +1197,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <p>待写。。。</p>
 ]]></content>
       <categories>
-        <category>教程</category>
+        <category>笔记</category>
         <category>Linux</category>
       </categories>
       <tags>
@@ -1225,8 +1205,35 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VS Code配置</title>
-    <url>/2023/10/19/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
 </div>
 <blockquote>
@@ -1433,354 +1440,115 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>vs code</category>
       </categories>
       <tags>
         <tag>vs</tag>
+        <tag>vs code</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/08/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>windows 常用运行环境的安装</title>
-    <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1>一、Node.Js</h1>
+    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
+    <content><![CDATA[<h1>概述</h1>
+<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
+<h1>下载 Ubuntu22.04 镜像</h1>
+<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
+<p><img src="https://s2.loli.net/2023/10/18/rxYV1m792E6UteC.png" alt="ubuntu1"></p>
+<h1>创建虚拟机</h1>
+<h2 id="创建">创建</h2>
+<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
+<p><img src="https://s2.loli.net/2023/10/18/27DAjitJpNmyogH.png" alt=""></p>
+<h2 id="选择硬件兼容性">选择硬件兼容性</h2>
+<p>默认点击下一步</p>
+<p><img src="https://s2.loli.net/2023/10/18/BqOnIeKUYJcbR14.png" alt="ubuntu3"></p>
+<h2 id="选择安装来源">选择安装来源</h2>
+<p>选择 【稍后安装系统】，点击下一步</p>
+<p><img src="https://s2.loli.net/2023/10/18/kchgDLiC6uH4qb3.png" alt="ubuntu4"></p>
+<h2 id="选择系统类型">选择系统类型</h2>
+<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
+<p><img src="https://s2.loli.net/2023/10/18/9sG1BZIorSYQt6u.png" alt="ubuntu5"></p>
+<h2 id="命名">命名</h2>
+<p>自定义虚拟机名称和存储位置</p>
+<p><img src="https://s2.loli.net/2023/10/18/j7hSnE4ogtMXFeW.png" alt="ubuntu6"></p>
+<h2 id="一些配置"><strong>一些配置</strong></h2>
+<h3 id="处理器配置"><strong>处理器配置</strong></h3>
 <blockquote>
-<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
+<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
 </blockquote>
-<h2 id="下载安装包">下载安装包</h2>
-<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
+<p><img src="https://s2.loli.net/2023/10/18/6rQzavlnm7psJCk.png" alt="ubuntu7"></p>
+<h3 id="虚拟机内存配置"><strong>虚拟机内存配置</strong></h3>
 <blockquote>
-<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
+<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
 </blockquote>
+<p><img src="https://s2.loli.net/2023/10/18/SHwh5UOcavJ28WA.png" alt="ubuntu8"></p>
+<h3 id="网络和-I-O-类型"><strong>网络和 I/O 类型</strong></h3>
 <blockquote>
-<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
+<p>我一般使用 NAT</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/18/Ug2m8ceRzbn6IHk.png" alt="ubuntu9"></p>
+<p><img src="https://s2.loli.net/2023/10/18/Pl8wKR37jWhGns2.png" alt="ubuntu10"></p>
+<h3 id="磁盘类型"><strong>磁盘类型</strong></h3>
+<p>默认即可</p>
+<p><img src="https://s2.loli.net/2023/10/18/eM1aVPBt2x3ndyL.png" alt="ubuntu11"></p>
+<h3 id="创建磁盘"><strong>创建磁盘</strong></h3>
+<p><img src="https://s2.loli.net/2023/10/18/xRDXgr7KenjUAiS.png" alt="ubuntu12"></p>
+<p><img src="https://s2.loli.net/2023/10/18/47OnxaTDygfPkoB.png" alt="ubuntu13"></p>
+<h3 id="自定义硬件"><strong>自定义硬件</strong></h3>
+<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”</p>
+<p><img src="https://s2.loli.net/2023/10/18/HaDsXojdl4OTwFE.png" alt="ubuntu14"></p>
+<h2 id="启动虚拟机"><strong>启动虚拟机</strong></h2>
+<p><img src="https://s2.loli.net/2023/10/18/Ot2PVc8k4N5UTvy.png" alt="ubuntu15"></p>
+<p><img src="https://s2.loli.net/2023/10/18/zOBvtoyZmahl1kR.png" alt="ubuntu16"></p>
+<blockquote>
+<p>默认点击继续</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/18/wnVtDr3myc7OG5j.png" alt="ubuntu17"></p>
+<p><img src="https://s2.loli.net/2023/10/18/rMiWw7BEZXy32uj.png" alt="ubuntu18"></p>
+<p><img src="https://s2.loli.net/2023/10/18/mtOxGeQCE1vM84d.png" alt="ubuntu19"></p>
+<blockquote>
+<p>选择时区</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/18/Ab1KCi4cqxnm6Yh.png" alt="ubuntu20"></p>
+<p><img src="https://s2.loli.net/2023/10/18/P2b5GEMLF8SWaTe.png" alt="ubuntu21"></p>
+<p><img src="https://s2.loli.net/2023/10/18/jd5qbQIJcoTtWGY.png" alt="ubuntu22"></p>
+<p><strong>完成安装</strong></p>
+<h1>基础配置</h1>
+<h2 id="更换国内源"><strong>更换国内源</strong></h2>
+<p>打开&quot;软件和更新&quot;</p>
+<p><img src="https://s2.loli.net/2023/10/18/5cUaWLibkqR9Z6e.png" alt="ubuntu23"></p>
+<p>可自行百度选择，我这里选择的阿里云的。</p>
+<h2 id="安装常用软件"><strong>安装常用软件</strong></h2>
+<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。<br></li>
+<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。<br></li>
+<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。<br></li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。<br></li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。<br></li>
+<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。<br></li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<blockquote>
+<p>更多请查看：待补充</p>
+</blockquote>
+<h2 id="其他"><strong>其他</strong></h2>
 <ul>
-<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
-<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
+<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
+<li>查看 ip：ifconfig</li>
 </ul>
-</blockquote>
-<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
-<p><img src="https://s2.loli.net/2023/10/17/aYusGDpvOCVkI2F.png" alt="nodejs1"></p>
-<h2 id="安装程序">安装程序</h2>
-<ol>
-<li>
-<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
-</li>
-<li>
-<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
-</li>
-</ol>
-<ul>
-<li><code>Node.js runtime</code> ：表示运行环境</li>
-<li><code>npm package manager</code>：表示npm包管理器</li>
-<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
-<li><code>Add to PATH</code>：添加到环境变量</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/17/kTJStsQueWfzVG5.png" alt="nodejs2"></p>
-<ol start="3">
-<li>下图框中所示，不用选</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/17/drwnmSALf5VpaT6.png" alt="nodejs3"></p>
-<ol start="4">
-<li>点击 Install，完成安装</li>
-<li>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</li>
-</ol>
-<h2 id="修改位置">修改位置</h2>
-<ol>
-<li><strong>修改全局模块路径和缓存路径（可选）</strong></li>
-</ol>
-<blockquote>
-<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
-<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
-</blockquote>
-<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
-②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
-<p>比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>修改系统环境变量</strong></li>
-</ol>
-<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
-② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
-③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
-<ol start="3">
-<li><strong>验证</strong></li>
-</ol>
-<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
-输入下面的命令：</p>
-<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
-<p>②下载成功后，我们回到自定义的目录查看。</p>
-<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
-<blockquote>
-<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
-</blockquote>
-<h2 id="更换国内源">更换国内源</h2>
-<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
-<blockquote>
-<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<ol>
-<li>查看初始 npm 源</li>
-</ol>
-<p><code>npm config get registry </code></p>
-<ol start="2">
-<li>更换镜像为淘宝镜像</li>
-</ol>
-<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
-<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
-<blockquote>
-<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
-</blockquote>
-<ol>
-<li>全局安装基于淘宝源的 cnpm</li>
-</ol>
-<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
-<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
-<ol start="2">
-<li>执行命令查看 cnpm 是否安装成功</li>
-</ol>
-<p><code>cnpm -v </code></p>
-<h3 id="验证安装">验证安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
-<p><strong>参考文档</strong></p>
-<ul>
-<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
-</ul>
-<hr>
-<h1>二、PHP（待补充）</h1>
+<h1>美化（待补充）</h1>
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>环境</tag>
+        <tag>Ubuntu</tag>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>搭建免费博客：Hexo+butterfly</title>
-    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
-官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-</div>
-<h1>一、环境搭建</h1>
-<h2 id="安装-Git：">安装 Git：</h2>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h2 id="安装-node-js">安装 node.js</h2>
-<p><a href="https://fkcc.me/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows 常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h2 id="安装-Hexo">安装 Hexo</h2>
-<ol>
-<li>安装Hexo</li>
-</ol>
-<p>首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
-<blockquote>
-<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
-需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
-</blockquote>
-<ul>
-<li>全局安装：<code>npm install -g hexo-cli </code></li>
-<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
-<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
-</ul>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。<br>
-一、全局安装的优势：</p>
-<ol>
-<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
-<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
-<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
-</ol>
-<p>局部安装的优势：</p>
-<ol>
-<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
-<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
-<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
-</ol>
-<p>二、综合考虑，一般建议在以下情况下使用全局安装：</p>
-<ul>
-<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
-<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
-</ul>
-<p>而在以下情况下使用局部安装更为合适：</p>
-<ul>
-<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
-<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
-<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
-</ul>
-</div></details>
-<blockquote>
-<p>特别注意：<br>
-局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
-</blockquote>
-<ol start="2">
-<li>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完成后我们打开 blog 文件夹：<br>
-scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
-source 是资源文件夹；<br>
-themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
-</blockquote>
-<p>初始化后，目录结构如下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">    └── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
-<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
-<ol>
-<li>安装 hexo-deployer-git</li>
-</ol>
-<p><code>npm install hexo-deployer-git --save</code></p>
-<ol start="2">
-<li>修改 _config.yml 文件</li>
-</ol>
-<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
-修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
-<blockquote>
-<p>请检查自己的默认分支是不是 main</p>
-</blockquote>
-<ol start="3">
-<li>部署项目到 GitHub</li>
-</ol>
-<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
-<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
-<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
-</ul>
-<blockquote>
-<p>注意：deploy 时可能要输入 username 和 password</p>
-</blockquote>
-<p>如果出现 Deploy done，则说明部署成功了。</p>
-<hr>
-<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
-<p><a href="https://butterfly.js.org/posts/21cfbf15/#%E5%AE%89%E8%A3%9D">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
-<ol>
-<li>本人用的是 git clone 方式安装的 hexo-theme-butterfly</li>
-</ol>
-<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
-<ul>
-<li>稳定版【建议】</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试版</li>
-</ul>
-<blockquote>
-<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>升级方法：在主题目录下，运行 git pull</li>
-</ul>
-<blockquote>
-<p>注意：如果自己魔改了，谨慎升级</p>
-</blockquote>
-<ol start="2">
-<li>应用主题</li>
-</ol>
-<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly</p>
-<p><code>theme: butterfly</code></p>
-<ol start="3">
-<li>安装插件</li>
-</ol>
-<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>升级建议</li>
-</ol>
-<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）<br>
-在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
-<blockquote>
-<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
-</blockquote>
-<blockquote>
-<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
-如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
-</blockquote>
-<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
-<h2 id="美化">美化</h2>
-<ol>
-<li>首先先按照官方文档进行一些基础设置和美化</li>
-</ol>
-<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-<blockquote>
-<p>官方文档中都有，按照顺序搞一遍进行了</p>
-</blockquote>
-<ol start="2">
-<li>更多美化和魔改</li>
-</ol>
-<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
-<ul>
-<li>
-<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
-</li>
-<li>
-<p>我参考的：</p>
-</li>
-</ul>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
-<li>参考比较多的</li>
-</ol>
-<ul>
-<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
-</ul>
-<ol start="2">
-<li>其他</li>
-</ol>
-<ul>
-<li>
-<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
-</li>
-<li>
-<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
-</li>
-<li>
-<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
-</li>
-<li>
-<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
-</li>
-<li>
-<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
-</li>
-<li>
-<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
-</li>
-</ul>
-</div></details>
-<h2 id="参考">参考</h2>
-<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
-]]></content>
   </entry>
   <entry>
     <title>windows 安装Git</title>
@@ -1992,9 +1760,365 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 ]]></content>
       <categories>
         <category>笔记</category>
+        <category>软件与环境</category>
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 常用运行环境的安装</title>
+    <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1>一、Node.Js</h1>
+<blockquote>
+<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
+</blockquote>
+<h2 id="下载安装包">下载安装包</h2>
+<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
+<blockquote>
+<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
+</blockquote>
+<blockquote>
+<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
+<ul>
+<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
+<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
+</ul>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
+<p><img src="https://s2.loli.net/2023/10/17/aYusGDpvOCVkI2F.png" alt="nodejs1"></p>
+<h2 id="安装程序">安装程序</h2>
+<ol>
+<li>
+<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
+</li>
+<li>
+<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
+</li>
+</ol>
+<ul>
+<li><code>Node.js runtime</code> ：表示运行环境</li>
+<li><code>npm package manager</code>：表示npm包管理器</li>
+<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
+<li><code>Add to PATH</code>：添加到环境变量</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/17/kTJStsQueWfzVG5.png" alt="nodejs2"></p>
+<ol start="3">
+<li>下图框中所示，不用选</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/17/drwnmSALf5VpaT6.png" alt="nodejs3"></p>
+<ol start="4">
+<li>点击 Install，完成安装</li>
+<li>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</li>
+</ol>
+<h2 id="修改位置">修改位置</h2>
+<ol>
+<li><strong>修改全局模块路径和缓存路径（可选）</strong></li>
+</ol>
+<blockquote>
+<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
+<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
+</blockquote>
+<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
+②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
+<p>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>修改系统环境变量</strong></li>
+</ol>
+<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
+② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
+③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
+<ol start="3">
+<li><strong>验证</strong></li>
+</ol>
+<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
+输入下面的命令：</p>
+<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
+<p>②下载成功后，我们回到自定义的目录查看。</p>
+<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
+<blockquote>
+<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
+</blockquote>
+<h2 id="更换国内源">更换国内源</h2>
+<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
+<blockquote>
+<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<ol>
+<li>查看初始 npm 源</li>
+</ol>
+<p><code>npm config get registry </code></p>
+<ol start="2">
+<li>更换镜像为淘宝镜像</li>
+</ol>
+<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
+<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
+<blockquote>
+<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
+</blockquote>
+<ol>
+<li>全局安装基于淘宝源的 cnpm</li>
+</ol>
+<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
+<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
+<ol start="2">
+<li>执行命令查看 cnpm 是否安装成功</li>
+</ol>
+<p><code>cnpm -v </code></p>
+<h3 id="验证安装">验证安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
+<p><strong>参考文档</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h1>二、PHP（待补充）</h1>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>软件与环境</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>搭建免费博客：Hexo+butterfly</title>
+    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
+官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+</div>
+<h1>一、环境搭建</h1>
+<h2 id="安装-Git：">安装 Git：</h2>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h2 id="安装-node-js">安装 node.js</h2>
+<p><a href="https://fkcc.me/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows 常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h2 id="安装-Hexo">安装 Hexo</h2>
+<ol>
+<li>安装Hexo</li>
+</ol>
+<p>首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
+<blockquote>
+<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
+需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
+</blockquote>
+<ul>
+<li>全局安装：<code>npm install -g hexo-cli </code></li>
+<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
+<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
+</ul>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。<br>
+一、全局安装的优势：</p>
+<ol>
+<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
+<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
+<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
+</ol>
+<p>局部安装的优势：</p>
+<ol>
+<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
+<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
+<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
+</ol>
+<p>二、综合考虑，一般建议在以下情况下使用全局安装：</p>
+<ul>
+<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
+<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
+</ul>
+<p>而在以下情况下使用局部安装更为合适：</p>
+<ul>
+<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
+<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
+<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
+</ul>
+</div></details>
+<blockquote>
+<p>特别注意：<br>
+局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
+</blockquote>
+<ol start="2">
+<li>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完成后我们打开 blog 文件夹：<br>
+scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
+source 是资源文件夹；<br>
+themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
+</blockquote>
+<p>初始化后，目录结构如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">    └── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
+<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
+<ol>
+<li>安装 hexo-deployer-git</li>
+</ol>
+<p><code>npm install hexo-deployer-git --save</code></p>
+<ol start="2">
+<li>修改 _config.yml 文件</li>
+</ol>
+<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
+修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
+<blockquote>
+<p>请检查自己的默认分支是不是 main</p>
+</blockquote>
+<ol start="3">
+<li>部署项目到 GitHub</li>
+</ol>
+<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
+<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
+<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
+</ul>
+<blockquote>
+<p>注意：deploy 时可能要输入 username 和 password</p>
+</blockquote>
+<p>如果出现 Deploy done，则说明部署成功了。</p>
+<hr>
+<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
+<p><a href="https://butterfly.js.org/posts/21cfbf15/#%E5%AE%89%E8%A3%9D">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
+<ol>
+<li>本人用的是 git clone 方式安装的 hexo-theme-butterfly</li>
+</ol>
+<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
+<ul>
+<li>稳定版【建议】</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试版</li>
+</ul>
+<blockquote>
+<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级方法：在主题目录下，运行 git pull</li>
+</ul>
+<blockquote>
+<p>注意：如果自己魔改了，谨慎升级</p>
+</blockquote>
+<ol start="2">
+<li>应用主题</li>
+</ol>
+<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly</p>
+<p><code>theme: butterfly</code></p>
+<ol start="3">
+<li>安装插件</li>
+</ol>
+<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>升级建议</li>
+</ol>
+<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）<br>
+在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
+<blockquote>
+<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
+</blockquote>
+<blockquote>
+<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
+如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
+</blockquote>
+<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
+<h2 id="美化">美化</h2>
+<ol>
+<li>首先先按照官方文档进行一些基础设置和美化</li>
+</ol>
+<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+<blockquote>
+<p>官方文档中都有，按照顺序搞一遍进行了</p>
+</blockquote>
+<ol start="2">
+<li>更多美化和魔改</li>
+</ol>
+<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
+<ul>
+<li>
+<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
+</li>
+<li>
+<p>我参考的：</p>
+</li>
+</ul>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
+<li>参考比较多的</li>
+</ol>
+<ul>
+<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
+</ul>
+<ol start="2">
+<li>其他</li>
+</ol>
+<ul>
+<li>
+<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
+</li>
+<li>
+<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
+</li>
+<li>
+<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
+</li>
+<li>
+<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
+</li>
+<li>
+<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
+</li>
+<li>
+<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
+</li>
+</ul>
+</div></details>
+<h2 id="参考">参考</h2>
+<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
       </tags>
   </entry>
 </search>
