@@ -97,142 +97,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1>算术运算符</h1>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h1>关系运算符</h1>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h1>逻辑运算符</h1>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h1>位运算符</h1>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p>![[图片/c语言/运算符/1.png]]</p>
-<p><code>&gt;&gt;</code>            右移<br>
-![[图片/c语言/运算符/2.png]]</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h1>特殊运算符</h1>
-<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h2 id="复合运算符">复合运算符</h2>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h2 id="sizeof-运算符">sizeof 运算符</h2>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h2 id="return-运算符">return 运算符</h2>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="优先级与结合性">优先级与结合性</h2>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-![[图片/c语言/运算符/3.png]]</p>
-<h2 id="逗号表达式">逗号表达式</h2>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习一：数据类型</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1>数据类型</h1>
@@ -540,6 +404,218 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
+<li>语法：<code>int arr [5]</code> ;</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
+<ol start="3">
+<li><strong>初始化</strong></li>
+</ol>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
+<li>初始化+引用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+<h2 id="思考">思考</h2>
+<ol>
+<li>定义数组时没有初始化会怎么样？</li>
+</ol>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
+<ol start="2">
+<li>不完全初始化又会怎么样？</li>
+</ol>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+<ol start="3">
+<li>补充</li>
+</ol>
+<p><mark>注意：</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</div></details>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1>算术运算符</h1>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h1>关系运算符</h1>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h1>逻辑运算符</h1>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h1>位运算符</h1>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p>![[图片/c语言/运算符/1.png]]</p>
+<p><code>&gt;&gt;</code>            右移<br>
+![[图片/c语言/运算符/2.png]]</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h1>特殊运算符</h1>
+<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h2 id="复合运算符">复合运算符</h2>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h2 id="sizeof-运算符">sizeof 运算符</h2>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h2 id="return-运算符">return 运算符</h2>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优先级与结合性">优先级与结合性</h2>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+![[图片/c语言/运算符/3.png]]</p>
+<h2 id="逗号表达式">逗号表达式</h2>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习三：控制流</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
     <content><![CDATA[<h1>二路分支 ：if 语句</h1>
@@ -637,82 +713,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
 <li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
 </ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1>数组入门</h1>
-<h2 id="概念">概念</h2>
-<ol>
-<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
-<li>语法：<code>int arr [5]</code> ;</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
-<ol start="3">
-<li><strong>初始化</strong></li>
-</ol>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
-<p><mark>注意：</mark><br>
-数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字符数组">字符数组</h2>
-<ol>
-<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
-<li>初始化+引用：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-<h2 id="思考">思考</h2>
-<ol>
-<li>定义数组时没有初始化会怎么样？</li>
-</ol>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
-<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
-<ol start="2">
-<li>不完全初始化又会怎么样？</li>
-</ol>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-<ol start="3">
-<li>补充</li>
-</ol>
-<p><mark>注意：</mark></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>char buf[5]={1,2,3,4,5};</li>
-</ul>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-<ul>
-<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
-</ul>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</div></details>
-<h1>数组进阶</h1>
-<p>待。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -950,6 +950,192 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Linux常用命令</title>
+    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1>常用命令</h1>
+<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：sudo apt install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：sudo apt install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：sudo apt install lrzsz</span><br><span class="line"></span><br><span class="line">总结：sudo apt install curl wget lrzsz vim cron unzip screen</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。<br></li>
+<li><code>wget</code>：用于从Web服务器下载文件，支持HTTP、HTTPS和FTP协议，具有断点续传功能。<br></li>
+<li><code>lrzsz</code>：提供了Xmodem、Ymodem和Zmodem等协议的文件传输功能，用于通过终端与远程主机进行文件传输。<br></li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。<br></li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。<br></li>
+<li><code>unzip</code>：用于解压缩ZIP格式的压缩文件。<br></li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：sudo apt update  </span><br><span class="line">更新升级所有软件：sudo apt upgrade  </span><br><span class="line">  </span><br><span class="line">清理旧版本的软件缓存：sudo apt autoclean  </span><br><span class="line">清理所有软件缓存：sudo apt clean  </span><br><span class="line">删除系统不再使用的孤立软件：sudo apt autoremove  </span><br><span class="line">  </span><br><span class="line">screen的一些基本命令：  </span><br><span class="line">- #创建一个名为session_name的新窗口  </span><br><span class="line">  screen -S session_name  </span><br><span class="line">- #查看创建的窗口  </span><br><span class="line"> screen -ls  </span><br><span class="line">- #退出当前会话  </span><br><span class="line"> Ctrl+c+d  </span><br><span class="line">- #关闭当前窗口  </span><br><span class="line"> Ctrl-a k  </span><br><span class="line">- #删除cs窗口  </span><br><span class="line"> screen -X -S session_name quit  </span><br><span class="line">- #回到某个窗口  </span><br><span class="line"> screen -r 窗口名  </span><br><span class="line">   </span><br><span class="line">查看内置存储设备的使用寿命信息：cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time  </span><br><span class="line">  </span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">关闭系统电源：sudo systemctl poweroff  </span><br><span class="line">文件系统的磁盘使用情况：df -h  </span><br><span class="line">查看Debian系统的交换内存使用情况free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line">  </span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
+<h3 id="一、经常使用的脚本">一、经常使用的脚本</h3>
+<ol>
+<li>
+<p>X-UI 一键脚本<br>
+①<a href="https://github.com/vaxilu/x-ui">原版</a> :<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
+②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a> :<br>
+<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code><br>
+③V2ray-233blog 一键创建节点<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
+</li>
+<li>
+<p>WARP 一键脚本<br>
+①FSCARMEN (<a href="https://gitlab.com/fscarmen/warp.git">fscarmen / warp · GitLab</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp</code><br>
+②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
+首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
+日常维护 <code>bash warp.sh</code><br>
+③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
+首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
+日常维护 <code>warp-go</code></p>
+</li>
+<li>
+<p>bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）</p>
+</li>
+</ol>
+<details class="toggle" ><summary class="toggle-button" style="">官网链接地址，点击打开</summary><div class="toggle-content"><p><a href="https://blog.ylx.me/archives/783.html">Linux 一键安装常见/最新内核脚本锐速/BBRPLUS/BBR2 [100.0.1.25] - HJM</a> <br><br>
+<a href="https://github.com/ylx2016/Linux-NetSpeed">GitHub - ylx2016/Linux-NetSpeed: 将Linux现常用的网络加速集成在一起</a></p>
+</div></details>
+<blockquote>
+<p>一般 BBR+FQ 加速就行，当然也可以不使用 bbr</p>
+</blockquote>
+<h3 id="二、以下一键脚本本人未测试，来自网上搜集，自行决定">二、以下一键脚本本人未测试，来自网上搜集，自行决定</h3>
+<ol>
+<li>
+<p>V2ray-agent：<br>
+Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
+支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
+</li>
+<li>
+<p>Latest Version<br>
+<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+</li>
+<li>
+<p>Stable-v2.4.16【无gRPC】<br>
+<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
+</li>
+<li>
+<p>UnixBench跑分工具测试<br>
+UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
+<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
+</li>
+<li>
+<p><a href="http://bench.sh">bench.sh</a> 测速脚本<br>
+Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
+<code>wget -qO- bench.sh | bash</code><br>
+或者<br>
+<code>curl -Lso- bench.sh | bash</code></p>
+</li>
+<li>
+<p>BestTrace 路由追踪<br>
+<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip</code><br>
+<code>unzip besttrace4linux.zip</code><br>
+<code>chmod +x besttrace</code><br>
+<code>./besttrace 114.114.114.114</code></p>
+</li>
+<li>
+<p>流媒体解锁检测脚本<br>
+Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
+</li>
+<li>
+<p>Netflix 解锁检测脚本<br>
+<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
+</li>
+</ol>
+<hr>
+<h1>进阶命令</h1>
+<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
+<blockquote>
+<p>更多请查看：  <a href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
+<h3 id="一、安装docker">一、安装docker</h3>
+<ol>
+<li>
+<p>以 root 用户登录，执行一键脚本安装 Docker<br>
+升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
+Debian / Ubuntu<br>
+<code>apt update &amp;&amp; apt install -y wget vim</code><br>
+CentOS<br>
+<code>yum update &amp;&amp; yum install -y wget vim</code></p>
+</li>
+<li>
+<p>执行此命令等候安装 Docker</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Ubuntu  </span><br><span class="line">curl -fsSL https://test.docker.com -o test-docker.sh  </span><br><span class="line">sudo sh test-docker.sh  </span><br><span class="line">  </span><br><span class="line">#Debian  </span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh  </span><br><span class="line">sudo sh get-docker.sh  </span><br><span class="line">  </span><br><span class="line">#CentOS  </span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+<p>​		也可以使用国内 daocloud 一键安装命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
+</blockquote>
+<ol start="3">
+<li>国内源推荐  ：</li>
+</ol>
+<p>​		<a href="http://hub-mirror.c.163.com/">http://hub-mirror.c.163.com</a><br>
+​		<a href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a><br>
+​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>
+​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></p>
+<h3 id="二、安装docker-compose">二、安装docker-compose</h3>
+<ol>
+<li>最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></li>
+<li>运行以下命令以下载Docker Compose的当前稳定版本：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
+</blockquote>
+<ol start="3">
+<li>将可执行权限应用于二进制文件：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
+</blockquote>
+<ol start="4">
+<li>创建软链：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果命令 docker-compose 在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
+</blockquote>
+<ol start="5">
+<li>测试安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>bash 命令补齐(一般不需要)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/2.2.2/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>卸载docker-compose</li>
+</ol>
+<blockquote>
+<p>直接移除二进制包即可</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<h2 id="docker常用命令">docker常用命令</h2>
+<ol>
+<li><strong>常用</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动  </span><br><span class="line">  </span><br><span class="line">systemctl stop docker                     #停止  </span><br><span class="line">  </span><br><span class="line">systemctl restart docker                  #重启  </span><br><span class="line">  </span><br><span class="line">systemctl enable docker                   #开机自启动  </span><br><span class="line">  </span><br><span class="line">systemctl status docker                   #运行状态  </span><br><span class="line">  </span><br><span class="line">docker version                            #Docker 版本信息  </span><br><span class="line">  </span><br><span class="line">docker info                               #Docker 系统信息  </span><br><span class="line">  </span><br><span class="line">docker ps                                 #查看正在运行的容器  </span><br><span class="line">docker ps -a                              #查看所有容器  </span><br><span class="line">docker ps -qa                             #仅显示 id 号，常用于批量删除容器  </span><br><span class="line">docker rm 容器id                          #删除指定容器  </span><br><span class="line">  </span><br><span class="line">docker images                             #查看本地所有的镜像  </span><br><span class="line">docker images -q                          #仅显示镜像id，常用于批量删除镜像  </span><br><span class="line">  </span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像  </span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像  </span><br><span class="line">  </span><br><span class="line">#进入容器  </span><br><span class="line">docker exec -it 容器名 bash  </span><br><span class="line">  </span><br><span class="line">#退出容器  </span><br><span class="line">exit                                      #容器直接退出  </span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	  </span><br><span class="line">  </span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps	        #列出容器  </span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename       #重命名容器  </span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程  </span><br><span class="line">docker stats 容器名称                     #查看资源占⽤  </span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>命令大全（网上搜集）</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器  </span><br><span class="line">docker build	#使用 Dockerfile 创建镜像  </span><br><span class="line">docker builder	#管理builds  </span><br><span class="line">    docker builder prune	#清除build缓存  </span><br><span class="line">docker checkpoint	#管理checkpoints  </span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点  </span><br><span class="line">    docker checkpoint ls	#列出容器的检查点  </span><br><span class="line">    docker checkpoint rm	#删除指定的检查点  </span><br><span class="line">docker commit	#从容器创建一个新的镜像  </span><br><span class="line">docker config	#管理Docker配置  </span><br><span class="line">    docker config create	#创建配置文件  </span><br><span class="line">    docker config inspect	#查看配置文件信息  </span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件  </span><br><span class="line">    docker config rm		#删除配置文件  </span><br><span class="line">docker container	#管理容器  </span><br><span class="line">    docker container prune	#删除所有已停止的容器  </span><br><span class="line">docker context	#管理contexts  </span><br><span class="line">    docker context create	#创建一个上下文  </span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中  </span><br><span class="line">    docker context import	#从tar或zip文件导入上下文  </span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息  </span><br><span class="line">    docker context ls		#列出上下文  </span><br><span class="line">    docker context rm		#删除一个或多个上下文  </span><br><span class="line">    docker context update	#更新  </span><br><span class="line">    docker context use		#设置当前docker的上下文  </span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝  </span><br><span class="line">docker create	#创建一个新的容器但不启动它  </span><br><span class="line">docker diff		#检查容器里文件结构的更改  </span><br><span class="line">docker events	#从服务器获取实时事件  </span><br><span class="line">docker exec		#在运行的容器中执行命令  </span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT  </span><br><span class="line">docker history	#查看指定镜像的创建历史  </span><br><span class="line">docker image	#管理镜像  </span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据  </span><br><span class="line">    docker image ls			#列出本地镜像  </span><br><span class="line">    docker image prune		#删除没有使用的镜像  </span><br><span class="line">    docker image rm			#删除一个或多个镜像  </span><br><span class="line">docker images	#列出本地镜像  </span><br><span class="line">docker import	#从归档文件中创建镜像  </span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数  </span><br><span class="line">docker inspect	#获取容器/镜像的元数据  </span><br><span class="line">docker kill		#杀掉一个运行中的容器  </span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像  </span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logs		#获取容器的日志  </span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)  </span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息  </span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表  </span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表  </span><br><span class="line">    docker manifest push		#将清单列表推入仓库  </span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表  </span><br><span class="line">docker network	#管理网络  </span><br><span class="line">    docker network connect		#将容器连接到网络  </span><br><span class="line">    docker network create		#创建一个网络  </span><br><span class="line">    docker network disconnect	#断开容器的网络  </span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据  </span><br><span class="line">    docker network ls			#列出网络  </span><br><span class="line">    docker network prune		#删除所有没有使用的网络  </span><br><span class="line">    docker network rm			#删除一个或多个网络  </span><br><span class="line">docker node		#管理集群(swarm)节点  </span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点  </span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据  </span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点  </span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中  </span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点  </span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点  </span><br><span class="line">    docker node update			#更新一个节点  </span><br><span class="line">docker pause	#暂停容器中所有的进程  </span><br><span class="line">docker plugin	#管理插件  </span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。  </span><br><span class="line">    docker plugin disable		#禁用插件  </span><br><span class="line">    docker plugin enable		#启用插件  </span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据  </span><br><span class="line">    docker plugin install		#安装一个插件  </span><br><span class="line">    docker plugin ls			#列出所有插件  </span><br><span class="line">    docker plugin push			#将插件推送到注册表  </span><br><span class="line">    docker plugin rm			#删除一个或多个插件  </span><br><span class="line">    docker plugin set			#更改插件的设置  </span><br><span class="line">    docker plugin upgrade		#升级现有插件  </span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps		#列出容器  </span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename	#重命名容器  </span><br><span class="line">docker restart	#重启容器  </span><br><span class="line">docker rm		#删除一个或多个容器  </span><br><span class="line">docker rmi		#删除一个或多个镜像  </span><br><span class="line">docker run		#创建一个新的容器并运行一个命令  </span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件  </span><br><span class="line">docker search	#从Docker Hub查找镜像  </span><br><span class="line">docker secret	#管理Docker secrets  </span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容  </span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息  </span><br><span class="line">    docker secret ls		#列出秘密  </span><br><span class="line">    docker secret rm		#删除一个或多个秘密  </span><br><span class="line">docker service	#管理服务  </span><br><span class="line">    docker service create	#创建一个服务  </span><br><span class="line">    docker service inspect	#查看服务的元数据  </span><br><span class="line">    docker service logs		#获取服务的日志  </span><br><span class="line">    docker service ls		#列出服务  </span><br><span class="line">    docker service ps		#列出一个或多个服务的任务  </span><br><span class="line">    docker service rm		#删除一个或多个服务  </span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置  </span><br><span class="line">    docker service scale	#缩放一个或多个复制服务  </span><br><span class="line">    docker service update	#更新服务  </span><br><span class="line">docker stack	#管理堆栈  </span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈  </span><br><span class="line">    docker stack ls			#列出现有堆栈  </span><br><span class="line">    docker stack ps			#列出堆栈中的任务  </span><br><span class="line">    docker stack rm			#删除堆栈	  </span><br><span class="line">    docker stack services	#列出堆栈中的服务  </span><br><span class="line">docker start	#启动一个或多个已经被停止的容器  </span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息  </span><br><span class="line">docker stop		#停止一个运行中的容器  </span><br><span class="line">docker swarm	#管理集群(Swarm)  </span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点  </span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)  </span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器  </span><br><span class="line">    docker swarm join-token	#管理加入令牌  </span><br><span class="line">    docker swarm leave		#离开群集(Swarm)  </span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)  </span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙  </span><br><span class="line">    docker swarm update		#更新群集(Swarm)  </span><br><span class="line">docker system	#管理Docker  </span><br><span class="line">    docker system df		#显示docker磁盘使用情况  </span><br><span class="line">    docker system events	#从服务器获取实时事件  </span><br><span class="line">    docker system info		#显示系统范围的信息  </span><br><span class="line">    docker system prune		#删除未使用的数据  </span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库  </span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数  </span><br><span class="line">docker trust	#管理Docker镜像的信任  </span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息  </span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys  </span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对  </span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名  </span><br><span class="line">    docker trust revoke		#删除对镜像的认证  </span><br><span class="line">    docker trust sign		#镜像签名  </span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体  </span><br><span class="line">    	docker trust signer add		#新增一个签名者  </span><br><span class="line">		docker trust signer remove	#删除一个签名者  </span><br><span class="line">docker unpause	#恢复容器中所有的进程  </span><br><span class="line">docker update	#更新一个或多个容器的配置  </span><br><span class="line">docker version	#显示 Docker 版本信息  </span><br><span class="line">docker volume	#管理volumes  </span><br><span class="line">    docker volume create	#创建一个卷  </span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据  </span><br><span class="line">    docker volume ls		#列出卷  </span><br><span class="line">    docker volume prune		#删除所有未使用的卷  </span><br><span class="line">    docker volume rm		#删除一个或多个卷  </span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 美化</title>
     <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<h1>主题优化</h1>
@@ -1142,192 +1328,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>Linux常用命令</title>
-    <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1>常用命令</h1>
-<h2 id="Linux更新及常用软件安装命令">Linux更新及常用软件安装命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian更新：sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">Centos更新：yum update	</span><br><span class="line"></span><br><span class="line">Debian安装curl：sudo apt install curl</span><br><span class="line">Centos安装curl：yum install curl		</span><br><span class="line"></span><br><span class="line">Debian安装wget：sudo apt install wget</span><br><span class="line">Centos安装wget：yum install wget		</span><br><span class="line"></span><br><span class="line">Centos安装XZ压缩工具：yum install xz</span><br><span class="line">ubuntu安装rz/sz命令：sudo apt install lrzsz</span><br><span class="line"></span><br><span class="line">总结：sudo apt install curl wget lrzsz vim cron unzip screen</span><br></pre></td></tr></table></figure>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。<br></li>
-<li><code>wget</code>：用于从Web服务器下载文件，支持HTTP、HTTPS和FTP协议，具有断点续传功能。<br></li>
-<li><code>lrzsz</code>：提供了Xmodem、Ymodem和Zmodem等协议的文件传输功能，用于通过终端与远程主机进行文件传输。<br></li>
-<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。<br></li>
-<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。<br></li>
-<li><code>unzip</code>：用于解压缩ZIP格式的压缩文件。<br></li>
-<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
-</ol>
-</div></details>
-<h2 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：sudo apt update  </span><br><span class="line">更新升级所有软件：sudo apt upgrade  </span><br><span class="line">  </span><br><span class="line">清理旧版本的软件缓存：sudo apt autoclean  </span><br><span class="line">清理所有软件缓存：sudo apt clean  </span><br><span class="line">删除系统不再使用的孤立软件：sudo apt autoremove  </span><br><span class="line">  </span><br><span class="line">screen的一些基本命令：  </span><br><span class="line">- #创建一个名为session_name的新窗口  </span><br><span class="line">  screen -S session_name  </span><br><span class="line">- #查看创建的窗口  </span><br><span class="line"> screen -ls  </span><br><span class="line">- #退出当前会话  </span><br><span class="line"> Ctrl+c+d  </span><br><span class="line">- #关闭当前窗口  </span><br><span class="line"> Ctrl-a k  </span><br><span class="line">- #删除cs窗口  </span><br><span class="line"> screen -X -S session_name quit  </span><br><span class="line">- #回到某个窗口  </span><br><span class="line"> screen -r 窗口名  </span><br><span class="line">   </span><br><span class="line">查看内置存储设备的使用寿命信息：cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time  </span><br><span class="line">  </span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">关闭系统电源：sudo systemctl poweroff  </span><br><span class="line">文件系统的磁盘使用情况：df -h  </span><br><span class="line">查看Debian系统的交换内存使用情况free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line">  </span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h2>
-<h3 id="一、经常使用的脚本">一、经常使用的脚本</h3>
-<ol>
-<li>
-<p>X-UI 一键脚本<br>
-①<a href="https://github.com/vaxilu/x-ui">原版</a> :<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code><br>
-②<a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu</a> :<br>
-<code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code><br>
-③V2ray-233blog 一键创建节点<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></p>
-</li>
-<li>
-<p>WARP 一键脚本<br>
-①FSCARMEN (<a href="https://gitlab.com/fscarmen/warp.git">fscarmen / warp · GitLab</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp</code><br>
-②P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :<br>
-首次运行 <code>bash &lt;(curl -fsSL git.io/warp.sh) menu</code><br>
-日常维护 <code>bash warp.sh</code><br>
-③WARP-GO (<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">https://gitlab.com/ProjectWARP/warp-go/-/tree/master/</a>) :<br>
-首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code><br>
-日常维护 <code>warp-go</code></p>
-</li>
-<li>
-<p>bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）</p>
-</li>
-</ol>
-<details class="toggle" ><summary class="toggle-button" style="">官网链接地址，点击打开</summary><div class="toggle-content"><p><a href="https://blog.ylx.me/archives/783.html">Linux 一键安装常见/最新内核脚本锐速/BBRPLUS/BBR2 [100.0.1.25] - HJM</a> <br><br>
-<a href="https://github.com/ylx2016/Linux-NetSpeed">GitHub - ylx2016/Linux-NetSpeed: 将Linux现常用的网络加速集成在一起</a></p>
-</div></details>
-<blockquote>
-<p>一般 BBR+FQ 加速就行，当然也可以不使用 bbr</p>
-</blockquote>
-<h3 id="二、以下一键脚本本人未测试，来自网上搜集，自行决定">二、以下一键脚本本人未测试，来自网上搜集，自行决定</h3>
-<ol>
-<li>
-<p>V2ray-agent：<br>
-Github地址：<a href="https://github.com/mack-a/v2ray-agent">https://github.com/mack-a/v2ray-agent</a><br>
-支持快捷方式启动，安装完毕后，shell输入【vasma】即可打开脚本，脚本执行路径[/etc/v2ray-agent/install.sh]</p>
-</li>
-<li>
-<p>Latest Version<br>
-<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-</li>
-<li>
-<p>Stable-v2.4.16【无gRPC】<br>
-<code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/stable_v2.4.16/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh</code></p>
-</li>
-<li>
-<p>UnixBench跑分工具测试<br>
-UnixBench下载地址：<a href="https://code.google.com/archive/p/byte-unixbench/downloads">https://code.google.com/archive/p/byte-unixbench/downloads</a><br>
-<code>wget --no-check-certificate http://tools.laobuluo.com/tools/unixbench.sh chmod +x unixbench.sh ./unixbench.sh</code></p>
-</li>
-<li>
-<p><a href="http://bench.sh">bench.sh</a> 测速脚本<br>
-Github地址：<a href="https://github.com/teddysun/across">https://github.com/teddysun/across</a><br>
-<code>wget -qO- bench.sh | bash</code><br>
-或者<br>
-<code>curl -Lso- bench.sh | bash</code></p>
-</li>
-<li>
-<p>BestTrace 路由追踪<br>
-<code>wget https://cdn.ipip.net/17mon/besttrace4linux.zip</code><br>
-<code>unzip besttrace4linux.zip</code><br>
-<code>chmod +x besttrace</code><br>
-<code>./besttrace 114.114.114.114</code></p>
-</li>
-<li>
-<p>流媒体解锁检测脚本<br>
-Github地址：<a href="https://github.com/sjlleo/netflix-verify">https://github.com/sjlleo/netflix-verify</a></p>
-</li>
-<li>
-<p>Netflix 解锁检测脚本<br>
-<code>wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.61/nf_2.61_linux_amd64 &amp;&amp; chmod +x nf &amp;&amp; clear &amp;&amp; ./nf</code></p>
-</li>
-</ol>
-<hr>
-<h1>进阶命令</h1>
-<h2 id="docker和docker-compose安装与配置">docker和docker-compose安装与配置</h2>
-<blockquote>
-<p>更多请查看：  <a href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程 | 菜鸟教程 (runoob.com)</a></p>
-</blockquote>
-<h3 id="一、安装docker">一、安装docker</h3>
-<ol>
-<li>
-<p>以 root 用户登录，执行一键脚本安装 Docker<br>
-升级源并安装软件（下面两行命令二选一，根据你自己的系统）<br>
-Debian / Ubuntu<br>
-<code>apt update &amp;&amp; apt install -y wget vim</code><br>
-CentOS<br>
-<code>yum update &amp;&amp; yum install -y wget vim</code></p>
-</li>
-<li>
-<p>执行此命令等候安装 Docker</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Ubuntu  </span><br><span class="line">curl -fsSL https://test.docker.com -o test-docker.sh  </span><br><span class="line">sudo sh test-docker.sh  </span><br><span class="line">  </span><br><span class="line">#Debian  </span><br><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh  </span><br><span class="line">sudo sh get-docker.sh  </span><br><span class="line">  </span><br><span class="line">#CentOS  </span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
-<p>​		也可以使用国内 daocloud 一键安装命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：请使用 KVM 架构的 VPS，OpenVZ 架构的 VPS 不支持安装 Docker。 更多关于 Docker 安装的内容参考 <a href="https://docs.docker.com/engine/install/">Docker 官方安装指南</a> 。</p>
-</blockquote>
-<ol start="3">
-<li>国内源推荐  ：</li>
-</ol>
-<p>​		<a href="http://hub-mirror.c.163.com/">http://hub-mirror.c.163.com</a><br>
-​		<a href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a><br>
-​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>
-​		<a href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></p>
-<h3 id="二、安装docker-compose">二、安装docker-compose</h3>
-<ol>
-<li>最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></li>
-<li>运行以下命令以下载Docker Compose的当前稳定版本：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
-</blockquote>
-<ol start="3">
-<li>将可执行权限应用于二进制文件：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果命令docker-compose在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
-</blockquote>
-<ol start="4">
-<li>创建软链：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果命令 docker-compose 在安装后失败，请检查您的路径。您还可以创建指向/usr/local/bin/或路径中任何其他目录的符号链接。</p>
-</blockquote>
-<ol start="5">
-<li>测试安装</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>bash 命令补齐(一般不需要)</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/2.2.2/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>卸载docker-compose</li>
-</ol>
-<blockquote>
-<p>直接移除二进制包即可</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-<h2 id="docker常用命令">docker常用命令</h2>
-<ol>
-<li><strong>常用</strong></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start docker                    #启动  </span><br><span class="line">  </span><br><span class="line">systemctl stop docker                     #停止  </span><br><span class="line">  </span><br><span class="line">systemctl restart docker                  #重启  </span><br><span class="line">  </span><br><span class="line">systemctl enable docker                   #开机自启动  </span><br><span class="line">  </span><br><span class="line">systemctl status docker                   #运行状态  </span><br><span class="line">  </span><br><span class="line">docker version                            #Docker 版本信息  </span><br><span class="line">  </span><br><span class="line">docker info                               #Docker 系统信息  </span><br><span class="line">  </span><br><span class="line">docker ps                                 #查看正在运行的容器  </span><br><span class="line">docker ps -a                              #查看所有容器  </span><br><span class="line">docker ps -qa                             #仅显示 id 号，常用于批量删除容器  </span><br><span class="line">docker rm 容器id                          #删除指定容器  </span><br><span class="line">  </span><br><span class="line">docker images                             #查看本地所有的镜像  </span><br><span class="line">docker images -q                          #仅显示镜像id，常用于批量删除镜像  </span><br><span class="line">  </span><br><span class="line">docker rmi 镜像id或镜像名称的前缀即可         #删除指定的本地镜像  </span><br><span class="line">docker rmi `docker images -q`             #删除所有本地镜像  </span><br><span class="line">  </span><br><span class="line">#进入容器  </span><br><span class="line">docker exec -it 容器名 bash  </span><br><span class="line">  </span><br><span class="line">#退出容器  </span><br><span class="line">exit                                      #容器直接退出  </span><br><span class="line">ctrl +P +Q                                #容器不停止退出 	  </span><br><span class="line">  </span><br><span class="line">docker port	        #列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps	        #列出容器  </span><br><span class="line">docker pull	        #从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push	        #将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename       #重命名容器  </span><br><span class="line">docker top 容器名称                       #查看容器中运⾏的进程  </span><br><span class="line">docker stats 容器名称                     #查看资源占⽤  </span><br><span class="line">docker cp 容器id:容器内路径  主机目的路径	#从容器内拷贝到主机上</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>命令大全（网上搜集）</strong></li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker attach	#连接到正在运行中的容器  </span><br><span class="line">docker build	#使用 Dockerfile 创建镜像  </span><br><span class="line">docker builder	#管理builds  </span><br><span class="line">    docker builder prune	#清除build缓存  </span><br><span class="line">docker checkpoint	#管理checkpoints  </span><br><span class="line">    docker checkpoint create	#从正在运行的容器创建检查点  </span><br><span class="line">    docker checkpoint ls	#列出容器的检查点  </span><br><span class="line">    docker checkpoint rm	#删除指定的检查点  </span><br><span class="line">docker commit	#从容器创建一个新的镜像  </span><br><span class="line">docker config	#管理Docker配置  </span><br><span class="line">    docker config create	#创建配置文件  </span><br><span class="line">    docker config inspect	#查看配置文件信息  </span><br><span class="line">    docker config ls		#显示docker里已经保存得配置文件  </span><br><span class="line">    docker config rm		#删除配置文件  </span><br><span class="line">docker container	#管理容器  </span><br><span class="line">    docker container prune	#删除所有已停止的容器  </span><br><span class="line">docker context	#管理contexts  </span><br><span class="line">    docker context create	#创建一个上下文  </span><br><span class="line">    docker context export	#将上下文导出到tar或kubecconfig文件中  </span><br><span class="line">    docker context import	#从tar或zip文件导入上下文  </span><br><span class="line">    docker context inspect	#在一个或多个上下文上显示详细信息  </span><br><span class="line">    docker context ls		#列出上下文  </span><br><span class="line">    docker context rm		#删除一个或多个上下文  </span><br><span class="line">    docker context update	#更新  </span><br><span class="line">    docker context use		#设置当前docker的上下文  </span><br><span class="line">docker cp		#用于容器与主机之间的数据拷贝  </span><br><span class="line">docker create	#创建一个新的容器但不启动它  </span><br><span class="line">docker diff		#检查容器里文件结构的更改  </span><br><span class="line">docker events	#从服务器获取实时事件  </span><br><span class="line">docker exec		#在运行的容器中执行命令  </span><br><span class="line">docker export	#将文件系统作为一个tar归档文件导出到STDOUT  </span><br><span class="line">docker history	#查看指定镜像的创建历史  </span><br><span class="line">docker image	#管理镜像  </span><br><span class="line">    docker image inspect	#显示一个或多个镜像的元数据  </span><br><span class="line">    docker image ls			#列出本地镜像  </span><br><span class="line">    docker image prune		#删除没有使用的镜像  </span><br><span class="line">    docker image rm			#删除一个或多个镜像  </span><br><span class="line">docker images	#列出本地镜像  </span><br><span class="line">docker import	#从归档文件中创建镜像  </span><br><span class="line">docker info		#显示 Docker 系统信息，包括镜像和容器数  </span><br><span class="line">docker inspect	#获取容器/镜像的元数据  </span><br><span class="line">docker kill		#杀掉一个运行中的容器  </span><br><span class="line">docker load		#导入使用 docker save 命令导出的镜像  </span><br><span class="line">docker login	#登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logout	#登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub  </span><br><span class="line">docker logs		#获取容器的日志  </span><br><span class="line">docker manifest	#管理manifest(实验，不应用于生产环境)  </span><br><span class="line">    docker manifest annotate	#向本地镜像清单添加附加信息  </span><br><span class="line">    docker manifest create		#创建用于注释和推入注册表的本地清单列表  </span><br><span class="line">    docker manifest inspect		#显示镜像清单或清单列表  </span><br><span class="line">    docker manifest push		#将清单列表推入仓库  </span><br><span class="line">    docker manifest rm			#从本地存储中删除一个或多个清单列表  </span><br><span class="line">docker network	#管理网络  </span><br><span class="line">    docker network connect		#将容器连接到网络  </span><br><span class="line">    docker network create		#创建一个网络  </span><br><span class="line">    docker network disconnect	#断开容器的网络  </span><br><span class="line">    docker network inspect		#显示一个或多个网络的元数据  </span><br><span class="line">    docker network ls			#列出网络  </span><br><span class="line">    docker network prune		#删除所有没有使用的网络  </span><br><span class="line">    docker network rm			#删除一个或多个网络  </span><br><span class="line">docker node		#管理集群(swarm)节点  </span><br><span class="line">    docker node demote			#从群集(swarm)管理器中降级一个或多个节点  </span><br><span class="line">    docker node inspect			#显示一个或多个节点的元数据  </span><br><span class="line">    docker node ls				#列出群集(swarm)中的节点  </span><br><span class="line">    docker node promote			#将一个或多个节点推入到群集管理器中  </span><br><span class="line">    docker node ps				#列出在一个或多个节点上运行的任务，默认为当前节点  </span><br><span class="line">    docker node rm				#从群集(swarm)删除一个或多个节点  </span><br><span class="line">    docker node update			#更新一个节点  </span><br><span class="line">docker pause	#暂停容器中所有的进程  </span><br><span class="line">docker plugin	#管理插件  </span><br><span class="line">    docker plugin create		#从rootfs和配置创建一个插件。插件数据目录必须包含config.json和rootfs目录。  </span><br><span class="line">    docker plugin disable		#禁用插件  </span><br><span class="line">    docker plugin enable		#启用插件  </span><br><span class="line">    docker plugin inspect		#显示一个或多个插件的元数据  </span><br><span class="line">    docker plugin install		#安装一个插件  </span><br><span class="line">    docker plugin ls			#列出所有插件  </span><br><span class="line">    docker plugin push			#将插件推送到注册表  </span><br><span class="line">    docker plugin rm			#删除一个或多个插件  </span><br><span class="line">    docker plugin set			#更改插件的设置  </span><br><span class="line">    docker plugin upgrade		#升级现有插件  </span><br><span class="line">docker port		#列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口  </span><br><span class="line">docker ps		#列出容器  </span><br><span class="line">docker pull		#从镜像仓库中拉取或者更新指定镜像  </span><br><span class="line">docker push		#将本地的镜像上传到镜像仓库,要先登陆到镜像仓库  </span><br><span class="line">docker rename	#重命名容器  </span><br><span class="line">docker restart	#重启容器  </span><br><span class="line">docker rm		#删除一个或多个容器  </span><br><span class="line">docker rmi		#删除一个或多个镜像  </span><br><span class="line">docker run		#创建一个新的容器并运行一个命令  </span><br><span class="line">docker save		#将指定镜像保存成 tar 归档文件  </span><br><span class="line">docker search	#从Docker Hub查找镜像  </span><br><span class="line">docker secret	#管理Docker secrets  </span><br><span class="line">    docker secret create	#从文件或STDIN创建一个秘密作为内容  </span><br><span class="line">    docker secret inspect	#显示有关一个或多个秘密的详细信息  </span><br><span class="line">    docker secret ls		#列出秘密  </span><br><span class="line">    docker secret rm		#删除一个或多个秘密  </span><br><span class="line">docker service	#管理服务  </span><br><span class="line">    docker service create	#创建一个服务  </span><br><span class="line">    docker service inspect	#查看服务的元数据  </span><br><span class="line">    docker service logs		#获取服务的日志  </span><br><span class="line">    docker service ls		#列出服务  </span><br><span class="line">    docker service ps		#列出一个或多个服务的任务  </span><br><span class="line">    docker service rm		#删除一个或多个服务  </span><br><span class="line">    docker service rollback	#将更改恢复到服务的配置  </span><br><span class="line">    docker service scale	#缩放一个或多个复制服务  </span><br><span class="line">    docker service update	#更新服务  </span><br><span class="line">docker stack	#管理堆栈  </span><br><span class="line">    docker stack deploy		#部署新的堆栈或更新现有堆栈  </span><br><span class="line">    docker stack ls			#列出现有堆栈  </span><br><span class="line">    docker stack ps			#列出堆栈中的任务  </span><br><span class="line">    docker stack rm			#删除堆栈	  </span><br><span class="line">    docker stack services	#列出堆栈中的服务  </span><br><span class="line">docker start	#启动一个或多个已经被停止的容器  </span><br><span class="line">docker stats	#显示容器的实时流资源使用统计信息  </span><br><span class="line">docker stop		#停止一个运行中的容器  </span><br><span class="line">docker swarm	#管理集群(Swarm)  </span><br><span class="line">    docker swarm ca			#查看或旋转当前群集CA证书。此命令必须针对管理器节点  </span><br><span class="line">    docker swarm init		#初始化一个群集(Swarm)  </span><br><span class="line">    docker swarm join		#加入群集作为节点和/或管理器  </span><br><span class="line">    docker swarm join-token	#管理加入令牌  </span><br><span class="line">    docker swarm leave		#离开群集(Swarm)  </span><br><span class="line">    docker swarm unlock		#解锁群集(Swarm)  </span><br><span class="line">    docker swarm unlock-key	#管理解锁钥匙  </span><br><span class="line">    docker swarm update		#更新群集(Swarm)  </span><br><span class="line">docker system	#管理Docker  </span><br><span class="line">    docker system df		#显示docker磁盘使用情况  </span><br><span class="line">    docker system events	#从服务器获取实时事件  </span><br><span class="line">    docker system info		#显示系统范围的信息  </span><br><span class="line">    docker system prune		#删除未使用的数据  </span><br><span class="line">docker tag		#标记本地镜像，将其归入某一仓库  </span><br><span class="line">docker top		#查看容器中运行的进程信息，支持 ps 命令参数  </span><br><span class="line">docker trust	#管理Docker镜像的信任  </span><br><span class="line">    docker trust inspect	#返回有关key和签名的低级信息  </span><br><span class="line">    docker trust key		#管理登入Docker镜像的keys  </span><br><span class="line">    	docker trust key generate	#生成并加载签名密钥对  </span><br><span class="line">		docker trust key load		#加载私钥文件以进行签名  </span><br><span class="line">    docker trust revoke		#删除对镜像的认证  </span><br><span class="line">    docker trust sign		#镜像签名  </span><br><span class="line">    docker trust signer		#管理可以登录Docker镜像的实体  </span><br><span class="line">    	docker trust signer add		#新增一个签名者  </span><br><span class="line">		docker trust signer remove	#删除一个签名者  </span><br><span class="line">docker unpause	#恢复容器中所有的进程  </span><br><span class="line">docker update	#更新一个或多个容器的配置  </span><br><span class="line">docker version	#显示 Docker 版本信息  </span><br><span class="line">docker volume	#管理volumes  </span><br><span class="line">    docker volume create	#创建一个卷  </span><br><span class="line">    docker volume inspect	#显示一个或多个卷的元数据  </span><br><span class="line">    docker volume ls		#列出卷  </span><br><span class="line">    docker volume prune		#删除所有未使用的卷  </span><br><span class="line">    docker volume rm		#删除一个或多个卷  </span><br><span class="line">docker wait		#阻塞运行直到容器停止，然后打印出它的退出代码</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h1>概述</h1>
@@ -1448,222 +1448,6 @@ CentOS<br>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>VS Code配置</title>
-    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
-</div>
-<blockquote>
-<p>vs 配置参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>首先先安装中文扩展：搜索 Chinese</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
-<h1>配置 C/C++ 语言环境</h1>
-<h2 id="安装-MinGW-w64">安装 MinGW-w64</h2>
-<blockquote>
-<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
-</blockquote>
-<blockquote>
-<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
-</blockquote>
-<ol>
-<li>
-<p><strong>下载：</strong></p>
-<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
-链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
-</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
-<ul>
-<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
-<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
-<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
-</ul>
-<ol start="2">
-<li><strong>安装</strong></li>
-</ol>
-<p>方法一：在线安装（网络问题，很炸裂）</p>
-<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
-<ul>
-<li>Version 是版本，一般选最高版本；</li>
-<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
-<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
-<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
-<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
-<li>Build revision，默认值即可</li>
-</ul>
-<blockquote>
-<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
-</blockquote>
-<p>方法二：直接下载对应的压缩包</p>
-<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
-<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
-<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
-<blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
-<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
-</blockquote>
-<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
-<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
-<blockquote>
-<p>参考：<a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程_blog.csdn.net/incredibleeimpact/article/details/10-CSDN博客</a><br>
-<a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
-<ul>
-<li>其他扩展</li>
-</ul>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
-<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello. c 文件中，保存</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>然后会自动创建文件</p>
-<p>⑤配置调试设置文件：launch.json</p>
-<p>点击左边调试，点击创建 launch.json 文件</p>
-<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
-<p>选择 C++(GDB/LLDB)</p>
-<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
-<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>来自Chatgpt的解释：</p>
-<p>一、program变量</p>
-<ol>
-<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
-<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
-</ul>
-</li>
-<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
-<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
-</ul>
-</li>
-</ol>
-<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
-<p>二、cwd变量</p>
-<ul>
-<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
-<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
-</ul>
-<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
-<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
-</div></details>
-<hr>
-<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
-<blockquote>
-<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
-</blockquote>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-<li>其他扩展：</li>
-</ul>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如 CPP 文件夹<br>
-②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello.cpp 文件中，保存</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
-<p>选择 g++</p>
-<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>⑤配置调试设置文件：launch.json<br>
-参考上面 “<code>配置 C 语言环境</code>” 部分</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
-</div></details>
-<h4 id="参考">参考</h4>
-<ul>
-<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
-<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>vs code</category>
-      </categories>
-      <tags>
-        <tag>vs</tag>
-        <tag>vs code</tag>
-      </tags>
   </entry>
   <entry>
     <title>windows 安装Git</title>
@@ -1882,9 +1666,195 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
+    <title>VS Code配置</title>
+    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
+</div>
+<blockquote>
+<p>vs 配置参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先先安装中文扩展：搜索 Chinese</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
+<h1>配置 C/C++ 语言环境</h1>
+<p>见：</p>
+<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
+<blockquote>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
+<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
+</blockquote>
+<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
+<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
+<ul>
+<li>其他扩展</li>
+</ul>
+<p>待写。。。</p>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
+<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello. c 文件中，保存</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>然后会自动创建文件</p>
+<p>⑤配置调试设置文件：launch.json</p>
+<p>点击左边调试，点击创建 launch.json 文件</p>
+<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
+<p>选择 C++(GDB/LLDB)</p>
+<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
+<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来自Chatgpt的解释：</p>
+<p>一、program变量</p>
+<ol>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
+</ol>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+<p>二、cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
+</div></details>
+<hr>
+<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
+<blockquote>
+<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
+</blockquote>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+<li>其他扩展：</li>
+</ul>
+<p>待写。。。</p>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如 CPP 文件夹<br>
+②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello.cpp 文件中，保存</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
+<p>选择 g++</p>
+<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>⑤配置调试设置文件：launch.json<br>
+参考上面 “<code>配置 C 语言环境</code>” 部分</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
+</div></details>
+<h4 id="参考">参考</h4>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>vs code</category>
+      </categories>
+      <tags>
+        <tag>vs</tag>
+        <tag>vs code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1>一、Node.Js</h1>
+    <content><![CDATA[<h1>Node.Js</h1>
 <blockquote>
 <p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
 </blockquote>
@@ -1989,7 +1959,48 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
 </ul>
 <hr>
-<h1>二、PHP（待补充）</h1>
+<h1>安装 MinGW-w64</h1>
+<blockquote>
+<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
+</blockquote>
+<blockquote>
+<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
+</blockquote>
+<h2 id="下载">下载</h2>
+<blockquote>
+<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
+链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
+<ul>
+<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
+<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
+<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ol>
+<li><strong>方法一</strong>：在线安装（网络问题，很炸裂）</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
+<ul>
+<li>Version 是版本，一般选最高版本；</li>
+<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
+<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
+<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
+<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
+<li>Build revision，默认值即可</li>
+</ul>
+<blockquote>
+<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
+</blockquote>
+<ol start="2">
+<li><strong>方法二</strong>：直接下载对应的压缩包</li>
+</ol>
+<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
+<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
+<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
+<hr>
+<h1>PHP</h1>
 ]]></content>
       <categories>
         <category>笔记</category>
