@@ -97,82 +97,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1>数组入门</h1>
-<h2 id="概念">概念</h2>
-<ol>
-<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
-<li>语法：<code>int arr [5]</code> ;</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
-<ol start="3">
-<li><strong>初始化</strong></li>
-</ol>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
-<p><mark>注意：</mark><br>
-数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字符数组">字符数组</h2>
-<ol>
-<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
-<li>初始化+引用：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-<h2 id="思考">思考</h2>
-<ol>
-<li>定义数组时没有初始化会怎么样？</li>
-</ol>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
-<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
-<ol start="2">
-<li>不完全初始化又会怎么样？</li>
-</ol>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-<ol start="3">
-<li>补充</li>
-</ol>
-<p><mark>注意：</mark></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>char buf[5]={1,2,3,4,5};</li>
-</ul>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-<ul>
-<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
-</ul>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</div></details>
-<h1>数组进阶</h1>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习一：数据类型</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1>数据类型</h1>
@@ -616,113 +540,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h1>多路分支：switch-case</h1>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>作用：
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-<h1>while 和 do…while 循环</h1>
-<h2 id="while">while</h2>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
-例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="do-…-while">do … while</h2>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h2 id="注意">注意</h2>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h1>for 循环</h1>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h1>break 与 continue</h1>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>goto 语句</h1>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hax&amp;Woiden</title>
     <url>/2022/12/01/Hax-Woiden/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
@@ -849,6 +666,82 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
+<li>语法：<code>int arr [5]</code> ;</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
+<ol start="3">
+<li><strong>初始化</strong></li>
+</ol>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
+<li>初始化+引用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+<h2 id="思考">思考</h2>
+<ol>
+<li>定义数组时没有初始化会怎么样？</li>
+</ol>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
+<ol start="2">
+<li>不完全初始化又会怎么样？</li>
+</ol>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+<ol start="3">
+<li>补充</li>
+</ol>
+<p><mark>注意：</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</div></details>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo常用命令</title>
     <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
@@ -947,6 +840,113 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>Hexo</tag>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h1>多路分支：switch-case</h1>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>作用：
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+<h1>while 和 do…while 循环</h1>
+<h2 id="while">while</h2>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
+例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-…-while">do … while</h2>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h2 id="注意">注意</h2>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h1>for 循环</h1>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h1>break 与 continue</h1>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>goto 语句</h1>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -1136,19 +1136,6 @@ CentOS<br>
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 美化</title>
     <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<h1>主题优化</h1>
@@ -1314,6 +1301,20 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h1>概述</h1>
@@ -1411,33 +1412,14 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <category>VMware虚拟机</category>
       </categories>
       <tags>
+        <tag>Ubuntu</tag>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>笔记</category>
@@ -1446,7 +1428,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
-        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1635,6 +1616,172 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>vs</tag>
         <tag>vs code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 常用运行环境的安装</title>
+    <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>以下如果没指明，则为windows环境下</strong></p>
+</blockquote>
+<h1>Git</h1>
+<p>见：</p>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h1>Node.Js</h1>
+<blockquote>
+<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
+</blockquote>
+<h2 id="下载安装包">下载安装包</h2>
+<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
+<blockquote>
+<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
+</blockquote>
+<blockquote>
+<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
+<ul>
+<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
+<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
+</ul>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
+<p><img src="https://s2.loli.net/2023/10/17/aYusGDpvOCVkI2F.png" alt="nodejs1"></p>
+<h2 id="安装程序">安装程序</h2>
+<ol>
+<li>
+<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
+</li>
+<li>
+<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
+</li>
+</ol>
+<ul>
+<li><code>Node.js runtime</code> ：表示运行环境</li>
+<li><code>npm package manager</code>：表示npm包管理器</li>
+<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
+<li><code>Add to PATH</code>：添加到环境变量</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/17/kTJStsQueWfzVG5.png" alt="nodejs2"></p>
+<ol start="3">
+<li>下图框中所示，不用选</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/17/drwnmSALf5VpaT6.png" alt="nodejs3"></p>
+<ol start="4">
+<li>点击 Install，完成安装</li>
+<li>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</li>
+</ol>
+<h2 id="修改位置">修改位置</h2>
+<ol>
+<li><strong>修改全局模块路径和缓存路径（可选）</strong></li>
+</ol>
+<blockquote>
+<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
+<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
+</blockquote>
+<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
+②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
+<p>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>修改系统环境变量</strong></li>
+</ol>
+<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
+② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
+③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
+<ol start="3">
+<li><strong>验证</strong></li>
+</ol>
+<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
+输入下面的命令：</p>
+<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
+<p>②下载成功后，我们回到自定义的目录查看。</p>
+<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
+<blockquote>
+<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
+</blockquote>
+<h2 id="更换国内源">更换国内源</h2>
+<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
+<blockquote>
+<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<ol>
+<li>查看初始 npm 源</li>
+</ol>
+<p><code>npm config get registry </code></p>
+<ol start="2">
+<li>更换镜像为淘宝镜像</li>
+</ol>
+<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
+<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
+<blockquote>
+<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
+</blockquote>
+<ol>
+<li>全局安装基于淘宝源的 cnpm</li>
+</ol>
+<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
+<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
+<ol start="2">
+<li>执行命令查看 cnpm 是否安装成功</li>
+</ol>
+<p><code>cnpm -v </code></p>
+<h3 id="验证安装">验证安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
+<p><strong>参考文档</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h1>MinGW-w64</h1>
+<blockquote>
+<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
+</blockquote>
+<blockquote>
+<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
+</blockquote>
+<h2 id="下载">下载</h2>
+<blockquote>
+<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
+链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
+<ul>
+<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
+<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
+<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ol>
+<li><strong>方法一</strong>：在线安装（网络问题，很炸裂）</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
+<ul>
+<li>Version 是版本，一般选最高版本；</li>
+<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
+<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
+<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
+<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
+<li>Build revision，默认值即可</li>
+</ul>
+<blockquote>
+<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
+</blockquote>
+<ol start="2">
+<li><strong>方法二</strong>：直接下载对应的压缩包</li>
+</ol>
+<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
+<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
+<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
+<hr>
+<h1>PHP</h1>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>软件与环境</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1854,167 +2001,23 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
-    <title>windows 常用运行环境的安装</title>
-    <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1>windows Git 安装</h1>
-<p>见：</p>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h1>Node.Js</h1>
-<blockquote>
-<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
-</blockquote>
-<h2 id="下载安装包">下载安装包</h2>
-<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
-<blockquote>
-<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
-</blockquote>
-<blockquote>
-<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
-<ul>
-<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
-<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
-</ul>
-</blockquote>
-<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
-<p><img src="https://s2.loli.net/2023/10/17/aYusGDpvOCVkI2F.png" alt="nodejs1"></p>
-<h2 id="安装程序">安装程序</h2>
-<ol>
-<li>
-<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
-</li>
-<li>
-<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
-</li>
-</ol>
-<ul>
-<li><code>Node.js runtime</code> ：表示运行环境</li>
-<li><code>npm package manager</code>：表示npm包管理器</li>
-<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
-<li><code>Add to PATH</code>：添加到环境变量</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/17/kTJStsQueWfzVG5.png" alt="nodejs2"></p>
-<ol start="3">
-<li>下图框中所示，不用选</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/17/drwnmSALf5VpaT6.png" alt="nodejs3"></p>
-<ol start="4">
-<li>点击 Install，完成安装</li>
-<li>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</li>
-</ol>
-<h2 id="修改位置">修改位置</h2>
-<ol>
-<li><strong>修改全局模块路径和缓存路径（可选）</strong></li>
-</ol>
-<blockquote>
-<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
-<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
-</blockquote>
-<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
-②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
-<p>比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><strong>修改系统环境变量</strong></li>
-</ol>
-<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
-② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
-③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
-<ol start="3">
-<li><strong>验证</strong></li>
-</ol>
-<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
-输入下面的命令：</p>
-<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
-<p>②下载成功后，我们回到自定义的目录查看。</p>
-<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
-<blockquote>
-<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
-</blockquote>
-<h2 id="更换国内源">更换国内源</h2>
-<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
-<blockquote>
-<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<ol>
-<li>查看初始 npm 源</li>
-</ol>
-<p><code>npm config get registry </code></p>
-<ol start="2">
-<li>更换镜像为淘宝镜像</li>
-</ol>
-<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
-<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
-<blockquote>
-<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
-</blockquote>
-<ol>
-<li>全局安装基于淘宝源的 cnpm</li>
-</ol>
-<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
-<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
-<ol start="2">
-<li>执行命令查看 cnpm 是否安装成功</li>
-</ol>
-<p><code>cnpm -v </code></p>
-<h3 id="验证安装">验证安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
-<p><strong>参考文档</strong></p>
-<ul>
-<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
-</ul>
-<hr>
-<h1>安装 MinGW-w64</h1>
-<blockquote>
-<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
-</blockquote>
-<blockquote>
-<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
-</blockquote>
-<h2 id="下载">下载</h2>
-<blockquote>
-<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
-链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/19/Eyc3IeCQi4AVUSK.png" alt="mingw64-1"></p>
-<ul>
-<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
-<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
-<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
-</ul>
-<h2 id="安装">安装</h2>
-<ol>
-<li><strong>方法一</strong>：在线安装（网络问题，很炸裂）</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/19/lRCv57reYGSXTPt.png" alt="mingw64-2"></p>
-<ul>
-<li>Version 是版本，一般选最高版本；</li>
-<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
-<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
-<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
-<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
-<li>Build revision，默认值即可</li>
-</ul>
-<blockquote>
-<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
-</blockquote>
-<ol start="2">
-<li><strong>方法二</strong>：直接下载对应的压缩包</li>
-</ol>
-<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://s2.loli.net/2023/10/19/29j8KkOGxb5mXzF.png" alt="mingw64-3"></p>
-<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
-<hr>
-<h1>PHP</h1>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>软件与环境</category>
-      </categories>
-      <tags>
-        <tag>环境</tag>
-        <tag>windows</tag>
-      </tags>
   </entry>
   <entry>
     <title>搭建免费博客：Hexo+butterfly</title>
