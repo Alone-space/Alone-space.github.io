@@ -404,82 +404,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1>数组入门</h1>
-<h2 id="概念">概念</h2>
-<ol>
-<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
-<li>语法：<code>int arr [5]</code> ;</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
-<ol start="3">
-<li><strong>初始化</strong></li>
-</ol>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
-<p><mark>注意：</mark><br>
-数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字符数组">字符数组</h2>
-<ol>
-<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
-<li>初始化+引用：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-<h2 id="思考">思考</h2>
-<ol>
-<li>定义数组时没有初始化会怎么样？</li>
-</ol>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
-<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
-<ol start="2">
-<li>不完全初始化又会怎么样？</li>
-</ol>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-<ol start="3">
-<li>补充</li>
-</ol>
-<p><mark>注意：</mark></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>char buf[5]={1,2,3,4,5};</li>
-</ul>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-<ul>
-<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
-</ul>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</div></details>
-<h1>数组进阶</h1>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习二：运算符</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h1>算术运算符</h1>
@@ -849,6 +773,82 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
+<li>语法：<code>int arr [5]</code> ;</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
+<ol start="3">
+<li><strong>初始化</strong></li>
+</ol>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
+<li>初始化+引用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+<h2 id="思考">思考</h2>
+<ol>
+<li>定义数组时没有初始化会怎么样？</li>
+</ol>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
+<ol start="2">
+<li>不完全初始化又会怎么样？</li>
+</ol>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+<ol start="3">
+<li>补充</li>
+</ol>
+<p><mark>注意：</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</div></details>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo常用命令</title>
     <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
@@ -947,6 +947,171 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>Hexo</tag>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 美化</title>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<h1>主题优化</h1>
+<blockquote>
+<p><mark>参考：</mark></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
+<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
+<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
+</ul>
+</blockquote>
+<h2 id="安装必要插件">安装必要插件</h2>
+<blockquote>
+<p>tweaks（优化）、extensions （扩展）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<h2 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h2>
+<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
+<p><img src="https://s2.loli.net/2023/10/23/YgOQXBzuGAv5xDb.png" alt="1"></p>
+<p><img src="https://s2.loli.net/2023/10/23/jydOZv8u1BP26r4.png" alt="2"></p>
+<h2 id="安装-User-Themes-插件">安装 User Themes 插件</h2>
+<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
+搜索 User Themes 插件，点击进入插件界面进行安装。</p>
+<p><img src="https://s2.loli.net/2023/10/23/1ivyTYrRH7d8x6X.png" alt="3"></p>
+<h2 id="安装主题">安装主题</h2>
+<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
+<li>为所有用户安装：/usr/share/themes/</li>
+</ul>
+</blockquote>
+<ol>
+<li>进入主题目录，，执行如下命令进行主题安装。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>设置主题</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
+<h2 id="安装图标">安装图标</h2>
+<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
+<li>为所有用户安装：/usr/share/icons</li>
+</ul>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/23/PTQSOYXkIofdWLp.png" alt="4"></p>
+<ol start="2">
+<li>应用主题和图标</li>
+</ol>
+<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
+<p><img src="https://s2.loli.net/2023/10/23/PbasdR9h761Jujf.png" alt="5"></p>
+<ol start="3">
+<li>元素位置调整</li>
+</ol>
+<ul>
+<li>将标题栏的操作按钮从右侧移动到左侧</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/Qi1ztB9n6DFKAES.png" alt="6"></p>
+<ul>
+<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/23/9XMSreikYtlE6gD.png" alt="7"></p>
+<ul>
+<li>更换壁纸<br>
+<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
+</ul>
+<h1>更多插件</h1>
+<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
+<ul>
+<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
+<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
+<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
+<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
+<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
+版本不兼容，我没安装</li>
+</ul>
+<hr>
+<h1>终端美化：zsh</h1>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
+<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
+</ul>
+</blockquote>
+<h2 id="安装-zsh">安装 zsh</h2>
+<p>macOS：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+<p>ubuntu：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>ArchLinux/Manjaro：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
+<blockquote>
+<ul>
+<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
+<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
+<li>查看当前用户：<code>whoami</code></li>
+</ul>
+</blockquote>
+<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
+<p>第一次运行 zsh 时会进入如下的配置引导页面：<br>
+。。。</p>
+<p><mark>这里输入<code>q</code></mark></p>
+<ul>
+<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
+<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
+<li>输入输入 <code>1</code> 后，就开始进行配置</li>
+</ul>
+<blockquote>
+<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
+</blockquote>
+<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
+<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
+<blockquote>
+<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
+</blockquote>
+<p>①使用 curl 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>②或者使用 wget 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
+<h2 id="配置-zsh">配置 zsh</h2>
+<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
+<p><strong>更换自带主题</strong>：<br>
+zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
+我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
+<h2 id="安装插件">安装插件</h2>
+<h3 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h3>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
+<p>安装步骤：</p>
+<ol>
+<li>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</li>
+</ol>
+<h3 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h3>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h2 id="补充">补充</h2>
+<p>待写。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1136,198 +1301,6 @@ CentOS<br>
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu 美化</title>
-    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<h1>主题优化</h1>
-<blockquote>
-<p><mark>参考：</mark></p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
-<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
-<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
-</ul>
-</blockquote>
-<h2 id="安装必要插件">安装必要插件</h2>
-<blockquote>
-<p>tweaks（优化）、extensions （扩展）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
-<h2 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h2>
-<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://s2.loli.net/2023/10/23/YgOQXBzuGAv5xDb.png" alt="1"></p>
-<p><img src="https://s2.loli.net/2023/10/23/jydOZv8u1BP26r4.png" alt="2"></p>
-<h2 id="安装-User-Themes-插件">安装 User Themes 插件</h2>
-<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
-搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://s2.loli.net/2023/10/23/1ivyTYrRH7d8x6X.png" alt="3"></p>
-<h2 id="安装主题">安装主题</h2>
-<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
-<li>为所有用户安装：/usr/share/themes/</li>
-</ul>
-</blockquote>
-<ol>
-<li>进入主题目录，，执行如下命令进行主题安装。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>设置主题</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
-<h2 id="安装图标">安装图标</h2>
-<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
-<li>为所有用户安装：/usr/share/icons</li>
-</ul>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/23/PTQSOYXkIofdWLp.png" alt="4"></p>
-<ol start="2">
-<li>应用主题和图标</li>
-</ol>
-<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://s2.loli.net/2023/10/23/PbasdR9h761Jujf.png" alt="5"></p>
-<ol start="3">
-<li>元素位置调整</li>
-</ol>
-<ul>
-<li>将标题栏的操作按钮从右侧移动到左侧</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/23/Qi1ztB9n6DFKAES.png" alt="6"></p>
-<ul>
-<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/23/9XMSreikYtlE6gD.png" alt="7"></p>
-<ul>
-<li>更换壁纸<br>
-<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
-</ul>
-<h1>更多插件</h1>
-<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
-<ul>
-<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
-<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
-<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
-<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
-<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
-版本不兼容，我没安装</li>
-</ul>
-<hr>
-<h1>终端美化：zsh</h1>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
-</ul>
-</blockquote>
-<h2 id="安装-zsh">安装 zsh</h2>
-<p>macOS：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
-<p>ubuntu：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
-<p>ArchLinux/Manjaro：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
-<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
-<blockquote>
-<ul>
-<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
-<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
-<li>查看当前用户：<code>whoami</code></li>
-</ul>
-</blockquote>
-<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
-<p>第一次运行 zsh 时会进入如下的配置引导页面：<br>
-。。。</p>
-<p><mark>这里输入<code>q</code></mark></p>
-<ul>
-<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
-<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
-<li>输入输入 <code>1</code> 后，就开始进行配置</li>
-</ul>
-<blockquote>
-<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
-</blockquote>
-<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
-<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
-<blockquote>
-<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
-</blockquote>
-<p>①使用 curl 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>②或者使用 wget 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
-<h2 id="配置-zsh">配置 zsh</h2>
-<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
-<p><strong>更换自带主题</strong>：<br>
-zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
-我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
-<h2 id="安装插件">安装插件</h2>
-<h3 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h3>
-<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
-<p>安装步骤：</p>
-<ol>
-<li>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</li>
-</ol>
-<h3 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h3>
-<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<h2 id="补充">补充</h2>
-<p>待写。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h1>概述</h1>
@@ -1428,6 +1401,220 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>Ubuntu</tag>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS Code配置</title>
+    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
+</div>
+<blockquote>
+<p>vs 配置参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先先安装中文扩展：搜索 Chinese</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
+<h1>配置 C/C++ 语言环境</h1>
+<p>见安装 MinGW-w64部分：</p>
+<p><a href="https://fkcc.me/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows 常用运行环境的安装 | ZのBlog (fkcc.me)</a></p>
+<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
+<blockquote>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
+<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
+</blockquote>
+<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
+<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
+<ul>
+<li>其他扩展</li>
+</ul>
+<p>待写。。。</p>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
+<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello. c 文件中，保存</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>然后会自动创建文件</p>
+<p>⑤配置调试设置文件：launch.json</p>
+<p>点击左边调试，点击创建 launch.json 文件</p>
+<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
+<p>选择 C++(GDB/LLDB)</p>
+<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
+<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来自Chatgpt的解释：</p>
+<p>一、program变量</p>
+<ol>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
+</ol>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+<p>二、cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
+</div></details>
+<hr>
+<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
+<blockquote>
+<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
+</blockquote>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装必要扩展</strong></li>
+</ol>
+<ul>
+<li>C/C++</li>
+<li>其他扩展：</li>
+</ul>
+<p>待写。。。</p>
+<ol start="2">
+<li><strong>配置</strong></li>
+</ol>
+<p>①新建项目仓库，比如 CPP 文件夹<br>
+②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello.cpp 文件中，保存</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
+<p>选择 g++</p>
+<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>⑤配置调试设置文件：launch.json<br>
+参考上面 “<code>配置 C 语言环境</code>” 部分</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
+</div></details>
+<h4 id="参考">参考</h4>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>vs code</category>
+      </categories>
+      <tags>
+        <tag>vs</tag>
+        <tag>vs code</tag>
       </tags>
   </entry>
   <entry>
@@ -1666,195 +1853,12 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
-    <title>VS Code配置</title>
-    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
-</div>
-<blockquote>
-<p>vs 配置参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>首先先安装中文扩展：搜索 Chinese</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
-<h1>配置 C/C++ 语言环境</h1>
-<p>见：</p>
-<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
-<blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
-<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
-</blockquote>
-<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
-<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li>
-<p><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></p>
-</li>
-<li>
-<p><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
-</li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
-<ul>
-<li>其他扩展</li>
-</ul>
-<p>待写。。。</p>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
-<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello. c 文件中，保存</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>然后会自动创建文件</p>
-<p>⑤配置调试设置文件：launch.json</p>
-<p>点击左边调试，点击创建 launch.json 文件</p>
-<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
-<p>选择 C++(GDB/LLDB)</p>
-<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
-<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>来自Chatgpt的解释：</p>
-<p>一、program变量</p>
-<ol>
-<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
-<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
-</ul>
-</li>
-<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
-<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
-</ul>
-</li>
-</ol>
-<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
-<p>二、cwd变量</p>
-<ul>
-<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
-<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
-</ul>
-<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
-<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
-</div></details>
-<hr>
-<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
-<blockquote>
-<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
-</blockquote>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-<li>其他扩展：</li>
-</ul>
-<p>待写。。。</p>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如 CPP 文件夹<br>
-②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello.cpp 文件中，保存</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
-<p>选择 g++</p>
-<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>⑤配置调试设置文件：launch.json<br>
-参考上面 “<code>配置 C 语言环境</code>” 部分</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
-</div></details>
-<h4 id="参考">参考</h4>
-<ul>
-<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
-<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>vs code</category>
-      </categories>
-      <tags>
-        <tag>vs</tag>
-        <tag>vs code</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1>Node.Js</h1>
+    <content><![CDATA[<h1>windows 安装</h1>
+<p>见：</p>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h1>Node.Js</h1>
 <blockquote>
 <p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
 </blockquote>
@@ -2023,6 +2027,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <h2 id="安装-Git：">安装 Git：</h2>
 <p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
 <h2 id="安装-node-js">安装 node.js</h2>
+<p>见安装Node.Js部分</p>
 <p><a href="https://fkcc.me/2023/10/17/%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows 常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
 <h2 id="安装-Hexo">安装 Hexo</h2>
 <ol>
