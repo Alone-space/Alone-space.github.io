@@ -308,6 +308,102 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
+    <title>Butterfly 一些魔改美化</title>
+    <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
+</div>
+<h3 id="站点动态-title">站点动态 title</h3>
+<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="修改标题样式">修改标题样式</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
+<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
+<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
+<p>​</p>
+</div>
+<p><strong>①下载</strong></p>
+<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
+<p><code>npm uninstall hexo-helper-live2d</code></p>
+<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
+<p><strong>②设置绝对路径</strong></p>
+<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
+<p><code>/live2d-widget/</code></p>
+<p><strong>③引入</strong></p>
+<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
+<p><code>script(src='/live2d-widget/autoload.js')</code></p>
+<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<p><strong>④自定义配置（随你）</strong></p>
+<ol>
+<li>修改看板娘的位置</li>
+</ol>
+<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
+具体在#waifu选择器下修改</p>
+<ol start="2">
+<li>修改聊天内容</li>
+</ol>
+<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
+<ol start="3">
+<li>修改首次加载的模型</li>
+</ol>
+<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
+</div></details>
+<h3 id="鼠标样式">鼠标样式</h3>
+<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
+<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
+<h3 id="樱花飘落效果">樱花飘落效果</h3>
+<h3 id="背景一图流">背景一图流</h3>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
+</div>
+<p>①<strong>设置背景</strong></p>
+<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
+<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
+<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
+<p>②<strong>引入相关样式</strong></p>
+<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
+<p>③<strong>增加插件脚本</strong></p>
+<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
+<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
+<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
+<h3 id="添加贡献日历">添加贡献日历</h3>
+<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
+<h3 id="留言板信封">留言板信封</h3>
+<h3 id="文章加密">文章加密</h3>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习三：控制流</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
     <content><![CDATA[<h1>二路分支 ：if 语句</h1>
@@ -551,102 +647,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>Butterfly 一些魔改美化</title>
-    <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
-</div>
-<h3 id="站点动态-title">站点动态 title</h3>
-<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="修改标题样式">修改标题样式</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
-<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
-<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
-<p>​</p>
-</div>
-<p><strong>①下载</strong></p>
-<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
-<p><code>npm uninstall hexo-helper-live2d</code></p>
-<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
-<p><strong>②设置绝对路径</strong></p>
-<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
-<p><code>/live2d-widget/</code></p>
-<p><strong>③引入</strong></p>
-<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
-<p><code>script(src='/live2d-widget/autoload.js')</code></p>
-<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-<p><strong>④自定义配置（随你）</strong></p>
-<ol>
-<li>修改看板娘的位置</li>
-</ol>
-<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
-具体在#waifu选择器下修改</p>
-<ol start="2">
-<li>修改聊天内容</li>
-</ol>
-<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
-<ol start="3">
-<li>修改首次加载的模型</li>
-</ol>
-<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
-</div></details>
-<h3 id="鼠标样式">鼠标样式</h3>
-<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
-<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
-<h3 id="樱花飘落效果">樱花飘落效果</h3>
-<h3 id="背景一图流">背景一图流</h3>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
-</div>
-<p>①<strong>设置背景</strong></p>
-<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
-<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
-<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
-<p>②<strong>引入相关样式</strong></p>
-<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
-<p>③<strong>增加插件脚本</strong></p>
-<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
-<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
-<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
-<h3 id="添加贡献日历">添加贡献日历</h3>
-<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
-<h3 id="留言板信封">留言板信封</h3>
-<h3 id="文章加密">文章加密</h3>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-        <category>Butterfly</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>美化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习四：数组</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h1>数组入门</h1>
@@ -720,107 +720,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </categories>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code><br>
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
-启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
-部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本<br>
-<code>hexo version</code></li>
-</ul>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>命令</tag>
       </tags>
   </entry>
   <entry>
@@ -1131,8 +1030,122 @@ CentOS<br>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>命令</tag>
         <tag>Linux</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code><br>
+清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
+启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
+部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本<br>
+<code>hexo version</code></li>
+</ul>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>命令</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -1301,6 +1314,20 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h1>概述</h1>
@@ -1398,36 +1425,9 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <category>VMware虚拟机</category>
       </categories>
       <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
         <tag>Ubuntu</tag>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1619,25 +1619,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/windows%20%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1>Git</h1>
@@ -1799,6 +1780,25 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>环境</tag>
         <tag>windows</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>windows 安装Git</title>
