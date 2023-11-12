@@ -3,49 +3,131 @@
   <entry>
     <title>API接口站</title>
     <url>/2023/11/12/API%E6%8E%A5%E5%8F%A3%E7%AB%99/</url>
-    <content><![CDATA[<h1>随机图类</h1>
-<ul>
-<li><a href="https://t.mwm.moe/">次元API-举个栗子 (mwm.moe)</a>    #功能多，丰富，自适应</li>
-<li><a href="https://www.loliapi.com/">主页 | LoliAPI</a>   #自适应</li>
-<li><a href="https://www.dmoe.cc/">樱花随机二次元图片API-樱花</a>   #好像用樱花的这个的人也挺多的</li>
-<li><a href="https://img.r10086.com/">樱道随机图片API ฅ^•ﻌ•^ฅ 喵呜🐾~ (r10086.com)</a>       #内容多</li>
-<li><a href="https://img.paulzzh.com/">Paulzzh – 东方Project随机图片API</a>   #东方随机图，全都是东方的图，图库总量也很大</li>
-<li><a href="https://api.likepoems.com/">如诗 - API接口文档 (likepoems.com)</a></li>
-<li><a href="https://api.asxe.vip/">星河随机图片API-Galaxy (asxe.vip)</a></li>
-<li><a href="https://api.horosama.com/">赫萝随机图片API-萌萌哒赫萝 (horosama.com)</a></li>
-<li><a href="https://imgapi.xl0408.top/index.php">超级小兔的随机图</a></li>
-<li><a href="https://tuapi.eees.cc/">自适应随机图片API - 支持HTTPS协议|随机动漫API|随机美女API|随机必应壁纸API|随机风景API (eees.cc)</a>     #有二次元图，三次元图，风景图和必应图，可以通过 category 选择type可以选择直接302跳转图片地址或者返回xml或者返回json等。</li>
-<li><a href="https://www.dujin.org/19203.html?ydreferer=aHR0cHM6Ly9ibG9nLmppeGlhb2IuY24v">缙哥哥的博客</a>    #原神随机图收录了数千张原神图片，还有特别大的那种（一张二三十兆）</li>
-</ul>
-<h1>综合类</h1>
-<ul>
-<li><a href="https://api.vvhan.com/">韩小韩API接口站 - 免费API数据接口调用服务平台 (vvhan.com)</a></li>
-<li><a href="http://dsyai.club/">欢迎访问复苏API (dsyai.club)</a></li>
-<li><a href="http://api.xn--7gqa009h.top/">看不透生活 - 提供免费接口调用平台 (xn–7gqa009h.top)</a></li>
-<li><a href="https://api.oick.cn/">零七生活API - 提供免费接口调用平台 (oick.cn)</a></li>
-<li><a href="https://tenapi.cn/">TenAPI - 免费提供API服务</a></li>
-<li><a href="https://www.mxnzp.com/">首页 - MXNZP.COM 穆仙念，人到中年，个人学习记录</a></li>
-<li><a href="https://api.ooomn.com/">云图API - 提供免费接口调用平台-免费API数据接口调用服务平台 (ooomn.com)</a></li>
-<li><a href="https://api.btstu.cn/">搏天api-免费api接口平台 (btstu.cn)</a></li>
-<li><a href="https://api.paugram.com/">保罗｜API (paugram.com)</a></li>
-</ul>
-<h1>表情</h1>
-<ul>
-<li><a href="https://emotion.xiaokang.me/#/">表情速查 (xiaokang.me)</a></li>
-<li><a href="https://github.com/lrhtony/BiliEmoji">GitHub - lrhtony/BiliEmoji: B站全表情收集，含付费表情，支持Valine、MiniValine、Waline等评论系统</a></li>
-<li><a href="https://waline.js.org/guide/features/emoji.html#%E9%A2%84%E8%AE%BE">表情选项卡 | Waline</a></li>
-</ul>
-<h1>参考</h1>
-<ul>
-<li><a href="https://blog.jixiaob.cn/?post=93">【持续更新】75个二次元、三次元随机图API接口分享及预览 - 赵苦瓜のBlog (jixiaob.cn)</a></li>
-</ul>
-]]></content>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, 密码错了，检查一下好吗～" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="3853977e3f87014df5b482e46d0f9f4779ad7d9cab68db5b887a32f73d3cb871">677ef50d06e2c4715af7b1d2b21c7aeb966220214ef633523351fbb6ff64c2de0bbf97236e8fa4dacf7874d1d59e8b297c721ac2f62eb05e77c61475d2e90b50d399e33136e82ac557743d1816bb40643c95f10df9f81770e2eac71e0c4e607d96981d5ffcd000b0138f1f037a7cd3c72f302e01d314bdc46175a25a96072dda790c05deac1ad6d49ffd3aa09853e1f0d13162cadf7aaa7b30ebf17436a18f843779d56446b48a4106d2982fa62e798bc987790fa52b6b1d40e9b1dd9aa11f893e1661dbaa3697d63c5091546dd3c34bfac9d269bce091dfc9f66c552eb8b17274c23a0cb07fce63f47d05c5dd2e5684341daa225773fe38077c8cd1e1a08a14aed859f165eeb22b0d4474edf062a8825719d1c3d4baaefd3b6bc79b6961422183f143286615de9f344077692a2dfbd7cfe3d7989820fa771f1148f7c6f7a88b20e04cc3f5487dc7a4411e07289fba3734a590717ed3c62c343bda21d5d7839056b6fc1c091ac92c87fcd9e5260ae72279343f6d45ccc5da93f855324a4b49406d7978c4833775f66a77ebdb2284fa02ef961d2686b529ad390172cb9b8de7681caf214cccc9e0e81d35b92ec08de676a7da309e1f6074b1bc3aee27912969643c28b18f97a5b16f8de96daddc4c6f0c8b32ceac284df6a070d025e714f303b5ab53d6b3d82d5f6306d90d99d7814b98f2396e61c2dae195a56bbffd92b8f10b6a89496dae44c43087c353e739fefbf5582b21d4fa7fefcb677bd6a9161e9be52f4eccc6089c706814a2925d38dbbaf7061ef79fc6b15f6713f8f293193c0ecfaae92dc7de2c1218de87c1030997877a227720f074f6a2dc075ad10deed911873000ceebb5a3b7f65644fb92489100ee2bcd902ebd7ce41792f330707cbbc3ee67723e43290984eadb2cd77451aa910a8cd931a53d3b13a8e865f739c946b3c2df871e3dd4efe6ec5dec0a1a053f7b8d214287d812144d454a5eb581fcf32fe6256d50c30b576cf24a4b5e4a4d786899e7f5826a0698b7cb0dacf1db6df08e2b5cf073c3a0e9f68b2ab29c27363bfae7aa9619b9cf0ace145b04093f9cfb4fa9c1abb8ea92cab11ee9236ae80d0b84009f2cd3881231b49d23db12a46da1c839a2015533fc74c4281c921e62a5a6f267070fd03edfd7fd1456aef24ee162e11b85c1440e47818ea6f69979b34c149c082de0a13ae6476b7e7685b794998ac7a7ecd468b7556a8a26fd4c87bf0c0e116523ace469aaaced0d3b04b344a1526fa6ed767d98d41d3bc3735f89ca56dcd9a76b2edca4ca2ef99433769654d42632a07dbd84d8c79246ac929f78c19f199e1a4a4fdc0dc6cbbc0301af8b4674a51cd4c52ade72e8a897b83a0a82185c8e0bd8dea33c4fdf510ac25578ea910551ba0df2ad347dda88974f77e20198c663b62c470b73f2f6c6ba2d2d1227776f4b81512dbae32d45f4e0ef9f7e4e96017e2da103ded3e7aa2dc9c0f8457b5d4b867e227310b4d44f2fb150f90dcf25ae5be1a4229f0d1a4875471511d87295052035944f1f0730a2fb7cac0d10703eba1568344e55e8bf1aec69245e8314c87495116512765117742eec391055c94bb06f7600a8be488f139fb0d5b076b15d3b1beea256c2f7b0be7440e235494a1dd288370a285006de3be02b0928828c0925a6e245fb2f67769a99f8badc05672820b368ffe846d0fb59d37a39ca351598d926ba38883911cb16f97d8b41ee065eca89089a81075912d80f161dcb2ccfb55e55b2776dca036aca93b0c86db2b37bec6e6d6bd39596c1b146237df368c01a6ff6f30cf77fbe6e3b9d7c79ba1cb3b1a2072356dd7604b4b3873588f7ed0856ed7daf8fcbf23dbcc479b22c72751abb4bc3939699ced6b3de1a34aad96f352cca2d54368fa3576d858a61c1611c4ce41c47270f4539e254396399d79193b6eaa42ab19a5ae431923f3e5c36774702a2bce64ecbaa0c56c2b8ceaa451c1e9437d432f082f6bd9908840cb425f89c14b5f2534fd1277f15e817e24f854bc39a0bc57d44d5780267cc91d3fc1075efc235476ff981a51b55f2d67ecac081fc2094b21e02652329157419a590070d0fcd1c50ea2efde4f9672fdd4724051e47abac53c5da48403bab538fd867d228335652f69d0ef6d2844903f07917751cd77f97da7a9aba638577326928f48d64bffceb2b29ffe134f96de4114664f3453c28c58de987be3fe5223a150e158e56b2ecef9f135443762b16fcc1b522c9e50b5cddcc8d6cac06d1e5ac3c93b696048f198381d26b1d8ab5b43d3d61cb197b6cadcc5e17e2ca87851f389237298914fe49b2e3e50ab417521396b487af16298b749fd2c13a296701fa7b32303b7d24ac7a45e510961388113c8af19d9c0b26dcf1c7487273b98c0a765b0e28ee754e27321bde7b1ade4ee4708399529415e39c3f7a72ce77f7b317848a9f07e3b6b1a393c13cab2bba0439d653dbc5088afd209c89df7e8d63e6912b8afe78a0463f056f4deffcea7c72eb6d988a0ab8eacebc82c997f50ff03bfcf6bdac0c9526bca52fbf7fc34d447c75bdf4012ac0330a00c9e1954aa37e71ab385ae7ddad10e8b94fd65fd4892452b9caf4e9f7b8f15108bf9890d5c2c85c5b1ad9cc3a5d49555f45962aa4da7c917968d40f39cd6bd4e4cc7b91f4ce7aed32e91f052c30f0a9ae42d0019a536e70d708c46761a61ff48799e1d49318d9b5b3a1134c0c80a8db38c76402ca8d3f5557ea745ed65cf978d6187d2621096aab8b32fc1c3bd56fed90332ec541d39f6f9310d06eb7a9a8e73bfc761779c668240a27aa9a6d2d50555e9a3d18310d6f95bb3ed9b4cfeb13e20a74c1843f4c4768969a5dee7d23483a8cc1501a10f5d0e37b1d151af3c88cb435127f6d98400f1e4fbacd1025fb88f453d0bc193cf44096105b40d56264890223cd7ff22a3d33797488839f362d1306c419fd9b0c62030f59eeffe3190652632c8b240c800bf8ff647b8fc72be42c815b6ba3be9ccba74bb86810ab517ce6aaaf0f2720acd1ec5776e904bc96bdeafbe6a6f8db05516092d8773a78e96ace5a90c350fe7da89fa777230db7490143fcfa730137ae047ee5bc1bc86fff4ef9fea57cfac65d67f0a11d877f05dbcfc735770e28b9cf489fbb5fd4fc58b11079f3a28644347658c469dbb2a6fe7daf33c0085f9e80b22cc8f8a0ce3ab51128b2a47e0b0588772d2f70ebb70f17b4e1185ac410f448e9289960198637eaaad59c0ad3cd57d675cae9ae82d7ffbdf6aa010ee0509bfef8510a3daf8611ee229563b4ad1365b1dba4f0bdcd4ef71ccd6c9358fca8c2be5a2459f9d3a21463fdaa3153afedac41f62a4a31fcbe02bce755149dc7d5b42edcf8bc35e1376f8c294bdc95bc6390852bfbf7c6271449e5cf7b40d229f3713334bb2c7c92cb263be3c4acd357706ec10f4dfc3466c1eadcff3dbf06fa2868c1bc06abf31781f88d44209b02c250a48ab738b2070566b3012a1c8e97098be673e8bc44601f3685b0051fce789085778b157b1c9f4b3b069481ff89cbe508772480abb76a8d154016ce0b3c72500a913fdae32a0b1bb0f427bdce552c105f535c610743e87fdc7aa992087064f0cd47b52761a6fec6cd5da6ce56a13d852730ec11d6104b9a5b24eb5f75b50f15fdcdb53e033e2212705523af2cdf656a4106e38e23e8513c0834984eb2b2f25a3c9b20f63d010e716ac8ed83c39e1d0039f7affa1dae07a25dc5df9e59b65972e3e0c141bb6ec7a16d750b03765f1bf4ee712a473d9155f33861106d258027410579de450289d749051adfe3b1e0432293eda8b03997d5d0b3ace10791850c099638b0e5ac00d3e7cd33009b1166884b7c343e8eb8838105b18ae1be67952bb26202ce91f7220c7a1cb658092ba95cb47c57c9eaf8b1a643b3bc1f4d7b5de3386bddd51efe3813defb095bdf9c07a79a080c623c7f2649c816bc2f2caba87a4b9616821438ec808872dfe9a5a69a6d3f6ad65b1561db24589ebd6dc7f89fc84d3da4774aeae916b079d30446e83ad4ca4364fab9dbc838aaa974fb286f6f5a7f74c0c0d0a413e0f59967ca2c18b53515a1f61196da90a26e8d0622a277c3854d93d51e96ad5f663737c3411dfc05415b176eb30763465939011490654e847e52e6639180f30da34c8e7c1d6faaab94dd77c66053cfcde95def9b3c558d690e288d2889a5e6417cb6d9db5537ea67368e4ea917737948c9c5aa729de96e03f582d4a83e2e63af51e8f749dc4cb8f42704cbe14a9a890bfc8604fe977eb7bcba32288917a856718f310e9919ca537b51cb14a9f9bdd631fbc9a4f216febd041bc89b3209b7892d92e436c10210491cf2730f066ed2d3a12418827d9c2c5f489d41191f8a1781d2c613c69f62756822b92b841d880ffe65</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, 这篇文章被加密了，请输入密码！</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>笔记</category>
         <category>记录</category>
       </categories>
       <tags>
         <tag>API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h1>多路分支：switch-case</h1>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>作用：
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+<h1>while 和 do…while 循环</h1>
+<h2 id="while">while</h2>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
+例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-…-while">do … while</h2>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h2 id="注意">注意</h2>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h1>for 循环</h1>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h1>break 与 continue</h1>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>goto 语句</h1>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -186,6 +268,142 @@
       <tags>
         <tag>Butterfly</tag>
         <tag>美化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h1>算术运算符</h1>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h1>关系运算符</h1>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h1>逻辑运算符</h1>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h1>位运算符</h1>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p>![[图片/c语言/运算符/1.png]]</p>
+<p><code>&gt;&gt;</code>            右移<br>
+![[图片/c语言/运算符/2.png]]</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h1>特殊运算符</h1>
+<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h2 id="复合运算符">复合运算符</h2>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h2 id="sizeof-运算符">sizeof 运算符</h2>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h2 id="return-运算符">return 运算符</h2>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优先级与结合性">优先级与结合性</h2>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+![[图片/c语言/运算符/3.png]]</p>
+<h2 id="逗号表达式">逗号表达式</h2>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -496,132 +714,9 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h1>算术运算符</h1>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h1>关系运算符</h1>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h1>逻辑运算符</h1>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h1>位运算符</h1>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p>![[图片/c语言/运算符/1.png]]</p>
-<p><code>&gt;&gt;</code>            右移<br>
-![[图片/c语言/运算符/2.png]]</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h1>特殊运算符</h1>
-<h2 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h2>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h2 id="复合运算符">复合运算符</h2>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h2 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h2>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h2 id="sizeof-运算符">sizeof 运算符</h2>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h2 id="return-运算符">return 运算符</h2>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="优先级与结合性">优先级与结合性</h2>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-![[图片/c语言/运算符/3.png]]</p>
-<h2 id="逗号表达式">逗号表达式</h2>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
+    <title>C语言学习六：数组与指针的结合</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
+    <content><![CDATA[<p>。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -719,202 +814,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
 <p><img src="https://s2.loli.net/2023/11/11/onIlTyfLhYXHcNb.png" alt="7"></p>
 <p><mark>注意：</mark><br>
 指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习六：数组与指针的结合</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
-    <content><![CDATA[<p>。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1>数组入门</h1>
-<h2 id="概念">概念</h2>
-<ol>
-<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
-<li>语法：<code>int arr [5]</code> ;</li>
-</ol>
-<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
-<ol start="3">
-<li><strong>初始化</strong></li>
-</ol>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
-<p><mark>注意：</mark><br>
-数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="字符数组">字符数组</h2>
-<ol>
-<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
-<li>初始化+引用：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-<h2 id="思考">思考</h2>
-<ol>
-<li>定义数组时没有初始化会怎么样？</li>
-</ol>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
-<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
-<ol start="2">
-<li>不完全初始化又会怎么样？</li>
-</ol>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-<ol start="3">
-<li>补充</li>
-</ol>
-<p><mark>注意：</mark></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>char buf[5]={1,2,3,4,5};</li>
-</ul>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-<ul>
-<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
-</ul>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</div></details>
-<h1>数组进阶</h1>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h1>多路分支：switch-case</h1>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>作用：
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-<h1>while 和 do…while 循环</h1>
-<h2 id="while">while</h2>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
-例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="do-…-while">do … while</h2>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h2 id="注意">注意</h2>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h1>for 循环</h1>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h1>break 与 continue</h1>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>goto 语句</h1>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1027,6 +926,82 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </categories>
       <tags>
         <tag>白嫖VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</li>
+<li>语法：<code>int arr [5]</code> ;</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/10/29/75RMpdDBbG9exP1.png" alt="1.png"></p>
+<ol start="3">
+<li><strong>初始化</strong></li>
+</ol>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/fTyecsj5tIPwGlX.png" alt="2.png"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/29/nQpWRqb5VmwMA3H.png" alt="3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>概念： 专门用来存放字符类型数据的数组，称为字符数组</li>
+<li>初始化+引用：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+<h2 id="思考">思考</h2>
+<ol>
+<li>定义数组时没有初始化会怎么样？</li>
+</ol>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/10/29/8yuV2v5nqOdSPU1.png" alt="4.png"></p>
+<ol start="2">
+<li>不完全初始化又会怎么样？</li>
+</ol>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+<ol start="3">
+<li>补充</li>
+</ol>
+<p><mark>注意：</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</div></details>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -1317,17 +1292,9 @@ CentOS<br>
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
     <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
   </entry>
   <entry>
     <title>Ubuntu 美化</title>
@@ -1495,9 +1462,31 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
   </entry>
   <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
@@ -1597,23 +1586,9 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
-        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1820,109 +1795,218 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>zram与swap交换内存</title>
-    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<h1>必看</h1>
-<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
-<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
-<li>zram部分没用过，不知道，直接抄下来的</li>
-<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
-<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
-<li>一般来说，能不用swap更好</li>
-<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
-<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
-</ol>
+    <title>VS Code配置</title>
+    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
 </div>
-<h2 id="zram">zram</h2>
-<p><strong>介绍</strong><br>
-zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
-<p>一、创建zram交换分区</p>
+<blockquote>
+<p>vs 配置参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先先安装中文扩展：搜索 Chinese</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
+<h1>配置 C/C++ 语言环境</h1>
+<h2 id="安装MinGW-w64">安装MinGW-w64</h2>
+<p>见安装 MinGW-w64部分：</p>
+<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
+<blockquote>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
+<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
+</blockquote>
+<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
+<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
+</li>
+</ul>
+</blockquote>
 <ol>
-<li>加载 zram 内核模块，并创建一个 zram设备。</li>
+<li><strong>安装必要扩展</strong></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>C/C++</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
+<ul>
+<li>其他扩展</li>
+</ul>
+<p>待写。。。</p>
 <ol start="2">
-<li>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</li>
+<li><strong>配置</strong></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>关闭当前正在使用的 zram 设备。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>重置 zram 设备，清除其中所有数据。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>格式化 zram 设备，以便将其用作交换空间。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>打开 zram 设备，并将其设置为默认的交换空间。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
-<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
-<h2 id="swap">swap</h2>
-<p><strong>介绍</strong>：<br>
-Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。<br>
-<strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
-<p>一、<strong>创建swap交换分区</strong></p>
+<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
+<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello. c 文件中，保存</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>然后会自动创建文件</p>
+<p>⑤配置调试设置文件：launch.json</p>
+<p>点击左边调试，点击创建 launch.json 文件</p>
+<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
+<p>选择 C++(GDB/LLDB)</p>
+<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
+<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来自Chatgpt的解释：</p>
+<p>一、program变量</p>
 <ol>
-<li>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</li>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>创建交换空间大小1G，可自行修改：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>授予权限</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>启用交换内存</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>开机启用交换空间</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
-<p>二、<strong>删除swap交换分区</strong>（没用过）</p>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+<p>二、cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
+</div></details>
+<hr>
+<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
+<blockquote>
+<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
+</blockquote>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+</blockquote>
 <ol>
-<li>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</li>
+<li><strong>安装必要扩展</strong></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+<ul>
+<li>C/C++</li>
+<li>其他扩展：</li>
+</ul>
+<p>待写。。。</p>
 <ol start="2">
-<li>关闭要删除的交换分区。 运行以下命令：</li>
+<li><strong>配置</strong></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
-<ol start="3">
-<li>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
-<ol start="4">
-<li>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</li>
-</ol>
+<p>①新建项目仓库，比如 CPP 文件夹<br>
+②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello.cpp 文件中，保存</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
+<p>选择 g++</p>
+<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>⑤配置调试设置文件：launch.json<br>
+参考上面 “<code>配置 C 语言环境</code>” 部分</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
+</div></details>
+<h4 id="参考">参考</h4>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+<hr>
+<h1>配置 PHP 环境</h1>
+<h2 id="安装-PHP">安装 PHP</h2>
+<p>见安装 PHP 部分：<br>
+<a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h2 id="设置-vscode-里的环境-2">设置 vscode 里的环境</h2>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>Linux</category>
+        <category>vs code</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>vs</tag>
+        <tag>vs code</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>搭建图床系列</title>
+    <url>/2023/10/31/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<h1>搭建简单图床 EasyImage</h1>
+<ul>
+<li><a href="https://www.nodeseek.com/post-13654-1">自建图床良心推荐！10分钟搭建一个简单图床EasyImage 简单到无需数据库</a></li>
+<li><a href="https://github.com/icret/EasyImages2.0">GitHub - icret/EasyImages2.0: 简单图床 - 一款功能强大无数据库的图床 2.0版</a></li>
+<li><a href="https://icret.github.io/EasyImages2.0/#/">EasyImage2.0 简单图床</a></li>
+</ul>
+<h1>搭建 Telegraph-Image 图床</h1>
+<ul>
+<li><a href="https://github.com/cf-pages/Telegraph-Image">GitHub - cf-pages/Telegraph-Image: Image Hosting solution, Flickr/imgur alternative, make it easy for users to share their images. Using Cloudflare Pages and Telegraph.</a></li>
+<li><a href="https://www.nodeseek.com/post-734-1">【更新】Telegraph-Image免费自建图床新增后台图片管理功能</a></li>
+</ul>
+<h1>搭建 tgState 图床</h1>
+<ul>
+<li><a href="https://github.com/csznet/tgState">GitHub - csznet/tgState: 使用Telegram作为存储的文件外链系统，可以作为图床使用，也可以作为网盘使用。</a></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>windows 安装Git</title>
@@ -2138,6 +2222,111 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zram与swap交换内存</title>
+    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<h1>必看</h1>
+<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
+<li>zram部分没用过，不知道，直接抄下来的</li>
+<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
+<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
+<li>一般来说，能不用swap更好</li>
+<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
+<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
+</ol>
+</div>
+<h2 id="zram">zram</h2>
+<p><strong>介绍</strong><br>
+zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
+<p>一、创建zram交换分区</p>
+<ol>
+<li>加载 zram 内核模块，并创建一个 zram设备。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>关闭当前正在使用的 zram 设备。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>重置 zram 设备，清除其中所有数据。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>格式化 zram 设备，以便将其用作交换空间。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>打开 zram 设备，并将其设置为默认的交换空间。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
+<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+<h2 id="swap">swap</h2>
+<p><strong>介绍</strong>：<br>
+Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。<br>
+<strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
+<p>一、<strong>创建swap交换分区</strong></p>
+<ol>
+<li>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>创建交换空间大小1G，可自行修改：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>授予权限</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>启用交换内存</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>开机启用交换空间</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>二、<strong>删除swap交换分区</strong>（没用过）</p>
+<ol>
+<li>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>关闭要删除的交换分区。 运行以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+<ol start="3">
+<li>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
+<ol start="4">
+<li>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2357,220 +2546,6 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
         <tag>Butterfly</tag>
         <tag>美化</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>VS Code配置</title>
-    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
-</div>
-<blockquote>
-<p>vs 配置参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>首先先安装中文扩展：搜索 Chinese</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/19/j4qMa23dbBrgl9n.png" alt="vs"></p>
-<h1>配置 C/C++ 语言环境</h1>
-<h2 id="安装MinGW-w64">安装MinGW-w64</h2>
-<p>见安装 MinGW-w64部分：</p>
-<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h2 id="设置-vscode-里的环境">设置 vscode 里的环境</h2>
-<blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json         				    <strong># launch.json可以不创建</strong></p>
-<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程下面给出啊，注意更改路径）</p>
-</blockquote>
-<h3 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h3>
-<h4 id="配置-C-语言环境">配置 C 语言环境</h4>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li>
-<p><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></p>
-</li>
-<li>
-<p><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></p>
-</li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/19/gQoljaBZ54xGi1T.png" alt="C1"></p>
-<ul>
-<li>其他扩展</li>
-</ul>
-<p>待写。。。</p>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如  <code>C </code> 文件夹</p>
-<p>②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello. c 文件中，保存</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/S9ZO3whatxWbe2d.png" alt="C-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>然后会自动创建文件</p>
-<p>⑤配置调试设置文件：launch.json</p>
-<p>点击左边调试，点击创建 launch.json 文件</p>
-<p><img src="https://s2.loli.net/2023/10/19/96fFJKNYtQ7l2Ma.png" alt="C-3"></p>
-<p>选择 C++(GDB/LLDB)</p>
-<p><img src="https://s2.loli.net/2023/10/19/PetL5coYx2WTpZC.png" alt="C-4"></p>
-<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>来自Chatgpt的解释：</p>
-<p>一、program变量</p>
-<ol>
-<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
-<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
-</ul>
-</li>
-<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
-<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
-</ul>
-</li>
-</ol>
-<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
-<p>二、cwd变量</p>
-<ul>
-<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
-<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
-</ul>
-<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
-<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
-</div></details>
-<hr>
-<h4 id="配置-C-语言环境-2">配置 C++ 语言环境</h4>
-<blockquote>
-<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
-</blockquote>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-</blockquote>
-<ol>
-<li><strong>安装必要扩展</strong></li>
-</ol>
-<ul>
-<li>C/C++</li>
-<li>其他扩展：</li>
-</ul>
-<p>待写。。。</p>
-<ol start="2">
-<li><strong>配置</strong></li>
-</ol>
-<p>①新建项目仓库，比如 CPP 文件夹<br>
-②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello.cpp 文件中，保存</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://s2.loli.net/2023/10/19/Id4VPFJjlznZGUe.png" alt="CPP-1"></p>
-<p>选择 g++</p>
-<p><img src="https://s2.loli.net/2023/10/19/6pTlOh7y5i9mdXg.png" alt="CPP-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>⑤配置调试设置文件：launch.json<br>
-参考上面 “<code>配置 C 语言环境</code>” 部分</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
-</div></details>
-<h4 id="参考">参考</h4>
-<ul>
-<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
-<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-<hr>
-<h1>配置 PHP 环境</h1>
-<h2 id="安装-PHP">安装 PHP</h2>
-<p>见安装 PHP 部分：<br>
-<a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h2 id="设置-vscode-里的环境-2">设置 vscode 里的环境</h2>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>vs code</category>
-      </categories>
-      <tags>
-        <tag>vs</tag>
-        <tag>vs code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建图床系列</title>
-    <url>/2023/10/31/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<h1>搭建简单图床 EasyImage</h1>
-<ul>
-<li><a href="https://www.nodeseek.com/post-13654-1">自建图床良心推荐！10分钟搭建一个简单图床EasyImage 简单到无需数据库</a></li>
-<li><a href="https://github.com/icret/EasyImages2.0">GitHub - icret/EasyImages2.0: 简单图床 - 一款功能强大无数据库的图床 2.0版</a></li>
-<li><a href="https://icret.github.io/EasyImages2.0/#/">EasyImage2.0 简单图床</a></li>
-</ul>
-<h1>搭建 Telegraph-Image 图床</h1>
-<ul>
-<li><a href="https://github.com/cf-pages/Telegraph-Image">GitHub - cf-pages/Telegraph-Image: Image Hosting solution, Flickr/imgur alternative, make it easy for users to share their images. Using Cloudflare Pages and Telegraph.</a></li>
-<li><a href="https://www.nodeseek.com/post-734-1">【更新】Telegraph-Image免费自建图床新增后台图片管理功能</a></li>
-</ul>
-<h1>搭建 tgState 图床</h1>
-<ul>
-<li><a href="https://github.com/csznet/tgState">GitHub - csznet/tgState: 使用Telegram作为存储的文件外链系统，可以作为图床使用，也可以作为网盘使用。</a></li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>随身WiFi刷debian</title>
