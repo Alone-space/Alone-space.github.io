@@ -1,102 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Butterfly 一些魔改美化</title>
-    <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
-</div>
-<h3 id="站点动态-title">站点动态 title</h3>
-<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="修改标题样式">修改标题样式</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
-<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
-<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
-</div></details>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
-<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
-<p>​</p>
-</div>
-<p><strong>①下载</strong></p>
-<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
-<p><code>npm uninstall hexo-helper-live2d</code></p>
-<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
-<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
-<p><strong>②设置绝对路径</strong></p>
-<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
-<p><code>/live2d-widget/</code></p>
-<p><strong>③引入</strong></p>
-<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
-<p><code>script(src='/live2d-widget/autoload.js')</code></p>
-<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-<p><strong>④自定义配置（随你）</strong></p>
-<ol>
-<li>修改看板娘的位置</li>
-</ol>
-<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
-具体在#waifu选择器下修改</p>
-<ol start="2">
-<li>修改聊天内容</li>
-</ol>
-<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
-<ol start="3">
-<li>修改首次加载的模型</li>
-</ol>
-<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
-</div></details>
-<h3 id="鼠标样式">鼠标样式</h3>
-<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
-<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
-<h3 id="樱花飘落效果">樱花飘落效果</h3>
-<h3 id="背景一图流">背景一图流</h3>
-<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
-</div>
-<p>①<strong>设置背景</strong></p>
-<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
-<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
-<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
-<p>②<strong>引入相关样式</strong></p>
-<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
-<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
-<p>③<strong>增加插件脚本</strong></p>
-<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
-<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
-<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
-<h3 id="添加贡献日历">添加贡献日历</h3>
-<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
-<h3 id="留言板信封">留言板信封</h3>
-<h3 id="文章加密">文章加密</h3>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-        <category>Butterfly</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>美化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习一：数据类型</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1>数据类型</h1>
@@ -404,113 +308,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h1>多路分支：switch-case</h1>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>作用：
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-<h1>while 和 do…while 循环</h1>
-<h2 id="while">while</h2>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
-例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="do-…-while">do … while</h2>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h2 id="注意">注意</h2>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h1>for 循环</h1>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h1>break 与 continue</h1>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>goto 语句</h1>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习二：运算符</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h1>算术运算符</h1>
@@ -647,6 +444,222 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Butterfly 一些魔改美化</title>
+    <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
+</div>
+<h3 id="站点动态-title">站点动态 title</h3>
+<p>站点动态 title 是通过 js 监测是否聚焦于当前页面，从而替换标签显示内容。</p>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>①在 [Blogroot]\themes\butterfly\source\js\ 目录下新建 title.js:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//动态标题</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">OriginTitile</span> = <span class="variable language_">document</span>.<span class="property">title</span>;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">hidden</span>) &#123;</span><br><span class="line">        <span class="comment">//离开当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;w(ﾟДﾟ)w 不要走！再看看嘛！&#x27;</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//返回当前页面时标签显示内容</span></span><br><span class="line">        <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;♪(^∇^*)欢迎回来！&#x27;</span> + <span class="title class_">OriginTitile</span>;</span><br><span class="line">        <span class="comment">//两秒后变回正常标题</span></span><br><span class="line">        titleTime = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">document</span>.<span class="property">title</span> = <span class="title class_">OriginTitile</span>;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>②在 [Blogroot]_config.butterfly.yml 的 inject 配置项添加引入，此处因为这是个独立的 js，而且体量极小，所以可以添加 async 异步加载标签：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">head:</span><br><span class="line">  # - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span><br><span class="line">bottom:</span><br><span class="line">  # - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span><br><span class="line">  - &lt;script async src=&quot;/js/title.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="修改标题样式">修改标题样式</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>1111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><p>在 Blog/themes/butterfly/source/css 文件下新建 css 文件，并命名为 custom.css (命名按照自己喜好去命名，只需在主题配置文件_config.butterfly.yml 中引入对应的 css 文件即可)，将以下代码复制到新建的 custom.css 中。</p>
+<p>如果想自行修改标题样式的话，将 content: ‘\f0c1’; 中的内容换成自己想要的即可，如要添加动画，参考 animation: avatar_turn_around 1s linear infinite;。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#post</span> <span class="selector-class">.post-outdate-notice</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-class">.fontawesomeIcon</span>,</span><br><span class="line"><span class="selector-class">.note</span><span class="selector-pseudo">:not</span>(<span class="selector-class">.no-icon</span>)<span class="selector-pseudo">::before</span>,</span><br><span class="line">hr<span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-variant</span>: normal;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&#x27;Font Awesome 5 Free&#x27;</span>;</span><br><span class="line">    <span class="attribute">text-rendering</span>: auto;</span><br><span class="line">    -webkit-<span class="attribute">font-smoothing</span>: antialiased</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span>,</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f47466</span>;</span><br><span class="line">    <span class="comment">/* 回形针 */</span></span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;\f0c1&#x27;</span>;  <span class="comment">/* 若要使用风车效果，请注释这一行 */</span></span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1</span>;</span><br><span class="line">    -webkit-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -moz-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -o-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    -ms-<span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="attribute">transition</span>: all .<span class="number">2s</span> ease-out;</span><br><span class="line">    <span class="comment">/* 若要使用风车效果，请去掉下面的注释 */</span></span><br><span class="line">    <span class="comment">/* content: &#x27;\f863&#x27;; </span></span><br><span class="line"><span class="comment">    animation: avatar_turn_around 1s linear infinite; */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.3rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">5rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h1</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.4rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">45rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">9rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.5rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1.2rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">4rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">8rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.4rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">1rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">35rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">7rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.3rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span> <span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -.<span class="number">8rem</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - .<span class="number">3rem</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: .<span class="number">6rem</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#article-container</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">1.2rem</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="添加卡通人物（加强版看板娘）">添加卡通人物（加强版看板娘）</h3>
+<details class="toggle" ><summary class="toggle-button" style="">效果预览</summary><div class="toggle-content"><p>111</p>
+</div></details>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？<em>kali</em>._的博客-CSDN博客</a></p>
+<p>相关链接 ：①张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>​					②可自建后端 API<a href="https://github.com/fghrsh/live2d_api">GitHub - fghrsh/live2d_api: Live2D 看板娘插件 (https://www.fghrsh.net/post/123.html) 上使用的后端 API</a></p>
+<p>​</p>
+</div>
+<p><strong>①下载</strong></p>
+<p><strong>如果已经安装过官方提供的live2d，需要先卸载！</strong></p>
+<p><code>npm uninstall hexo-helper-live2d</code></p>
+<p>然后下载经过张书樵大神魔改后的项目：<a href="https://github.com/stevenjoezhang/live2d-widget">GitHub - stevenjoezhang/live2d-widget: 把萌萌哒的看板娘抱回家 (ノ≧∇≦)ノ | Live2D widget for web platform</a></p>
+<p>下载解压到：<code>themes\butterfly\source\</code>文件夹下</p>
+<p><strong>②设置绝对路径</strong></p>
+<p><strong>打开项目目录进入修改autoload.js文件，将live2d_path设为自己的路径，一般没什么太大变化都为</strong>：</p>
+<p><code>/live2d-widget/</code></p>
+<p><strong>③引入</strong></p>
+<p>打开butterfly下的layout下的includes目录，点击修改head.pug文件，在文件末尾粘贴：</p>
+<p><code>script(src='/live2d-widget/autoload.js')</code></p>
+<p>最后在主题配置文件下即butterfly下的_config.yml（如果配置了 _config.butterfly.yml，则使用这个配置文件）中开启看板娘：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<p><strong>④自定义配置（随你）</strong></p>
+<ol>
+<li>修改看板娘的位置</li>
+</ol>
+<p>在live2d-widget目录下的waifu.css中可以修改画布位置使得看板娘显示在你指定的位置<br>
+具体在#waifu选择器下修改</p>
+<ol start="2">
+<li>修改聊天内容</li>
+</ol>
+<p>可以在live2d-widget文件夹下的waifu-tips.json文件中修改，进去就可以看到大量的文本内容</p>
+<ol start="3">
+<li>修改首次加载的模型</li>
+</ol>
+<p>如果你不喜欢默认的第一个模型，可以指定首次加载的模型，具体配置在live2d-widget文件夹下的src/index.js中的大约133行，原作者也在这里注释了模型的ID，默认为1，后面的模型依次递增(待补充)</p>
+</div></details>
+<h3 id="鼠标样式">鼠标样式</h3>
+<h3 id="鼠标-字跟随掉落效果">鼠标 * 字跟随掉落效果</h3>
+<h3 id="星空背景和流星特效">星空背景和流星特效</h3>
+<h3 id="樱花飘落效果">樱花飘落效果</h3>
+<h3 id="背景一图流">背景一图流</h3>
+<details class="toggle" ><summary class="toggle-button" style="">查看步骤</summary><div class="toggle-content"><div class="note info simple"><p>参考教程：<a href="https://yuqi.fun/posts/f7d3fad8.html">Butterfly主题 一图流背景与顶部图修改 | 与亓のBlog (yuqi.fun)</a></p>
+</div>
+<p>①<strong>设置背景</strong></p>
+<p>这个是 <a href="https://butterfly.js.org/">Butterfly</a> 自带的功能，修改主题的配置文件 <code>_config.butterfly.yml</code>。</p>
+<p>编辑 <code>index_img</code>、<code>background</code>、<code>footer_bg</code> 选项。</p>
+<p>设置网站背景，并将主页顶部图和页脚背景改为透明。(需要将以下示例地址替换为自己的图片地址。可以用一张具体的图片，也可以用随机图api，随机显示图片)</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Image (圖片設置)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># The banner image of home page</span><br><span class="line">index_img: transparent</span><br><span class="line"></span><br><span class="line"># Beautify/Effect (美化/效果)</span><br><span class="line"># --------------------------------------</span><br><span class="line"></span><br><span class="line"># Website Background (設置網站背景)</span><br><span class="line"># can set it to color or image (可設置圖片 或者 顔色)</span><br><span class="line"># The formal of image: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line">background: url(http://xxxxxx.com/xxx.jpg)</span><br><span class="line"></span><br><span class="line"># Footer Background</span><br><span class="line">footer_bg: transparent</span><br></pre></td></tr></table></figure>
+<p>②<strong>引入相关样式</strong></p>
+<p>新建一个文件，位于 <code>source/css/modify.styl</code>，并增加以下内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import &#x27;nib&#x27;</span><br><span class="line"></span><br><span class="line">// 顶部图</span><br><span class="line">#page-header</span><br><span class="line">  &amp;, &amp;:before</span><br><span class="line">    background: transparent !important</span><br><span class="line">  &amp;.post-bg, &amp;.not-home-page</span><br><span class="line">    height: 280px !important</span><br><span class="line">  #post-info</span><br><span class="line">    bottom: 40px !important</span><br><span class="line">  #page-site-info</span><br><span class="line">    top: 140px !important</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    &amp;.not-home-page</span><br><span class="line">      height: 200px !important</span><br><span class="line">    #post-info</span><br><span class="line">      bottom: 10px !important</span><br><span class="line">    #page-site-info</span><br><span class="line">      top: 100px !important</span><br><span class="line"></span><br><span class="line">.top-img</span><br><span class="line">  height: 250px</span><br><span class="line">  margin: -50px -40px 50px</span><br><span class="line">  border-top-left-radius: inherit</span><br><span class="line">  border-top-right-radius: inherit</span><br><span class="line">  background-position: center center</span><br><span class="line">  background-size: cover</span><br><span class="line">  transition: all 0.3s</span><br><span class="line"></span><br><span class="line">  @media screen and (max-width: 768px)</span><br><span class="line">    height: 230px</span><br><span class="line">    margin: -36px -14px 36px</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    filter: brightness(0.8)</span><br><span class="line"></span><br><span class="line">// 页脚</span><br><span class="line">#footer:before</span><br><span class="line">  background-color: alpha(#FFF, .5)</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    background-color: alpha(#000, .5)</span><br><span class="line"></span><br><span class="line">#footer-wrap, #footer-wrap a</span><br><span class="line">  color: #111</span><br><span class="line">  transition: unset</span><br><span class="line"></span><br><span class="line">  [data-theme=&#x27;dark&#x27;] &amp;</span><br><span class="line">    color: var(--light-grey)</span><br></pre></td></tr></table></figure>
+<p>在主题配置文件 <code>_config.butterfly.yml</code> 的 <code>inject.head</code> 引入样式。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># Inject</span><br><span class="line"># Insert the code to head (before &#x27;&lt;/head&gt;&#x27; tag) and the bottom (before &#x27;&lt;/body&gt;&#x27; tag)</span><br><span class="line"># 插入代码到头部 &lt;/head&gt; 之前 和 底部 &lt;/body&gt; 之前</span><br><span class="line">inject:</span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/modify.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p><code>modify.styl</code> 会被 Hexo 渲染成 <code>modify.css</code> 文件，所以此处应为 <code>modify.css</code>。</p>
+<p>③<strong>增加插件脚本</strong></p>
+<p>因为使用了 <code>cheerio</code> 来解析 HTML，所以需要先安装此依赖。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install cheerio</span><br></pre></td></tr></table></figure>
+<p>新建一个文件，位于 <code>scripts/modify.js</code>，并增加以下内容。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> cheerio = <span class="built_in">require</span>(<span class="string">&quot;cheerio&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在页面插入新顶部图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">cheerio.Root</span>&#125; $ Root</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">insertTopImg</span>(<span class="params">$</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> header = $(<span class="string">&quot;#page-header&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (header.<span class="property">length</span> === <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> background = header.<span class="title function_">css</span>(<span class="string">&quot;background-image&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (!background) <span class="keyword">return</span>;</span><br><span class="line">  $(<span class="string">&quot;#post, #page, #archive, #tag, #category&quot;</span>).<span class="title function_">prepend</span>(</span><br><span class="line">    <span class="string">`&lt;div class=&quot;top-img&quot; style=&quot;background-image: <span class="subst">$&#123;background&#125;</span>;&quot;&gt;&lt;/div&gt;`</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;after_render:html&quot;</span>, <span class="keyword">function</span> (<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> $ = cheerio.<span class="title function_">load</span>(str, &#123;</span><br><span class="line">    <span class="attr">decodeEntities</span>: <span class="literal">false</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="title function_">insertTopImg</span>($);</span><br><span class="line">  <span class="keyword">return</span> $.<span class="title function_">html</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="顶部导航栏美化">顶部导航栏美化</h3>
+<h3 id="基于-Butterfly-的外挂标签引入">基于 Butterfly 的外挂标签引入</h3>
+<h3 id="添加贡献日历">添加贡献日历</h3>
+<h3 id="键入在线聊天功能">键入在线聊天功能</h3>
+<h3 id="留言板信封">留言板信封</h3>
+<h3 id="文章加密">文章加密</h3>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h1>多路分支：switch-case</h1>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>作用：
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+<h1>while 和 do…while 循环</h1>
+<h2 id="while">while</h2>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/2vIybwscVKpndeo.png" alt="1.png"><br>
+例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-…-while">do … while</h2>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/10/29/MSGydpxakbJWgZ2.png" alt="2.png"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h2 id="注意">注意</h2>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h1>for 循环</h1>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h1>break 与 continue</h1>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>goto 语句</h1>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习六：数组与指针的结合</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
+    <content><![CDATA[<p>。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h1>指针入门</h1>
@@ -734,19 +747,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <p><img src="https://s2.loli.net/2023/11/11/onIlTyfLhYXHcNb.png" alt="7"></p>
 <p><mark>注意：</mark><br>
 指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习六：数组与指针的结合</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
-    <content><![CDATA[<p>。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -938,6 +938,107 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code><br>
+新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
+例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code><br>
+清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
+启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
+部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本<br>
+<code>hexo version</code></li>
+</ul>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux常用命令</title>
     <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1>常用命令</h1>
@@ -1119,109 +1220,8 @@ CentOS<br>
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>命令</tag>
         <tag>Linux</tag>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code><br>
-新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>
-例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code><br>
-清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s<br>
-启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d<br>
-部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本<br>
-<code>hexo version</code></li>
-</ul>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>命令</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1390,11 +1390,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>VMware Workstation Pro教程一：安装软件</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
@@ -1405,20 +1400,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1525,23 +1506,9 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>VS Code配置</title>
@@ -1738,219 +1705,254 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>windows 安装Git</title>
-    <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
-    <content><![CDATA[<h1>一、windows 安装</h1>
-<h2 id="官网下载安装包：-Git-Downloading-Package"><strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h2>
-<p><img src="https://s2.loli.net/2023/10/17/DjJWMXn13P9l2RE.png" alt="git1"></p>
-<h2 id="安装："><strong>安装：</strong></h2>
-<h3 id="选择-Git-的安装路径：">选择 Git 的安装路径：</h3>
-<p><img src="https://s2.loli.net/2023/10/17/2ZBUPXa5YyQJFnI.png" alt="git2"></p>
-<h3 id="选择安装组件">选择安装组件</h3>
-<p><img src="https://s2.loli.net/2023/10/17/zHNxmc1utWTp5XU.png" alt="git3"></p>
-<ul>
-<li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
-<li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
-可以右键选择使用 Git Bash 和 Git GUI 两种方式的客户端</li>
-<li>Git LFS （Large File Support） 大文件支持，推荐勾选</li>
-<li>Associate .git* configuration files with the default text editor 关联.git 后缀文件，推荐勾选</li>
-<li>Associate .sh files to be run with Bash 关联<code>.sh</code> 文件，推荐勾选</li>
-<li>Check daily for Git for Windows updates 每天检查版本更新，不推荐勾选</li>
-<li>(NEW!) Add a Git Bash Profile to Windows Terminal 将 Git Bash 添加到 Windows Terminal 中推荐勾</li>
-<li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
-</ul>
-<h3 id="创建菜单文件夹">创建菜单文件夹</h3>
-<p><img src="https://s2.loli.net/2023/10/17/t3WmPdphzZNI5Ej.png" alt="git4"></p>
-<blockquote>
-<p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
-</blockquote>
-<h3 id="选择-Git-默认编辑器">选择 Git 默认编辑器</h3>
-<p>Git 安装程序里面内置了10种编辑器供你挑选，比如 Atom、Notepad、Notepad++、Sublime Text、Visual Studio Code、Vim 等等，默认的是 Vim ，选择 Vim 后可以直接进行到下一步，但是 Vim 是纯命令行，操作有点难度，需要学习。如果选其他编辑器，则还需要去其官网安装后才能进行下一步。</p>
-<blockquote>
-<p>本教程选择 Vim 编辑器</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/17/3x4BvnjOhM5iyL2.png" alt="git5"></p>
-<h3 id="决定初始化新项目（仓库）的主干名字">决定初始化新项目（仓库）的主干名字</h3>
-<p><img src="https://s2.loli.net/2023/10/17/WxCkX2EUd3TpcDZ.png" alt="git6"></p>
-<blockquote>
-<p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
-</blockquote>
-<h3 id="调整你的-path-环境变量">调整你的 path 环境变量</h3>
-<ul>
-<li>
-<p>第一种是仅从 Git Bash 使用 Git。这个的意思就是你只能通过 Git 安装后的 Git Bash 来使用 Git ，其他的什么命令提示符啊等第三方软件都不行。</p>
-</li>
-<li>
-<p>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</p>
-</li>
-<li>
-<p>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</p>
-</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/10/17/gU4oXG6DnwvVj1P.png" alt="git7"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
-</div></details>
-<h3 id="选择-SSH-执行文件">选择 SSH 执行文件</h3>
-<blockquote>
-<p>勾选默认即可</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/10/17/m4Ef3wodubW52FJ.png" alt="git8"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
-<h3 id="选择-HTTPS-后端传输">选择 HTTPS 后端传输</h3>
-<p><img src="https://s2.loli.net/2023/10/17/tk6W7EwBq4jxQGI.png" alt="git9"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">	</span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
-<p>这两种选项有什么区别：<br>
-来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
-<blockquote>
-<p>如果在具有企业管理证书的组织中使用 Git，则将需要使用安全通道。如果你仅使用 Git 来访问公共存储库（例如 GitHub ），或者你的组织不管理自己的证书，那么使用 SSL 后端（它们只是同一协议的不同实现）就可以了。</p>
-</blockquote>
-<p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
-<h3 id="配置行尾符号转换">配置行尾符号转换</h3>
-<p><img src="https://s2.loli.net/2023/10/17/kXEIPRAartxVjDn.png" alt="git10"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>这三种选择分别是：</strong><br>
-<code>签出 Windows 样式，提交 Unix 样式的行结尾。</code><br>
-<code>按原样签出，提交Unix样式的行结尾。</code><br>
-<code>按原样签出，按原样提交。</code></p>
-</blockquote>
-<p><strong>更多：</strong></p>
-<p>那 Windows 样式和 Unix 样式到底有什么区别呢？引用《<a href="https://book.douban.com/subject/26462816/">GitHub入门与实践</a>》第 50 页内容</p>
-<blockquote>
-<p>GitHub 中公开的代码大部分都是以 Mac 或 Linux 中的 LF（Line Feed）换行。然而，由于 Windows 中是以 CRLF（Carriage Return+ Line Feed）换行的，所以在非对应的编辑器中将不能正常显示。<br>
-Git 可以通过设置自动转换这些换行符。使用 Windows 环境的各位，请选择推荐的 “Checkout Windows-style，commit Unix-style line endings” 选项。换行符在签出时会自动转换为 CRLF，在提交时则会自动转换为 LF .</p>
-</blockquote>
-<p>上面说 Mac 、Linux、Unix 的 Line Feed ，翻译过来就是换行符，用 “\n” 表示，换行符 “\n” 的 ASCII 值为 10；<br>
-Windows 的是 Carriage Return+ Line Feed（回车+换行），用 “\r\n” 表示，回车符 “\r” 的 ASCII 值为 13；<br>
-这上下两者是不一样的。<br>
-所以这就需要转换了，至于为什么选第一项？<br>
-这还用问吗？<strong><code>我们现在的教程就是介绍怎么安装 Windows 版 Git，肯定选第一项啦。</code></strong><br>
-至于 “回车”（carriage return）和 “换行”（line feed）这两个概念的来历和区别？<br>
-引用一下阮一峰老师博客的部分内容</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打 10 个字符。但是它有一个问题，就是打字机打完一行换行的时候，要用去 0.2 秒，正好可以打两个字符。要是在这 0.2 秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做&quot;回车&quot;，告诉打字机把打印头定位在左边界；另一个叫做&quot;换行&quot;，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>更多资料参考：<br>
-腾讯云 - 换行符‘\n’和回车符‘\r’的区别？[ <a href="https://cloud.tencent.com/developer/article/1353286">https://cloud.tencent.com/developer/article/1353286</a> ]<br>
-知乎 - 为什么会用\r\n 两个字符表示换行？[ <a href="https://www.zhihu.com/question/29326647">https://www.zhihu.com/question/29326647</a> ]<br>
-Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed">https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed</a> ]<br>
-点击 next 到下一步。</p>
-</div></details>
-<h3 id="配置终端模拟器以与-Git-Bash-一起使用">配置终端模拟器以与 Git Bash 一起使用</h3>
-<p><img src="https://s2.loli.net/2023/10/17/UklpJIEjFADdvB3.png" alt="git11"></p>
-<ul>
-<li>
-<p>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
-</li>
-<li>
-<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
-</li>
-<li>
-<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</p>
-</li>
-</ul>
-<h3 id="选择默认的-“git-pull”-行为">选择默认的 “git pull” 行为</h3>
-<p><img src="https://s2.loli.net/2023/10/17/GpkX2tyoJcSKIvw.png" alt="git12"></p>
-<ul>
-<li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
-上面给了三个 “git pull” 的行为：</li>
-</ul>
-<ol>
-<li>第一个是 merge</li>
-<li>第二个是 rebase</li>
-<li>第三个是直接获取</li>
-</ol>
-<ul>
-<li>第一种 git pull = git fetch + git merge<br>
-第二种 git pull = git fetch + git rebase<br>
-第三种 git pull = git fetch ？(这个没试过，纯属猜测)</li>
-</ul>
-<p>一般默认选择第一项，git rebase 绝大部分程序员都用不好或者不懂，而且风险很大，但是很多会用的人也很推崇，但是用不好就是灾难。<br>
-Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是拉取远程分支，怎么合并，选择 merge 还是 rebase ，可以再做选择。</p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看更多参考资料</summary><div class="toggle-content"><ul>
-<li>知乎 - git pull 和 git fetch 的区别？ [ <a href="https://www.zhihu.com/question/38305012">https://www.zhihu.com/question/38305012</a> ]</li>
-<li>知乎 - 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ [ <a href="https://www.zhihu.com/question/36509119">https://www.zhihu.com/question/36509119</a> ]</li>
-<li>Stackoverflow - Why does git perform fast-forward merges by default? [ <a href="https://stackoverflow.com/questions/2850369">https://stackoverflow.com/questions/2850369</a> ]</li>
-<li>Stackoverflow - In git how is fetch different than pull and how is merge different than rebase? [ <a href="https://stackoverflow.com/questions/14894768/">https://stackoverflow.com/questions/14894768/</a> ]</li>
-<li>Stackoverflow - Difference between git pull and git pull --rebase [ <a href="https://stackoverflow.com/questions/18930527">https://stackoverflow.com/questions/18930527</a> ]</li>
-</ul>
-</div></details>
-<h3 id="选择一个凭证帮助程序">选择一个凭证帮助程序</h3>
-<p><img src="https://s2.loli.net/2023/10/17/jN8I9M6PdZBzkfy.png" alt="git13"></p>
-<p><strong>一共两个选项：</strong><br>
-<code>Git 凭证管理</code><br>
-<code>不使用凭证助手</code><br>
-第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
-<h3 id="配置额外的选项">配置额外的选项</h3>
-<p><img src="https://s2.loli.net/2023/10/17/HUmE8klwQ1ZOGnf.png" alt="git14"></p>
-<p><strong>有两个选项：</strong><br>
-<code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
-启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
-<p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
-<h3 id="配置实验性选项">配置实验性选项</h3>
-<p><img src="https://s2.loli.net/2023/10/17/TBWMKZHyvcnz1qm.png" alt="git15"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
-点击 install 进行安装。</p>
-</blockquote>
-<h3 id="测试安装">测试安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看Git版本</span><br><span class="line">git version</span><br><span class="line"></span><br><span class="line"># 查看Git路径</span><br><span class="line">where git</span><br></pre></td></tr></table></figure>
-<hr>
-<h1>二、将 git 与 GitHub 账号绑定</h1>
-<ol>
-<li>
-<p>使用邮箱注册 <a href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。<br>
-桌面鼠标右键 -&gt; 打开Git Bash Here</p>
-</li>
-<li>
-<p><strong>设置用户名和邮箱：</strong></p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 配置用户名和邮箱</span><br><span class="line">git config --global user.name &quot;github 用户名&quot;</span><br><span class="line">git config --global user.email &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><strong>创建 SSH 密匙</strong>：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成 ssh 密钥,输入下方命令，然后一路回车。</span><br><span class="line">ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><strong>添加密匙：</strong></li>
-</ol>
-<ul>
-<li>
-<p>一般执行上述命令之后，会生成 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，前者是我们私有的，而后者则是对外开放的。</p>
-</li>
-<li>
-<p>接着找到生成的 <code>.ssh</code> 的文件夹中的 id_rsa.pub 密钥。</p>
-</li>
-<li>
-<p>进入 C:\Users\用户名.ssh 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
-</li>
-<li>
-<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。<br>
-即：<a href="https://github.com/settings/keys">Sign in to GitHub · GitHub</a></p>
-</li>
-<li>
-<p>选择 new ssh keys，创建一个新的 SSH key，填写 <code>Title</code> 和 <code>Key</code>。 <code>Title</code> 可以随意，而 <code>Key</code> 的内容则是我们刚才复制的 <code>id_rsa.pub</code> 中的内容，最后点击 <code>Add SSH key</code> 即可。</p>
-</li>
-</ul>
-<ol start="5">
-<li><strong>验证连接：</strong></li>
-</ol>
-<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。<br>
-显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
-<hr>
-<h1>三、<strong>参考文档</strong></h1>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/607970211">Git安装全教程（Win11） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</a></li>
-</ul>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>笔记</category>
-        <category>软件与环境</category>
+        <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建免费博客：Hexo+butterfly</title>
+    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
+官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+</div>
+<h1>一、环境搭建</h1>
+<h2 id="安装-Git：">安装 Git：</h2>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h2 id="安装-node-js">安装 node.js</h2>
+<p>见安装Node.Js部分</p>
+<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h2 id="安装-Hexo">安装 Hexo</h2>
+<ol>
+<li>安装Hexo</li>
+</ol>
+<p>首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
+<blockquote>
+<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
+需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
+</blockquote>
+<ul>
+<li>全局安装：<code>npm install -g hexo-cli </code></li>
+<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
+<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
+</ul>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。<br>
+一、全局安装的优势：</p>
+<ol>
+<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
+<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
+<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
+</ol>
+<p>局部安装的优势：</p>
+<ol>
+<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
+<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
+<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
+</ol>
+<p>二、综合考虑，一般建议在以下情况下使用全局安装：</p>
+<ul>
+<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
+<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
+</ul>
+<p>而在以下情况下使用局部安装更为合适：</p>
+<ul>
+<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
+<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
+<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
+</ul>
+</div></details>
+<blockquote>
+<p>特别注意：<br>
+局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
+</blockquote>
+<ol start="2">
+<li>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完成后我们打开 blog 文件夹：<br>
+scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
+source 是资源文件夹；<br>
+themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
+</blockquote>
+<p>初始化后，目录结构如下：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">    └── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
+<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
+<ol>
+<li>安装 hexo-deployer-git</li>
+</ol>
+<p><code>npm install hexo-deployer-git --save</code></p>
+<ol start="2">
+<li>修改 _config.yml 文件</li>
+</ol>
+<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
+修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
+<blockquote>
+<p>请检查自己的默认分支是不是 main</p>
+</blockquote>
+<ol start="3">
+<li>部署项目到 GitHub</li>
+</ol>
+<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
+<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
+<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
+</ul>
+<blockquote>
+<p>注意：deploy 时可能要输入 username 和 password</p>
+</blockquote>
+<p>如果出现 Deploy done，则说明部署成功了。</p>
+<hr>
+<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
+<p><a href="https://butterfly.js.org/posts/21cfbf15/#%E5%AE%89%E8%A3%9D">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
+<ol>
+<li>本人用的是 git clone 方式安装的 hexo-theme-butterfly</li>
+</ol>
+<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
+<ul>
+<li>稳定版【建议】</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试版</li>
+</ul>
+<blockquote>
+<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级方法：在主题目录下，运行 git pull</li>
+</ul>
+<blockquote>
+<p>注意：如果自己魔改了，谨慎升级</p>
+</blockquote>
+<ol start="2">
+<li>应用主题</li>
+</ol>
+<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly</p>
+<p><code>theme: butterfly</code></p>
+<ol start="3">
+<li>安装插件</li>
+</ol>
+<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>升级建议</li>
+</ol>
+<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）<br>
+在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
+<blockquote>
+<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
+</blockquote>
+<blockquote>
+<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
+如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
+</blockquote>
+<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
+<h2 id="美化">美化</h2>
+<ol>
+<li>首先先按照官方文档进行一些基础设置和美化</li>
+</ol>
+<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+<blockquote>
+<p>官方文档中都有，按照顺序搞一遍进行了</p>
+</blockquote>
+<ol start="2">
+<li>更多美化和魔改</li>
+</ol>
+<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
+<ul>
+<li>
+<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
+</li>
+<li>
+<p>我参考的：</p>
+</li>
+</ul>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
+<li>参考比较多的</li>
+</ol>
+<ul>
+<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
+</ul>
+<ol start="2">
+<li>其他</li>
+</ol>
+<ul>
+<li>
+<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
+</li>
+<li>
+<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
+</li>
+<li>
+<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
+</li>
+<li>
+<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
+</li>
+<li>
+<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
+</li>
+<li>
+<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
+</li>
+</ul>
+</div></details>
+<h2 id="参考">参考</h2>
+<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
       </tags>
   </entry>
   <entry>
@@ -2243,221 +2245,219 @@ Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当
       </tags>
   </entry>
   <entry>
-    <title>搭建免费博客：Hexo+butterfly</title>
-    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
-官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-</div>
-<h1>一、环境搭建</h1>
-<h2 id="安装-Git：">安装 Git：</h2>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h2 id="安装-node-js">安装 node.js</h2>
-<p>见安装Node.Js部分</p>
-<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h2 id="安装-Hexo">安装 Hexo</h2>
-<ol>
-<li>安装Hexo</li>
-</ol>
-<p>首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
+    <title>windows 安装Git</title>
+    <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
+    <content><![CDATA[<h1>一、windows 安装</h1>
+<h2 id="官网下载安装包：-Git-Downloading-Package"><strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h2>
+<p><img src="https://s2.loli.net/2023/10/17/DjJWMXn13P9l2RE.png" alt="git1"></p>
+<h2 id="安装："><strong>安装：</strong></h2>
+<h3 id="选择-Git-的安装路径：">选择 Git 的安装路径：</h3>
+<p><img src="https://s2.loli.net/2023/10/17/2ZBUPXa5YyQJFnI.png" alt="git2"></p>
+<h3 id="选择安装组件">选择安装组件</h3>
+<p><img src="https://s2.loli.net/2023/10/17/zHNxmc1utWTp5XU.png" alt="git3"></p>
+<ul>
+<li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
+<li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
+可以右键选择使用 Git Bash 和 Git GUI 两种方式的客户端</li>
+<li>Git LFS （Large File Support） 大文件支持，推荐勾选</li>
+<li>Associate .git* configuration files with the default text editor 关联.git 后缀文件，推荐勾选</li>
+<li>Associate .sh files to be run with Bash 关联<code>.sh</code> 文件，推荐勾选</li>
+<li>Check daily for Git for Windows updates 每天检查版本更新，不推荐勾选</li>
+<li>(NEW!) Add a Git Bash Profile to Windows Terminal 将 Git Bash 添加到 Windows Terminal 中推荐勾</li>
+<li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
+</ul>
+<h3 id="创建菜单文件夹">创建菜单文件夹</h3>
+<p><img src="https://s2.loli.net/2023/10/17/t3WmPdphzZNI5Ej.png" alt="git4"></p>
 <blockquote>
-<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
-需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
+<p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
 </blockquote>
+<h3 id="选择-Git-默认编辑器">选择 Git 默认编辑器</h3>
+<p>Git 安装程序里面内置了10种编辑器供你挑选，比如 Atom、Notepad、Notepad++、Sublime Text、Visual Studio Code、Vim 等等，默认的是 Vim ，选择 Vim 后可以直接进行到下一步，但是 Vim 是纯命令行，操作有点难度，需要学习。如果选其他编辑器，则还需要去其官网安装后才能进行下一步。</p>
+<blockquote>
+<p>本教程选择 Vim 编辑器</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/17/3x4BvnjOhM5iyL2.png" alt="git5"></p>
+<h3 id="决定初始化新项目（仓库）的主干名字">决定初始化新项目（仓库）的主干名字</h3>
+<p><img src="https://s2.loli.net/2023/10/17/WxCkX2EUd3TpcDZ.png" alt="git6"></p>
+<blockquote>
+<p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
+</blockquote>
+<h3 id="调整你的-path-环境变量">调整你的 path 环境变量</h3>
 <ul>
-<li>全局安装：<code>npm install -g hexo-cli </code></li>
-<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
-<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
+<li>
+<p>第一种是仅从 Git Bash 使用 Git。这个的意思就是你只能通过 Git 安装后的 Git Bash 来使用 Git ，其他的什么命令提示符啊等第三方软件都不行。</p>
+</li>
+<li>
+<p>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</p>
+</li>
+<li>
+<p>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</p>
+</li>
 </ul>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。<br>
-一、全局安装的优势：</p>
-<ol>
-<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
-<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
-<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
-</ol>
-<p>局部安装的优势：</p>
-<ol>
-<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
-<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
-<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
-</ol>
-<p>二、综合考虑，一般建议在以下情况下使用全局安装：</p>
+<p><img src="https://s2.loli.net/2023/10/17/gU4oXG6DnwvVj1P.png" alt="git7"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
+</div></details>
+<h3 id="选择-SSH-执行文件">选择 SSH 执行文件</h3>
+<blockquote>
+<p>勾选默认即可</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/10/17/m4Ef3wodubW52FJ.png" alt="git8"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
+<h3 id="选择-HTTPS-后端传输">选择 HTTPS 后端传输</h3>
+<p><img src="https://s2.loli.net/2023/10/17/tk6W7EwBq4jxQGI.png" alt="git9"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">	</span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
+<p>这两种选项有什么区别：<br>
+来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
+<blockquote>
+<p>如果在具有企业管理证书的组织中使用 Git，则将需要使用安全通道。如果你仅使用 Git 来访问公共存储库（例如 GitHub ），或者你的组织不管理自己的证书，那么使用 SSL 后端（它们只是同一协议的不同实现）就可以了。</p>
+</blockquote>
+<p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
+<h3 id="配置行尾符号转换">配置行尾符号转换</h3>
+<p><img src="https://s2.loli.net/2023/10/17/kXEIPRAartxVjDn.png" alt="git10"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>这三种选择分别是：</strong><br>
+<code>签出 Windows 样式，提交 Unix 样式的行结尾。</code><br>
+<code>按原样签出，提交Unix样式的行结尾。</code><br>
+<code>按原样签出，按原样提交。</code></p>
+</blockquote>
+<p><strong>更多：</strong></p>
+<p>那 Windows 样式和 Unix 样式到底有什么区别呢？引用《<a href="https://book.douban.com/subject/26462816/">GitHub入门与实践</a>》第 50 页内容</p>
+<blockquote>
+<p>GitHub 中公开的代码大部分都是以 Mac 或 Linux 中的 LF（Line Feed）换行。然而，由于 Windows 中是以 CRLF（Carriage Return+ Line Feed）换行的，所以在非对应的编辑器中将不能正常显示。<br>
+Git 可以通过设置自动转换这些换行符。使用 Windows 环境的各位，请选择推荐的 “Checkout Windows-style，commit Unix-style line endings” 选项。换行符在签出时会自动转换为 CRLF，在提交时则会自动转换为 LF .</p>
+</blockquote>
+<p>上面说 Mac 、Linux、Unix 的 Line Feed ，翻译过来就是换行符，用 “\n” 表示，换行符 “\n” 的 ASCII 值为 10；<br>
+Windows 的是 Carriage Return+ Line Feed（回车+换行），用 “\r\n” 表示，回车符 “\r” 的 ASCII 值为 13；<br>
+这上下两者是不一样的。<br>
+所以这就需要转换了，至于为什么选第一项？<br>
+这还用问吗？<strong><code>我们现在的教程就是介绍怎么安装 Windows 版 Git，肯定选第一项啦。</code></strong><br>
+至于 “回车”（carriage return）和 “换行”（line feed）这两个概念的来历和区别？<br>
+引用一下阮一峰老师博客的部分内容</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打 10 个字符。但是它有一个问题，就是打字机打完一行换行的时候，要用去 0.2 秒，正好可以打两个字符。要是在这 0.2 秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做&quot;回车&quot;，告诉打字机把打印头定位在左边界；另一个叫做&quot;换行&quot;，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>更多资料参考：<br>
+腾讯云 - 换行符‘\n’和回车符‘\r’的区别？[ <a href="https://cloud.tencent.com/developer/article/1353286">https://cloud.tencent.com/developer/article/1353286</a> ]<br>
+知乎 - 为什么会用\r\n 两个字符表示换行？[ <a href="https://www.zhihu.com/question/29326647">https://www.zhihu.com/question/29326647</a> ]<br>
+Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed">https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed</a> ]<br>
+点击 next 到下一步。</p>
+</div></details>
+<h3 id="配置终端模拟器以与-Git-Bash-一起使用">配置终端模拟器以与 Git Bash 一起使用</h3>
+<p><img src="https://s2.loli.net/2023/10/17/UklpJIEjFADdvB3.png" alt="git11"></p>
 <ul>
-<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
-<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
+<li>
+<p>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
+</li>
+<li>
+<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</p>
+</li>
+<li>
+<p>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</p>
+</li>
 </ul>
-<p>而在以下情况下使用局部安装更为合适：</p>
+<h3 id="选择默认的-“git-pull”-行为">选择默认的 “git pull” 行为</h3>
+<p><img src="https://s2.loli.net/2023/10/17/GpkX2tyoJcSKIvw.png" alt="git12"></p>
 <ul>
-<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
-<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
-<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
+<li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
+上面给了三个 “git pull” 的行为：</li>
+</ul>
+<ol>
+<li>第一个是 merge</li>
+<li>第二个是 rebase</li>
+<li>第三个是直接获取</li>
+</ol>
+<ul>
+<li>第一种 git pull = git fetch + git merge<br>
+第二种 git pull = git fetch + git rebase<br>
+第三种 git pull = git fetch ？(这个没试过，纯属猜测)</li>
+</ul>
+<p>一般默认选择第一项，git rebase 绝大部分程序员都用不好或者不懂，而且风险很大，但是很多会用的人也很推崇，但是用不好就是灾难。<br>
+Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是拉取远程分支，怎么合并，选择 merge 还是 rebase ，可以再做选择。</p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看更多参考资料</summary><div class="toggle-content"><ul>
+<li>知乎 - git pull 和 git fetch 的区别？ [ <a href="https://www.zhihu.com/question/38305012">https://www.zhihu.com/question/38305012</a> ]</li>
+<li>知乎 - 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ [ <a href="https://www.zhihu.com/question/36509119">https://www.zhihu.com/question/36509119</a> ]</li>
+<li>Stackoverflow - Why does git perform fast-forward merges by default? [ <a href="https://stackoverflow.com/questions/2850369">https://stackoverflow.com/questions/2850369</a> ]</li>
+<li>Stackoverflow - In git how is fetch different than pull and how is merge different than rebase? [ <a href="https://stackoverflow.com/questions/14894768/">https://stackoverflow.com/questions/14894768/</a> ]</li>
+<li>Stackoverflow - Difference between git pull and git pull --rebase [ <a href="https://stackoverflow.com/questions/18930527">https://stackoverflow.com/questions/18930527</a> ]</li>
 </ul>
 </div></details>
+<h3 id="选择一个凭证帮助程序">选择一个凭证帮助程序</h3>
+<p><img src="https://s2.loli.net/2023/10/17/jN8I9M6PdZBzkfy.png" alt="git13"></p>
+<p><strong>一共两个选项：</strong><br>
+<code>Git 凭证管理</code><br>
+<code>不使用凭证助手</code><br>
+第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
+<h3 id="配置额外的选项">配置额外的选项</h3>
+<p><img src="https://s2.loli.net/2023/10/17/HUmE8klwQ1ZOGnf.png" alt="git14"></p>
+<p><strong>有两个选项：</strong><br>
+<code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
+启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
+<p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
+<h3 id="配置实验性选项">配置实验性选项</h3>
+<p><img src="https://s2.loli.net/2023/10/17/TBWMKZHyvcnz1qm.png" alt="git15"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>特别注意：<br>
-局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
+<p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
+点击 install 进行安装。</p>
 </blockquote>
-<ol start="2">
-<li>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完成后我们打开 blog 文件夹：<br>
-scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
-source 是资源文件夹；<br>
-themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
-</blockquote>
-<p>初始化后，目录结构如下：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">    └── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
-<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
-<ol>
-<li>安装 hexo-deployer-git</li>
-</ol>
-<p><code>npm install hexo-deployer-git --save</code></p>
-<ol start="2">
-<li>修改 _config.yml 文件</li>
-</ol>
-<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
-修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
-<blockquote>
-<p>请检查自己的默认分支是不是 main</p>
-</blockquote>
-<ol start="3">
-<li>部署项目到 GitHub</li>
-</ol>
-<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
-<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
-<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
-</ul>
-<blockquote>
-<p>注意：deploy 时可能要输入 username 和 password</p>
-</blockquote>
-<p>如果出现 Deploy done，则说明部署成功了。</p>
+<h3 id="测试安装">测试安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看Git版本</span><br><span class="line">git version</span><br><span class="line"></span><br><span class="line"># 查看Git路径</span><br><span class="line">where git</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
-<p><a href="https://butterfly.js.org/posts/21cfbf15/#%E5%AE%89%E8%A3%9D">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
+<h1>二、将 git 与 GitHub 账号绑定</h1>
 <ol>
-<li>本人用的是 git clone 方式安装的 hexo-theme-butterfly</li>
+<li>
+<p>使用邮箱注册 <a href="https://github.com/">GitHub</a> 账户，选择免费账户（Free），并完成邮件验证。<br>
+桌面鼠标右键 -&gt; 打开Git Bash Here</p>
+</li>
+<li>
+<p><strong>设置用户名和邮箱：</strong></p>
+</li>
 </ol>
-<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
-<ul>
-<li>稳定版【建议】</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试版</li>
-</ul>
-<blockquote>
-<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>升级方法：在主题目录下，运行 git pull</li>
-</ul>
-<blockquote>
-<p>注意：如果自己魔改了，谨慎升级</p>
-</blockquote>
-<ol start="2">
-<li>应用主题</li>
-</ol>
-<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly</p>
-<p><code>theme: butterfly</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 配置用户名和邮箱</span><br><span class="line">git config --global user.name &quot;github 用户名&quot;</span><br><span class="line">git config --global user.email &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>安装插件</li>
+<li><strong>创建 SSH 密匙</strong>：</li>
 </ol>
-<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成 ssh 密钥,输入下方命令，然后一路回车。</span><br><span class="line">ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li>升级建议</li>
-</ol>
-<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）<br>
-在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
-<blockquote>
-<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
-</blockquote>
-<blockquote>
-<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
-如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
-</blockquote>
-<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
-<h2 id="美化">美化</h2>
-<ol>
-<li>首先先按照官方文档进行一些基础设置和美化</li>
-</ol>
-<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-<blockquote>
-<p>官方文档中都有，按照顺序搞一遍进行了</p>
-</blockquote>
-<ol start="2">
-<li>更多美化和魔改</li>
-</ol>
-<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
-<ul>
-<li>
-<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
-</li>
-<li>
-<p>我参考的：</p>
-</li>
-</ul>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
-<li>参考比较多的</li>
-</ol>
-<ul>
-<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
-</ul>
-<ol start="2">
-<li>其他</li>
+<li><strong>添加密匙：</strong></li>
 </ol>
 <ul>
 <li>
-<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
+<p>一般执行上述命令之后，会生成 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，前者是我们私有的，而后者则是对外开放的。</p>
 </li>
 <li>
-<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
+<p>接着找到生成的 <code>.ssh</code> 的文件夹中的 id_rsa.pub 密钥。</p>
 </li>
 <li>
-<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
+<p>进入 C:\Users\用户名.ssh 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</p>
 </li>
 <li>
-<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
+<p>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。<br>
+即：<a href="https://github.com/settings/keys">Sign in to GitHub · GitHub</a></p>
 </li>
 <li>
-<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
-</li>
-<li>
-<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
+<p>选择 new ssh keys，创建一个新的 SSH key，填写 <code>Title</code> 和 <code>Key</code>。 <code>Title</code> 可以随意，而 <code>Key</code> 的内容则是我们刚才复制的 <code>id_rsa.pub</code> 中的内容，最后点击 <code>Add SSH key</code> 即可。</p>
 </li>
 </ul>
-</div></details>
-<h2 id="参考">参考</h2>
-<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
+<ol start="5">
+<li><strong>验证连接：</strong></li>
+</ol>
+<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。<br>
+显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<hr>
+<h1>三、<strong>参考文档</strong></h1>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/607970211">Git安装全教程（Win11） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-        <category>Butterfly</category>
+        <category>笔记</category>
+        <category>软件与环境</category>
       </categories>
       <tags>
-        <tag>Butterfly</tag>
-        <tag>美化</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
