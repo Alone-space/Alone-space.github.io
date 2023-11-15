@@ -171,107 +171,316 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
+    <title>C语言学习一：数据类型</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1>数据类型</h1>
+<h2 id="整形">整形</h2>
+<blockquote>
+<p>概念： 表示整数类型的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 123 ;      </span><br></pre></td></tr></table></figure>
+<p>①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte = 8 位 bit）；③把 123 转化为二进制存放在该内存中</p>
+<ol>
+<li>
+<p><strong>介绍</strong></p>
 <ul>
 <li>
-<p>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</p>
+<p>整型在 <code>32</code> 位系统以及 <code>64</code> 位系统中都占用 <code>4</code> 字节</p>
 </li>
 <li>
-<p>语法：</p>
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<p><mark>取值范围</mark></p>
 </li>
 </ul>
-<h1>多路分支：switch-case</h1>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ getconf INT_MAX</span><br><span class="line">2147483647</span><br><span class="line">$ getconf INT_MIN</span><br><span class="line">‐2147483648</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
+<li>
+<p><strong>整型的修饰符：</strong></p>
 <ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+<li>short 短整型，用于修饰整型的尺寸变为原本的一半，减少内存的开支，缩小取值范围</li>
+<li>long 长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围</li>
+<li>long long 长长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围 （在64位系统中 long 与 long long 的大小一致）</li>
+<li>unsigned 无符号整型，用来修饰整型并<mark>去掉</mark>符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
+<li>整型数据在二进制存储时最高位（第31位）表示符号位，如果为1 则表示负数反之则表示正数</li>
 </ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
+</li>
+<li>
+<p><strong>整数的存储方式：</strong></p>
 <ul>
 <li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+<p>原码： 正整数是直接使用原码进行存储的，比如100这个正整数，则直接把100 转换成二进制直接存储。<br>
+<code>100 --&gt; 0000 0000 0000 0000 0000 0000 0110 0100</code></p>
+</li>
+<li>
+<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，<mark>取反和加1时符号位都不变</mark></p>
+<p>比如-100：<br>
+<code>100 --&gt; 1000 0000 0000 0000 0000 0000 0110 0100</code><br>
+<code>取反-&gt; 1111 1111 1111 1111 1111 1111 1001 1011</code><br>
+<code>加1 --&gt; 1111 1111 1111 1111 1111 1111 1001 1100</code></p>
 </li>
 </ul>
-<h1>while 和 do…while 循环</h1>
-<h2 id="while">while</h2>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/kXryaiW1pOo2dgH.webp" alt="C-control1"><br>
-例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="do-…-while">do … while</h2>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/YWiseZ3t8DE9CFP.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h2 id="注意">注意</h2>
+<blockquote>
+<p>注：<code>取反</code> 和 <code>加1</code> 的最前面的数字 1 不改变，他为符号位，表示正负，<code>0</code> 为正，<code>1</code> 为负</p>
+</blockquote>
+</li>
+<li>
+<p><strong>溢出：</strong></p>
+<p>概念：当超过取值范围时则会变成相邻的最小值/最大值</p>
+</li>
+<li>
+<p><strong>整型输出：</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int c = 100;</span><br><span class="line">printf(&quot;十六进制：%#x\n&quot; , c);       //`#` 是格式说明符的一部分</span><br><span class="line">printf(&quot;十进制：%d\n&quot; , c);</span><br><span class="line">printf(&quot;八进制：%#o\n&quot; , c);</span><br><span class="line"></span><br><span class="line">// 输出结果：</span><br><span class="line"> 十六进制：0x64</span><br><span class="line"> 十进制：100</span><br><span class="line"> 八进制：0144</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>sizeof 运算符</strong></p>
+<blockquote>
+<p>用于计算变量/类型的大小。</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	int main()</span><br><span class="line">	&#123;</span><br><span class="line">    int a=123;</span><br><span class="line">    printf(&quot;sizeof(short):%ld\n&quot;,sizeof(short));</span><br><span class="line">    printf(&quot;sizeof(int):%ld\n&quot;,sizeof(int));</span><br><span class="line">    printf(&quot;sizeof(long):%ld\n&quot;,sizeof(long));</span><br><span class="line">    printf(&quot;sizeof(long long):%ld\n&quot;,sizeof(long long));</span><br><span class="line">	&#125;</span><br><span class="line">	//注意括号内部可以写变量类型， 也可以写变量名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">sizeof(a):4</span><br><span class="line">sizeof(short):2</span><br><span class="line">sizeof(int):4</span><br><span class="line">sizeof(long):8</span><br><span class="line">sizeof(long long):8</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/smnfop4yxudhtSZ.webp" alt="C-type1"></p>
+<blockquote>
+<p>在 32 位平台下，int 型和 long 型是一致的，都是占用 4 个字节。Long long 是 8 个字节。<br>
+在 64 位平台下，int 型是占用 4 个字节，而 long 和 long long 都是占用 8个字节的。<br>
+尽量不要使用 long 和 long int，因为 c/c++标准中，只限制了 long int 长度不小于 int，并未限制 long 必须是 4 个字节或者 8 个字节，也就是跟平台相关，这主要是因为有一些历史兼容性原因。所以要使用明确的 long long 或者 uint64_t</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="浮点型（实型）：">浮点型（实型）：</h2>
+<ol>
+<li><strong>介绍</strong></li>
+</ol>
 <ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h1>for 循环</h1>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
+<li>概念：用来表达一个实数的数据类型</li>
+<li>分类
 <ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+<li>单精度浮点型 float , 典型尺寸 4 字节</li>
+<li>双精度浮点型 double , 典型尺寸 8 字节</li>
+<li>长双精度 long double ，典型尺寸 16 字节<br>
+占用的内存越多则精度越高</li>
 </ul>
-<h1>break 与 continue</h1>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p><strong>浮点数的存储</strong></p>
+<blockquote>
 <ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+<li>虽然浮点数储存的也是 <code>0，1</code> ，但和整形不一样</li>
+<li>整形是原码补码储存</li>
+<li>浮点型是通过计算得出的浮点数二进制码</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>goto 语句</h1>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
+</blockquote>
+<p>IEEE 浮点标准采用如下形式来表示一个浮点数</p>
+<p><img src="https://s2.loli.net/2023/11/15/fLD16CaEXgJblRO.webp" alt="C-type2"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float f = 3.14; // 浮点数3.14 通过以上公式计算得到的二进制码，存放在在内存f中</span><br><span class="line">printf(&quot;f:%f\n&quot;,f); // 使用浮点的计算方法来解析内存f中的值(二进制)</span><br><span class="line">printf(&quot;d:%d\n&quot;,f);// 直接使用整型的计算方法来直接解析内存f 中的值 (二进制)</span><br></pre></td></tr></table></figure>
+<p>虽然所有的数据都会被转换成二进制进行存储，但如果想到的到正确的数据，必须使用正确的理解方式（类型），来解析二进制数据。所以不能用%d</p>
+</li>
+</ol>
+<hr>
+<h2 id="字符类型">字符类型</h2>
+<h3 id="字符">字符</h3>
+<ol>
+<li>
+<p><strong>介绍</strong></p>
+<p><code>char c = 'K' ;</code><br>
+①申请一片内存并且命名为 c<br>
+②确定内存的大小为 char （1字节）<br>
+③把字符‘K’的 ASCII 码值转换为二进制，并存储到该内存中</p>
+<blockquote>
+<p>计算机中存储的所有数据都是以二进制的形式存在的，因此字符必须映射某一个数字才能<br>
+够被存放到计算机中，这个映射的表就成为 ASCII 表，可以使用 man 手册来查看    <code>man ascii</code></p>
+</blockquote>
+<blockquote>
+<p>字符之间的比较就是比较他们的 ASCII 码</p>
+</blockquote>
+ <details class="toggle" ><summary class="toggle-button" style="">点击查看 man ascii 解释</summary><div class="toggle-content"><ol>
+<li><strong>oct（Octal）：</strong> 这一列显示了 ASCII 字符的八进制（octal）表示。ASCII 字符可以用三位八进制数字表示，例如，大写字母’A’对应的八进制表示为101。</li>
+<li><strong>dec（Decimal）：</strong> 这一列显示了ASCII字符的十进制（decimal）表示。ASCII字符可以用十进制数字表示，例如，大写字母’A’对应的十进制表示为65。</li>
+<li><strong>hex（Hexadecimal）：</strong> 这一列显示了ASCII字符的十六进制（hexadecimal）表示。ASCII字符可以用两位十六进制数字表示，例如，大写字母’A’对应的十六进制表示为41。</li>
+<li><strong>cher（Character）：</strong> 这一列显示了对应的可打印字符或控制字符。可打印字符是可以显示在屏幕上的字符，如字母、数字和符号。控制字符是用于特殊控制目的的字符，如换行符（newline）和回车符（carriage return）。</li>
+</ol>
+</div></details>
+</li>
+</ol>
+<p><strong>例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char c = &#x27;1&#x27; ;</span><br><span class="line">printf(&quot;字符：%c\n&quot;,c); // 以字符的形式来解析内存 c 的内容得到 对应的字符 1</span><br><span class="line">printf(&quot;整型ASCII值：%d\n&quot;,c); //以十进制整型来解析内存c 的内容 ，得到1多对应的ASCII值</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>
+<p><strong>注意：</strong></p>
+<p><mark>字符实质上是一个单字节的整型，因此支持所有整型的操作</mark></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char k = &#x27;H&#x27; ;</span><br><span class="line">printf(&quot;k + 1: %c\n&quot; , k + 1 );</span><br><span class="line">printf(&quot;k - 1: %c\n&quot; , k - 1 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">k + 1: I</span><br><span class="line">k - 1: G</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="字符串">字符串</h3>
+<p>字符串的表现形式有两种：</p>
+<ol>
+<li>
+<p><strong>数组（可读，可写）：（存储）</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char s1[] = &quot;Hello&quot; ;   //使用一个数组来存放字符串 &quot;Hello&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上语句其实是把一个字符串常量 “Hello” ，复制到数组 s1 所代表的内存当中</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/11/15/ksUHWiumXxG7OFL.webp" alt="C-type3"></p>
+</li>
+<li>
+<p><strong>指针 （只读）：（指向）</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *s2 = &quot;Even&quot;; // 使用一个指针来指向常量字符串</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/fDBsimqeKM421ZL.webp" alt="C-type4"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s1[] = &quot;abc&quot;;</span><br><span class="line">    char *s2=&quot;def&quot;;</span><br><span class="line">    printf(&quot;%s %s\n&quot;,s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">abc def</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h2 id="布尔类型">布尔类型</h2>
+<p>概念： 布尔类型用来表示真/假 （非零则真）<br>
+真： true                                 假： false<br>
+注意在使用布尔类型是需要包含他的头文件： &lt;stdbool.h&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = 1 ; // 真</span><br><span class="line">bool a = 0 ; // 假</span><br><span class="line">bool a = true // 真</span><br><span class="line">bool a = false // 假</span><br></pre></td></tr></table></figure>
+<p>一般布尔类型的变量，可以用于逻辑判断比如 if / while ，或者用于函数的返回值。</p>
+<p>布尔类型的大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = true ;</span><br><span class="line">printf(&quot;sizeof(bool):%ld \n &quot;,sizeof(bool) );</span><br><span class="line">printf(&quot;sizeof(a):%ld \n &quot;,sizeof(a) );</span><br><span class="line">printf(&quot;sizeof(true):%ld \n &quot;,sizeof(true) );</span><br><span class="line">printf(&quot;sizeof(false):%ld \n &quot;,sizeof(false) );</span><br><span class="line">printf(&quot;false:%d \n &quot;,false );</span><br><span class="line">printf(&quot;true:%d \n &quot;,true );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">sizeof(bool):1</span><br><span class="line">sizeof(a):1</span><br><span class="line">sizeof(true):4</span><br><span class="line">sizeof(false):4</span><br><span class="line">false:0</span><br><span class="line"> true:1</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="常量与变量">常量与变量</h2>
+<p>概念： 不可以被改变的内存，被称为常量，可以被改变的内存则成为变量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;                     // a是一个变量， 而 100 则是常量</span><br><span class="line">float f = 3.1415;                 // f 是一个变量， 而 3.1415 则是常量</span><br><span class="line">char s1[] = &quot;abcdefg&quot; ;           // s1 是一个变量 , 而&quot;abcdefg&quot; 则是常量 （字符串常量）</span><br></pre></td></tr></table></figure>
+<p><strong>常量类型：</strong></p>
 <ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+<li>100 ：整型常量</li>
+<li>100L : 长整型 long</li>
+<li>100LL : 长长整型 long long</li>
+<li>100UL : 无符号的长整型 unsigned long</li>
+<li>3.14 : 编译器默认升级为双精度浮点型</li>
+<li>3.14L : 长的双精度浮点型</li>
+<li>‘a’ : 字符常量</li>
+<li>“Hello” : 字符串常量（指针 char * ）</li>
 </ul>
+<hr>
+<h1>标准输入与标准输出（格式化输出）</h1>
+<h2 id="标准输入">标准输入</h2>
+<p>概念： 标准输入一般指的是键盘的设备文件，从键盘获取数据就成为标准输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scanf( ); // 扫描键盘 （格式化输入数据 ‐‐&gt; 从键盘中获得指定类型的数据） </span><br><span class="line"></span><br><span class="line">	头文件：</span><br><span class="line">		#include &lt;stdio.h&gt;</span><br><span class="line">	函数原型：</span><br><span class="line">		int scanf(const char *format, ...);</span><br><span class="line">	参数分析：</span><br><span class="line">		format ‐‐&gt; 格式化</span><br><span class="line">		... ‐‐&gt; 省略号 , 根据format 所写的格式控制符，对应一个内存地址</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回具体获取到的项目数</span><br><span class="line">		失败 返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getchar( ) ; </span><br><span class="line">// 获取一个字符 （默认从标准输入文件中获取），与scanf( )配合，清空 由 scanf 所留在缓冲区的内容（比如回车\n等）</span><br><span class="line"></span><br><span class="line">	函数原型：</span><br><span class="line">		int getchar(void);</span><br><span class="line">	参数：</span><br><span class="line">		无</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回一个ASCII值，代表获得的字符 （实际上为unsigned char ）</span><br><span class="line">		失败 返回 EOF 也就是 ‐1</span><br></pre></td></tr></table></figure>
+<p><strong>实例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int num = 0;</span><br><span class="line">char c = &#x27;0&#x27;;</span><br><span class="line">int ret_val = scanf(&quot;%d&quot;, &amp;num );       // &amp; 取地址符号，获得 内存 num 的地址</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">// 如果不清空有可能会导致下一次使用标准输入缓冲区异常（有上一次的数据没有被读取）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%d\n&quot; , ret_val , num );</span><br><span class="line">ret_val = scanf(&quot;%c&quot;, &amp;c );</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%c\n&quot; , ret_val , c );</span><br><span class="line">printf(&quot;EOF:%d\n&quot; , EOF ); //EOF 实际上是一个值为‐1 的宏</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：如果以后需要从标准输入中获取数据得到乱码或未知数据，则可以尝试使用 getchar 进行清空再获取。</p>
+</blockquote>
+<h2 id="标准输出（格式化输出）">标准输出（格式化输出）</h2>
+<p>概念：屏幕（终端）对应的就是标准输出的设备文件，如果往该文件中输出内容则可以成为标准输出。<br>
+<code>printf( );</code></p>
+<ol>
+<li>
+<p><strong>注意语法点</strong></p>
+<ul>
+<li>
+<p><code>%</code> 必须有的，格式化的开头标记</p>
+</li>
+<li>
+<p>对齐的方式， 向左对齐（空格在右） ，如果没有则是向右对齐（空格在左）</p>
+</li>
+<li>
+<p><code>m.n </code>  m 指的域宽（需要的字符数）， n 指的是精度（默认精度为6）<br>
+m 的值如果比实际数据小则按实际输出，反之则用空格来填补</p>
+</li>
+<li>
+<p><code>l</code> 指的是 long 表示长整型</p>
+</li>
+<li>
+<p><code>h </code>指的是短整型</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>格式控制符</strong></p>
+<ul>
+<li>十进制的整型： <code>%d</code> <code>%md</code> <code>%ld</code> <code>%u</code>（无符号） <code>%lu</code></li>
+<li>八进制： <code>%o</code> <code>%#o</code>                 # --&gt; 输出进制的符号</li>
+<li>十六进制： <code>%x</code> <code>%#x</code> <code>%#X</code></li>
+<li>字符： <code>%c</code></li>
+<li>字符串： <code>%s</code></li>
+<li>单精度浮点： <code>%f</code> <code>%.nf</code> --&gt; n 表示精度</li>
+<li>双精度： <code>%lf</code></li>
+<li>长双精度 ： <code>%Lf</code></li>
+<li>地址： <code>%p</code></li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;%d\n&quot; , 0123 ); // 使用十进制的格式来输出一个八进制数据 0123 ‐‐&gt;83</span><br><span class="line"></span><br><span class="line">printf(&quot;%o\n&quot; , 0123 ); // 使用八进制的格式来输出一个八进制数据 0123 ‐‐&gt;123</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="类型的转换">类型的转换</h2>
+<p>概念：不同的数据类型但是可以兼容的类型之间，如果出现在同一表达式中则会发生类型的转换。</p>
+<ol>
+<li>
+<p><strong>隐式转换（自动）</strong></p>
+<p>若在表达式中用户没有手动进行转换，则系统会自动转为高精度的类型（由低精度转换为高精度）<br>
+比如：  float + double + int   --&gt;  则系统会自动全部转为 double</p>
+</li>
+<li>
+<p><strong>强制转换（手动）</strong></p>
+<p>用户根据自己的需求进行强制的类型转换 ( int )a   --&gt;     强制性把 a 转换为整型</p>
+<blockquote>
+<p>注意：不管是隐式转换还是强制转换，准换的只是在运算的过程中，并不会影响到原本的数，这是一个临时的转换。</p>
+</blockquote>
+<blockquote>
+<p>运算中可能会丢失精度，但不会影响数据本来的值，只是临时转换</p>
+</blockquote>
+</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=100;</span><br><span class="line">    char c=&#x27;k&#x27;;</span><br><span class="line">    float f=3.14;</span><br><span class="line">    double d=998526.153;</span><br><span class="line">  </span><br><span class="line">//只是临时转换高精度的double m，   a、c、f、d实际没变</span><br><span class="line">    double m=a+c+f+d;    //隐式转换</span><br><span class="line">    int n=(int)a+(int)c+(int)f+(int)d;   //强制转换</span><br><span class="line">    printf(&quot;m= %lf,n=%d\n&quot;,m,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>精度排序：</strong></p>
+<ol>
+<li><code>char</code>：1个字节。通常用于存储字符和小整数值。</li>
+<li><code>short</code>：2个字节。通常用于较小的整数值。</li>
+<li><code>int</code>：4个字节。通常用于一般整数值。</li>
+<li><code>float</code>：4个字节。单精度浮点数，通常用于存储小数值，具有较高的精度。</li>
+<li><code>double</code>：8个字节。双精度浮点数，通常用于存储双精度小数值，具有更高的精度。</li>
+<li><code>long double</code>：这个数据类型的大小可以因系统而异，<mark>通常为8个字节</mark>或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
+</ol>
+<h1>补充</h1>
+<h2 id="数据类型的本质：">数据类型的本质：</h2>
+<ol>
+<li>
+<p>概念：</p>
+<p>各种不同的数据类型，从本质上是用户与系统之间的一个约定，这个约定用来如何正确的解析内存中的二进制编码。</p>
+<p>比如整形使用原码补码，浮点型是通过计算得出的浮点数二进制码</p>
+</li>
+<li>
+<p>推论：</p>
+<p>类型转换：实际上就是在临时打破之前的约定。<br>
+理论上任何的数据都可以进行转换，但是转换之后是否有意义？</p>
+</li>
+</ol>
+<h2 id="整型的尺寸">整型的尺寸</h2>
+<ol>
+<li>
+<p><strong>概念</strong>：尺寸指的是某一个数据需要多少内存来存储（占用的内存空间）<br>
+在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark>相对</mark>的大小约定</p>
+<p>Short 不可能比 int 长<br>
+Long 不可能比 int 短<br>
+Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</p>
+<p>如何查看系统字长：有很多方法</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//方法一，终端输入</span><br><span class="line">$ getconf LONG_BIT</span><br><span class="line">64</span><br><span class="line"></span><br><span class="line">//方法二，终端输入</span><br><span class="line">$ uname -a</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>典型尺寸：</strong></p>
+<ul>
+<li>char    占用 1 个字节</li>
+<li>short   占用 2个字节</li>
+<li>int       占用 4 个字节</li>
+<li>long    占用 4（32 位系统） /  8（64 位系统） 个字节</li>
+</ul>
+</li>
+</ol>
+<h3 id="可移植类型">可移植类型</h3>
+<blockquote>
+<p>相同的代码在不同（位数）的系统中，它所占用的尺寸会发生变化，有可能导致数据的精度出现问题，严重的可能会导致程序无法运行。<br>
+因此，系统中会提供一些可移植类型。</p>
+</blockquote>
+<p>概念：不管在什么系统中，数据的尺寸都是固定不会发生变化的数据类型，称为可移植数据类型<br>
+关键词：typedef</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef int zzz;   //相对于用typedef给int取个别名为zzz</span><br><span class="line">typedef int __int32_t;</span><br><span class="line">typedef long __long_64_t;</span><br></pre></td></tr></table></figure>
+<p>系统提供了一些预定义的</p>
+<p>通过 cd /usr/include 后，运行 find -name types.h 会发现./x86_64-linux-gnu/bits/types.h<br>
+路径：/usr/include/x86_64-linux-gnu/bits/types.h</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Convenience types.  */</span><br><span class="line">typedef unsigned char __u_char;</span><br><span class="line">typedef unsigned short int __u_short;</span><br><span class="line">typedef unsigned int __u_int;</span><br><span class="line">typedef unsigned long int __u_long;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* Fixed-size types, underlying types depend on word size and compiler.  */</span><br><span class="line">typedef signed char __int8_t;    //有符号的8位整型</span><br><span class="line">typedef unsigned char __uint8_t;   //无符号的8位整型</span><br><span class="line">typedef signed short int __int16_t;</span><br><span class="line">typedef unsigned short int __uint16_t;</span><br><span class="line">typedef signed int __int32_t;</span><br><span class="line">typedef unsigned int __uint32_t;</span><br><span class="line">#if __WORDSIZE == 64     //判断系统的位数（字长）</span><br><span class="line">typedef signed long int __int64_t;    //64位系统中，long int就是64位的有符号整型</span><br><span class="line">typedef unsigned long int __uint64_t;  ////64位系统中，long int就是64位的无符号整型</span><br><span class="line">#else   //判断系统的位数，如果不是64位系统，则判断为32位系统</span><br><span class="line">__extension__ typedef signed long long int __int64_t;  //在32位系统中 long long 才占用64位</span><br><span class="line">__extension__ typedef unsigned long long int __uint64_t;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -418,342 +627,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>C语言学习一：数据类型</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h1>数据类型</h1>
-<h2 id="整形">整形</h2>
-<blockquote>
-<p>概念： 表示整数类型的数据</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 123 ;      </span><br></pre></td></tr></table></figure>
-<p>①先向系统申请一片内存，取名为 a；②确定该内存大小为 4 字节（1 字节 byte = 8 位 bit）；③把 123 转化为二进制存放在该内存中</p>
-<ol>
-<li>
-<p><strong>介绍</strong></p>
-<ul>
-<li>
-<p>整型在 <code>32</code> 位系统以及 <code>64</code> 位系统中都占用 <code>4</code> 字节</p>
-</li>
-<li>
-<p><mark>取值范围</mark></p>
-</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ getconf INT_MAX</span><br><span class="line">2147483647</span><br><span class="line">$ getconf INT_MIN</span><br><span class="line">‐2147483648</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>整型的修饰符：</strong></p>
-<ul>
-<li>short 短整型，用于修饰整型的尺寸变为原本的一半，减少内存的开支，缩小取值范围</li>
-<li>long 长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围</li>
-<li>long long 长长整型，用于修饰整型的尺寸使其尺寸变大（取决与系统），增加内存开支，扩大取值范围 （在64位系统中 long 与 long long 的大小一致）</li>
-<li>unsigned 无符号整型，用来修饰整型并<mark>去掉</mark>符号位，使得整型数据没有负数，可以提正整数的取值范围 （0 - 4294967295）</li>
-<li>整型数据在二进制存储时最高位（第31位）表示符号位，如果为1 则表示负数反之则表示正数</li>
-</ul>
-</li>
-<li>
-<p><strong>整数的存储方式：</strong></p>
-<ul>
-<li>
-<p>原码： 正整数是直接使用原码进行存储的，比如100这个正整数，则直接把100 转换成二进制直接存储。<br>
-<code>100 --&gt; 0000 0000 0000 0000 0000 0000 0110 0100</code></p>
-</li>
-<li>
-<p>补码：负数则是使用补码来存储，补码 = 原码的绝对值取反+ 1，<mark>取反和加1时符号位都不变</mark></p>
-<p>比如-100：<br>
-<code>100 --&gt; 1000 0000 0000 0000 0000 0000 0110 0100</code><br>
-<code>取反-&gt; 1111 1111 1111 1111 1111 1111 1001 1011</code><br>
-<code>加1 --&gt; 1111 1111 1111 1111 1111 1111 1001 1100</code></p>
-</li>
-</ul>
-<blockquote>
-<p>注：<code>取反</code> 和 <code>加1</code> 的最前面的数字 1 不改变，他为符号位，表示正负，<code>0</code> 为正，<code>1</code> 为负</p>
-</blockquote>
-</li>
-<li>
-<p><strong>溢出：</strong></p>
-<p>概念：当超过取值范围时则会变成相邻的最小值/最大值</p>
-</li>
-<li>
-<p><strong>整型输出：</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int c = 100;</span><br><span class="line">printf(&quot;十六进制：%#x\n&quot; , c);       //`#` 是格式说明符的一部分</span><br><span class="line">printf(&quot;十进制：%d\n&quot; , c);</span><br><span class="line">printf(&quot;八进制：%#o\n&quot; , c);</span><br><span class="line"></span><br><span class="line">// 输出结果：</span><br><span class="line"> 十六进制：0x64</span><br><span class="line"> 十进制：100</span><br><span class="line"> 八进制：0144</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>sizeof 运算符</strong></p>
-<blockquote>
-<p>用于计算变量/类型的大小。</p>
-</blockquote>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=123;</span><br><span class="line">    printf(&quot;sizeof(short):%ld\n&quot;,sizeof(short));</span><br><span class="line">    printf(&quot;sizeof(int):%ld\n&quot;,sizeof(int));</span><br><span class="line">    printf(&quot;sizeof(long):%ld\n&quot;,sizeof(long));</span><br><span class="line">    printf(&quot;sizeof(long long):%ld\n&quot;,sizeof(long long));</span><br><span class="line">&#125;</span><br><span class="line">//注意括号内部可以写变量类型， 也可以写变量名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">sizeof(a):4</span><br><span class="line">sizeof(short):2</span><br><span class="line">sizeof(int):4</span><br><span class="line">sizeof(long):8</span><br><span class="line">sizeof(long long):8</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/smnfop4yxudhtSZ.webp" alt="C-type1"></p>
-<blockquote>
-<p>在 32 位平台下，int 型和 long 型是一致的，都是占用 4 个字节。Long long 是 8 个字节。<br>
-在 64 位平台下，int 型是占用 4 个字节，而 long 和 long long 都是占用 8个字节的。<br>
-尽量不要使用 long 和 long int，因为 c/c++标准中，只限制了 long int 长度不小于 int，并未限制 long 必须是 4 个字节或者 8 个字节，也就是跟平台相关，这主要是因为有一些历史兼容性原因。所以要使用明确的 long long 或者 uint64_t</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<h2 id="浮点型（实型）：">浮点型（实型）：</h2>
-<ol>
-<li><strong>介绍</strong></li>
-</ol>
-<ul>
-<li>概念：用来表达一个实数的数据类型</li>
-<li>分类
-<ul>
-<li>单精度浮点型 float , 典型尺寸 4 字节</li>
-<li>双精度浮点型 double , 典型尺寸 8 字节</li>
-<li>长双精度 long double ，典型尺寸 16 字节<br>
-占用的内存越多则精度越高</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>
-<p><strong>浮点数的存储</strong></p>
-<blockquote>
-<ul>
-<li>虽然浮点数储存的也是 <code>0，1</code> ，但和整形不一样</li>
-<li>整形是原码补码储存</li>
-<li>浮点型是通过计算得出的浮点数二进制码</li>
-</ul>
-</blockquote>
-<p>IEEE 浮点标准采用如下形式来表示一个浮点数</p>
-<p><img src="https://s2.loli.net/2023/11/15/fLD16CaEXgJblRO.webp" alt="C-type2"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float f = 3.14; // 浮点数3.14 通过以上公式计算得到的二进制码，存放在在内存f中</span><br><span class="line">printf(&quot;f:%f\n&quot;,f); // 使用浮点的计算方法来解析内存f中的值(二进制)</span><br><span class="line">printf(&quot;d:%d\n&quot;,f);// 直接使用整型的计算方法来直接解析内存f 中的值 (二进制)</span><br></pre></td></tr></table></figure>
-<p>虽然所有的数据都会被转换成二进制进行存储，但如果想到的到正确的数据，必须使用正确的理解方式（类型），来解析二进制数据。所以不能用%d</p>
-</li>
-</ol>
-<hr>
-<h2 id="字符类型">字符类型</h2>
-<h3 id="字符">字符</h3>
-<ol>
-<li>
-<p><strong>介绍</strong></p>
-<p><code>char c = 'K' ;</code><br>
-①申请一片内存并且命名为 c<br>
-②确定内存的大小为 char （1字节）<br>
-③把字符‘K’的 ASCII 码值转换为二进制，并存储到该内存中</p>
-<blockquote>
-<p>计算机中存储的所有数据都是以二进制的形式存在的，因此字符必须映射某一个数字才能<br>
-够被存放到计算机中，这个映射的表就成为 ASCII 表，可以使用 man 手册来查看    <code>man ascii</code></p>
-</blockquote>
-<blockquote>
-<p>字符之间的比较就是比较他们的 ASCII 码</p>
-</blockquote>
- <details class="toggle" ><summary class="toggle-button" style="">点击查看 man ascii 解释</summary><div class="toggle-content"><ol>
-<li><strong>oct（Octal）：</strong> 这一列显示了 ASCII 字符的八进制（octal）表示。ASCII 字符可以用三位八进制数字表示，例如，大写字母’A’对应的八进制表示为101。</li>
-<li><strong>dec（Decimal）：</strong> 这一列显示了ASCII字符的十进制（decimal）表示。ASCII字符可以用十进制数字表示，例如，大写字母’A’对应的十进制表示为65。</li>
-<li><strong>hex（Hexadecimal）：</strong> 这一列显示了ASCII字符的十六进制（hexadecimal）表示。ASCII字符可以用两位十六进制数字表示，例如，大写字母’A’对应的十六进制表示为41。</li>
-<li><strong>cher（Character）：</strong> 这一列显示了对应的可打印字符或控制字符。可打印字符是可以显示在屏幕上的字符，如字母、数字和符号。控制字符是用于特殊控制目的的字符，如换行符（newline）和回车符（carriage return）。</li>
-</ol>
-</div></details>
-</li>
-</ol>
-<p><strong>例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char c = &#x27;1&#x27; ;</span><br><span class="line">printf(&quot;字符：%c\n&quot;,c); // 以字符的形式来解析内存 c 的内容得到 对应的字符 1</span><br><span class="line">printf(&quot;整型ASCII值：%d\n&quot;,c); //以十进制整型来解析内存c 的内容 ，得到1多对应的ASCII值</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>
-<p><strong>注意：</strong></p>
-<p><mark>字符实质上是一个单字节的整型，因此支持所有整型的操作</mark></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">char k = &#x27;H&#x27; ;</span><br><span class="line">printf(&quot;k + 1: %c\n&quot; , k + 1 );</span><br><span class="line">printf(&quot;k - 1: %c\n&quot; , k - 1 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">k + 1: I</span><br><span class="line">k - 1: G</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="字符串">字符串</h3>
-<p>字符串的表现形式有两种：</p>
-<ol>
-<li>
-<p><strong>数组（可读，可写）：（存储）</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char s1[] = &quot;Hello&quot; ;   //使用一个数组来存放字符串 &quot;Hello&quot;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>以上语句其实是把一个字符串常量 “Hello” ，复制到数组 s1 所代表的内存当中</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/11/15/ksUHWiumXxG7OFL.webp" alt="C-type3"></p>
-</li>
-<li>
-<p><strong>指针 （只读）：（指向）</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *s2 = &quot;Even&quot;; // 使用一个指针来指向常量字符串</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/fDBsimqeKM421ZL.webp" alt="C-type4"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s1[] = &quot;abc&quot;;</span><br><span class="line">    char *s2=&quot;def&quot;;</span><br><span class="line">    printf(&quot;%s %s\n&quot;,s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">abc def</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<hr>
-<h2 id="布尔类型">布尔类型</h2>
-<p>概念： 布尔类型用来表示真/假 （非零则真）<br>
-真： true                                 假： false<br>
-注意在使用布尔类型是需要包含他的头文件： &lt;stdbool.h&gt;</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = 1 ; // 真</span><br><span class="line">bool a = 0 ; // 假</span><br><span class="line">bool a = true // 真</span><br><span class="line">bool a = false // 假</span><br></pre></td></tr></table></figure>
-<p>一般布尔类型的变量，可以用于逻辑判断比如 if / while ，或者用于函数的返回值。</p>
-<p>布尔类型的大小：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bool a = true ;</span><br><span class="line">printf(&quot;sizeof(bool):%ld \n &quot;,sizeof(bool) );</span><br><span class="line">printf(&quot;sizeof(a):%ld \n &quot;,sizeof(a) );</span><br><span class="line">printf(&quot;sizeof(true):%ld \n &quot;,sizeof(true) );</span><br><span class="line">printf(&quot;sizeof(false):%ld \n &quot;,sizeof(false) );</span><br><span class="line">printf(&quot;false:%d \n &quot;,false );</span><br><span class="line">printf(&quot;true:%d \n &quot;,true );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">sizeof(bool):1</span><br><span class="line">sizeof(a):1</span><br><span class="line">sizeof(true):4</span><br><span class="line">sizeof(false):4</span><br><span class="line">false:0</span><br><span class="line"> true:1</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="常量与变量">常量与变量</h2>
-<p>概念： 不可以被改变的内存，被称为常量，可以被改变的内存则成为变量</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;                     // a是一个变量， 而 100 则是常量</span><br><span class="line">float f = 3.1415;                 // f 是一个变量， 而 3.1415 则是常量</span><br><span class="line">char s1[] = &quot;abcdefg&quot; ;           // s1 是一个变量 , 而&quot;abcdefg&quot; 则是常量 （字符串常量）</span><br></pre></td></tr></table></figure>
-<p><strong>常量类型：</strong></p>
-<ul>
-<li>100 ：整型常量</li>
-<li>100L : 长整型 long</li>
-<li>100LL : 长长整型 long long</li>
-<li>100UL : 无符号的长整型 unsigned long</li>
-<li>3.14 : 编译器默认升级为双精度浮点型</li>
-<li>3.14L : 长的双精度浮点型</li>
-<li>‘a’ : 字符常量</li>
-<li>“Hello” : 字符串常量（指针 char * ）</li>
-</ul>
-<hr>
-<h1>标准输入与标准输出（格式化输出）</h1>
-<h2 id="标准输入">标准输入</h2>
-<p>概念： 标准输入一般指的是键盘的设备文件，从键盘获取数据就成为标准输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scanf( ); // 扫描键盘 （格式化输入数据 ‐‐&gt; 从键盘中获得指定类型的数据） </span><br><span class="line"></span><br><span class="line">	头文件：</span><br><span class="line">		#include &lt;stdio.h&gt;</span><br><span class="line">	函数原型：</span><br><span class="line">		int scanf(const char *format, ...);</span><br><span class="line">	参数分析：</span><br><span class="line">		format ‐‐&gt; 格式化</span><br><span class="line">		... ‐‐&gt; 省略号 , 根据format 所写的格式控制符，对应一个内存地址</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回具体获取到的项目数</span><br><span class="line">		失败 返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getchar( ) ; </span><br><span class="line">// 获取一个字符 （默认从标准输入文件中获取），与scanf( )配合，清空 由 scanf 所留在缓冲区的内容（比如回车\n等）</span><br><span class="line"></span><br><span class="line">	函数原型：</span><br><span class="line">		int getchar(void);</span><br><span class="line">	参数：</span><br><span class="line">		无</span><br><span class="line">	返回值：</span><br><span class="line">		成功 返回一个ASCII值，代表获得的字符 （实际上为unsigned char ）</span><br><span class="line">		失败 返回 EOF 也就是 ‐1</span><br></pre></td></tr></table></figure>
-<p><strong>实例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int num = 0;</span><br><span class="line">char c = &#x27;0&#x27;;</span><br><span class="line">int ret_val = scanf(&quot;%d&quot;, &amp;num );       // &amp; 取地址符号，获得 内存 num 的地址</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">// 如果不清空有可能会导致下一次使用标准输入缓冲区异常（有上一次的数据没有被读取）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%d\n&quot; , ret_val , num );</span><br><span class="line">ret_val = scanf(&quot;%c&quot;, &amp;c );</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%c\n&quot; , ret_val , c );</span><br><span class="line">printf(&quot;EOF:%d\n&quot; , EOF ); //EOF 实际上是一个值为‐1 的宏</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注：如果以后需要从标准输入中获取数据得到乱码或未知数据，则可以尝试使用 getchar 进行清空再获取。</p>
-</blockquote>
-<h2 id="标准输出（格式化输出）">标准输出（格式化输出）</h2>
-<p>概念：屏幕（终端）对应的就是标准输出的设备文件，如果往该文件中输出内容则可以成为标准输出。<br>
-<code>printf( );</code></p>
-<ol>
-<li><strong>注意语法点</strong></li>
-</ol>
-<ul>
-<li>
-<p><code>%</code> 必须有的，格式化的开头标记</p>
-</li>
-<li>
-<p>对齐的方式， 向左对齐（空格在右） ，如果没有则是向右对齐（空格在左）</p>
-</li>
-<li>
-<p><code>m.n </code>  m 指的域宽（需要的字符数）， n 指的是精度（默认精度为6）<br>
-m 的值如果比实际数据小则按实际输出，反之则用空格来填补</p>
-</li>
-<li>
-<p><code>l</code> 指的是 long 表示长整型</p>
-</li>
-<li>
-<p><code>h </code>指的是短整型</p>
-</li>
-</ul>
-<ol start="2">
-<li><strong>格式控制符</strong></li>
-</ol>
-<ul>
-<li>
-<p>十进制的整型： <code>%d</code> <code>%md</code> <code>%ld</code> <code>%u</code>（无符号） <code>%lu</code></p>
-</li>
-<li>
-<p>八进制： <code>%o</code> <code>%#o</code>                 # --&gt; 输出进制的符号</p>
-</li>
-<li>
-<p>十六进制： <code>%x</code> <code>%#x</code> <code>%#X</code></p>
-</li>
-<li>
-<p>字符： <code>%c</code></p>
-</li>
-<li>
-<p>字符串： <code>%s</code></p>
-</li>
-<li>
-<p>单精度浮点： <code>%f</code> <code>%.nf</code> --&gt; n 表示精度</p>
-</li>
-<li>
-<p>双精度： <code>%lf</code></p>
-</li>
-<li>
-<p>长双精度 ： <code>%Lf</code></p>
-</li>
-<li>
-<p>地址： <code>%p</code></p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;%d\n&quot; , 0123 ); // 使用十进制的格式来输出一个八进制数据 0123 ‐‐&gt;83</span><br><span class="line"></span><br><span class="line">printf(&quot;%o\n&quot; , 0123 ); // 使用八进制的格式来输出一个八进制数据 0123 ‐‐&gt;123</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="类型的转换">类型的转换</h2>
-<p>概念：不同的数据类型但是可以兼容的类型之间，如果出现在同一表达式中则会发生类型的转换。</p>
-<ol>
-<li>
-<p><strong>隐式转换（自动）</strong></p>
-<p>若在表达式中用户没有手动进行转换，则系统会自动转为高精度的类型（由低精度转换为高精度）<br>
-比如：  float + double + int   --&gt;  则系统会自动全部转为 double</p>
-</li>
-<li>
-<p><strong>强制转换（手动）</strong></p>
-<p>用户根据自己的需求进行强制的类型转换 ( int )a   --&gt;     强制性把 a 转换为整型</p>
-<blockquote>
-<p>注意：不管是隐式转换还是强制转换，准换的只是在运算的过程中，并不会影响到原本的数，这是一个临时的转换。</p>
-</blockquote>
-<blockquote>
-<p>运算中可能会丢失精度，但不会影响数据本来的值，只是临时转换</p>
-</blockquote>
-</li>
-</ol>
-<p>例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a=100;</span><br><span class="line">    char c=&#x27;k&#x27;;</span><br><span class="line">    float f=3.14;</span><br><span class="line">    double d=998526.153;</span><br><span class="line">  </span><br><span class="line">//只是临时转换高精度的double m，   a、c、f、d实际没变</span><br><span class="line">    double m=a+c+f+d;    //隐式转换</span><br><span class="line">    int n=(int)a+(int)c+(int)f+(int)d;   //强制转换</span><br><span class="line">    printf(&quot;m= %lf,n=%d\n&quot;,m,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>精度排序：</strong></p>
-<ol>
-<li><code>char</code>：1个字节。通常用于存储字符和小整数值。</li>
-<li><code>short</code>：2个字节。通常用于较小的整数值。</li>
-<li><code>int</code>：4个字节。通常用于一般整数值。</li>
-<li><code>float</code>：4个字节。单精度浮点数，通常用于存储小数值，具有较高的精度。</li>
-<li><code>double</code>：8个字节。双精度浮点数，通常用于存储双精度小数值，具有更高的精度。</li>
-<li><code>long double</code>：这个数据类型的大小可以因系统而异，<mark>通常为8个字节</mark>或更多。它提供了比 <code>double</code> 更高的精度，适用于需要更高精度的计算</li>
-</ol>
-<h1>补充</h1>
-<h2 id="数据类型的本质：">数据类型的本质：</h2>
-<ol>
-<li>
-<p>概念：</p>
-<p>各种不同的数据类型，从本质上是用户与系统之间的一个约定，这个约定用来如何正确的解析内存中的二进制编码。</p>
-<p>比如整形使用原码补码，浮点型是通过计算得出的浮点数二进制码</p>
-</li>
-<li>
-<p>推论：</p>
-<p>类型转换：实际上就是在临时打破之前的约定。<br>
-理论上任何的数据都可以进行转换，但是转换之后是否有意义？</p>
-</li>
-</ol>
-<h2 id="整型的尺寸">整型的尺寸</h2>
-<ol>
-<li>
-<p><strong>概念</strong>：尺寸指的是某一个数据需要多少内存来存储（占用的内存空间）<br>
-在 C 语言中并没有规定某一个数据类型他的尺寸是多少，但是有个<mark>相对</mark>的大小约定</p>
-<p>Short 不可能比 int 长<br>
-Long 不可能比 int 短<br>
-Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</p>
-<p>如何查看系统字长：有很多方法</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//方法一，终端输入</span><br><span class="line">$ getconf LONG_BIT</span><br><span class="line">64</span><br><span class="line"></span><br><span class="line">//方法二，终端输入</span><br><span class="line">$ uname -a</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>典型尺寸：</strong></p>
-<ul>
-<li>char    占用 1 个字节</li>
-<li>short   占用 2个字节</li>
-<li>int       占用 4 个字节</li>
-<li>long    占用 4（32 位系统） /  8（64 位系统） 个字节</li>
-</ul>
-</li>
-</ol>
-<h3 id="可移植类型">可移植类型</h3>
-<blockquote>
-<p>相同的代码在不同（位数）的系统中，它所占用的尺寸会发生变化，有可能导致数据的精度出现问题，严重的可能会导致程序无法运行。<br>
-因此，系统中会提供一些可移植类型。</p>
-</blockquote>
-<p>概念：不管在什么系统中，数据的尺寸都是固定不会发生变化的数据类型，称为可移植数据类型<br>
-关键词：typedef</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef int zzz;   //相对于用typedef给int取个别名为zzz</span><br><span class="line">typedef int __int32_t;</span><br><span class="line">typedef long __long_64_t;</span><br></pre></td></tr></table></figure>
-<p>系统提供了一些预定义的</p>
-<p>通过 cd /usr/include 后，运行 find -name types.h 会发现./x86_64-linux-gnu/bits/types.h<br>
-路径：/usr/include/x86_64-linux-gnu/bits/types.h</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Convenience types.  */</span><br><span class="line">typedef unsigned char __u_char;</span><br><span class="line">typedef unsigned short int __u_short;</span><br><span class="line">typedef unsigned int __u_int;</span><br><span class="line">typedef unsigned long int __u_long;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/* Fixed-size types, underlying types depend on word size and compiler.  */</span><br><span class="line">typedef signed char __int8_t;    //有符号的8位整型</span><br><span class="line">typedef unsigned char __uint8_t;   //无符号的8位整型</span><br><span class="line">typedef signed short int __int16_t;</span><br><span class="line">typedef unsigned short int __uint16_t;</span><br><span class="line">typedef signed int __int32_t;</span><br><span class="line">typedef unsigned int __uint32_t;</span><br><span class="line">#if __WORDSIZE == 64     //判断系统的位数（字长）</span><br><span class="line">typedef signed long int __int64_t;    //64位系统中，long int就是64位的有符号整型</span><br><span class="line">typedef unsigned long int __uint64_t;  ////64位系统中，long int就是64位的无符号整型</span><br><span class="line">#else   //判断系统的位数，如果不是64位系统，则判断为32位系统</span><br><span class="line">__extension__ typedef signed long long int __int64_t;  //在32位系统中 long long 才占用64位</span><br><span class="line">__extension__ typedef unsigned long long int __uint64_t;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h1>指针入门</h1>
@@ -863,92 +736,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1>数组入门</h1>
-<h2 id="概念">概念</h2>
-<ol>
-<li>
-<p>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</p>
-</li>
-<li>
-<p>语法：<code>int arr [5]</code> ;</p>
-<p><img src="https://s2.loli.net/2023/11/15/ijZDvGFac5eVrOI.webp" alt="C-array1"></p>
-</li>
-<li>
-<p>初始化</p>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/tsfYOAvjQq31ErM.webp" alt="C-array2"></p>
-<p><mark>注意：</mark><br>
-数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/LNufzs8k4iAV6Br.webp" alt="C-array3"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="字符数组">字符数组</h2>
-<ol>
-<li>
-<p>概念： 专门用来存放字符类型数据的数组，称为字符数组</p>
-</li>
-<li>
-<p>初始化+引用：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="思考">思考</h2>
-<ol>
-<li>
-<p>定义数组时没有初始化会怎么样？</p>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
-<img src="https://s2.loli.net/2023/11/15/cwsDFSa7q5k2hnB.webp" alt="C-array4"></p>
-</li>
-<li>
-<p>不完全初始化又会怎么样？</p>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-</li>
-<li>
-<p>补充</p>
-<p><mark>注意：</mark></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
- <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>char buf[5]={1,2,3,4,5};</li>
-</ul>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-<ul>
-<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
-</ul>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</div></details>
-</li>
-</ol>
-<h1>数组进阶</h1>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习六：数组与指针的结合</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
     <content><![CDATA[<h1>基础</h1>
@@ -966,6 +753,117 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
 <h1>指针数组</h1>
 <p>概念：专门用来存放指针的数组，称为指针数组。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h1>二路分支 ：if 语句</h1>
+<ul>
+<li>
+<p>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</p>
+</li>
+<li>
+<p>语法：</p>
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } 。否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1>多路分支：switch-case</h1>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1>while 和 do…while 循环</h1>
+<h2 id="while">while</h2>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/kXryaiW1pOo2dgH.webp" alt="C-control1"><br>
+例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-…-while">do … while</h2>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/YWiseZ3t8DE9CFP.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h2 id="注意">注意</h2>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h1>for 循环</h1>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h1>break 与 continue</h1>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>goto 语句</h1>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1190,6 +1088,92 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1>数组入门</h1>
+<h2 id="概念">概念</h2>
+<ol>
+<li>
+<p>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</p>
+</li>
+<li>
+<p>语法：<code>int arr [5]</code> ;</p>
+<p><img src="https://s2.loli.net/2023/11/15/ijZDvGFac5eVrOI.webp" alt="C-array1"></p>
+</li>
+<li>
+<p>初始化</p>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/tsfYOAvjQq31ErM.webp" alt="C-array2"></p>
+<p><mark>注意：</mark><br>
+数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/LNufzs8k4iAV6Br.webp" alt="C-array3"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="字符数组">字符数组</h2>
+<ol>
+<li>
+<p>概念： 专门用来存放字符类型数据的数组，称为字符数组</p>
+</li>
+<li>
+<p>初始化+引用：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="思考">思考</h2>
+<ol>
+<li>
+<p>定义数组时没有初始化会怎么样？</p>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）<br>
+<img src="https://s2.loli.net/2023/11/15/cwsDFSa7q5k2hnB.webp" alt="C-array4"></p>
+</li>
+<li>
+<p>不完全初始化又会怎么样？</p>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+</li>
+<li>
+<p>补充</p>
+<p><mark>注意：</mark></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+ <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>char buf[5]={1,2,3,4,5};</li>
+</ul>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
+在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+<ul>
+<li>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</li>
+</ul>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
+具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</div></details>
+</li>
+</ol>
+<h1>数组进阶</h1>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux常用命令</title>
     <url>/2022/12/13/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1>常用命令</h1>
@@ -1387,19 +1371,6 @@ CentOS<br>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware Workstation Pro教程三：安装Debian</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
     <content><![CDATA[]]></content>
@@ -1515,6 +1486,192 @@ CentOS<br>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
         <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 美化</title>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<h1>主题优化</h1>
+<blockquote>
+<p><mark>参考：</mark></p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
+<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
+<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
+</ul>
+</blockquote>
+<h2 id="安装必要插件">安装必要插件</h2>
+<blockquote>
+<p>tweaks（优化）、extensions （扩展）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<h2 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h2>
+<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
+<p><img src="https://s2.loli.net/2023/11/15/MdvUjmpWZVhn7N3.webp" alt="ubuntu1"></p>
+<p><img src="https://s2.loli.net/2023/11/15/vhXodEPtYRJCwiN.webp" alt="ubuntu2"></p>
+<h2 id="安装-User-Themes-插件">安装 User Themes 插件</h2>
+<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
+搜索 User Themes 插件，点击进入插件界面进行安装。</p>
+<p><img src="https://s2.loli.net/2023/11/15/Z27ElQpsPc6H84m.webp" alt="ubuntu3"></p>
+<h2 id="安装主题">安装主题</h2>
+<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
+<li>为所有用户安装：/usr/share/themes/</li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>进入主题目录，，执行如下命令进行主题安装。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置主题</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装图标">安装图标</h2>
+<ol>
+<li>
+<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
+<li>为所有用户安装：/usr/share/icons</li>
+</ul>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/11/15/zhG9UYbKq2djiAB.webp" alt="ubuntu4"></p>
+</li>
+<li>
+<p>应用主题和图标</p>
+<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
+<p><img src="https://s2.loli.net/2023/11/15/LDeiQV87kbyFYAw.webp" alt="ubuntu5"></p>
+</li>
+<li>
+<p>元素位置调整</p>
+<ul>
+<li>将标题栏的操作按钮从右侧移动到左侧</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/hRUlFewjCk1i3Yr.webp" alt="ubuntu6"></p>
+<ul>
+<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/nVot2PqKkAcJZDu.webp" alt="ubuntu7"></p>
+<ul>
+<li>更换壁纸<br>
+<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
+</ul>
+</li>
+</ol>
+<h1>更多插件</h1>
+<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
+<ul>
+<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
+<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
+<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
+<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
+<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
+版本不兼容，我没安装</li>
+</ul>
+<hr>
+<h1>终端美化：zsh</h1>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
+<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
+</ul>
+</blockquote>
+<h2 id="安装-zsh">安装 zsh</h2>
+<p>macOS：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+<p>ubuntu：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>ArchLinux/Manjaro：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
+<blockquote>
+<ul>
+<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
+<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
+<li>查看当前用户：<code>whoami</code></li>
+</ul>
+</blockquote>
+<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
+<p>第一次运行 zsh 时会进入如下的配置引导页面：<br>
+。。。</p>
+<p><mark>这里输入<code>q</code></mark></p>
+<ul>
+<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
+<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
+<li>输入输入 <code>1</code> 后，就开始进行配置</li>
+</ul>
+<blockquote>
+<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
+</blockquote>
+<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
+<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
+<blockquote>
+<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
+</blockquote>
+<p>①使用 curl 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>②或者使用 wget 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
+<h2 id="配置-zsh">配置 zsh</h2>
+<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
+<p><strong>更换自带主题</strong>：<br>
+zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
+我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
+<h2 id="安装插件">安装插件</h2>
+<h3 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h3>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
+<p>安装步骤：</p>
+<ol>
+<li>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
+</li>
+</ol>
+<h3 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h3>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h2 id="补充">补充</h2>
+<p>待写。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -1737,484 +1894,6 @@ CentOS<br>
 ]]></content>
   </entry>
   <entry>
-    <title>windows 常用运行环境的安装</title>
-    <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1>Git</h1>
-<p>见：</p>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h1>Node.Js</h1>
-<blockquote>
-<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
-</blockquote>
-<h2 id="下载安装包">下载安装包</h2>
-<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
-<blockquote>
-<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
-</blockquote>
-<blockquote>
-<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
-<ul>
-<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
-<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
-</ul>
-</blockquote>
-<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
-<p><img src="https://s2.loli.net/2023/11/15/WEfZuvwPFUhyge7.webp" alt="nodejs1"></p>
-<h2 id="安装程序">安装程序</h2>
-<ol>
-<li>
-<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
-</li>
-<li>
-<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
-<ul>
-<li><code>Node.js runtime</code> ：表示运行环境</li>
-<li><code>npm package manager</code>：表示npm包管理器</li>
-<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
-<li><code>Add to PATH</code>：添加到环境变量</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/F46isEKMnN5eHz7.webp" alt="nodejs2"></p>
-</li>
-<li>
-<p>下图框中所示，不用选</p>
-<p><img src="https://s2.loli.net/2023/11/15/8YXWUqPQhxiy1HF.webp" alt="nodejs3"></p>
-</li>
-<li>
-<p>点击 Install，完成安装</p>
-</li>
-<li>
-<p>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</p>
-</li>
-</ol>
-<h2 id="修改位置">修改位置</h2>
-<ol>
-<li>
-<p><strong>修改全局模块路径和缓存路径（可选）</strong></p>
-<blockquote>
-<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
-<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
-</blockquote>
-<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
-②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
-<p>比如：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>修改系统环境变量</strong></p>
-<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
-② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
-③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
-</li>
-<li>
-<p><strong>验证</strong></p>
-<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
-输入下面的命令：<br>
-<code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
-<p>②下载成功后，我们回到自定义的目录查看。</p>
-<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
-<blockquote>
-<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
-</blockquote>
-</li>
-</ol>
-<h2 id="更换国内源">更换国内源</h2>
-<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
-<blockquote>
-<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<ol>
-<li>
-<p>查看初始 npm 源</p>
-<p><code>npm config get registry </code></p>
-</li>
-<li>
-<p>更换镜像为淘宝镜像</p>
-<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
-</li>
-</ol>
-<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
-<blockquote>
-<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
-</blockquote>
-<ol>
-<li>
-<p>全局安装基于淘宝源的 cnpm</p>
-<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
-<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
-</li>
-<li>
-<p>执行命令查看 cnpm 是否安装成功</p>
-<p><code>cnpm -v </code></p>
-</li>
-</ol>
-<h3 id="验证安装">验证安装</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
-<p><strong>参考文档</strong></p>
-<ul>
-<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
-</ul>
-<hr>
-<h1>MinGW-w64</h1>
-<blockquote>
-<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
-</blockquote>
-<blockquote>
-<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
-</blockquote>
-<h2 id="下载">下载</h2>
-<blockquote>
-<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
-链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/11/15/sF8PQnR52itBbA7.webp" alt="mingw64-1"></p>
-<ul>
-<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
-<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
-<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
-</ul>
-<h2 id="安装">安装</h2>
-<ol>
-<li>
-<p><strong>方法一</strong>：在线安装（网络问题，很炸裂）</p>
-<p><img src="https://s2.loli.net/2023/11/15/OAN5CW8EBFrIgJk.webp" alt="mingw64-2"></p>
-<ul>
-<li>Version 是版本，一般选最高版本；</li>
-<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
-<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
-<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
-<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
-<li>Build revision，默认值即可</li>
-</ul>
-<blockquote>
-<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
-</blockquote>
-</li>
-<li>
-<p><strong>方法二</strong>：直接下载对应的压缩包</p>
-<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://s2.loli.net/2023/11/15/gLNOD3yu9WGiSeb.webp" alt="mingw64-3"></p>
-<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
-</li>
-</ol>
-<hr>
-<h1>PHP</h1>
-<h2 id="下载-2">下载</h2>
-<blockquote>
-<p>下载地址：<a href="https://windows.php.net/download">https://windows.php.net/download</a></p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/11/15/NwzUTFd371IJpOL.png" alt="php1"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>“VS16 x64 Thread Safe” 和 “VS16 x64 Non Thread Safe” 是指针对 Windows 平台上的 PHP 编译版本。</li>
-<li>“VS16” 表示使用的是 Visual Studio 2019 编译器（版本号为 16）。</li>
-<li>“x64” 表示编译为 64 位版本，这意味着它适用于 64 位的 Windows 操作系统。</li>
-<li>“Thread Safe” 表示编译版本是线程安全的，即支持多线程操作。这意味着您可以在一个应用程序中同时运行多个线程，而不会出现竞争条件或内存访问冲突。</li>
-<li>“Non Thread Safe” 表示编译版本不是线程安全的，即不支持多线程操作。这意味着您应该在单线程环境下使用它，或者需要自行处理多线程操作的同步和互斥。</li>
-</ul>
-<p>选择哪个版本取决于您的具体需求和环境。如果您的应用程序需要多线程支持，那么选择 “Thread Safe” 版本是更安全的选择。否则，如果您的应用程序是单线程的，或者您能够自行处理多线程操作的同步和互斥，那么选择 “Non Thread Safe” 版本也是可以的。</p>
-</div></details>
-<h2 id="安装-2">安装</h2>
-<p>将下载好的 zip 文件解压到自己认为比较合适的地方（例如：<code>D:\php\php-8.2.12-nts-Win32-vs16-x64</code>），不需要安装，解压即可。</p>
-<h2 id="环境配置">环境配置</h2>
-<p>打开 <code>设置</code> --&gt; <code>系统</code> --&gt; <code>系统信息</code> --&gt; <code>高级系统设置</code> --&gt; <code>环境变量</code><br>
-在下面的系统变量里找到 <code>Path</code>，双击新建一条记录，将上述 PHP 路径粘贴进去，保存</p>
-<h2 id="验证">验证</h2>
-<p>按下 <code>Win + R</code>，输入 <code>cmd</code>，打开命令行工具，输入 <code>php -v</code></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>软件与环境</category>
-      </categories>
-      <tags>
-        <tag>环境</tag>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zram与swap交换内存</title>
-    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<h1>必看</h1>
-<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
-<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
-<li>zram部分没用过，不知道，直接抄下来的</li>
-<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
-<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
-<li>一般来说，能不用swap更好</li>
-<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
-<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
-</ol>
-</div>
-<h2 id="zram">zram</h2>
-<p><strong>介绍</strong><br>
-zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
-<p>一、创建zram交换分区</p>
-<ol>
-<li>
-<p>加载 zram 内核模块，并创建一个 zram设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭当前正在使用的 zram 设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>重置 zram 设备，清除其中所有数据。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>格式化 zram 设备，以便将其用作交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
-<h2 id="swap">swap</h2>
-<p><strong>介绍</strong>：<br>
-Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。<br>
-<strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
-<p>一、<strong>创建swap交换分区</strong></p>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建交换空间大小1G，可自行修改：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>授予权限</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启用交换内存</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开机启用交换空间</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>二、<strong>删除swap交换分区</strong>（没用过）</p>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭要删除的交换分区。 运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
-</li>
-<li>
-<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
-</li>
-<li>
-<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu 美化</title>
-    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<h1>主题优化</h1>
-<blockquote>
-<p><mark>参考：</mark></p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
-<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
-<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
-</ul>
-</blockquote>
-<h2 id="安装必要插件">安装必要插件</h2>
-<blockquote>
-<p>tweaks（优化）、extensions （扩展）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
-<h2 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h2>
-<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://s2.loli.net/2023/11/15/MdvUjmpWZVhn7N3.webp" alt="ubuntu1"></p>
-<p><img src="https://s2.loli.net/2023/11/15/vhXodEPtYRJCwiN.webp" alt="ubuntu2"></p>
-<h2 id="安装-User-Themes-插件">安装 User Themes 插件</h2>
-<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
-搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://s2.loli.net/2023/11/15/Z27ElQpsPc6H84m.webp" alt="ubuntu3"></p>
-<h2 id="安装主题">安装主题</h2>
-<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
-<li>为所有用户安装：/usr/share/themes/</li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>进入主题目录，，执行如下命令进行主题安装。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置主题</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="安装图标">安装图标</h2>
-<ol>
-<li>
-<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
-<li>为所有用户安装：/usr/share/icons</li>
-</ul>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/11/15/zhG9UYbKq2djiAB.webp" alt="ubuntu4"></p>
-</li>
-<li>
-<p>应用主题和图标</p>
-<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://s2.loli.net/2023/11/15/LDeiQV87kbyFYAw.webp" alt="ubuntu5"></p>
-</li>
-<li>
-<p>元素位置调整</p>
-<ul>
-<li>将标题栏的操作按钮从右侧移动到左侧</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/hRUlFewjCk1i3Yr.webp" alt="ubuntu6"></p>
-<ul>
-<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/nVot2PqKkAcJZDu.webp" alt="ubuntu7"></p>
-<ul>
-<li>更换壁纸<br>
-<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
-</ul>
-</li>
-</ol>
-<h1>更多插件</h1>
-<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
-<ul>
-<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
-<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
-<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
-<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
-<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
-版本不兼容，我没安装</li>
-</ul>
-<hr>
-<h1>终端美化：zsh</h1>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
-</ul>
-</blockquote>
-<h2 id="安装-zsh">安装 zsh</h2>
-<p>macOS：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
-<p>ubuntu：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
-<p>ArchLinux/Manjaro：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
-<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
-<blockquote>
-<ul>
-<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
-<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
-<li>查看当前用户：<code>whoami</code></li>
-</ul>
-</blockquote>
-<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
-<p>第一次运行 zsh 时会进入如下的配置引导页面：<br>
-。。。</p>
-<p><mark>这里输入<code>q</code></mark></p>
-<ul>
-<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
-<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
-<li>输入输入 <code>1</code> 后，就开始进行配置</li>
-</ul>
-<blockquote>
-<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
-</blockquote>
-<h2 id="安装-oh-my-zsh">安装 oh-my-zsh</h2>
-<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
-<blockquote>
-<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
-</blockquote>
-<p>①使用 curl 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>②或者使用 wget 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
-<h2 id="配置-zsh">配置 zsh</h2>
-<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
-<p><strong>更换自带主题</strong>：<br>
-zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
-我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
-<h2 id="安装插件">安装插件</h2>
-<h3 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h3>
-<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
-<p>安装步骤：</p>
-<ol>
-<li>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
-</li>
-</ol>
-<h3 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h3>
-<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<h2 id="补充">补充</h2>
-<p>待写。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>windows 安装Git</title>
     <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
     <content><![CDATA[<h1>一、windows 安装</h1>
@@ -2428,6 +2107,311 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zram与swap交换内存</title>
+    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<h1>必看</h1>
+<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
+<li>zram部分没用过，不知道，直接抄下来的</li>
+<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
+<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
+<li>一般来说，能不用swap更好</li>
+<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
+<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
+</ol>
+</div>
+<h2 id="zram">zram</h2>
+<p><strong>介绍</strong><br>
+zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
+<p>一、创建zram交换分区</p>
+<ol>
+<li>
+<p>加载 zram 内核模块，并创建一个 zram设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭当前正在使用的 zram 设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重置 zram 设备，清除其中所有数据。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>格式化 zram 设备，以便将其用作交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
+<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+</li>
+</ol>
+<h2 id="swap">swap</h2>
+<p><strong>介绍</strong>：<br>
+Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。<br>
+<strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
+<p>一、<strong>创建swap交换分区</strong></p>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建交换空间大小1G，可自行修改：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>授予权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启用交换内存</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开机启用交换空间</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>二、<strong>删除swap交换分区</strong>（没用过）</p>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭要删除的交换分区。 运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+</li>
+<li>
+<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
+</li>
+<li>
+<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 常用运行环境的安装</title>
+    <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1>Git</h1>
+<p>见：</p>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h1>Node.Js</h1>
+<blockquote>
+<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
+</blockquote>
+<h2 id="下载安装包">下载安装包</h2>
+<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
+<blockquote>
+<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
+</blockquote>
+<blockquote>
+<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
+<ul>
+<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
+<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
+</ul>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
+<p><img src="https://s2.loli.net/2023/11/15/WEfZuvwPFUhyge7.webp" alt="nodejs1"></p>
+<h2 id="安装程序">安装程序</h2>
+<ol>
+<li>
+<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
+</li>
+<li>
+<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
+<ul>
+<li><code>Node.js runtime</code> ：表示运行环境</li>
+<li><code>npm package manager</code>：表示npm包管理器</li>
+<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
+<li><code>Add to PATH</code>：添加到环境变量</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/F46isEKMnN5eHz7.webp" alt="nodejs2"></p>
+</li>
+<li>
+<p>下图框中所示，不用选</p>
+<p><img src="https://s2.loli.net/2023/11/15/8YXWUqPQhxiy1HF.webp" alt="nodejs3"></p>
+</li>
+<li>
+<p>点击 Install，完成安装</p>
+</li>
+<li>
+<p>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</p>
+</li>
+</ol>
+<h2 id="修改位置">修改位置</h2>
+<ol>
+<li>
+<p><strong>修改全局模块路径和缓存路径（可选）</strong></p>
+<blockquote>
+<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
+<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
+</blockquote>
+<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
+②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
+<p>比如：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>修改系统环境变量</strong></p>
+<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
+② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
+③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
+</li>
+<li>
+<p><strong>验证</strong></p>
+<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录<br>
+输入下面的命令：<br>
+<code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
+<p>②下载成功后，我们回到自定义的目录查看。</p>
+<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
+<blockquote>
+<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="更换国内源">更换国内源</h2>
+<h3 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h3>
+<blockquote>
+<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<ol>
+<li>
+<p>查看初始 npm 源</p>
+<p><code>npm config get registry </code></p>
+</li>
+<li>
+<p>更换镜像为淘宝镜像</p>
+<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
+</li>
+</ol>
+<h3 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h3>
+<blockquote>
+<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
+</blockquote>
+<ol>
+<li>
+<p>全局安装基于淘宝源的 cnpm</p>
+<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
+<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
+</li>
+<li>
+<p>执行命令查看 cnpm 是否安装成功</p>
+<p><code>cnpm -v </code></p>
+</li>
+</ol>
+<h3 id="验证安装">验证安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
+<p><strong>参考文档</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h1>MinGW-w64</h1>
+<blockquote>
+<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
+</blockquote>
+<blockquote>
+<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
+</blockquote>
+<h2 id="下载">下载</h2>
+<blockquote>
+<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
+链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/11/15/sF8PQnR52itBbA7.webp" alt="mingw64-1"></p>
+<ul>
+<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
+<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
+<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
+</ul>
+<h2 id="安装">安装</h2>
+<ol>
+<li>
+<p><strong>方法一</strong>：在线安装（网络问题，很炸裂）</p>
+<p><img src="https://s2.loli.net/2023/11/15/OAN5CW8EBFrIgJk.webp" alt="mingw64-2"></p>
+<ul>
+<li>Version 是版本，一般选最高版本；</li>
+<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
+<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
+<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
+<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
+<li>Build revision，默认值即可</li>
+</ul>
+<blockquote>
+<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
+</blockquote>
+</li>
+<li>
+<p><strong>方法二</strong>：直接下载对应的压缩包</p>
+<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
+<p><img src="https://s2.loli.net/2023/11/15/gLNOD3yu9WGiSeb.webp" alt="mingw64-3"></p>
+<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
+</li>
+</ol>
+<hr>
+<h1>PHP</h1>
+<h2 id="下载-2">下载</h2>
+<blockquote>
+<p>下载地址：<a href="https://windows.php.net/download">https://windows.php.net/download</a></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/11/15/NwzUTFd371IJpOL.png" alt="php1"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>“VS16 x64 Thread Safe” 和 “VS16 x64 Non Thread Safe” 是指针对 Windows 平台上的 PHP 编译版本。</li>
+<li>“VS16” 表示使用的是 Visual Studio 2019 编译器（版本号为 16）。</li>
+<li>“x64” 表示编译为 64 位版本，这意味着它适用于 64 位的 Windows 操作系统。</li>
+<li>“Thread Safe” 表示编译版本是线程安全的，即支持多线程操作。这意味着您可以在一个应用程序中同时运行多个线程，而不会出现竞争条件或内存访问冲突。</li>
+<li>“Non Thread Safe” 表示编译版本不是线程安全的，即不支持多线程操作。这意味着您应该在单线程环境下使用它，或者需要自行处理多线程操作的同步和互斥。</li>
+</ul>
+<p>选择哪个版本取决于您的具体需求和环境。如果您的应用程序需要多线程支持，那么选择 “Thread Safe” 版本是更安全的选择。否则，如果您的应用程序是单线程的，或者您能够自行处理多线程操作的同步和互斥，那么选择 “Non Thread Safe” 版本也是可以的。</p>
+</div></details>
+<h2 id="安装-2">安装</h2>
+<p>将下载好的 zip 文件解压到自己认为比较合适的地方（例如：<code>D:\php\php-8.2.12-nts-Win32-vs16-x64</code>），不需要安装，解压即可。</p>
+<h2 id="环境配置">环境配置</h2>
+<p>打开 <code>设置</code> --&gt; <code>系统</code> --&gt; <code>系统信息</code> --&gt; <code>高级系统设置</code> --&gt; <code>环境变量</code><br>
+在下面的系统变量里找到 <code>Path</code>，双击新建一条记录，将上述 PHP 路径粘贴进去，保存</p>
+<h2 id="验证">验证</h2>
+<p>按下 <code>Win + R</code>，输入 <code>cmd</code>，打开命令行工具，输入 <code>php -v</code></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>软件与环境</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
