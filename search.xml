@@ -191,114 +191,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
-<h3 id="while">while</h3>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/kXryaiW1pOo2dgH.webp" alt="C-control1"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="do-…-while">do … while</h3>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/YWiseZ3t8DE9CFP.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h3 id="注意">注意</h3>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h2 id="for-循环">for 循环</h2>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h2 id="break-与-continue">break 与 continue</h2>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="goto-语句">goto 语句</h2>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习一：数据类型</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h2 id="数据类型">数据类型</h2>
@@ -610,105 +502,104 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>C语言学习五：指针</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="指针入门">指针入门</h2>
-<h3 id="基础知识">基础知识</h3>
-<h4 id="内存地址">内存地址</h4>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
 <ul>
-<li>字节： 字节是内存容量的一个单位， <code>byte</code> ，一个字节 <code>byte</code> 有 <code>8</code>个位 <code>bit</code></li>
-<li>地址： 系统为了方便区分每一个字节的数据，而对内存进行了逐一编号，而该编号就是内存地址。</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/qk3y7PcREh9Dniw.webp" alt="C-pointer1"></p>
-<h4 id="基地址">基地址</h4>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
 <ul>
-<li>单字节的数据： <code>char</code> 它所在地址的编号就是该数据的地址</li>
-<li>多字节的数据：<code>int</code> 它拥有<code>4</code>个连续的地址的编号 ，其中地址值最小的称为该量的地址</li>
-</ul>
-<p><img src="https://s2.loli.net/2023/11/15/D5kKSvHgsYIXeEV.webp" alt="C-pointer2"></p>
-<h4 id="取地址符号">取地址符号</h4>
-<p>每一个变量其实都对应了一片内存，因此都可以通过 &amp; 取地址符号将其地址获得。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i ;</span><br><span class="line">double d;</span><br><span class="line">float f ;</span><br><span class="line">char c ;</span><br><span class="line">    </span><br><span class="line">printf(&quot;i的地址为:%p\n&quot; , &amp;i);</span><br><span class="line">printf(&quot;d的地址为:%p\n&quot; , &amp;d);</span><br><span class="line">printf(&quot;f的地址为:%p\n&quot; , &amp;f);</span><br><span class="line">printf(&quot;c的地址为:%p\n&quot; , &amp;c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">i的地址为:0x7ffec726bc58</span><br><span class="line">d的地址为:0x7ffec726bc60</span><br><span class="line">f的地址为:0x7ffec726bc5c</span><br><span class="line">c的地址为:0x7ffec726bc57</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/ryb5GomWhiZEYAL.webp" alt="C-pointer3"></p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>虽然不同的数据类型所占用的内存空间不同，但是他们的地址所占用的内存空间（地址的大小= 指针的大小）是恒定的，由系统的位数来决定 32位 / 64位</li>
-<li>不同的地址他从表面上看似乎没有什么差别，但是由他们所代表的内存的尺寸是不一样的（由内存中所存放的数据类型相关），因此我们在访问这些地址的时候需要严格区分它们的逻辑关系。</li>
-</ul>
-<h3 id="指针的基础">指针的基础</h3>
-<ol>
-<li>
-<p>概念：<code>&amp;a</code> 就是 <code>a</code> 的地址，实质上也可以理解为他是一个指针，用来指向 <code>a</code> 的地址。专门用来存放地址的一个变量，因此指针的大小是恒定的，由系统的<font color="#ff0000">位数</font>来决定。</p>
-</li>
-<li>
-<p>指针的定义语法</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a ; // 定义一片内存名字叫 a ， 约定好该内存用来存放 整型数据</span><br><span class="line">int * p ; // 定义一片内存名字叫 p ， 约定好该内存用来存放 整型数据的地址</span><br><span class="line">char * p1 ; // 定义一片内存名字叫 p1 ， 约定好该内存用来存放 字符数据的地址</span><br><span class="line">double * p2 ; // 定义一片内存名字叫 p2 ， 约定好该内存用来存放 双精度数据的地址</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<p>指针的类型，并不是用来决定该指针的大小,而是用来告诉编译器如果我们通过该指针来访问内存时需要访问的<font color="#ff0000">内存的大小尺寸</font>。</p>
-</li>
-<li>
-<p>指针的赋值以及初始化</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ; // 定义并初始化</span><br><span class="line">   </span><br><span class="line">double d = 1024.1234 ;</span><br><span class="line">double * p1 = &amp;d ;// 定义并初始化</span><br><span class="line">   </span><br><span class="line">float f ;</span><br><span class="line">float * p2 ;// 只定义，没有初始化</span><br><span class="line">p2 = &amp;f ; // 给指针赋值</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/TaeqX21gzZFMYmI.webp" alt="C-pointer4"></p>
-<blockquote>
-<p>注意：指针自己也有一个地址</p>
-</blockquote>
-<p><mark>注意：</mark></p>
-<p>不同类型的指针，应该用来指向与其相对应的类型的变量的地址。</p>
-</li>
-<li>
-<p>指针的索引</p>
-<p>通过指针获得它所指向的数据（<font color="#ff0000">解引用/取目标</font>）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ;</span><br><span class="line"></span><br><span class="line">*p = 250 ; // *p &lt;==&gt; a</span><br><span class="line"></span><br><span class="line">printf(&quot;*p:%d\n&quot; , *p) ;</span><br><span class="line">printf(&quot;a:%d\n&quot; , a) ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果</span><br><span class="line">*p:250</span><br><span class="line">a:250</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="野指针">野指针</h3>
-<ol>
-<li>
-<p>概念：指向一块<font color="#ff0000">未知内存</font>的指针， 被称为野指针。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;   //仅定义了，但没有初始化也没有给指针赋值</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/Y3Sf2Ll4sFUuaG1.webp" alt="C-pointer5"></p>
-</li>
-<li>
-<p>危害：</p>
-<ul>
-<li>引用野指针的时候，很大概率我们会访问到一个非法内存，通常会出现段错误（Segmentation fault (core dumped)）并导致程序崩溃。</li>
-<li>更加严重的后果，如果访问的时系统关键的数据，则有可能造成系统崩溃</li>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
 </ul>
 </li>
-<li>
-<p>产生原因：</p>
-<ul>
-<li>定义时没有对他进行初始化</li>
-<li>指向的内存被释放，系统已经回收后，该指针并没有重新初始化</li>
-<li>指针越界</li>
 </ul>
-</li>
-<li>
-<p>如何防止：</p>
-<ul>
-<li>定义时记得对他进行初始化</li>
-<li>绝对不去访问被回收的内存地址，当我们释放之后应该重新初始化该指针。</li>
-<li>确认所申请的内存的大小，谨防越界</li>
-</ul>
-</li>
-</ol>
-<h3 id="空指针">空指针</h3>
-<blockquote>
-<p>在很多的情况下，我们一开始还不确定一个指针需要指向哪里，因此可以让该指针先指向一个不会破坏系统关键数据的位置，而这个位置一般就是 NULL （空）。因此指向该地址的指针都称之为空指针。</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2023/11/15/igWqN3Uyhv9jZX4.png" alt="C-pointer6"></p>
-<p><strong>概念：</strong> 空指针就是保存了地址值为零的一个地址， 也就零地址NULL</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p1 = NULL ; // 定义一个指针， 并初始化为空指针（ 指向 NULL ）</span><br><span class="line">*p1 = 250 ; // 段错误 ， 该地址不允许写入任何东西</span><br><span class="line"></span><br><span class="line">printf(&quot;%p ‐‐ %d \n&quot; , NULL , NULL ); // （nul‐‐0）</span><br></pre></td></tr></table></figure>
-<h3 id="指针运算">指针运算</h3>
-<ul>
-<li>指针的加法：意味着地址向上移动若干个目标 （指针的类型）</li>
-<li>指针的减法：意味着地址向下移动若干个目标 （指针的类型）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">long l ;     //long int</span><br><span class="line">long *p = &amp;l ;</span><br><span class="line"></span><br><span class="line">int i ;</span><br><span class="line">int * p1 = &amp;i;</span><br><span class="line"></span><br><span class="line">printf(&quot;p:%p\n&quot; , p );</span><br><span class="line">printf(&quot;p+1:%p\n&quot; , p+1 );</span><br><span class="line"></span><br><span class="line">printf(&quot;p1:%p\n&quot; , p1 );</span><br><span class="line">printf(&quot;p1+1:%p\n&quot; , p1+1 );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">p:0x7fffcb862610</span><br><span class="line">p+1:0x7fffcb862618</span><br><span class="line">p1:0x7fffcb86260c</span><br><span class="line">p1+1:0x7fffcb862610</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.loli.net/2023/11/15/hyQxdU4vIr8ctmV.webp" alt="C-pointer7"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><mark>注意：</mark><br>
-指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
+<h3 id="while">while</h3>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/kXryaiW1pOo2dgH.webp" alt="C-control1"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="do-…-while">do … while</h3>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/YWiseZ3t8DE9CFP.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h2 id="for-循环">for 循环</h2>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h2 id="break-与-continue">break 与 continue</h2>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="goto-语句">goto 语句</h2>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -855,6 +746,115 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
+    <title>C语言学习五：指针</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="指针入门">指针入门</h2>
+<h3 id="基础知识">基础知识</h3>
+<h4 id="内存地址">内存地址</h4>
+<ul>
+<li>字节： 字节是内存容量的一个单位， <code>byte</code> ，一个字节 <code>byte</code> 有 <code>8</code>个位 <code>bit</code></li>
+<li>地址： 系统为了方便区分每一个字节的数据，而对内存进行了逐一编号，而该编号就是内存地址。</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/qk3y7PcREh9Dniw.webp" alt="C-pointer1"></p>
+<h4 id="基地址">基地址</h4>
+<ul>
+<li>单字节的数据： <code>char</code> 它所在地址的编号就是该数据的地址</li>
+<li>多字节的数据：<code>int</code> 它拥有<code>4</code>个连续的地址的编号 ，其中地址值最小的称为该量的地址</li>
+</ul>
+<p><img src="https://s2.loli.net/2023/11/15/D5kKSvHgsYIXeEV.webp" alt="C-pointer2"></p>
+<h4 id="取地址符号">取地址符号</h4>
+<p>每一个变量其实都对应了一片内存，因此都可以通过 &amp; 取地址符号将其地址获得。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i ;</span><br><span class="line">double d;</span><br><span class="line">float f ;</span><br><span class="line">char c ;</span><br><span class="line">    </span><br><span class="line">printf(&quot;i的地址为:%p\n&quot; , &amp;i);</span><br><span class="line">printf(&quot;d的地址为:%p\n&quot; , &amp;d);</span><br><span class="line">printf(&quot;f的地址为:%p\n&quot; , &amp;f);</span><br><span class="line">printf(&quot;c的地址为:%p\n&quot; , &amp;c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">i的地址为:0x7ffec726bc58</span><br><span class="line">d的地址为:0x7ffec726bc60</span><br><span class="line">f的地址为:0x7ffec726bc5c</span><br><span class="line">c的地址为:0x7ffec726bc57</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/ryb5GomWhiZEYAL.webp" alt="C-pointer3"></p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>虽然不同的数据类型所占用的内存空间不同，但是他们的地址所占用的内存空间（地址的大小= 指针的大小）是恒定的，由系统的位数来决定 32位 / 64位</li>
+<li>不同的地址他从表面上看似乎没有什么差别，但是由他们所代表的内存的尺寸是不一样的（由内存中所存放的数据类型相关），因此我们在访问这些地址的时候需要严格区分它们的逻辑关系。</li>
+</ul>
+<h3 id="指针的基础">指针的基础</h3>
+<ol>
+<li>
+<p>概念：<code>&amp;a</code> 就是 <code>a</code> 的地址，实质上也可以理解为他是一个指针，用来指向 <code>a</code> 的地址。专门用来存放地址的一个变量，因此指针的大小是恒定的，由系统的<font color="#ff0000">位数</font>来决定。</p>
+</li>
+<li>
+<p>指针的定义语法</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a ; // 定义一片内存名字叫 a ， 约定好该内存用来存放 整型数据</span><br><span class="line">int * p ; // 定义一片内存名字叫 p ， 约定好该内存用来存放 整型数据的地址</span><br><span class="line">char * p1 ; // 定义一片内存名字叫 p1 ， 约定好该内存用来存放 字符数据的地址</span><br><span class="line">double * p2 ; // 定义一片内存名字叫 p2 ， 约定好该内存用来存放 双精度数据的地址</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<p>指针的类型，并不是用来决定该指针的大小,而是用来告诉编译器如果我们通过该指针来访问内存时需要访问的<font color="#ff0000">内存的大小尺寸</font>。</p>
+</li>
+<li>
+<p>指针的赋值以及初始化</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ; // 定义并初始化</span><br><span class="line">   </span><br><span class="line">double d = 1024.1234 ;</span><br><span class="line">double * p1 = &amp;d ;// 定义并初始化</span><br><span class="line">   </span><br><span class="line">float f ;</span><br><span class="line">float * p2 ;// 只定义，没有初始化</span><br><span class="line">p2 = &amp;f ; // 给指针赋值</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/TaeqX21gzZFMYmI.webp" alt="C-pointer4"></p>
+<blockquote>
+<p>注意：指针自己也有一个地址</p>
+</blockquote>
+<p><mark>注意：</mark></p>
+<p>不同类型的指针，应该用来指向与其相对应的类型的变量的地址。</p>
+</li>
+<li>
+<p>指针的索引</p>
+<p>通过指针获得它所指向的数据（<font color="#ff0000">解引用/取目标</font>）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ;</span><br><span class="line"></span><br><span class="line">*p = 250 ; // *p &lt;==&gt; a</span><br><span class="line"></span><br><span class="line">printf(&quot;*p:%d\n&quot; , *p) ;</span><br><span class="line">printf(&quot;a:%d\n&quot; , a) ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果</span><br><span class="line">*p:250</span><br><span class="line">a:250</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="野指针">野指针</h3>
+<ol>
+<li>
+<p>概念：指向一块<font color="#ff0000">未知内存</font>的指针， 被称为野指针。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;   //仅定义了，但没有初始化也没有给指针赋值</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/Y3Sf2Ll4sFUuaG1.webp" alt="C-pointer5"></p>
+</li>
+<li>
+<p>危害：</p>
+<ul>
+<li>引用野指针的时候，很大概率我们会访问到一个非法内存，通常会出现段错误（Segmentation fault (core dumped)）并导致程序崩溃。</li>
+<li>更加严重的后果，如果访问的时系统关键的数据，则有可能造成系统崩溃</li>
+</ul>
+</li>
+<li>
+<p>产生原因：</p>
+<ul>
+<li>定义时没有对他进行初始化</li>
+<li>指向的内存被释放，系统已经回收后，该指针并没有重新初始化</li>
+<li>指针越界</li>
+</ul>
+</li>
+<li>
+<p>如何防止：</p>
+<ul>
+<li>定义时记得对他进行初始化</li>
+<li>绝对不去访问被回收的内存地址，当我们释放之后应该重新初始化该指针。</li>
+<li>确认所申请的内存的大小，谨防越界</li>
+</ul>
+</li>
+</ol>
+<h3 id="空指针">空指针</h3>
+<blockquote>
+<p>在很多的情况下，我们一开始还不确定一个指针需要指向哪里，因此可以让该指针先指向一个不会破坏系统关键数据的位置，而这个位置一般就是 NULL （空）。因此指向该地址的指针都称之为空指针。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/11/15/igWqN3Uyhv9jZX4.png" alt="C-pointer6"></p>
+<p><strong>概念：</strong> 空指针就是保存了地址值为零的一个地址， 也就零地址NULL</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p1 = NULL ; // 定义一个指针， 并初始化为空指针（ 指向 NULL ）</span><br><span class="line">*p1 = 250 ; // 段错误 ， 该地址不允许写入任何东西</span><br><span class="line"></span><br><span class="line">printf(&quot;%p ‐‐ %d \n&quot; , NULL , NULL ); // （nul‐‐0）</span><br></pre></td></tr></table></figure>
+<h3 id="指针运算">指针运算</h3>
+<ul>
+<li>指针的加法：意味着地址向上移动若干个目标 （指针的类型）</li>
+<li>指针的减法：意味着地址向下移动若干个目标 （指针的类型）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">long l ;     //long int</span><br><span class="line">long *p = &amp;l ;</span><br><span class="line"></span><br><span class="line">int i ;</span><br><span class="line">int * p1 = &amp;i;</span><br><span class="line"></span><br><span class="line">printf(&quot;p:%p\n&quot; , p );</span><br><span class="line">printf(&quot;p+1:%p\n&quot; , p+1 );</span><br><span class="line"></span><br><span class="line">printf(&quot;p1:%p\n&quot; , p1 );</span><br><span class="line">printf(&quot;p1+1:%p\n&quot; , p1+1 );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">p:0x7fffcb862610</span><br><span class="line">p+1:0x7fffcb862618</span><br><span class="line">p1:0x7fffcb86260c</span><br><span class="line">p1+1:0x7fffcb862610</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2023/11/15/hyQxdU4vIr8ctmV.webp" alt="C-pointer7"></p>
+<p><mark>注意：</mark><br>
+指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习四：数组</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="数组入门">数组入门</h2>
@@ -943,11 +943,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>Github图床</title>
-    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>C语言学习六：数组与指针的结合</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
     <content><![CDATA[<h2 id="基础">基础</h2>
@@ -972,6 +967,112 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </categories>
       <tags>
         <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github图床</title>
+    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code></p>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<p>例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code></p>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s</p>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d</p>
+<p>部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本</li>
+</ul>
+<p><code>hexo version</code></p>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>命令</tag>
       </tags>
   </entry>
   <entry>
@@ -1095,7 +1196,7 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
 </ol>
 </div></details>
 <h3 id="Debian-Ubuntu-基础命令">Debian/Ubuntu 基础命令</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：sudo apt update  </span><br><span class="line">更新升级所有软件：sudo apt upgrade  </span><br><span class="line">  </span><br><span class="line">清理旧版本的软件缓存：sudo apt autoclean  </span><br><span class="line">清理所有软件缓存：sudo apt clean  </span><br><span class="line">删除系统不再使用的孤立软件：sudo apt autoremove  </span><br><span class="line">  </span><br><span class="line">screen的一些基本命令：  </span><br><span class="line">- #创建一个名为session_name的新窗口  </span><br><span class="line">  screen -S session_name  </span><br><span class="line">- #查看创建的窗口  </span><br><span class="line"> screen -ls  </span><br><span class="line">- #退出当前会话  </span><br><span class="line"> Ctrl+c+d  </span><br><span class="line">- #关闭当前窗口  </span><br><span class="line"> Ctrl-a k  </span><br><span class="line">- #删除cs窗口  </span><br><span class="line"> screen -X -S session_name quit  </span><br><span class="line">- #回到某个窗口  </span><br><span class="line"> screen -r 窗口名  </span><br><span class="line">   </span><br><span class="line">查看内置存储设备的使用寿命信息：cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time  </span><br><span class="line">  </span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">关闭系统电源：sudo systemctl poweroff  </span><br><span class="line">文件系统的磁盘使用情况：df -h  </span><br><span class="line">查看Debian系统的交换内存使用情况free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line">  </span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源：sudo apt update  </span><br><span class="line">更新升级所有软件：sudo apt upgrade  </span><br><span class="line"></span><br><span class="line">查看ip：ip addr show   或者   ifconfig</span><br><span class="line"></span><br><span class="line">清理旧版本的软件缓存：sudo apt autoclean  </span><br><span class="line">清理所有软件缓存：sudo apt clean  </span><br><span class="line">删除系统不再使用的孤立软件：sudo apt autoremove  </span><br><span class="line">  </span><br><span class="line">screen的一些基本命令：  </span><br><span class="line">- #创建一个名为session_name的新窗口  </span><br><span class="line">  screen -S session_name  </span><br><span class="line">- #查看创建的窗口  </span><br><span class="line"> screen -ls  </span><br><span class="line">- #退出当前会话  </span><br><span class="line"> Ctrl+c+d  </span><br><span class="line">- #关闭当前窗口  </span><br><span class="line"> Ctrl-a k  </span><br><span class="line">- #删除cs窗口  </span><br><span class="line"> screen -X -S session_name quit  </span><br><span class="line">- #回到某个窗口  </span><br><span class="line"> screen -r 窗口名  </span><br><span class="line">   </span><br><span class="line">查看内置存储设备的使用寿命信息：cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time  </span><br><span class="line">  </span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">关闭系统电源：sudo systemctl poweroff  </span><br><span class="line">文件系统的磁盘使用情况：df -h  </span><br><span class="line">查看Debian系统的交换内存使用情况free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line">  </span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="Linux-常用的一键脚本">Linux 常用的一键脚本</h3>
 <h4 id="经常使用的脚本">经常使用的脚本</h4>
@@ -1213,8 +1314,8 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
 <p>最新发行的版本地址：<a href="https://github.com/docker/compose/releases">https://github.com/docker/compose/releases</a></p>
 </li>
 <li>
-<p>运行以下命令以下载Docker Compose的当前稳定版本：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>运行以下命令以下载Docker Composed当前最新的稳定版本：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意: 如果无法下载,可以本地下载好后上传到服务器/usr/local/bin/即可</p>
 </blockquote>
@@ -1265,14 +1366,9 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>命令</tag>
+        <tag>Linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Ubuntu 美化</title>
@@ -1447,104 +1543,22 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code></p>
-<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
-<p>例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code></p>
-<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s</p>
-<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d</p>
-<p>部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本</li>
-</ul>
-<p><code>hexo version</code></p>
-<h2 id="待补充">待补充</h2>
-]]></content>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>教程</category>
-        <category>Hexo</category>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>命令</tag>
-        <tag>Hexo</tag>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1660,39 +1674,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>VMware</tag>
         <tag>虚拟机</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>VS Code配置</title>
@@ -1896,6 +1877,25 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>vs</tag>
         <tag>vs code</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>windows 常用运行环境的安装</title>
@@ -2659,6 +2659,181 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
   <entry>
     <title>随身WiFi刷debian</title>
     <url>/2023/10/31/%E9%9A%8F%E8%BA%ABWiFi%E5%88%B7debian/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p><a href="https://www.coolapk.com/feed/46239516?shareKey=ZWQ4YWI4M2IwZDYyNjU1ODQzOGM~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.3.6">随身WIFI &amp; Debian个人折腾优化 来自 XK先生 - 酷安 (coolapk.com)</a></p>
+<h2 id="工具包介绍">工具包介绍</h2>
+<ul>
+<li>
+<p>miko_service_tool_pro：备份自己的rom，以防后续操作出问题，救砖用。</p>
+</li>
+<li>
+<p>Qualcomm Premium Tool ：备份全部分区文件</p>
+</li>
+<li>
+<p>星海和apk文件夹：备份qcn和root</p>
+</li>
+<li>
+<p>搞机工具箱：很多功能，可以不用这个，但是我一并上传到文件夹里了</p>
+</li>
+<li>
+<p>随身WiFi助手：<a href="https://www.coolapk.com/u/2176732">酷铵水遍</a>的工具，可以一键刷机，可以直接刷他的包，但有些功能要钱，我没用他的，仅用此工具安装驱动等</p>
+</li>
+<li>
+<p>DiskGeniusEng_Pro（没用过）</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>详细备份过程看下方酷安帖子：</strong><br>
+<a href="https://www.coolapk.com/feed/37834896?shareKey=OTc0N2EwOGM0NjdkNjQzYTk1NjQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">高通骁龙芯片的随身wifi入门刷机教程 来自 伏莱兮浜 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<h2 id="刷机包介绍">刷机包介绍</h2>
+<p>本教程有两种，刷机包介绍（基于<a href="https://github.com/OpenStick/OpenStick">GitHub - OpenStick/OpenStick</a>修改），均为酷安<a href="https://www.coolapk.com/u/20775713">jsbsbxjxh66</a>大佬的</p>
+<h3 id="2-1Ghz-btrfs-debian-ufi-001c-其他型号自行替换boot和基带文件-7z">2.1Ghz-btrfs-debian-ufi+001c-其他型号自行替换boot和基带文件.7z</h3>
+<blockquote>
+<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41957632?shareKey=YjNhOWY3YWU1MTViNjQzYTk1OGQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi_debian系统btrfs文件系统正式上线 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/NnIvYrvi2AJb">https://cloud.189.cn/t/NnIvYrvi2AJb</a>  （访问码：4dzu）</p>
+<p><strong>简洁介绍：</strong></p>
+<ul>
+<li>4g当8g用，8g当16g，主频高达2.1Ghz</li>
+<li>网络文件系统齐全，usb有线网卡驱动齐全，常用串口驱动齐全</li>
+<li>支持自行编译树外驱动(没有的驱动自己编译加载)</li>
+<li>频率过高导致不稳定自行百度限制cpu频率。</li>
+<li>ssh连接地址10.42.0.1<br>
+ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
+<li><strong>压缩系统命令:<code>btrfs filesystem defragment -r -v -czstd</code> /</strong></li>
+<li><strong>btrfs文件系统断电丢失数据概率大一些，因此尽量不要直接拔电源，先执行<code>poweroff</code>来关闭电源，再拔出WiFi棒子。</strong></li>
+<li>部分型号刷了不启动，经过验证是随身wifi品质太差那就自行刷<a href="https://github.com/OpenStick/OpenStick">作者原版0.9Ghz的！</a></li>
+<li><strong>里面只有一个001c的包，有释放内存和不释放内存boot(释放内存有467m可用吧！不能modem)其他型号自行替换boot内核和基带文件。</strong></li>
+</ul>
+<h3 id="ufi003-debian超频版-zip-没有btrfs">ufi003-debian超频版.zip(没有btrfs)</h3>
+<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/neAnmabAnYji">https://cloud.189.cn/t/neAnmabAnYji</a> （访问码：6nti）</p>
+<p><strong>是上面btrfs版本的上一个版本，没有btrfs</strong></p>
+<blockquote>
+<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41664623?shareKey=YWFkM2Q3OWQ1YTdlNjQzYTk2MGU~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi 各个频率版&amp;释放内存版&amp;驱动全面 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<p><strong>简洁介绍：</strong></p>
+<ul>
+<li>可刷型号：uif001b ufi003 ufi001c ufi903 ufi103s uz801 sp970 ufi16v3/4</li>
+<li>频率有：1.2Ghz 1.4Ghz 1.6Ghz 1.8Ghz 2.0Ghz 2.1Ghz</li>
+<li>释放内存版：去掉了modem和gps设备树运行内存增加到462mb！(也就是说不能插卡)</li>
+<li>一键替换基带文件夹：自行提取基带文件放入里面的modem文件夹通过adb一键替换基带文件。</li>
+<li>一键只刷boot&amp;rootfs文件夹：把相应的镜像文件放入一键刷入(可用于openwrt&amp;debian来回刷只需要boot和rootfs镜像文件)</li>
+<li>一键通过adb连接棒子:需要更新adb驱动才能用</li>
+<li>全面的网卡驱动能编译的都编译上了(可以通过usb给棒子供网两个棒子不就无线中继了)</li>
+</ul>
+<p><strong>须知:</strong></p>
+<ul>
+<li>各个型号已经替换了相应的基带文件</li>
+<li>安装了一些必备软件包</li>
+<li>增加了rc.local开机自动执行服务修改/etc/rc.local文件可加入一些开机要执行的命令</li>
+<li>刷入自带热点4G-wifi 密码:12345678</li>
+<li>ssh连接地址10.42.0.1<br>
+ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
+<li>加入了这些型号串口驱动ch341/ch342/ch343/ch344/ch347/ch9101/ch9102/ch9103/ch9143</li>
+<li>各大网络文件系统全部编译上了如:NFS CIFS SMB AFS等等能编译的全编译了能不能用就不知道了</li>
+<li>删除热点连wifi:<code>nmtui</code> &gt; 编译连接 &gt; 删除wifi热点 &gt;返回 &gt; 启用连接(里面连wifi)</li>
+<li>usb和热点不需要桥接如要重新开启热点看上面网络配置模板</li>
+<li>usb有线网卡驱动能编译的都编译了自己看上面图片</li>
+<li><strong>系统是带adb的需要更新adb驱动才能usb网络共享如何更新看作者项目地址：<a href="https://www.kancloud.cn/handsomehacker/openstick/2636506">查看链接 (kancloud.cn)</a></strong></li>
+<li>修正了一下以前超频版的频率表(16v3的设备树不知道能用不不能用刷001c的)</li>
+</ul>
+<h2 id="一些命令-优化">一些命令&amp;优化</h2>
+<h3 id="命令">命令</h3>
+<ul>
+<li>
+<p>Debian的看emmc寿命<br>
+<code>cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time</code><br>
+或<code>apt install mmc-utilsmmc extcsd read /dev/mmcblk0</code></p>
+<blockquote>
+<p>0x01 表示设备使用的寿命约为 10% 到 20%（0x02 表示 20% 到 30% 等）</p>
+</blockquote>
+</li>
+<li>
+<p>启用btrfs：<code>btrfs filesystem defragment -r -v -czstd /</code></p>
+</li>
+<li>
+<p>连接WiFi和更改主机名：<code>nmtui</code></p>
+</li>
+<li>
+<p>更改密码：<code>passwd</code></p>
+</li>
+<li>
+<p>关机：<code>poweroff</code></p>
+</li>
+</ul>
+<h3 id="优化">优化</h3>
+<blockquote>
+<p>参考：<a href="https://www.coolapk.com/feed/46239516?shareKey=ZWQ4YWI4M2IwZDYyNjU1ODQzOGM~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.3.6">随身WIFI &amp; Debian个人折腾优化 来自 XK先生 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<h2 id="我的记录">我的记录</h2>
+<p>首先我有三个随身WiFi</p>
+<ul>
+<li>新讯003            —&gt;          btrfs版的Debian</li>
+<li>先机103s          —&gt;          btrfs版的Debian</li>
+<li>小讯003            —&gt;          普通的超频版（我这个刷btrfs版有问题，所以用的普通的超频版）</li>
+</ul>
+<h3 id="过程">过程</h3>
+<h4 id="备份">备份</h4>
+<h5 id="miko-service-tool-pro">miko_service_tool_pro</h5>
+<p>让板子进入9008模式，打开miko_service_tool_pro，</p>
+<ul>
+<li>
+<p>备份<br>
+点<code>read</code> —&gt; <code>partition backup</code>，双击下面<code>double click to open save folder</code>，选好救砖包生成的路径，点<code>load partition structure</code>，点<code>read full image</code>就能制作刷机救砖包，大概5分钟以内，保存好这个名为<code>.bin</code>的单文件。</p>
+</li>
+<li>
+<p>刷机/救砖<br>
+点<code>flash</code> —&gt; <code>emmc block0 flasher</code> —&gt; <code>double click.....</code> —&gt;<code> flash！</code></p>
+</li>
+</ul>
+<h5 id="Qualcomm-Premium-Tool">Qualcomm Premium Tool</h5>
+<p>备份全部分区文件，打开它的文件夹，有个提示先注册的程序，注意要把电脑音量调低！然后点开它后可能会提示安装一些东西，同意就行了，没有的话不用管，弹出窗口点击Generate Key，生成的key放在你知道的文件夹内</p>
+<p>打开Qualcomm Premium Tool程序，左上菜单栏找到help—active，选择刚才生成的key就能激活这个软件了</p>
+<ul>
+<li>备份<br>
+使板子进入9008模式，在Qualcomm Premium Tool，找<code>qualcomm</code>和<code>partition</code>，在下面点<code>scan</code>，<code>Do job</code>，它会识别显示板子的内部分区，点<code>backup</code>（正常会自动跳到这一项），右边<code>backup all</code>，最后<code>do job</code>，等待就行了，备份的文件保存好，里面的有些文件后面会用到。<br>
+如果需要刷写某些分区，点击<code>scan</code>识别分区后，点<code>write</code>，再选要刷的分区，点<code>Do job</code>后选择分区文件，就能完成刷写该分区。</li>
+</ul>
+<h5 id="星海svip">星海svip</h5>
+<p>需要先进行root，简单点的办法就是安装magisk，修补一下boot文件，在刷入。</p>
+<blockquote>
+<p>我没额外安装ardc，直接使用的<font color="#ff0000">随身WiFi助手</font>里面的ardc</p>
+</blockquote>
+<p>首先安装ardc，这是一个投屏软件，解决板子没有屏幕无法操作的问题，它的操作逻辑是鼠标左键为点击功能，右键为返回。安装完ardc后先别打开，检查一下任务管理器中，有<code>adb</code>或者<code>android debug bridge</code>程序在后台的话记得停掉，再把板子插到电脑上正常启动，打开ardc等待画面变化，成功后会停在深蓝色界面，然后把鼠标箭头移到此界面，右键点击两下，如果没有出现桌面，需要安装一个第三方桌面启动器，把我提供的apk文件里的launcher从电脑直接托到ardc界面就会自动给板子安装</p>
+<ol>
+<li>
+<p>root</p>
+<ul>
+<li>
+<p>备份<code>magiskboot.img</code></p>
+<p>导出magiskboot.img，先将magisk修补好的boot文件名长按后重命名为magiskboot.img，输入下面命令：<br>
+<code>adb pull /sdcard/Download/magiskboot.img D:/xxx</code></p>
+<p>这里<code>D:/xxx</code>换成你自己的路径（斜杠朝左还是朝右都可以），接着按回车就会把magiskboot.img导出到你的电脑上</p>
+</li>
+<li>
+<p>刷入magiskboot.img，实现root</p>
+<p>①<code>adb reboot bootloader</code>  —&gt;  将板子重启到fastboot模式<br>
+②<code>fastboot flash boot &quot;H:\Download\magiskboot.img&quot;</code>  —&gt;  将magiskboot.img刷入板子，实现root，注意将后面的路径更换为实际路径<br>
+③<code>fastboot reboot</code>  —&gt;  重启板子，打开magisk（可能得多等会），查看是否成功root</p>
+</li>
+</ul>
+</li>
+<li>
+<p>备份qcn</p>
+<p>①<code>adb shell su</code>  —&gt;  桌面会显示shell申请权限，点永久就行了，接着在magisk的超级用户里看看shell授权成功与否</p>
+<p>②关掉ardc，同时在任务管理器里<font color="#ff0000">如果发现adb还在后台也要关掉</font>。然后打开星海svip这个软件（免安装）。选择高通，再点联机会出现设备信息，找到高通强开1，点一键执行，在设备管理器上查看是否有端口<code>901D</code></p>
+<p>③接着备份qcn，一键执行，选择qcn文件生成路径，正常情况就能备份qcn成功，如果不行就检查901d端口或者重启电脑，备份的qcn一般在<font color="#ff0000">500多k</font>，远小于这个大小的应该是备份失败了，建议再来一次。</p>
+</li>
+</ol>
+<h4 id="刷入Debian">刷入Debian</h4>
+<p>刷机包中有一件刷入</p>
+<p>由于我不需要插卡，仅当linux服务器使用，所以我全选的释放内存版</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://www.coolapk.com/feed/36942430?shareKey=NmZjZWEwMjQ2ZTljNjQzYTk1NDg~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身WiFi刷openwrt和debian概述 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></li>
+<li><a href="https://www.coolapk.com/feed/37487947?shareKey=MGQwMWZmMDZlMjhhNjQzYTk1YTc~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">关于Debian后的特需功能操作命令指南 来自 LCSSDWL - 酷安 (coolapk.com)</a></li>
+<li><a href="https://www.coolapk.com/feed/45045253?shareKey=MDVjOTZlNjBlMGQ2NjQzYTk1YmY~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">来自 yanhy - 酷安 (coolapk.com)</a></li>
+</ul>
+]]></content>
   </entry>
 </search>
