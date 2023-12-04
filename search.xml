@@ -24,6 +24,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Cloudflare Workers反代系列</title>
+    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<blockquote>
+<p>未验证，待整理中</p>
+</blockquote>
+<h2 id="gh-proxy">gh-proxy</h2>
+<ul>
+<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
+</ul>
+<h2 id="jsdelivr">jsdelivr</h2>
+<ul>
+<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
+</ul>
+<p>bili33：</p>
+<ul>
+<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
+<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
+<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
+<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
+</ul>
+<h2 id="tg-bot-api">tg bot api</h2>
+<ul>
+<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>Cloudflare</tag>
+        <tag>反代</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Butterfly 一些魔改美化</title>
     <url>/2023/10/17/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我Butterfly主题的美化和魔改</p>
@@ -196,39 +232,139 @@
       </tags>
   </entry>
   <entry>
-    <title>Cloudflare Workers反代系列</title>
-    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<blockquote>
-<p>未验证，待整理中</p>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h2 id="关系运算符">关系运算符</h2>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h2 id="位运算符">位运算符</h2>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
+<p><code>&gt;&gt;</code>            右移</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h2 id="特殊运算符">特殊运算符</h2>
+<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h3 id="复合运算符">复合运算符</h3>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h3 id="sizeof-运算符">sizeof 运算符</h3>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
 </blockquote>
-<h2 id="gh-proxy">gh-proxy</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h3 id="return-运算符">return 运算符</h3>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="优先级与结合性">优先级与结合性</h3>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
+<h3 id="逗号表达式">逗号表达式</h3>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
 <ul>
-<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
-</ul>
-<h2 id="jsdelivr">jsdelivr</h2>
-<ul>
-<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
-</ul>
-<p>bili33：</p>
-<ul>
-<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
-<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
-<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
-<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
-</ul>
-<h2 id="tg-bot-api">tg bot api</h2>
-<ul>
-<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
 </ul>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>Cloudflare</category>
+        <category>C语言</category>
       </categories>
       <tags>
-        <tag>Cloudflare</tag>
-        <tag>反代</tag>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -646,142 +782,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h2 id="关系运算符">关系运算符</h2>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h2 id="逻辑运算符">逻辑运算符</h2>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h2 id="位运算符">位运算符</h2>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
-<p><code>&gt;&gt;</code>            右移</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h2 id="特殊运算符">特殊运算符</h2>
-<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h3 id="复合运算符">复合运算符</h3>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h3 id="sizeof-运算符">sizeof 运算符</h3>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h3 id="return-运算符">return 运算符</h3>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="优先级与结合性">优先级与结合性</h3>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
-<h3 id="逗号表达式">逗号表达式</h3>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="指针入门">指针入门</h2>
@@ -820,7 +820,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 </li>
 <li>
 <p>指针的赋值以及初始化</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ; // 定义并初始化</span><br><span class="line">   </span><br><span class="line">double d = 1024.1234 ;</span><br><span class="line">double * p1 = &amp;d ;// 定义并初始化</span><br><span class="line">   </span><br><span class="line">float f ;</span><br><span class="line">float * p2 ;// 只定义，没有初始化</span><br><span class="line">p2 = &amp;f ; // 给指针赋值</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ; // 定义并初始化</span><br><span class="line">  </span><br><span class="line">double d = 1024.1234 ;</span><br><span class="line">double * p1 = &amp;d ;// 定义并初始化</span><br><span class="line">  </span><br><span class="line">float f ;</span><br><span class="line">float * p2 ;// 只定义，没有初始化</span><br><span class="line">p2 = &amp;f ; // 给指针赋值</span><br></pre></td></tr></table></figure>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117mwa3-1.webp" alt="C-pointer4"></p>
 <blockquote>
 <p>注意：指针自己也有一个地址</p>
@@ -881,6 +881,104 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117lt0a-1.webp" alt="C-pointer7"></p>
 <p><mark>注意：</mark><br>
 指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
+<hr>
+<h2 id="指针进阶">指针进阶</h2>
+<h3 id="char-型指针">char 型指针</h3>
+<p>从本质上来看，字符指针其实就是一个指针而已，只不过该指针用来指向一个<font color="#ff0000">字符串/字符串数组</font></p>
+<p><code>char * msg = &quot;Hello&quot; ;</code></p>
+<h3 id="多级指针">多级指针</h3>
+<ul>
+<li>如果一个指针 p1 它所指向的是一个<font color="#ff0000">普通变量</font>的地址，那么 p1就是一个一级指针</li>
+<li>如果一个指针 p2 它所指向的是一个<font color="#ff0000">指针变量</font>的地址，那么 p2就是一个二级指针</li>
+<li>如果一个指针 p3 它所指向的是一个<font color="#ff0000">指向二级指针变量</font>的地址，那么 p3就是一个三级指针</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p1 = &amp;a ; // p1是一个一级指针</span><br><span class="line">int ** p2 = &amp;p1 ; // p2是一个二级指针</span><br><span class="line">int *** p3 = &amp;p2 ; // p3是一个三级指针</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nurhan-1.webp" alt="C-pointer8"></p>
+<p><mark>指针的拆解方法：</mark><br>
+对于任何的指针都可以分为两部分：<br>
+第一部分： 说明他是一个指针 （* p ）<br>
+第二部分： 说用它所指向的内容的类型 （* p）以外的东西</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *p1; // 第一部分：* p1 ，第二部分：char ，说明p1 指向的类型为char</span><br><span class="line"></span><br><span class="line">char **p2; // 第一部分：* p2 ，第二部分： char * ， 说明p2 指向的类型为char *</span><br><span class="line"></span><br><span class="line">int **p3 ; // 第一部分：* p3 ，第二部分：int * 说明p3 指向的类型为int *</span><br><span class="line"></span><br><span class="line">char (*p4)[3]; // 第一部分：* p4 , 第二部分： char [3] , 说明p4 指向一个拥有3个元素的char 数组</span><br><span class="line"></span><br><span class="line">char (*p5)(int, float); // 第一部分：* p5, 第二部分：char (int , float)，说明该指针指向一个 拥有char类型返回， 并需要 一个int 和 float 参数的函数</span><br><span class="line"></span><br><span class="line">void *(*p6)(void *); // 第一部分：* p6, 第二部分：void * (void *)，说明p6 指向一个 拥有 void * 返回并需要一个void * 参数的函数，函数指针）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上指针 p1 p2 p3 p4 p5 p6 本质上都是指针，因此它们的大小都是 8字节（64位系统）</li>
+<li>以上指针 p1 p2 p3 p4 p5 p6 本质上都是指针，唯一的不容是它们所指向的内容的类型不同</li>
+</ul>
+<h3 id="void-型指针">void 型指针</h3>
+<ol>
+<li>
+<p>概念： 表示该指针的类型暂时是不确定的</p>
+</li>
+<li>
+<p>要点</p>
+<ul>
+<li>void 类型的指针，是没有办法直接索引目标的。必须先进行强制类型转换。</li>
+<li>void 类型指针，无法直接进行加减运算。</li>
+</ul>
+</li>
+<li>
+<p>void 关键字的作用</p>
+<ul>
+<li>修饰指针，表示该指针指向了一个未知类型的数据。</li>
+<li>修饰函数的参数列表，则表示该函数不需要参数。</li>
+<li>修饰函数的返回值，则表示该函数没有返回值。</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void * p = malloc(4) ; // 使用malloc 来申请 4个字节的内存， 并让p来指向该内存的入口地址</span><br><span class="line">  </span><br><span class="line">*(int *)p = 250 ; // 先使用(int*) 来强调p是一个整型地址 ，然后再解引用</span><br><span class="line">printf(&quot;*p:%d\n&quot;, *(int*)p);// 输出时也应该使用对应的类型来进行输出</span><br><span class="line">  </span><br><span class="line">*(float*)p = 3.14 ;</span><br><span class="line">printf(&quot;*p:%f\n&quot;, *(float*)p);</span><br><span class="line">  </span><br><span class="line">int * a ;</span><br><span class="line">char * b ;</span><br><span class="line">float * f ;</span><br><span class="line">  </span><br><span class="line">void * k ;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上写法 void * p ，在实际开发中不应该出现。以上代码只是为了说明语法问题。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="const-指针">const 指针</h3>
+<ul>
+<li>const 修饰指针有两种效果：
+<ul>
+<li>
+<p>常指针：修饰的是指针本身，表示该指针变量无法修改</p>
+<p><code>char * const p ;</code></p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char arr [] = &quot;Hello&quot; ;</span><br><span class="line">char msg [] = &quot;world&quot; ;</span><br><span class="line">char * const p = arr ;</span><br><span class="line"></span><br><span class="line">// p = msg ; // 错误，p 被const 所修饰，说明P是一个常量 ，他的内容（所指向的地址）无法修改</span><br><span class="line"></span><br><span class="line">*(p + 1 ) = &#x27;E&#x27; ; // p所指向的内容是可以通过p 来修改 （只要保持P所指向的地址不变即可）</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , p ); //输出结果为：HEllo</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>常目标指针：修饰的是指针所指向的目标，表示无法通过该指针来改变目标的数据</p>
+<p><code>char const * p ;</code><br>
+<code>const char * p ;</code></p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char arr [] = &quot;Hello&quot; ;</span><br><span class="line">char msg [] = &quot;world&quot; ;</span><br><span class="line"></span><br><span class="line">const char * p1 = arr ;</span><br><span class="line">p1 = msg ; // p1 的指向是可以被修改的</span><br><span class="line">// *(p1+1) = &#x27;V&#x27; ; // 错误，常目标指针， 不允许通过该指针来它所指向的内容</span><br><span class="line"></span><br><span class="line">*(msg+1) = &#x27;V&#x27; ; // 虽然p1不能修改所指向的内容， 但是内容本身是可以被修改的</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , p1 ); // 输出结果为：wVrld</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><mark>总结：</mark></p>
+<ul>
+<li>常指针并不常见</li>
+<li>常目标指针，在实际开发过程中比较常见，用来限制指针的权限为 <font color="#ff0000">只读</font></li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nzcluo-1.webp" alt="C-pointer9"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习六：数组与指针的结合</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
+    <content><![CDATA[<h2 id="基础">基础</h2>
+<p><strong>示例一：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
+<p><strong>示例二：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
+<h2 id="数组指针">数组指针</h2>
+<p>概念：专门用来指向一个数组的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong><br>
+以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
+<h2 id="指针数组">指针数组</h2>
+<p>概念：专门用来存放指针的数组，称为指针数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -906,7 +1004,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>初始化</p>
 <p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化，后面的两个为0；若完全的不初始化则为随机值</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hidx-1.webp" alt="C-array2"></p>
 <p><mark>注意：</mark></p>
 <p>数组在定义的时候必须确定他的大小。<br>
@@ -948,11 +1046,13 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <p>补充</p>
 <p><mark>注意：</mark></p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
- <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+</li>
+</ol>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
 <li>
 <p>char buf[5]={1,2,3,4,5};</p>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。<br>
-在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。</p>
+<p>在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
 <blockquote>
 <p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
 如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
@@ -960,15 +1060,76 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 </li>
 <li>
 <p>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</p>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。<br>
-具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。</p>
+<p>具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
 </li>
 </ol>
 </div></details>
+<hr>
+<h2 id="数组进阶">数组进阶</h2>
+<h3 id="数组名的含义">数组名的含义</h3>
+<p>数组名在不同的场合下的含义不同：</p>
+<ol>
+<li>
+<p>表示整个<font color="#ff0000">数组的首地址</font>：</p>
+<ul>
+<li>在数组定义的时候</li>
+<li>在使用 sizeof 运算符中数组名表示整个数组的首地址（求得整个数组的大小）</li>
+<li>在取地址符 中 &amp;arr , arr 表示整个数组</li>
+</ul>
+</li>
+<li>
+<p>表示整个数组<font color="#ff0000">首元素的首地址</font>：</p>
+<ul>
+<li>其它情况</li>
+</ul>
 </li>
 </ol>
-<h2 id="数组进阶">数组进阶</h2>
-<p>待。。。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[10] ; // arr 表示整个数组的首地址</span><br><span class="line">int len = sizeof arr ; // arr 表示整个数组的首地址 ， sizeof 运算符后的括号可以省略</span><br><span class="line">int (* p) [10] = &amp;arr; //arr 表示整个数组的首地址</span><br><span class="line"></span><br><span class="line">int *p1 = arr ; // arr 表示数组的首元素的首地址</span><br></pre></td></tr></table></figure>
+<h3 id="数组下标">数组下标</h3>
+<p>数组的下标实际上只是编译器提供一种简写，实际上如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a [100] ;</span><br><span class="line">a[10] = 250 ;    //  ====&gt; *(a+10) = 250 ;</span><br></pre></td></tr></table></figure>
+<p>通过加法交换律，有如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a[10] = 250 ;</span><br><span class="line"></span><br><span class="line">*(a+10) = 250 ;</span><br><span class="line">*(10+a) = 250 ;</span><br><span class="line">10[a] = 250 ;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串常量">字符串常量</h3>
+<p>字符串常量是一个被存放在常量区的字符串，实际上也可称为一个<font color="#ff0000">匿名数组</font>。</p>
+<p>匿名数组，同样满足数组名的含义。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char * msg1 = &quot;Hello&quot; ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">char * msg2 = &quot;Hello&quot;+1 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;, &quot;Hello&quot; ) ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">printf(&quot;%s\n&quot;, &amp;&quot;Hello&quot; ) ; // &quot;Hello&quot; 字符串常量的整个数组的地址</span><br><span class="line"></span><br><span class="line">printf(&quot;%c\n&quot;, &quot;Hello&quot;[4] ) ; // &quot;Hello&quot; 字符串常量首元素的首地址 [4]，[4] 相当于+4个单位（char） 得到 ‘o’</span><br></pre></td></tr></table></figure>
+<p>字符串在内存种的存储方式：</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o2wz2s-1.webp" alt="C-array5"></p>
+<h3 id="零长数组">零长数组</h3>
+<p>概念： 数组的长度为0 ， char arr [0] ;</p>
+<p>用途：一般会放在结构体的末尾， 作为可变长度的入口。（数组是唯一一个允许越界访问的载体）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a;</span><br><span class="line">char b ;</span><br><span class="line">float c ;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">int len ;</span><br><span class="line">char arr[0] ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct node *p = malloc(sizeof(struct node) + 20 );// + 20 就是在原有的基础上增加20字节</span><br><span class="line">p‐&gt;len = 20 ; // 设置额外增长的长度为 20</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o3ioop-1.webp" alt="C-array6"></p>
+<h3 id="变长数组">变长数组</h3>
+<p>概念： 使用一个变量作为数组的长度（元素的个数）。</p>
+<p>重点： 变长数组并不是说在任意时候他的长度可以随意变化，实际上只是在定义之前数组的长度是未知的由一个变量来决定，但是定义语句过后变长数组的长度由定义那一刻变量的大小来决定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 200 ; // a 作为一个普通的变量 ， 200 则可以作为arr 的长度</span><br><span class="line">a = 99 ; // 99 可以作为 arr 的长度</span><br><span class="line"></span><br><span class="line">int arr[a]; // a 当前是 99 ， 因此数组arr 的长度已经确定为 99，之后该数组的长度不会再变换</span><br><span class="line"></span><br><span class="line">a = 10 ; // a = 10 并不会影响上面数组的长度</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>因为数组的长度未确定，因此它不允许初始化。</li>
+<li>在使用的时候可以通过该变长数组来有限的节省内存空间。</li>
+</ul>
+<h3 id="多维数组">多维数组</h3>
+<ol>
+<li>
+<p>概念：数组内部的成员也是数组</p>
+<p><code>int a [2][3] ;</code></p>
+</li>
+<li>
+<p>定义与初始化</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123; &#123;1,2,3&#125; , &#123; 4,5,6&#125; &#125;;</span><br><span class="line">int arr1[2][3] = &#123; 1,2,3,4,5,6&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>如何引用</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[0] [0] = 100 ; // 数组：（通过下标来访问）</span><br><span class="line">*(*(arr+0)+0) = 100 ; // 通过指针偏移来访问</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>实例</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123;&#123;1, 2, 3&#125;, &#123;4, 5, 6&#125;&#125;;</span><br><span class="line">int arr1[2][3] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br><span class="line"></span><br><span class="line">int *p = arr; // p指向数组arr 的首元素</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 2; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (int j = 0; j &lt; 3; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;arr[%d][%d]:%d\t&quot;, i, j, arr[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // *arr 得到元素1 的地址 + 1 则是加一个 int 类型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr) + i));</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // arr 指的是首元素的首地址 &#123;1,2,3&#125; 的首地址 + 1则 + 3个整型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr + i)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // p 只是一个普通的整型指针， 与二维数组没有任何的关系31 printf(&quot;*(p+%d)：%d\n&quot; , i ,*(p+i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -979,30 +1140,62 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>C语言学习六：数组与指针的结合</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
-    <content><![CDATA[<h2 id="基础">基础</h2>
-<p><strong>示例一：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
-<p><strong>示例二：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
-<h2 id="数组指针">数组指针</h2>
-<p>概念：专门用来指向一个数组的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong><br>
-以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
-<h2 id="指针数组">指针数组</h2>
-<p>概念：专门用来存放指针的数组，称为指针数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+    <title>利用Github搭建免费图床</title>
+    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
+<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
+<h2 id="生成一个-Token">生成一个 Token</h2>
+<ol>
+<li>
+<p>点击右上角用户头像 -&gt; 选择 设置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
+</li>
+<li>
+<p>点击网站左侧的最下面的开发者设置</p>
+<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
+<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
+<blockquote>
+<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="配置-PicGo">配置 PicGo</h2>
+<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
+<blockquote>
+<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
+</blockquote>
+<ol>
+<li>
+<p>首先下载PicGo</p>
+<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
+<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
+</li>
+<li>
+<p>打开PicGo工具进行配置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
+<ul>
+<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
+<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
+<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
+<li>设定 Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
+</ul>
+<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</li>
+</ol>
+<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
+<p>待。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>C语言</category>
+        <category>折腾</category>
       </categories>
       <tags>
-        <tag>C语言</tag>
+        <tag>折腾</tag>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
@@ -1110,62 +1303,175 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>利用Github搭建免费图床</title>
-    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
-<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
-<h2 id="生成一个-Token">生成一个 Token</h2>
-<ol>
-<li>
-<p>点击右上角用户头像 -&gt; 选择 设置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
-</li>
-<li>
-<p>点击网站左侧的最下面的开发者设置</p>
-<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
-<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
+    <title>Ubuntu 美化</title>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
 <blockquote>
-<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="配置-PicGo">配置 PicGo</h2>
-<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
-<blockquote>
-<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
-</blockquote>
-<ol>
-<li>
-<p>首先下载PicGo</p>
-<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
-<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
-</li>
-<li>
-<p>打开PicGo工具进行配置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
+<p>参考：</p>
 <ul>
-<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
-<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
-<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
-<li>设定 Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
+<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
+<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
+<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
 </ul>
-<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</blockquote>
+<h2 id="安装必要插件">安装必要插件</h2>
+<blockquote>
+<p>tweaks（优化）、extensions （扩展）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
+<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
+<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
+<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
+搜索 User Themes 插件，点击进入插件界面进行安装。</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
+<h3 id="安装主题">安装主题</h3>
+<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
+<li>为所有用户安装：/usr/share/themes/</li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>进入主题目录，，执行如下命令进行主题安装。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置主题</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
-<p>待。。。</p>
+<h3 id="安装图标">安装图标</h3>
+<ol>
+<li>
+<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
+<li>为所有用户安装：/usr/share/icons</li>
+</ul>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
+</li>
+<li>
+<p>应用主题和图标</p>
+<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
+</li>
+<li>
+<p>元素位置调整</p>
+<ul>
+<li>将标题栏的操作按钮从右侧移动到左侧</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
+<ul>
+<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
+<ul>
+<li>更换壁纸<br>
+<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="更多插件">更多插件</h2>
+<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
+<ul>
+<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
+<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
+<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
+<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
+<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
+版本不兼容，我没安装</li>
+</ul>
+<hr>
+<h2 id="终端美化：zsh">终端美化：zsh</h2>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
+<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
+</ul>
+</blockquote>
+<h3 id="安装-zsh">安装 zsh</h3>
+<p>macOS：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+<p>ubuntu：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>ArchLinux/Manjaro：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
+<blockquote>
+<ul>
+<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
+<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
+<li>查看当前用户：<code>whoami</code></li>
+</ul>
+</blockquote>
+<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
+<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
+<p><mark>输入<code>q</code></mark></p>
+<ul>
+<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
+<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
+<li>输入输入 <code>1</code> 后，就开始进行配置</li>
+</ul>
+<blockquote>
+<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
+</blockquote>
+<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
+<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
+<blockquote>
+<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
+</blockquote>
+<p>①使用 curl 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>②或者使用 wget 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
+<h3 id="配置-zsh">配置 zsh</h3>
+<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
+<p><strong>更换自带主题</strong>：<br>
+zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
+我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
+<h3 id="安装插件">安装插件</h3>
+<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
+<p>安装步骤：</p>
+<ol>
+<li>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
+</li>
+</ol>
+<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h3 id="补充">补充</h3>
+<p>待写。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>折腾</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>折腾</tag>
-        <tag>图床</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1516,180 +1822,35 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>N1盒子刷armbian</title>
     <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Ubuntu 美化</title>
-    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
-<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
-<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
-</ul>
-</blockquote>
-<h2 id="安装必要插件">安装必要插件</h2>
-<blockquote>
-<p>tweaks（优化）、extensions （扩展）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
-<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
-<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
-<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
-<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
-搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
-<h3 id="安装主题">安装主题</h3>
-<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
-<li>为所有用户安装：/usr/share/themes/</li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>进入主题目录，，执行如下命令进行主题安装。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置主题</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="安装图标">安装图标</h3>
-<ol>
-<li>
-<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
-<li>为所有用户安装：/usr/share/icons</li>
-</ul>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
-</li>
-<li>
-<p>应用主题和图标</p>
-<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
-</li>
-<li>
-<p>元素位置调整</p>
-<ul>
-<li>将标题栏的操作按钮从右侧移动到左侧</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
-<ul>
-<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
-<ul>
-<li>更换壁纸<br>
-<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
-</ul>
-</li>
-</ol>
-<h2 id="更多插件">更多插件</h2>
-<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
-<ul>
-<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
-<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
-<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
-<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
-<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
-版本不兼容，我没安装</li>
-</ul>
-<hr>
-<h2 id="终端美化：zsh">终端美化：zsh</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
-</ul>
-</blockquote>
-<h3 id="安装-zsh">安装 zsh</h3>
-<p>macOS：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
-<p>ubuntu：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
-<p>ArchLinux/Manjaro：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
-<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
-<blockquote>
-<ul>
-<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
-<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
-<li>查看当前用户：<code>whoami</code></li>
-</ul>
-</blockquote>
-<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
-<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
-<p><mark>输入<code>q</code></mark></p>
-<ul>
-<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
-<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
-<li>输入输入 <code>1</code> 后，就开始进行配置</li>
-</ul>
-<blockquote>
-<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
-</blockquote>
-<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
-<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
-<blockquote>
-<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
-</blockquote>
-<p>①使用 curl 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>②或者使用 wget 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
-<h3 id="配置-zsh">配置 zsh</h3>
-<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
-<p><strong>更换自带主题</strong>：<br>
-zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
-我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
-<h3 id="安装插件">安装插件</h3>
-<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
-<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
-<p>安装步骤：</p>
-<ol>
-<li>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
-</li>
-</ol>
-<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
-<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<h3 id="补充">补充</h3>
-<p>待写。。。</p>
-]]></content>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>笔记</category>
-        <category>Linux</category>
+        <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1794,31 +1955,23 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>VS Code配置</title>
@@ -2024,23 +2177,115 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>zram与swap交换内存</title>
+    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<h2 id="必看">必看</h2>
+<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
+<li>zram部分没用过，不知道，直接抄下来的</li>
+<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
+<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
+<li>一般来说，能不用swap更好</li>
+<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
+<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
+</ol>
+</div>
+<h3 id="zram">zram</h3>
+<h4 id="介绍">介绍</h4>
+<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
+<h4 id="创建zram交换分区">创建zram交换分区</h4>
+<ol>
+<li>
+<p>加载 zram 内核模块，并创建一个 zram设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭当前正在使用的 zram 设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重置 zram 设备，清除其中所有数据。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>格式化 zram 设备，以便将其用作交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
+<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+</li>
+</ol>
+<h3 id="swap">swap</h3>
+<h4 id="介绍-2">介绍</h4>
+<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
+<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
+<h4 id="创建swap交换分区">创建swap交换分区</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建交换空间大小1G，可自行修改：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>授予权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启用交换内存</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开机启用交换空间</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭要删除的交换分区。 运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+</li>
+<li>
+<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
+</li>
+<li>
+<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
+</li>
+</ol>
 ]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
   </entry>
   <entry>
     <title>windows 常用运行环境的安装</title>
@@ -2433,114 +2678,191 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
-    <title>zram与swap交换内存</title>
-    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<h2 id="必看">必看</h2>
-<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
-<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
-<li>zram部分没用过，不知道，直接抄下来的</li>
-<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
-<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
-<li>一般来说，能不用swap更好</li>
-<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
-<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
-</ol>
-</div>
-<h3 id="zram">zram</h3>
-<h4 id="介绍">介绍</h4>
-<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
-<h4 id="创建zram交换分区">创建zram交换分区</h4>
+    <title>随身WiFi刷debian</title>
+    <url>/2023/10/31/%E9%9A%8F%E8%BA%ABWiFi%E5%88%B7debian/</url>
+    <content><![CDATA[<h2 id="工具包介绍">工具包介绍</h2>
+<ul>
+<li>
+<p>miko_service_tool_pro：备份自己的rom，以防后续操作出问题，救砖用。</p>
+</li>
+<li>
+<p>Qualcomm Premium Tool ：备份全部分区文件</p>
+</li>
+<li>
+<p>星海和apk文件夹：备份qcn和root</p>
+</li>
+<li>
+<p>搞机工具箱：很多功能，可以不用这个，但是我一并上传到文件夹里了</p>
+</li>
+<li>
+<p>随身WiFi助手：<a href="https://www.coolapk.com/u/2176732">酷铵水遍</a>的工具，可以一键刷机，可以直接刷他的包，但有些功能要钱，我没用他的，仅用此工具安装驱动等</p>
+</li>
+<li>
+<p>DiskGeniusEng_Pro（没用过）</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>详细备份过程看下方酷安帖子：</strong><br>
+<a href="https://www.coolapk.com/feed/37834896?shareKey=OTc0N2EwOGM0NjdkNjQzYTk1NjQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">高通骁龙芯片的随身wifi入门刷机教程 来自 伏莱兮浜 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<h2 id="刷机包介绍">刷机包介绍</h2>
+<p>本教程有两种，刷机包介绍（基于<a href="https://github.com/OpenStick/OpenStick">GitHub - OpenStick/OpenStick</a>修改），均为酷安<a href="https://www.coolapk.com/u/20775713">jsbsbxjxh66</a>大佬的</p>
+<h3 id="2-1Ghz-btrfs-debian-ufi-001c-其他型号自行替换boot和基带文件-7z">2.1Ghz-btrfs-debian-ufi+001c-其他型号自行替换boot和基带文件.7z</h3>
+<blockquote>
+<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41957632?shareKey=YjNhOWY3YWU1MTViNjQzYTk1OGQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi_debian系统btrfs文件系统正式上线 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/NnIvYrvi2AJb">https://cloud.189.cn/t/NnIvYrvi2AJb</a>  （访问码：4dzu）</p>
+<p><strong>简洁介绍：</strong></p>
+<ul>
+<li>4g当8g用，8g当16g，主频高达2.1Ghz</li>
+<li>网络文件系统齐全，usb有线网卡驱动齐全，常用串口驱动齐全</li>
+<li>支持自行编译树外驱动(没有的驱动自己编译加载)</li>
+<li>频率过高导致不稳定自行百度限制cpu频率。</li>
+<li>ssh连接地址10.42.0.1<br>
+ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
+<li><strong>压缩系统命令:<code>btrfs filesystem defragment -r -v -czstd</code> /</strong></li>
+<li><strong>btrfs文件系统断电丢失数据概率大一些，因此尽量不要直接拔电源，先执行<code>poweroff</code>来关闭电源，再拔出WiFi棒子。</strong></li>
+<li>部分型号刷了不启动，经过验证是随身wifi品质太差那就自行刷<a href="https://github.com/OpenStick/OpenStick">作者原版0.9Ghz的！</a></li>
+<li><strong>里面只有一个001c的包，有释放内存和不释放内存boot(释放内存有467m可用吧！不能modem)其他型号自行替换boot内核和基带文件。</strong></li>
+</ul>
+<h3 id="ufi003-debian超频版-zip-没有btrfs">ufi003-debian超频版.zip(没有btrfs)</h3>
+<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/neAnmabAnYji">https://cloud.189.cn/t/neAnmabAnYji</a> （访问码：6nti）</p>
+<p><strong>是上面btrfs版本的上一个版本，没有btrfs</strong></p>
+<blockquote>
+<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41664623?shareKey=YWFkM2Q3OWQ1YTdlNjQzYTk2MGU~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi 各个频率版&amp;释放内存版&amp;驱动全面 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<p><strong>简洁介绍：</strong></p>
+<ul>
+<li>可刷型号：uif001b ufi003 ufi001c ufi903 ufi103s uz801 sp970 ufi16v3/4</li>
+<li>频率有：1.2Ghz 1.4Ghz 1.6Ghz 1.8Ghz 2.0Ghz 2.1Ghz</li>
+<li>释放内存版：去掉了modem和gps设备树运行内存增加到462mb！(也就是说不能插卡)</li>
+<li>一键替换基带文件夹：自行提取基带文件放入里面的modem文件夹通过adb一键替换基带文件。</li>
+<li>一键只刷boot&amp;rootfs文件夹：把相应的镜像文件放入一键刷入(可用于openwrt&amp;debian来回刷只需要boot和rootfs镜像文件)</li>
+<li>一键通过adb连接棒子:需要更新adb驱动才能用</li>
+<li>全面的网卡驱动能编译的都编译上了(可以通过usb给棒子供网两个棒子不就无线中继了)</li>
+</ul>
+<p><strong>须知:</strong></p>
+<ul>
+<li>各个型号已经替换了相应的基带文件</li>
+<li>安装了一些必备软件包</li>
+<li>增加了rc.local开机自动执行服务修改/etc/rc.local文件可加入一些开机要执行的命令</li>
+<li>刷入自带热点4G-wifi 密码:12345678</li>
+<li>ssh连接地址10.42.0.1<br>
+ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
+<li>加入了这些型号串口驱动ch341/ch342/ch343/ch344/ch347/ch9101/ch9102/ch9103/ch9143</li>
+<li>各大网络文件系统全部编译上了如:NFS CIFS SMB AFS等等能编译的全编译了能不能用就不知道了</li>
+<li>删除热点连wifi:<code>nmtui</code> &gt; 编译连接 &gt; 删除wifi热点 &gt;返回 &gt; 启用连接(里面连wifi)</li>
+<li>usb和热点不需要桥接如要重新开启热点看上面网络配置模板</li>
+<li>usb有线网卡驱动能编译的都编译了自己看上面图片</li>
+<li><strong>系统是带adb的需要更新adb驱动才能usb网络共享如何更新看作者项目地址：<a href="https://www.kancloud.cn/handsomehacker/openstick/2636506">查看链接 (kancloud.cn)</a></strong></li>
+<li>修正了一下以前超频版的频率表(16v3的设备树不知道能用不不能用刷001c的)</li>
+</ul>
+<h2 id="一些命令-优化">一些命令&amp;优化</h2>
+<h3 id="命令">命令</h3>
+<ul>
+<li>
+<p>Debian的看emmc寿命<br>
+<code>cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time</code><br>
+或<code>apt install mmc-utilsmmc extcsd read /dev/mmcblk0</code></p>
+<blockquote>
+<p>0x01 表示设备使用的寿命约为 10% 到 20%（0x02 表示 20% 到 30% 等）</p>
+</blockquote>
+</li>
+<li>
+<p>启用btrfs：<code>btrfs filesystem defragment -r -v -czstd /</code></p>
+</li>
+<li>
+<p>连接WiFi和更改主机名：<code>nmtui</code></p>
+</li>
+<li>
+<p>更改密码：<code>passwd</code></p>
+</li>
+<li>
+<p>关机：<code>poweroff</code></p>
+</li>
+</ul>
+<h3 id="优化">优化</h3>
+<blockquote>
+<p>参考：<a href="https://www.coolapk.com/feed/46239516?shareKey=ZWQ4YWI4M2IwZDYyNjU1ODQzOGM~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.3.6">随身WIFI &amp; Debian个人折腾优化 来自 XK先生 - 酷安 (coolapk.com)</a></p>
+</blockquote>
+<h2 id="我的记录">我的记录</h2>
+<p>首先我有三个随身WiFi</p>
+<ul>
+<li>新讯003            —&gt;          btrfs版的Debian</li>
+<li>先机103s          —&gt;          btrfs版的Debian</li>
+<li>小讯003            —&gt;          普通的超频版（我这个刷btrfs版有问题，所以用的普通的超频版）</li>
+</ul>
+<h3 id="过程">过程</h3>
+<h4 id="备份">备份</h4>
+<h5 id="miko-service-tool-pro">miko_service_tool_pro</h5>
+<p>让板子进入9008模式，打开miko_service_tool_pro，</p>
+<ul>
+<li>
+<p>备份<br>
+点<code>read</code> —&gt; <code>partition backup</code>，双击下面<code>double click to open save folder</code>，选好救砖包生成的路径，点<code>load partition structure</code>，点<code>read full image</code>就能制作刷机救砖包，大概5分钟以内，保存好这个名为<code>.bin</code>的文件。</p>
+</li>
+<li>
+<p>刷机/救砖<br>
+点<code>flash</code> —&gt; <code>emmc block0 flasher</code> —&gt; <code>double click.....</code> —&gt;<code> flash！</code></p>
+</li>
+</ul>
+<h5 id="Qualcomm-Premium-Tool">Qualcomm Premium Tool</h5>
+<p>备份全部分区文件，打开它的文件夹，有个提示先注册的程序，注意要把电脑音量调低！然后点开它后可能会提示安装一些东西，同意就行了，没有的话不用管，弹出窗口点击Generate Key，生成的key放在你知道的文件夹内</p>
+<p>打开Qualcomm Premium Tool程序，左上菜单栏找到help—active，选择刚才生成的key就能激活这个软件了</p>
+<ul>
+<li>备份<br>
+使板子进入9008模式，在Qualcomm Premium Tool，找<code>qualcomm</code>和<code>partition</code>，在下面点<code>scan</code>，<code>Do job</code>，它会识别显示板子的内部分区，点<code>backup</code>（正常会自动跳到这一项），右边<code>backup all</code>，最后<code>do job</code>，等待就行了，备份的文件保存好，里面的有些文件后面会用到。<br>
+如果需要刷写某些分区，点击<code>scan</code>识别分区后，点<code>write</code>，再选要刷的分区，点<code>Do job</code>后选择分区文件，就能完成刷写该分区。</li>
+</ul>
+<h5 id="星海svip">星海svip</h5>
+<p>需要先进行root，简单点的办法就是安装magisk，修补一下boot文件，在刷入。</p>
+<blockquote>
+<p>我没额外安装ardc，直接使用的<font color="#ff0000">随身WiFi助手</font>里面的ardc</p>
+</blockquote>
+<p><font color="#ff0000">ardc</font>，这是一个投屏软件，解决板子没有屏幕无法操作的问题，它的操作逻辑是鼠标左键为点击功能，右键为返回。安装完ardc后先别打开，检查一下任务管理器中，有<code>adb</code>或者<code>android debug bridge</code>程序在后台的话记得停掉，再把板子插到电脑上正常启动，打开ardc等待画面变化，成功后会停在深蓝色界面，然后把鼠标箭头移到此界面，右键点击两下，如果没有出现桌面，需要安装一个第三方桌面启动器，把我提供的apk文件里的launcher从电脑直接托到ardc界面就会自动给板子安装</p>
 <ol>
 <li>
-<p>加载 zram 内核模块，并创建一个 zram设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+<p>root</p>
+<ul>
+<li>
+<p>备份<code>magiskboot.img</code></p>
+<p>导出magiskboot.img，先将magisk修补好的boot文件名长按后重命名为magiskboot.img，输入下面命令：<br>
+<code>adb pull /sdcard/Download/magiskboot.img D:/xxx</code></p>
+<p>这里<code>D:/xxx</code>换成你自己的路径（斜杠朝左还是朝右都可以），接着按回车就会把magiskboot.img导出到你的电脑上</p>
 </li>
 <li>
-<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+<p>刷入magiskboot.img，实现root</p>
+<p>①<code>adb reboot bootloader</code>  —&gt;  将板子重启到fastboot模式<br>
+②<code>fastboot flash boot &quot;H:\Download\magiskboot.img&quot;</code>  —&gt;  将magiskboot.img刷入板子，实现root，注意将后面的路径更换为实际路径<br>
+③<code>fastboot reboot</code>  —&gt;  重启板子，打开magisk（可能得多等会），查看是否成功root</p>
+</li>
+</ul>
 </li>
 <li>
-<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭当前正在使用的 zram 设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>重置 zram 设备，清除其中所有数据。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>格式化 zram 设备，以便将其用作交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
-<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+<p>备份qcn</p>
+<p>①<code>adb shell su</code>  —&gt;  桌面会显示shell申请权限，点永久就行了，接着在magisk的超级用户里看看shell授权成功与否</p>
+<p>②关掉ardc，同时在任务管理器里<font color="#ff0000">如果发现adb还在后台也要关掉</font>。然后打开星海svip这个软件（免安装）。选择高通，再点联机会出现设备信息，找到高通强开1，点一键执行，在设备管理器上查看是否有端口<code>901D</code></p>
+<p>③接着备份qcn，一键执行，选择qcn文件生成路径，正常情况就能备份qcn成功，如果不行就检查901d端口或者重启电脑，备份的qcn一般在<font color="#ff0000">500多k</font>，远小于这个大小的应该是备份失败了，建议再来一次。</p>
 </li>
 </ol>
-<h3 id="swap">swap</h3>
-<h4 id="介绍-2">介绍</h4>
-<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
-<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
-<h4 id="创建swap交换分区">创建swap交换分区</h4>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建交换空间大小1G，可自行修改：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>授予权限</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启用交换内存</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开机启用交换空间</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭要删除的交换分区。 运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
-</li>
-<li>
-<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
-</li>
-<li>
-<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
-</li>
-</ol>
+<h4 id="刷入Debian">刷入Debian</h4>
+<p>刷机包中有一件刷入</p>
+<p>由于我不需要插卡，仅当linux服务器使用，所以我全选的释放内存版</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://www.coolapk.com/feed/36942430?shareKey=NmZjZWEwMjQ2ZTljNjQzYTk1NDg~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身WiFi刷openwrt和debian概述 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></li>
+<li><a href="https://www.coolapk.com/feed/37487947?shareKey=MGQwMWZmMDZlMjhhNjQzYTk1YTc~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">关于Debian后的特需功能操作命令指南 来自 LCSSDWL - 酷安 (coolapk.com)</a></li>
+<li><a href="https://www.coolapk.com/feed/45045253?shareKey=MDVjOTZlNjBlMGQ2NjQzYTk1YmY~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">来自 yanhy - 酷安 (coolapk.com)</a></li>
+<li><a href="https://yanhy.top/">yanhy’s 学习记录匣 - 记录学习的点点滴滴</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
-        <category>Linux</category>
+        <category>折腾</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>折腾</tag>
+        <tag>随身WiFi</tag>
       </tags>
   </entry>
   <entry>
@@ -2840,194 +3162,6 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
       <tags>
         <tag>折腾</tag>
         <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随身WiFi刷debian</title>
-    <url>/2023/10/31/%E9%9A%8F%E8%BA%ABWiFi%E5%88%B7debian/</url>
-    <content><![CDATA[<h2 id="工具包介绍">工具包介绍</h2>
-<ul>
-<li>
-<p>miko_service_tool_pro：备份自己的rom，以防后续操作出问题，救砖用。</p>
-</li>
-<li>
-<p>Qualcomm Premium Tool ：备份全部分区文件</p>
-</li>
-<li>
-<p>星海和apk文件夹：备份qcn和root</p>
-</li>
-<li>
-<p>搞机工具箱：很多功能，可以不用这个，但是我一并上传到文件夹里了</p>
-</li>
-<li>
-<p>随身WiFi助手：<a href="https://www.coolapk.com/u/2176732">酷铵水遍</a>的工具，可以一键刷机，可以直接刷他的包，但有些功能要钱，我没用他的，仅用此工具安装驱动等</p>
-</li>
-<li>
-<p>DiskGeniusEng_Pro（没用过）</p>
-</li>
-</ul>
-<blockquote>
-<p><strong>详细备份过程看下方酷安帖子：</strong><br>
-<a href="https://www.coolapk.com/feed/37834896?shareKey=OTc0N2EwOGM0NjdkNjQzYTk1NjQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">高通骁龙芯片的随身wifi入门刷机教程 来自 伏莱兮浜 - 酷安 (coolapk.com)</a></p>
-</blockquote>
-<h2 id="刷机包介绍">刷机包介绍</h2>
-<p>本教程有两种，刷机包介绍（基于<a href="https://github.com/OpenStick/OpenStick">GitHub - OpenStick/OpenStick</a>修改），均为酷安<a href="https://www.coolapk.com/u/20775713">jsbsbxjxh66</a>大佬的</p>
-<h3 id="2-1Ghz-btrfs-debian-ufi-001c-其他型号自行替换boot和基带文件-7z">2.1Ghz-btrfs-debian-ufi+001c-其他型号自行替换boot和基带文件.7z</h3>
-<blockquote>
-<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41957632?shareKey=YjNhOWY3YWU1MTViNjQzYTk1OGQ~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi_debian系统btrfs文件系统正式上线 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
-</blockquote>
-<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/NnIvYrvi2AJb">https://cloud.189.cn/t/NnIvYrvi2AJb</a>  （访问码：4dzu）</p>
-<p><strong>简洁介绍：</strong></p>
-<ul>
-<li>4g当8g用，8g当16g，主频高达2.1Ghz</li>
-<li>网络文件系统齐全，usb有线网卡驱动齐全，常用串口驱动齐全</li>
-<li>支持自行编译树外驱动(没有的驱动自己编译加载)</li>
-<li>频率过高导致不稳定自行百度限制cpu频率。</li>
-<li>ssh连接地址10.42.0.1<br>
-ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
-<li><strong>压缩系统命令:<code>btrfs filesystem defragment -r -v -czstd</code> /</strong></li>
-<li><strong>btrfs文件系统断电丢失数据概率大一些，因此尽量不要直接拔电源，先执行<code>poweroff</code>来关闭电源，再拔出WiFi棒子。</strong></li>
-<li>部分型号刷了不启动，经过验证是随身wifi品质太差那就自行刷<a href="https://github.com/OpenStick/OpenStick">作者原版0.9Ghz的！</a></li>
-<li><strong>里面只有一个001c的包，有释放内存和不释放内存boot(释放内存有467m可用吧！不能modem)其他型号自行替换boot内核和基带文件。</strong></li>
-</ul>
-<h3 id="ufi003-debian超频版-zip-没有btrfs">ufi003-debian超频版.zip(没有btrfs)</h3>
-<p>文件地址(作者的)：<a href="https://cloud.189.cn/t/neAnmabAnYji">https://cloud.189.cn/t/neAnmabAnYji</a> （访问码：6nti）</p>
-<p><strong>是上面btrfs版本的上一个版本，没有btrfs</strong></p>
-<blockquote>
-<p>作者原帖介绍：<a href="https://www.coolapk.com/feed/41664623?shareKey=YWFkM2Q3OWQ1YTdlNjQzYTk2MGU~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身wifi 各个频率版&amp;释放内存版&amp;驱动全面 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></p>
-</blockquote>
-<p><strong>简洁介绍：</strong></p>
-<ul>
-<li>可刷型号：uif001b ufi003 ufi001c ufi903 ufi103s uz801 sp970 ufi16v3/4</li>
-<li>频率有：1.2Ghz 1.4Ghz 1.6Ghz 1.8Ghz 2.0Ghz 2.1Ghz</li>
-<li>释放内存版：去掉了modem和gps设备树运行内存增加到462mb！(也就是说不能插卡)</li>
-<li>一键替换基带文件夹：自行提取基带文件放入里面的modem文件夹通过adb一键替换基带文件。</li>
-<li>一键只刷boot&amp;rootfs文件夹：把相应的镜像文件放入一键刷入(可用于openwrt&amp;debian来回刷只需要boot和rootfs镜像文件)</li>
-<li>一键通过adb连接棒子:需要更新adb驱动才能用</li>
-<li>全面的网卡驱动能编译的都编译上了(可以通过usb给棒子供网两个棒子不就无线中继了)</li>
-</ul>
-<p><strong>须知:</strong></p>
-<ul>
-<li>各个型号已经替换了相应的基带文件</li>
-<li>安装了一些必备软件包</li>
-<li>增加了rc.local开机自动执行服务修改/etc/rc.local文件可加入一些开机要执行的命令</li>
-<li>刷入自带热点4G-wifi 密码:12345678</li>
-<li>ssh连接地址10.42.0.1<br>
-ssh <a href="mailto:root@10.42.0.1">root@10.42.0.1</a> 密码:1313144</li>
-<li>加入了这些型号串口驱动ch341/ch342/ch343/ch344/ch347/ch9101/ch9102/ch9103/ch9143</li>
-<li>各大网络文件系统全部编译上了如:NFS CIFS SMB AFS等等能编译的全编译了能不能用就不知道了</li>
-<li>删除热点连wifi:<code>nmtui</code> &gt; 编译连接 &gt; 删除wifi热点 &gt;返回 &gt; 启用连接(里面连wifi)</li>
-<li>usb和热点不需要桥接如要重新开启热点看上面网络配置模板</li>
-<li>usb有线网卡驱动能编译的都编译了自己看上面图片</li>
-<li><strong>系统是带adb的需要更新adb驱动才能usb网络共享如何更新看作者项目地址：<a href="https://www.kancloud.cn/handsomehacker/openstick/2636506">查看链接 (kancloud.cn)</a></strong></li>
-<li>修正了一下以前超频版的频率表(16v3的设备树不知道能用不不能用刷001c的)</li>
-</ul>
-<h2 id="一些命令-优化">一些命令&amp;优化</h2>
-<h3 id="命令">命令</h3>
-<ul>
-<li>
-<p>Debian的看emmc寿命<br>
-<code>cat /sys/class/mmc_host/mmc0/mmc0\:0001/life_time</code><br>
-或<code>apt install mmc-utilsmmc extcsd read /dev/mmcblk0</code></p>
-<blockquote>
-<p>0x01 表示设备使用的寿命约为 10% 到 20%（0x02 表示 20% 到 30% 等）</p>
-</blockquote>
-</li>
-<li>
-<p>启用btrfs：<code>btrfs filesystem defragment -r -v -czstd /</code></p>
-</li>
-<li>
-<p>连接WiFi和更改主机名：<code>nmtui</code></p>
-</li>
-<li>
-<p>更改密码：<code>passwd</code></p>
-</li>
-<li>
-<p>关机：<code>poweroff</code></p>
-</li>
-</ul>
-<h3 id="优化">优化</h3>
-<blockquote>
-<p>参考：<a href="https://www.coolapk.com/feed/46239516?shareKey=ZWQ4YWI4M2IwZDYyNjU1ODQzOGM~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.3.6">随身WIFI &amp; Debian个人折腾优化 来自 XK先生 - 酷安 (coolapk.com)</a></p>
-</blockquote>
-<h2 id="我的记录">我的记录</h2>
-<p>首先我有三个随身WiFi</p>
-<ul>
-<li>新讯003            —&gt;          btrfs版的Debian</li>
-<li>先机103s          —&gt;          btrfs版的Debian</li>
-<li>小讯003            —&gt;          普通的超频版（我这个刷btrfs版有问题，所以用的普通的超频版）</li>
-</ul>
-<h3 id="过程">过程</h3>
-<h4 id="备份">备份</h4>
-<h5 id="miko-service-tool-pro">miko_service_tool_pro</h5>
-<p>让板子进入9008模式，打开miko_service_tool_pro，</p>
-<ul>
-<li>
-<p>备份<br>
-点<code>read</code> —&gt; <code>partition backup</code>，双击下面<code>double click to open save folder</code>，选好救砖包生成的路径，点<code>load partition structure</code>，点<code>read full image</code>就能制作刷机救砖包，大概5分钟以内，保存好这个名为<code>.bin</code>的文件。</p>
-</li>
-<li>
-<p>刷机/救砖<br>
-点<code>flash</code> —&gt; <code>emmc block0 flasher</code> —&gt; <code>double click.....</code> —&gt;<code> flash！</code></p>
-</li>
-</ul>
-<h5 id="Qualcomm-Premium-Tool">Qualcomm Premium Tool</h5>
-<p>备份全部分区文件，打开它的文件夹，有个提示先注册的程序，注意要把电脑音量调低！然后点开它后可能会提示安装一些东西，同意就行了，没有的话不用管，弹出窗口点击Generate Key，生成的key放在你知道的文件夹内</p>
-<p>打开Qualcomm Premium Tool程序，左上菜单栏找到help—active，选择刚才生成的key就能激活这个软件了</p>
-<ul>
-<li>备份<br>
-使板子进入9008模式，在Qualcomm Premium Tool，找<code>qualcomm</code>和<code>partition</code>，在下面点<code>scan</code>，<code>Do job</code>，它会识别显示板子的内部分区，点<code>backup</code>（正常会自动跳到这一项），右边<code>backup all</code>，最后<code>do job</code>，等待就行了，备份的文件保存好，里面的有些文件后面会用到。<br>
-如果需要刷写某些分区，点击<code>scan</code>识别分区后，点<code>write</code>，再选要刷的分区，点<code>Do job</code>后选择分区文件，就能完成刷写该分区。</li>
-</ul>
-<h5 id="星海svip">星海svip</h5>
-<p>需要先进行root，简单点的办法就是安装magisk，修补一下boot文件，在刷入。</p>
-<blockquote>
-<p>我没额外安装ardc，直接使用的<font color="#ff0000">随身WiFi助手</font>里面的ardc</p>
-</blockquote>
-<p><font color="#ff0000">ardc</font>，这是一个投屏软件，解决板子没有屏幕无法操作的问题，它的操作逻辑是鼠标左键为点击功能，右键为返回。安装完ardc后先别打开，检查一下任务管理器中，有<code>adb</code>或者<code>android debug bridge</code>程序在后台的话记得停掉，再把板子插到电脑上正常启动，打开ardc等待画面变化，成功后会停在深蓝色界面，然后把鼠标箭头移到此界面，右键点击两下，如果没有出现桌面，需要安装一个第三方桌面启动器，把我提供的apk文件里的launcher从电脑直接托到ardc界面就会自动给板子安装</p>
-<ol>
-<li>
-<p>root</p>
-<ul>
-<li>
-<p>备份<code>magiskboot.img</code></p>
-<p>导出magiskboot.img，先将magisk修补好的boot文件名长按后重命名为magiskboot.img，输入下面命令：<br>
-<code>adb pull /sdcard/Download/magiskboot.img D:/xxx</code></p>
-<p>这里<code>D:/xxx</code>换成你自己的路径（斜杠朝左还是朝右都可以），接着按回车就会把magiskboot.img导出到你的电脑上</p>
-</li>
-<li>
-<p>刷入magiskboot.img，实现root</p>
-<p>①<code>adb reboot bootloader</code>  —&gt;  将板子重启到fastboot模式<br>
-②<code>fastboot flash boot &quot;H:\Download\magiskboot.img&quot;</code>  —&gt;  将magiskboot.img刷入板子，实现root，注意将后面的路径更换为实际路径<br>
-③<code>fastboot reboot</code>  —&gt;  重启板子，打开magisk（可能得多等会），查看是否成功root</p>
-</li>
-</ul>
-</li>
-<li>
-<p>备份qcn</p>
-<p>①<code>adb shell su</code>  —&gt;  桌面会显示shell申请权限，点永久就行了，接着在magisk的超级用户里看看shell授权成功与否</p>
-<p>②关掉ardc，同时在任务管理器里<font color="#ff0000">如果发现adb还在后台也要关掉</font>。然后打开星海svip这个软件（免安装）。选择高通，再点联机会出现设备信息，找到高通强开1，点一键执行，在设备管理器上查看是否有端口<code>901D</code></p>
-<p>③接着备份qcn，一键执行，选择qcn文件生成路径，正常情况就能备份qcn成功，如果不行就检查901d端口或者重启电脑，备份的qcn一般在<font color="#ff0000">500多k</font>，远小于这个大小的应该是备份失败了，建议再来一次。</p>
-</li>
-</ol>
-<h4 id="刷入Debian">刷入Debian</h4>
-<p>刷机包中有一件刷入</p>
-<p>由于我不需要插卡，仅当linux服务器使用，所以我全选的释放内存版</p>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a href="https://www.coolapk.com/feed/36942430?shareKey=NmZjZWEwMjQ2ZTljNjQzYTk1NDg~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">410随身WiFi刷openwrt和debian概述 来自 jsbsbxjxh66 - 酷安 (coolapk.com)</a></li>
-<li><a href="https://www.coolapk.com/feed/37487947?shareKey=MGQwMWZmMDZlMjhhNjQzYTk1YTc~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">关于Debian后的特需功能操作命令指南 来自 LCSSDWL - 酷安 (coolapk.com)</a></li>
-<li><a href="https://www.coolapk.com/feed/45045253?shareKey=MDVjOTZlNjBlMGQ2NjQzYTk1YmY~&amp;shareUid=3683525&amp;shareFrom=com.coolapk.market_13.1.1">来自 yanhy - 酷安 (coolapk.com)</a></li>
-<li><a href="https://yanhy.top/">yanhy’s 学习记录匣 - 记录学习的点点滴滴</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>随身WiFi</tag>
       </tags>
   </entry>
 </search>
