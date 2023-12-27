@@ -323,12 +323,13 @@
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status cloudflared</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>参考</p>
+<h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://lxnchan.cn/cf-tunnel.html">https://lxnchan.cn/cf-tunnel.html</a></li>
 <li><a href="https://ednovas.xyz/2023/02/24/cloudflaretunnel/">https://ednovas.xyz/2023/02/24/cloudflaretunnel/</a></li>
 <li><a href="https://www.cnblogs.com/HeiDaotu/p/17283757.html">https://www.cnblogs.com/HeiDaotu/p/17283757.html</a></li>
 <li><a href="https://blog.zapic.moe/archives/tutorial-176.html">https://blog.zapic.moe/archives/tutorial-176.html</a></li>
+<li><a href="https://blog.imoeq.com/cloudflare-argo-tunnel/">cloudflare tunnel 详细介绍 —— 面向cloudflare的网站搭建,1分钟快速启动一个有ssl证书的wordpress博客 - 私は萌いQ(˘•ω•˘) (imoeq.com)</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -561,6 +562,8 @@
 <h3 id="标准输入">标准输入</h3>
 <p>概念： 标准输入一般指的是键盘的设备文件，从键盘获取数据就成为标准输入</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scanf( ); // 扫描键盘 （格式化输入数据 ‐‐&gt; 从键盘中获得指定类型的数据） </span><br><span class="line"></span><br><span class="line">    头文件：</span><br><span class="line">        #include &lt;stdio.h&gt;</span><br><span class="line">    函数原型：</span><br><span class="line">        int scanf(const char *format, ...);</span><br><span class="line">    参数分析：</span><br><span class="line">        format ‐‐&gt; 格式化</span><br><span class="line">        ... ‐‐&gt; 省略号 , 根据format 所写的格式控制符，对应一个内存地址</span><br><span class="line">    返回值：</span><br><span class="line">        成功 返回具体获取到的项目数</span><br><span class="line">        失败 返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getchar( ) ; </span><br><span class="line">// 获取一个字符 （默认从标准输入文件中获取），与scanf( )配合，清空 由 scanf 所留在缓冲区的内容（比如回车\n等）</span><br><span class="line"></span><br><span class="line">    函数原型：</span><br><span class="line">        int getchar(void);</span><br><span class="line">    参数：</span><br><span class="line">        无</span><br><span class="line">    返回值：</span><br><span class="line">        成功 返回一个ASCII值，代表获得的字符 （实际上为unsigned char ）</span><br><span class="line">        失败 返回 EOF 也就是 ‐1</span><br></pre></td></tr></table></figure>
+<p><strong>补充：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char * p = malloc(32); // p是指针，使用 p 而不是 &amp;p，因为 p 就是一个地址</span><br><span class="line">scanf (&quot;%[^\n]s&quot;, p);  // [^\n] 表示只有回车符才是结束标记</span><br></pre></td></tr></table></figure>
 <p>实例：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">int num = 0;</span><br><span class="line">char c = &#x27;0&#x27;;</span><br><span class="line">int ret_val = scanf(&quot;%d&quot;, &amp;num );       // &amp; 取地址符号，获得 内存 num 的地址</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">// 如果不清空有可能会导致下一次使用标准输入缓冲区异常（有上一次的数据没有被读取）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%d\n&quot; , ret_val , num );</span><br><span class="line">ret_val = scanf(&quot;%c&quot;, &amp;c );</span><br><span class="line">while(getchar() != &#x27;\n&#x27;); // 清空 由 scanf 所留在缓冲区的内容</span><br><span class="line">printf(&quot;返回值：%d , 获取的数据为：%c\n&quot; , ret_val , c );</span><br><span class="line">printf(&quot;EOF:%d\n&quot; , EOF ); //EOF 实际上是一个值为‐1 的宏</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -969,6 +972,77 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>C语言学习六：数组与指针的结合</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
+    <content><![CDATA[<h2 id="基础">基础</h2>
+<p><strong>示例一：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
+<p><strong>示例二：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
+<h2 id="数组指针">数组指针</h2>
+<p>概念：专门用来指向一个数组的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong><br>
+以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
+<h2 id="指针数组">指针数组</h2>
+<p>概念：专门用来存放指针的数组，称为指针数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题">题</h2>
+<h3 id="理解题">理解题</h3>
+<ol>
+<li>
+<p>题 1</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
+</li>
+<li>
+<p>题 2</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
+<p><code>&amp;b</code>—&gt;<code>b</code>—&gt;<code>*b</code>—&gt;<code>**b</code></p>
+<p>整个数组的地址—&gt;第一个元素（{1，2，3，4}）的地址—&gt;“1“的地址—&gt;“1”的值</p>
+<p>补充：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;**(b+1):%d\n&quot;, **(b + 1));  // 打印5</span><br><span class="line">printf(&quot;*(*(b+2)+2):%d\n&quot;, *(*(b + 2) + 2)); // 打印11</span><br><span class="line"></span><br><span class="line">// 使用指针来访问二维数组的每一个元素,打印所有</span><br><span class="line">for (size_t i = 0; i &lt; 12; i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d\t&quot;, *((*b) + i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用数组来访问二维数组</span><br><span class="line">for (size_t i = 0; i &lt; 3; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (size_t j = 0; j &lt; 4; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;b[%d][%d]:%d\t&quot;, i, j, b[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>题 3</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">    int i, *p = arr, len = sizeof(arr) / sizeof(int);</span><br><span class="line">    for(i=0; i&lt;len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //   * 和 ++ 得优先级是同级的 ， 又因为当前这一级的结合性是从右往左 ， 因此先 p++  , 但是是后缀，所以先预算再++</span><br><span class="line"></span><br><span class="line">        printf(&quot;%d\n&quot;, *p++ );   // 先运算（*p）得到 1  ， 然后再（p++）地址+1</span><br><span class="line">        printf(&quot;%d\n&quot;, (*p)++ );  // 先得到p得内容  3 ， 然后再对3进行自加</span><br><span class="line">        for (size_t j = 0; j &lt; len ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;arr[%d]:%d\t&quot; , j , arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>题①中： <code>p=&amp;arr;</code> p 是一个地址，为整个数组的首地址，相当于&amp;arr。解一次引用，即* p 则为数组首元素的地址。</p>
+</li>
+<li>
+<p>题③中： <code>* p=arr;</code> arr 为数组首元素的地址，p 指向的是首元素的首地址 （p 只是一个普普通通的整型指针），<code>*p</code> 意思为解一次引用，即第一个元素的值。—&gt; 当我们使用 <code>*p</code> 解引用指针 <code>p</code> 时，我们获取的是指针 <code>p</code> 所指向内存位置的值，<code>p</code> 是指向整型数组的指针，所以 <code>*p</code> 将获取数组中的一个整数值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>题 4</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int a = 1, b = 2, c = 3;</span><br><span class="line">    int *arr[3] = &#123;&amp;a, &amp;b, &amp;c&#125;;//整型指针数组</span><br><span class="line">    int **parr = arr; // 第一部分 *p ， 第二部分 int * 说明类型   为指针类型   +1 则+1个指针类型 8字节（64）</span><br><span class="line"></span><br><span class="line">    //    arr[0]  --&gt; &amp;a   *&amp;a --&gt; a</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, *arr[0], *arr[1], *arr[2]);</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, **(parr+0), **(parr+1), **(parr+2));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>题 5</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    char *lines[5] =     //字符指针数组（里面的字符串是以 `char*` 类型的指针形式存在的）</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;COSC1283/1984&quot;,</span><br><span class="line">    &quot;Programming&quot;,</span><br><span class="line">    &quot;Techniques&quot;,</span><br><span class="line">    &quot;is&quot;,</span><br><span class="line">    &quot;great fun&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    char *str1 = lines[1];        </span><br><span class="line">    char *str2 = *(lines + 3);</span><br><span class="line">    char c1    = *(*(lines + 4) + 6);  </span><br><span class="line">    char c2    = (*lines + 5)[5];  </span><br><span class="line">    char c3    = *lines[0] + 2;</span><br><span class="line"></span><br><span class="line">    printf(&quot;str1 = %s\n&quot;, str1);  </span><br><span class="line">    printf(&quot;str2 = %s\n&quot;, str2);  </span><br><span class="line">    printf(&quot;c1   = %c\n&quot;, c1);    </span><br><span class="line">    printf(&quot;c2   = %c\n&quot;, c2);    </span><br><span class="line">    printf(&quot;c3   = %c\n&quot;, c3);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
+</li>
+<li>
+<p>题 6</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int num;</span><br><span class="line">    int (*p)[5] = NULL;  //数组指针  </span><br><span class="line">    int arr[5] =  &#123;5,2,4,5,7&#125;;</span><br><span class="line">    p = &amp;arr;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    num = sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*p[%d] = %d\n&quot;,i,*p[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*(p+%d) = %p\n&quot;,i,*(p+i));  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;p[%d] = %p\n&quot;,i,p[i]);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;(*p)[%d] = %d\n&quot;,i,(*p)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
+</li>
+</ol>
+<h3 id="更多">更多</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//程序段一</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = &amp;arr[2];  // p只是一个普普通通的整型指针, 并指向的 数据5 的地址，是一个地址</span><br><span class="line">// arr[2] 是数据 5 ， &amp; 则把数据5 的地址进行取出</span><br><span class="line">printf(&quot;%d, %d, %d, %d, %d\n&quot;, *(p-2), *(p-1), *p, *(p+1), *(p+2) ); </span><br><span class="line">//*p解一次引用，则打印出1，3，5，7，9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段二</span><br><span class="line">int (*p)[5] = NULL; //数组指针</span><br><span class="line">int arr[5] = &#123;1,2,4,5,7&#125;;</span><br><span class="line">p = &amp;arr;   // p指向整个数组的地址</span><br><span class="line">printf(&quot;p    = %p\n&quot;,p);        //&amp;arr，地址</span><br><span class="line">printf(&quot;*p   = %p\n&quot;,*p );      //解一次引用，数组首元素的地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段三</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = arr;  //p只是一个普普通通的整型指针, 并指向的数组首元素的地址（arr） </span><br><span class="line">printf(&quot;%d\n&quot;, *p);  //*p，解一次引用，得到数组首元素的值，即 1</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习二：运算符</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
     <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
@@ -1105,77 +1179,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>C语言学习六：数组与指针的结合</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
-    <content><![CDATA[<h2 id="基础">基础</h2>
-<p><strong>示例一：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
-<p><strong>示例二：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
-<h2 id="数组指针">数组指针</h2>
-<p>概念：专门用来指向一个数组的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong><br>
-以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
-<h2 id="指针数组">指针数组</h2>
-<p>概念：专门用来存放指针的数组，称为指针数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="理解题">理解题</h2>
-<h3 id="题目">题目</h3>
-<ol>
-<li>
-<p>题 1</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
-</li>
-<li>
-<p>题 2</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
-<p><code>&amp;b</code>—&gt;<code>b</code>—&gt;<code>*b</code>—&gt;<code>**b</code></p>
-<p>整个数组的地址—&gt;第一个元素（{1，2，3，4}）的地址—&gt;“1“的地址—&gt;“1”的值</p>
-<p>补充：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;**(b+1):%d\n&quot;, **(b + 1));  // 打印5</span><br><span class="line">printf(&quot;*(*(b+2)+2):%d\n&quot;, *(*(b + 2) + 2)); // 打印11</span><br><span class="line"></span><br><span class="line">// 使用指针来访问二维数组的每一个元素,打印所有</span><br><span class="line">for (size_t i = 0; i &lt; 12; i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d\t&quot;, *((*b) + i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用数组来访问二维数组</span><br><span class="line">for (size_t i = 0; i &lt; 3; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (size_t j = 0; j &lt; 4; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;b[%d][%d]:%d\t&quot;, i, j, b[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>题 3</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">    int i, *p = arr, len = sizeof(arr) / sizeof(int);</span><br><span class="line">    for(i=0; i&lt;len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //   * 和 ++ 得优先级是同级的 ， 又因为当前这一级的结合性是从右往左 ， 因此先 p++  , 但是是后缀，所以先预算再++</span><br><span class="line"></span><br><span class="line">        printf(&quot;%d\n&quot;, *p++ );   // 先运算（*p）得到 1  ， 然后再（p++）地址+1</span><br><span class="line">        printf(&quot;%d\n&quot;, (*p)++ );  // 先得到p得内容  3 ， 然后再对3进行自加</span><br><span class="line">        for (size_t j = 0; j &lt; len ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;arr[%d]:%d\t&quot; , j , arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>题①中： <code>p=&amp;arr;</code> p 是一个地址，为整个数组的首地址，相当于&amp;arr。解一次引用，即* p 则为数组首元素的地址。</p>
-</li>
-<li>
-<p>题③中： <code>* p=arr;</code> arr 为数组首元素的地址，p 指向的是首元素的首地址 （p 只是一个普普通通的整型指针），<code>*p</code> 意思为解一次引用，即第一个元素的值。—&gt; 当我们使用 <code>*p</code> 解引用指针 <code>p</code> 时，我们获取的是指针 <code>p</code> 所指向内存位置的值，<code>p</code> 是指向整型数组的指针，所以 <code>*p</code> 将获取数组中的一个整数值。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>题 4</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int a = 1, b = 2, c = 3;</span><br><span class="line">    int *arr[3] = &#123;&amp;a, &amp;b, &amp;c&#125;;//整型指针数组</span><br><span class="line">    int **parr = arr; // 第一部分 *p ， 第二部分 int * 说明类型   为指针类型   +1 则+1个指针类型 8字节（64）</span><br><span class="line"></span><br><span class="line">    //    arr[0]  --&gt; &amp;a   *&amp;a --&gt; a</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, *arr[0], *arr[1], *arr[2]);</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, **(parr+0), **(parr+1), **(parr+2));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>题 5</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    char *lines[5] =     //字符指针数组（里面的字符串是以 `char*` 类型的指针形式存在的）</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;COSC1283/1984&quot;,</span><br><span class="line">    &quot;Programming&quot;,</span><br><span class="line">    &quot;Techniques&quot;,</span><br><span class="line">    &quot;is&quot;,</span><br><span class="line">    &quot;great fun&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    char *str1 = lines[1];        </span><br><span class="line">    char *str2 = *(lines + 3);</span><br><span class="line">    char c1    = *(*(lines + 4) + 6);  </span><br><span class="line">    char c2    = (*lines + 5)[5];  </span><br><span class="line">    char c3    = *lines[0] + 2;</span><br><span class="line"></span><br><span class="line">    printf(&quot;str1 = %s\n&quot;, str1);  </span><br><span class="line">    printf(&quot;str2 = %s\n&quot;, str2);  </span><br><span class="line">    printf(&quot;c1   = %c\n&quot;, c1);    </span><br><span class="line">    printf(&quot;c2   = %c\n&quot;, c2);    </span><br><span class="line">    printf(&quot;c3   = %c\n&quot;, c3);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
-</li>
-<li>
-<p>题 6</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int num;</span><br><span class="line">    int (*p)[5] = NULL;  //数组指针  </span><br><span class="line">    int arr[5] =  &#123;5,2,4,5,7&#125;;</span><br><span class="line">    p = &amp;arr;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    num = sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*p[%d] = %d\n&quot;,i,*p[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*(p+%d) = %p\n&quot;,i,*(p+i));  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;p[%d] = %p\n&quot;,i,p[i]);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;(*p)[%d] = %d\n&quot;,i,(*p)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
-</li>
-</ol>
-<h3 id="总结">总结</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//程序段一</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = &amp;arr[2];  // p只是一个普普通通的整型指针, 并指向的 数据5 的地址，是一个地址</span><br><span class="line">// arr[2] 是数据 5 ， &amp; 则把数据5 的地址进行取出</span><br><span class="line">printf(&quot;%d, %d, %d, %d, %d\n&quot;, *(p-2), *(p-1), *p, *(p+1), *(p+2) ); </span><br><span class="line">//*p解一次引用，则打印出1，3，5，7，9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段二</span><br><span class="line">int (*p)[5] = NULL; //数组指针</span><br><span class="line">int arr[5] = &#123;1,2,4,5,7&#125;;</span><br><span class="line">p = &amp;arr;   // p指向整个数组的地址</span><br><span class="line">printf(&quot;p    = %p\n&quot;,p);        //&amp;arr，地址</span><br><span class="line">printf(&quot;*p   = %p\n&quot;,*p );      //解一次引用，数组首元素的地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段三</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = arr;  //p只是一个普普通通的整型指针, 并指向的数组首元素的地址（arr） </span><br><span class="line">printf(&quot;%d\n&quot;, *p);  //*p，解一次引用，得到数组首元素的值，即 1</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用Github搭建免费图床</title>
     <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
@@ -1232,110 +1235,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>折腾</tag>
         <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hax&amp;Woiden</title>
-    <url>/2022/12/01/Hax-Woiden/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
-</div>
-<hr>
-<h2 id="注册-ssh-连接-hax">注册&amp;ssh 连接 hax</h2>
-<ol>
-<li>
-<p>注册网站： <a href="https://hax.co.id">https://hax.co.id</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
-</li>
-<li>
-<p>翻译一下就看懂，其实很简单的</p>
-<p>创建 ipv 4 转发后，ssh 连就好了，步骤就懒得说了，我电脑用的 <a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</p>
-</li>
-<li>
-<p>当然也可以不用创建 ipv 4 转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页 ssh 登录</a>，直接用 ipv6。</p>
-</li>
-</ol>
-<hr>
-<h2 id="注册-ssh-连接-woiden">注册&amp;ssh 连接 woiden</h2>
-<ol>
-<li>
-<p>注册网站： <a href="https://woiden.id">https://woiden.id</a></p>
-<blockquote>
-<p>也是一样的，其实 woiden 和 hax 流程都差不多的，一个纯 ipv 6 机器，一个 nat 机器。这里就不多说了</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
-</li>
-</ol>
-<h2 id="安装-warp-和-x-ui">安装 warp 和 x-ui</h2>
-<ol>
-<li>
-<p>安装 warp（以 F 佬 WARP 脚本为例）</p>
-<p>复制粘贴进 ssh 回车运行：</p>
-<p><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code></p>
-<p>点击第一个，添加 warp ipv 4 网络接口 (有可能刷新不出来 ip，可以试试其他 warp 脚本)</p>
-</li>
-<li>
-<p>安装 x-ui 面板（二选一，我用的②）</p>
-<p>① <a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a></p>
-<p>直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作</p>
-<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>② <a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a></p>
-<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ol>
-<hr>
-<h2 id="套-cf-加速">套 cf 加速</h2>
-<ol>
-<li>
-<p>上面创建好的节点只有 ipv6，没有 ipv4，有些网站、软件只能用 ipv 4，所以还需要套 cf 加速</p>
-</li>
-<li>
-<p>教程：</p>
-<ul>
-<li>注册 <a href="https://dash.cloudflare.com/">cloudflre</a> 和 <a href="https://www.freenom.com/">freenom</a> （这个废了，自己找域名），当然也可以不用 freenom 免费域名，随便你，freenom 免费域名注册方法自行谷歌</li>
-<li>在 cf 首页点击添加网站，将注册好的域名添加到 cf 上，点网站点进去，左侧添加 dns，然后添加 ssl</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
-</li>
-</ol>
-<hr>
-<h2 id="注意事项">注意事项</h2>
-<ol>
-<li>Hax 网站可能进不去，那是因为你开启了去广告的浏览器插件</li>
-<li>如果 hax 中你没用去广告的浏览器插件，那可能是 fq 软件里面的去广告规则导致的，把相应的关闭就行，以 v 2 rayN 为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到 block 双击打开，在 geosite: category-ads-all 前面加个#➡保存</li>
-<li>可以不用节点，只不过网站进去有点慢</li>
-<li>Hax / Woiden OpenVZ VPS 开启 TUN 模块教程
-<ul>
-<li>在 <a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或 <a href="https://woiden.id/vps-control">https://woiden.id/vps-control</a> ） 点击 Enable TUN 按钮</li>
-<li>待 TUN 模块启动成功后，先 Stop 让 VPS 关机，然后再 Start 开机</li>
-<li>输入此命令：<code>cat /dev/net/tun</code> ，然后看见<code> cat: /dev/net/tun: File descriptor in bad state</code> 即为成功启用 TUN 模块</li>
-</ul>
-</li>
-<li>也可以不用 x-ui 面板，把命令换成下面这个就行<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></li>
-<li>Hax 和 woiden 每天北京时间凌晨 1 点补货（要抢），7 天续期，tg 机器人最后两天会发消息提醒</li>
-<li>安装 bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）
-<ul>
-<li>可以使用 virt-what 查看 VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行 Google</li>
-<li>卸载内核版本 (一般用这个即可)<br>
-<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></li>
-<li>不卸载内核版本<br>
-<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
-一般 BBR+FQ 加速就行，当然也可以不使用 bbr</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>VPS</category>
-      </categories>
-      <tags>
-        <tag>白嫖VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1491,8 +1390,112 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <title>Hax&amp;Woiden</title>
+    <url>/2022/12/01/Hax-Woiden/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
+</div>
+<hr>
+<h2 id="注册-ssh-连接-hax">注册&amp;ssh 连接 hax</h2>
+<ol>
+<li>
+<p>注册网站： <a href="https://hax.co.id">https://hax.co.id</a></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
+</li>
+<li>
+<p>翻译一下就看懂，其实很简单的</p>
+<p>创建 ipv 4 转发后，ssh 连就好了，步骤就懒得说了，我电脑用的 <a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</p>
+</li>
+<li>
+<p>当然也可以不用创建 ipv 4 转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页 ssh 登录</a>，直接用 ipv6。</p>
+</li>
+</ol>
+<hr>
+<h2 id="注册-ssh-连接-woiden">注册&amp;ssh 连接 woiden</h2>
+<ol>
+<li>
+<p>注册网站： <a href="https://woiden.id">https://woiden.id</a></p>
+<blockquote>
+<p>也是一样的，其实 woiden 和 hax 流程都差不多的，一个纯 ipv 6 机器，一个 nat 机器。这里就不多说了</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
+</li>
+</ol>
+<h2 id="安装-warp-和-x-ui">安装 warp 和 x-ui</h2>
+<ol>
+<li>
+<p>安装 warp（以 F 佬 WARP 脚本为例）</p>
+<p>复制粘贴进 ssh 回车运行：</p>
+<p><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code></p>
+<p>点击第一个，添加 warp ipv 4 网络接口 (有可能刷新不出来 ip，可以试试其他 warp 脚本)</p>
+</li>
+<li>
+<p>安装 x-ui 面板（二选一，我用的②）</p>
+<p>① <a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a></p>
+<p>直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作</p>
+<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>② <a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a></p>
+<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ol>
+<hr>
+<h2 id="套-cf-加速">套 cf 加速</h2>
+<ol>
+<li>
+<p>上面创建好的节点只有 ipv6，没有 ipv4，有些网站、软件只能用 ipv 4，所以还需要套 cf 加速</p>
+</li>
+<li>
+<p>教程：</p>
+<ul>
+<li>注册 <a href="https://dash.cloudflare.com/">cloudflre</a> 和 <a href="https://www.freenom.com/">freenom</a> （这个废了，自己找域名），当然也可以不用 freenom 免费域名，随便你，freenom 免费域名注册方法自行谷歌</li>
+<li>在 cf 首页点击添加网站，将注册好的域名添加到 cf 上，点网站点进去，左侧添加 dns，然后添加 ssl</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
+</li>
+</ol>
+<hr>
+<h2 id="注意事项">注意事项</h2>
+<ol>
+<li>Hax 网站可能进不去，那是因为你开启了去广告的浏览器插件</li>
+<li>如果 hax 中你没用去广告的浏览器插件，那可能是 fq 软件里面的去广告规则导致的，把相应的关闭就行，以 v 2 rayN 为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到 block 双击打开，在 geosite: category-ads-all 前面加个#➡保存</li>
+<li>可以不用节点，只不过网站进去有点慢</li>
+<li>Hax / Woiden OpenVZ VPS 开启 TUN 模块教程
+<ul>
+<li>在 <a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或 <a href="https://woiden.id/vps-control">https://woiden.id/vps-control</a> ） 点击 Enable TUN 按钮</li>
+<li>待 TUN 模块启动成功后，先 Stop 让 VPS 关机，然后再 Start 开机</li>
+<li>输入此命令：<code>cat /dev/net/tun</code> ，然后看见<code> cat: /dev/net/tun: File descriptor in bad state</code> 即为成功启用 TUN 模块</li>
+</ul>
+</li>
+<li>也可以不用 x-ui 面板，把命令换成下面这个就行<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></li>
+<li>Hax 和 woiden 每天北京时间凌晨 1 点补货（要抢），7 天续期，tg 机器人最后两天会发消息提醒</li>
+<li>安装 bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）
+<ul>
+<li>可以使用 virt-what 查看 VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行 Google</li>
+<li>卸载内核版本 (一般用这个即可)<br>
+<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></li>
+<li>不卸载内核版本<br>
+<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
+一般 BBR+FQ 加速就行，当然也可以不使用 bbr</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>白嫖VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 学习系列</title>
+    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -1597,8 +1600,21 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>Linux 学习系列</title>
-    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -2020,33 +2036,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h2 id="前言">前言</h2>
@@ -2096,7 +2085,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <h4 id="自定义硬件">自定义硬件</h4>
 <p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
-<h3 id="启动虚拟机">启动虚拟机</h3>
+<h2 id="启动虚拟机">启动虚拟机</h2>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
 <blockquote>
@@ -2142,10 +2131,43 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
+        <tag>Ubuntu</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>VS Code配置</title>
@@ -2349,220 +2371,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>vs</tag>
         <tag>vs code</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>windows 常用运行环境的安装</title>
-    <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h2 id="Git">Git</h2>
-<p>见：</p>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h2 id="Node-Js">Node.Js</h2>
-<blockquote>
-<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
-</blockquote>
-<h3 id="下载安装包">下载安装包</h3>
-<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
-<blockquote>
-<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
-</blockquote>
-<blockquote>
-<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
-<ul>
-<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
-<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
-</ul>
-</blockquote>
-<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12877q4-1.webp" alt="nodejs1"></p>
-<h3 id="安装程序">安装程序</h3>
-<ol>
-<li>
-<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
-</li>
-<li>
-<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
-<ul>
-<li><code>Node.js runtime</code> ：表示运行环境</li>
-<li><code>npm package manager</code>：表示npm包管理器</li>
-<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
-<li><code>Add to PATH</code>：添加到环境变量</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286xv5-1.webp" alt="nodejs2"></p>
-</li>
-<li>
-<p>下图框中所示，不用选</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287g2j-1.webp" alt="nodejs3"></p>
-</li>
-<li>
-<p>点击 Install，完成安装</p>
-</li>
-<li>
-<p>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</p>
-</li>
-</ol>
-<h3 id="修改位置">修改位置</h3>
-<ol>
-<li>
-<p>修改全局模块路径和缓存路径（可选）</p>
-<blockquote>
-<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
-</blockquote>
-<blockquote>
-<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
-</blockquote>
-<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
-②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
-<p>比如：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>修改系统环境变量</strong></p>
-<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
-② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
-③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
-</li>
-<li>
-<p><strong>验证</strong></p>
-<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录输入下面的命令：</p>
-<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
-<p>②下载成功后，我们回到自定义的目录查看。</p>
-<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
-<blockquote>
-<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
-</blockquote>
-</li>
-</ol>
-<h3 id="更换国内源">更换国内源</h3>
-<h4 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h4>
-<blockquote>
-<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<ol>
-<li>
-<p>查看初始 npm 源</p>
-<p><code>npm config get registry </code></p>
-</li>
-<li>
-<p>更换镜像为淘宝镜像</p>
-<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
-</li>
-</ol>
-<h4 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h4>
-<blockquote>
-<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
-</blockquote>
-<ol>
-<li>
-<p>全局安装基于淘宝源的 cnpm</p>
-<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
-<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
-</li>
-<li>
-<p>执行命令查看 cnpm 是否安装成功</p>
-<p><code>cnpm -v </code></p>
-</li>
-</ol>
-<h4 id="验证安装">验证安装</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
-<h4 id="参考文档">参考文档</h4>
-<ul>
-<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
-</ul>
-<hr>
-<h2 id="MinGW-w64">MinGW-w64</h2>
-<blockquote>
-<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
-</blockquote>
-<blockquote>
-<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
-</blockquote>
-<h3 id="下载">下载</h3>
-<blockquote>
-<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
-链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12870m1-1.webp" alt="mingw64-1"></p>
-<ul>
-<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
-<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
-<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
-</ul>
-<h3 id="安装">安装</h3>
-<ol>
-<li>
-<p>方法一：在线安装（网络问题，很炸裂）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286n5u-1.webp" alt="mingw64-2"></p>
-<ul>
-<li>Version 是版本，一般选最高版本；</li>
-<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
-<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
-<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
-<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
-<li>Build revision，默认值即可</li>
-</ul>
-<blockquote>
-<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
-</blockquote>
-</li>
-<li>
-<p>方法二：直接下载对应的压缩包</p>
-<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286rox-1.webp" alt="mingw64-3"></p>
-<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
-</li>
-</ol>
-<hr>
-<h2 id="PHP">PHP</h2>
-<h3 id="下载-2">下载</h3>
-<blockquote>
-<p>下载地址：<a href="https://windows.php.net/download">https://windows.php.net/download</a></p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287eey-1.png" alt="php1"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
-<li>“VS16 x64 Thread Safe” 和 “VS16 x64 Non Thread Safe” 是指针对 Windows 平台上的 PHP 编译版本。</li>
-<li>“VS16” 表示使用的是 Visual Studio 2019 编译器（版本号为 16）。</li>
-<li>“x64” 表示编译为 64 位版本，这意味着它适用于 64 位的 Windows 操作系统。</li>
-<li>“Thread Safe” 表示编译版本是线程安全的，即支持多线程操作。这意味着您可以在一个应用程序中同时运行多个线程，而不会出现竞争条件或内存访问冲突。</li>
-<li>“Non Thread Safe” 表示编译版本不是线程安全的，即不支持多线程操作。这意味着您应该在单线程环境下使用它，或者需要自行处理多线程操作的同步和互斥。</li>
-</ul>
-<p>选择哪个版本取决于您的具体需求和环境。如果您的应用程序需要多线程支持，那么选择 “Thread Safe” 版本是更安全的选择。否则，如果您的应用程序是单线程的，或者您能够自行处理多线程操作的同步和互斥，那么选择 “Non Thread Safe” 版本也是可以的。</p>
-</div></details>
-<h3 id="安装-2">安装</h3>
-<p>将下载好的 zip 文件解压到自己认为比较合适的地方（例如：<code>D:\php\php-8.2.12-nts-Win32-vs16-x64</code>），不需要安装，解压即可。</p>
-<h3 id="环境配置">环境配置</h3>
-<p>打开 <code>设置</code> --&gt; <code>系统</code> --&gt; <code>系统信息</code> --&gt; <code>高级系统设置</code> --&gt; <code>环境变量</code></p>
-<p>在下面的系统变量里找到 <code>Path</code>，双击新建一条记录，将上述 PHP 路径粘贴进去，保存</p>
-<h3 id="验证">验证</h3>
-<p>按下 <code>Win + R</code>，输入 <code>cmd</code>，打开命令行工具，输入 <code>php -v</code></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>软件与环境</category>
-      </categories>
-      <tags>
-        <tag>环境</tag>
-        <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>zram与swap交换内存</title>
@@ -2868,6 +2676,201 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 常用运行环境的安装</title>
+    <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="Git">Git</h2>
+<p>见：</p>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h2 id="Node-Js">Node.Js</h2>
+<blockquote>
+<p>去官网下载最新的稳定版 <a href="https://nodejs.org/en/">Node.JS</a> ，一般推荐 64 位（大家应该现在用的电脑基本都是 64 位的吧），安装的话很简单，基本就是下一步下一步点击就好了。</p>
+</blockquote>
+<h3 id="下载安装包">下载安装包</h3>
+<p>要安装 <code>Node.js</code>，首先需要去下载对应系统安装包：</p>
+<blockquote>
+<p>根据自己电脑系统及位数选择，我的电脑是 Windows 系统、64位、想下载稳定版的.msi（LTS 为长期稳定版）这里选择 <code>windows64位.msi</code> 格式安装包。</p>
+</blockquote>
+<blockquote>
+<p><code>.msi</code> 和 <code>.zip</code> 格式区别：</p>
+<ul>
+<li><code>.msi</code> 是 Windows installer 开发出来的程序安装文件，它可以让你安装，修改，卸载你所安装的程序。说白了.msi 就是 Windows installer 的数据包，把所有和安装文件相关的内容封装在一个包里。<strong>此外：它还包含有关安装过程自己的信息。例如：安装序列、目标文件夹路径、安装选项和控制安装过程的属性。</strong></li>
+<li><code>.zip</code> 是一个压缩包，解压之后即可，不需要安装</li>
+</ul>
+</blockquote>
+<p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12877q4-1.webp" alt="nodejs1"></p>
+<h3 id="安装程序">安装程序</h3>
+<ol>
+<li>
+<p>下载完成后，双击安装包，开始安装，使用默认配置安装一直点 <code>next</code> 即可，安装路径默认在 <code>C:\Program Files</code> 下，也可以自定义修改，我这里安装在 <code>E:\Nodejs </code></p>
+</li>
+<li>
+<p>下图根据本身的需要进行，我选择了默认 <code>Node.js runtime</code></p>
+<ul>
+<li><code>Node.js runtime</code> ：表示运行环境</li>
+<li><code>npm package manager</code>：表示npm包管理器</li>
+<li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
+<li><code>Add to PATH</code>：添加到环境变量</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286xv5-1.webp" alt="nodejs2"></p>
+</li>
+<li>
+<p>下图框中所示，不用选</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287g2j-1.webp" alt="nodejs3"></p>
+</li>
+<li>
+<p>点击 Install，完成安装</p>
+</li>
+<li>
+<p>安装完成后，.msi 格式的安装包已经将 node 启动程序添加到系统环境变量 path 中,我们能够查看系统变量进行验证：在【个人电脑】右键→【属性】→【高级系统设置】，在系统变量中查看【path】。</p>
+</li>
+</ol>
+<h3 id="修改位置">修改位置</h3>
+<ol>
+<li>
+<p>修改全局模块路径和缓存路径（可选）</p>
+<blockquote>
+<p>当我们在执行 npm install express -g 命令时，g 表示 global 全局。会默认下载到 c 盘，c 盘一般作为系统盘，尽量把一些程序安装到其他盘，来减少 c 盘空间的占用，它的默认路径为：<code>C:\Users\用户名\AppData\Roaming\npm</code>。</p>
+</blockquote>
+<blockquote>
+<p><strong>注意：此文件夹默认是隐藏的，需要设置显示隐藏的文件夹。</strong></p>
+</blockquote>
+<p>①若希望将<strong>全模块所在路径</strong>和<strong>缓存路径</strong>放在自己的 node.js 安装的文件夹中，则在安装的文件夹 <code>E:\Nodejs </code> 下创建两个文件夹 <code>node_global</code> 和 <code>node_cache</code>，在 <code>node_global</code> 文件夹下再建一个 <code>node_modules </code> 文件夹<br>
+②win+R 打开运行窗口，输入 cmd，再输入以下两条指令</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;创建的node_global文件夹所在路径&quot; </span><br><span class="line">npm config set cache &quot;创建的node_cache文件夹所在路径&quot;</span><br></pre></td></tr></table></figure>
+<p>比如：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Nodejs\node_global&quot;  </span><br><span class="line">npm config set cache &quot;E:\Nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>修改系统环境变量</strong></p>
+<p>①将【用户变量】下的 <code>Path </code> 变量中的默认的 npm 路径修改为新建的 node_global 路径，即修改为 <code>E:\Nodejs\node_global</code>，之后点击确定。<br>
+② 在【系统变量】下新建 <code>NODE_PATH</code> 为 <code>E:\Nodejs\node_global\node_modules</code><br>
+③ 在【系统变量】下的 <code>Path </code> 新建添加 node 全局文件夹 <code>E:\Nodejs\node_global </code></p>
+</li>
+<li>
+<p><strong>验证</strong></p>
+<p>①经过上面的步骤，<strong>nodejs</strong> 下载的模块就会自动下载到我们自定义的目录输入下面的命令：</p>
+<p><code>npm install express -g</code>      # -g 是全局安装的意思，不加 -g 就是默认下载到当前目录</p>
+<p>②下载成功后，我们回到自定义的目录查看。</p>
+<p>如果可以看到，下载的 express 模块即一个名叫 express 的文件夹全局的指定目录。即完成</p>
+<blockquote>
+<p><strong>注：若执行命令 <code>npm install express -g </code> 出现报错，由于权限的原因，可以以管理员身份运行 cmd</strong></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="更换国内源">更换国内源</h3>
+<h4 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h4>
+<blockquote>
+<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<ol>
+<li>
+<p>查看初始 npm 源</p>
+<p><code>npm config get registry </code></p>
+</li>
+<li>
+<p>更换镜像为淘宝镜像</p>
+<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
+</li>
+</ol>
+<h4 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h4>
+<blockquote>
+<p>由于 npm 的服务器在海外，所以访问速度比较慢，访问不稳定，cnpm 的服务器是由淘宝团队提供服务器在国内 cnpm 是 npm 镜像，一般会同步更新，相差在10分钟，所以 cnpm 在安装一些软件时候会比较有优势。但是一般 cnpm 只用于安装时候，所以在项目创建与卸载等相关操作时候我们还是使用 npm。</p>
+</blockquote>
+<ol>
+<li>
+<p>全局安装基于淘宝源的 cnpm</p>
+<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
+<p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
+</li>
+<li>
+<p>执行命令查看 cnpm 是否安装成功</p>
+<p><code>cnpm -v </code></p>
+</li>
+</ol>
+<h4 id="验证安装">验证安装</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#进入命令提示符窗口，分别输入以下命令，显示版本号，则安装成功</span><br><span class="line">node -v       显示安装的nodejs版本  </span><br><span class="line">npm -v        显示安装的npm版本</span><br></pre></td></tr></table></figure>
+<h4 id="参考文档">参考文档</h4>
+<ul>
+<li><a href="https://blog.csdn.net/qq_52855464/article/details/127600132">Nodejs安装教程（全套教程保姆级）_nodejs 14.16_潮汐未见潮落的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h2 id="MinGW-w64">MinGW-w64</h2>
+<blockquote>
+<p>C/C++的编译器有很多种，大家可自行选择，但网上大部分人都用的 MinGW-w64，故以此编译器为例</p>
+</blockquote>
+<blockquote>
+<p>gcc 是 c/c++的编译器，但是通常在 Linux 上才能用。如果要在 windows 上用，我们要借助 MinGW 使用它。在 MinGW 官网上，可以下载 zip 也可以下载 exe 执行文件，但是 .exe 执行文件在安装时，其实是会根据你的选择去下载 zip ，而且网速不好根本下不下来，会报错，所以我们直接选择对应版本的 zip 文件下载就可以了。</p>
+</blockquote>
+<h3 id="下载">下载</h3>
+<blockquote>
+<p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
+链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12870m1-1.webp" alt="mingw64-1"></p>
+<ul>
+<li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
+<li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
+<li>异常处理模型 seh（新的，仅支持 64 位系统），sjlj （稳定的，64 位和 32 位都支持），    dwarf （优于 sjlj 的，仅支持 32 位系统）</li>
+</ul>
+<h3 id="安装">安装</h3>
+<ol>
+<li>
+<p>方法一：在线安装（网络问题，很炸裂）</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286n5u-1.webp" alt="mingw64-2"></p>
+<ul>
+<li>Version 是版本，一般选最高版本；</li>
+<li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
+<li>Threads 是操作系统接口协议，如果你想要开发 Windows 程序，需要选择 win 32 ，而开发</li>
+<li>Linux、Unix、Mac OS 等其他操作系统下的程序，则需要选择 posix</li>
+<li>Exception 是异常处理模型，推荐 seh (64 位系统)或 dwarf (32 位系统)</li>
+<li>Build revision，默认值即可</li>
+</ul>
+<blockquote>
+<p>注意安装目录需是纯英文的，且<strong>不含空格</strong></p>
+</blockquote>
+</li>
+<li>
+<p>方法二：直接下载对应的压缩包</p>
+<p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286rox-1.webp" alt="mingw64-3"></p>
+<p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
+</li>
+</ol>
+<hr>
+<h2 id="PHP">PHP</h2>
+<h3 id="下载-2">下载</h3>
+<blockquote>
+<p>下载地址：<a href="https://windows.php.net/download">https://windows.php.net/download</a></p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287eey-1.png" alt="php1"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
+<li>“VS16 x64 Thread Safe” 和 “VS16 x64 Non Thread Safe” 是指针对 Windows 平台上的 PHP 编译版本。</li>
+<li>“VS16” 表示使用的是 Visual Studio 2019 编译器（版本号为 16）。</li>
+<li>“x64” 表示编译为 64 位版本，这意味着它适用于 64 位的 Windows 操作系统。</li>
+<li>“Thread Safe” 表示编译版本是线程安全的，即支持多线程操作。这意味着您可以在一个应用程序中同时运行多个线程，而不会出现竞争条件或内存访问冲突。</li>
+<li>“Non Thread Safe” 表示编译版本不是线程安全的，即不支持多线程操作。这意味着您应该在单线程环境下使用它，或者需要自行处理多线程操作的同步和互斥。</li>
+</ul>
+<p>选择哪个版本取决于您的具体需求和环境。如果您的应用程序需要多线程支持，那么选择 “Thread Safe” 版本是更安全的选择。否则，如果您的应用程序是单线程的，或者您能够自行处理多线程操作的同步和互斥，那么选择 “Non Thread Safe” 版本也是可以的。</p>
+</div></details>
+<h3 id="安装-2">安装</h3>
+<p>将下载好的 zip 文件解压到自己认为比较合适的地方（例如：<code>D:\php\php-8.2.12-nts-Win32-vs16-x64</code>），不需要安装，解压即可。</p>
+<h3 id="环境配置">环境配置</h3>
+<p>打开 <code>设置</code> --&gt; <code>系统</code> --&gt; <code>系统信息</code> --&gt; <code>高级系统设置</code> --&gt; <code>环境变量</code></p>
+<p>在下面的系统变量里找到 <code>Path</code>，双击新建一条记录，将上述 PHP 路径粘贴进去，保存</p>
+<h3 id="验证">验证</h3>
+<p>按下 <code>Win + R</code>，输入 <code>cmd</code>，打开命令行工具，输入 <code>php -v</code></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>软件与环境</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
