@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Cloudflare Workers反代系列</title>
+    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<blockquote>
+<p>未验证，待整理中</p>
+</blockquote>
+<h2 id="gh-proxy">gh-proxy</h2>
+<ul>
+<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
+</ul>
+<h2 id="jsdelivr">jsdelivr</h2>
+<ul>
+<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
+</ul>
+<p>bili33：</p>
+<ul>
+<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
+<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
+<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
+<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
+</ul>
+<h2 id="tg-bot-api">tg bot api</h2>
+<ul>
+<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>Cloudflare</tag>
+        <tag>反代</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>API接口站</title>
     <url>/2023/11/12/API%E6%8E%A5%E5%8F%A3%E7%AB%99/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, 密码错了，检查一下好吗～" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -221,30 +257,140 @@
       </tags>
   </entry>
   <entry>
-    <title>Cloudflare Workers反代系列</title>
-    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<blockquote>
-<p>未验证，待整理中</p>
+    <title>Cloudflare Tunnels 免费内网穿透</title>
+    <url>/2023/11/17/Cloudflare%20Tunnels%20%E5%85%8D%E8%B4%B9%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<h2 id="方法一">方法一</h2>
+<p>官网绑卡选择免费计划：<a href="https://one.dash.cloudflare.com/">https://one.dash.cloudflare.com/</a><br>
+然后直接面板操作，比方法二简单，缺点就是要绑卡（虽然是免费计划，但需要先绑卡）</p>
+<h2 id="方法二">方法二</h2>
+<blockquote>
+<p>本地编写配置文件，不需要去cf绑卡选计划</p>
 </blockquote>
-<h2 id="gh-proxy">gh-proxy</h2>
+<ol>
+<li>
+<p>下载程序</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//amd架构</span><br><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/bin/cloudflared</span><br><span class="line"></span><br><span class="line">//arm64、aarch64架构</span><br><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O /usr/bin/cloudflared</span><br><span class="line"></span><br><span class="line">//其他</span><br><span class="line">自行官方下载：https://github.com/cloudflare/cloudflared/releases</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/bin/cloudflared   #给可执行权限</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>登录</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
+<li>
+<p>终端会给出一个链接，浏览器打开选择域名进行授权，下面授权完成后终端会显示<code>cert.pem</code>地址，保存好，丢失了重新<code>login</code>一次</p>
+</li>
+<li>
+<p>如果是有二步验证的，需要登录了以后，再次黏贴该地址，因为二步验证结束后并不会自动跳转到该 cloudflared 验证登录页面。</p>
+</li>
+<li>
+<p>授权的话，每次只能选择一个网站，当然，一个网站也就够用了，我们可以解析很多三级域名啥的。当然如果需要授权多个网站，授权完成后不要关闭网页！依次点击其他需要授权的域名，进行多次授权。</p>
+</li>
 </ul>
-<h2 id="jsdelivr">jsdelivr</h2>
+</li>
+<li>
+<p>创建隧道</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//web是隧道名</span><br><span class="line">cloudflared tunnel create web</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>会显示出隧道UUID，也可使用 <code>cloudflared tunnel list</code> 查看</p>
+</blockquote>
+<p>123是隧道名，名字是可以自定义的，但是不能重复。如果想要查看已经创建的隧道的话，可以输入</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel list</span><br></pre></td></tr></table></figure>
+<p>如果要删除，可以输入以下命令删除</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel delete web</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置DNS记录，给隧道分配域名</p>
+<p><code>cloudflared tunnel route dns &lt;tunnel-name&gt; &lt;domain&gt;</code>，其中的 <code>&lt;tunnel-name&gt;</code>是创建Tunnel时指定的名称，<code>&lt;domain&gt;</code>是自定义的域名，比如 <code>web.example.com</code>:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例如：</span><br><span class="line">cloudflared tunnel route dns web web.example.com</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
+<li>然后 cloudflare 就会在你的域名下自动生成一个 CNAME，把 <a href="http://web.example.com">web.example.com</a> 指向 &lt;隧道 UUID&gt;.cfargotunnel.com</li>
+<li>如果还有其他域名需要配置，可以继续执行上面的命令（别忘了改域名）。配置完成后可以前往Cloudflare控制台查看到CNAME记录。</li>
 </ul>
-<p>bili33：</p>
+<blockquote>
+<p>注意：如果之前添加的有多个不同的二级域名，比如 <a href="http://example1.com">example1.com</a> 和 <a href="http://example2.com">example2.com</a>，只会对第一个添加的 <a href="http://example1.com">example1.com</a> 生效，后面的 <a href="http://example2.com">example2.com</a> 域名下的 CNAME 记录需要自行去网站上手动添加了。当然如果只有 <a href="http://example1.com">example1.com</a> 一个域名就不影响了，可以依旧使用类似以下的命令来创建更多需要的域名解析。<br>
+<code>cloudflared tunnel route dns ednovas ssh.example1.com</code></p>
+</blockquote>
+</li>
+<li>
+<p>编写配置文件<br>
+创建配置文件config.yml</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.cloudflared/config.yml</span><br></pre></td></tr></table></figure>
+<p>然后输入 i ,进入编辑模式，黏贴修改后的配置文件，如下（自行按需修改）<br>
+把<font color="#ff0000">第四步创建隧道这一步骤</font>的隧道UUID复制下来粘贴到下面的对应的两个位置，并复制粘贴</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Tunnel UUID，即隧道UUID，就是同目录下的json文件的文件名</span><br><span class="line">tunnel: &lt;隧道UUID&gt;</span><br><span class="line"></span><br><span class="line"># 鉴权文件路径，注意根据自己的路径修改，下面的例子是Linux的路径</span><br><span class="line">credentials-file: /root/.cloudflared/&lt;隧道UUID&gt;.json</span><br><span class="line">protocol: h2mux</span><br><span class="line"></span><br><span class="line"># 服务配置</span><br><span class="line">ingress:</span><br><span class="line">  # 第一个网站，连接到本地的80端口</span><br><span class="line">  - hostname: &lt;域名1.com&gt;</span><br><span class="line">    service: http://localhost:80</span><br><span class="line">  # 第二个网站，https协议，连接到本地的443端口，禁用证书校验（用于自签名SSL证书）</span><br><span class="line">  - hostname: &lt;域名2.com&gt;</span><br><span class="line">    service: https://127.0.0.1:443</span><br><span class="line">    originRequest:</span><br><span class="line">      noTLSVerify: true</span><br><span class="line">      originServerName: &lt;域名2.com&gt;</span><br><span class="line">  # 第三个网站，8012端口，泛域名</span><br><span class="line">  - hostname: &lt;*.域名3.com&gt;</span><br><span class="line">    service: http://localhost:8012</span><br><span class="line">  # 第四个，反代MySQL sock服务</span><br><span class="line">  - hostname: &lt;mysql.域名4.com&gt;</span><br><span class="line">    service: unix:/tmp/mysql.sock</span><br><span class="line">  # 第五个，反代SSH服务</span><br><span class="line">  - hostname: &lt;ssh.域名5.com&gt;</span><br><span class="line">    service: ssh://localhost:22</span><br><span class="line"># 最后记得添加一个默认404</span><br><span class="line">  - service: http_status:404</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
-<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
-<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
-<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
+<li>
+<p>配置完成后，验证一下配置文件是否正确：<br>
+<code>cloudflared tunnel ingress validate</code></p>
+</li>
+<li>
+<p>还可以再测试下规则是否命中：<br>
+<code>cloudflared tunnel ingress rule https://&lt;域名1.com&gt;</code></p>
+</li>
+<li>
+<p>如果需要更多的端口 / 协议支持，可以查看 cloudflare 官方文档：<br>
+<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/ingress/#supported-protocols">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/ingress/#supported-protocols</a></p>
+</li>
 </ul>
-<h2 id="tg-bot-api">tg bot api</h2>
+<p>其中<code>ingress</code>字段可以创建多个服务，支持的服务类型如下表，新建其他服务前需要到 Cloudflare 控制台对其他子域名进行解析。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">服务名称</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">service 示例值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">HTTP/S</td>
+<td style="text-align:left">常规网页服务</td>
+<td style="text-align:left"><code>https://localhost:8000</code></td>
+</tr>
+<tr>
+<td style="text-align:left">TCP</td>
+<td style="text-align:left">TCP 连接</td>
+<td style="text-align:left"><code>tcp://localhost:25565</code></td>
+</tr>
+<tr>
+<td style="text-align:left">SSH</td>
+<td style="text-align:left">SSH 连接</td>
+<td style="text-align:left"><code>ssh://localhost:22</code></td>
+</tr>
+<tr>
+<td style="text-align:left">RDP</td>
+<td style="text-align:left">远程桌面（RDP）</td>
+<td style="text-align:left"><code>rdp://localhost</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>上表转自 Cloudflare 官方文档，仅节选常用协议，若需要完整版请至 <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/local-management/ingress/">Ingress rules</a> 页面查看。</p>
+</blockquote>
+</li>
+<li>
+<p>注册为系统服务（自动安装）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared service install</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置自启动</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start cloudflared</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看状态</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status cloudflared</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="参考">参考</h2>
 <ul>
-<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+<li><a href="https://lxnchan.cn/cf-tunnel.html">https://lxnchan.cn/cf-tunnel.html</a></li>
+<li><a href="https://ednovas.xyz/2023/02/24/cloudflaretunnel/">https://ednovas.xyz/2023/02/24/cloudflaretunnel/</a></li>
+<li><a href="https://www.cnblogs.com/HeiDaotu/p/17283757.html">https://www.cnblogs.com/HeiDaotu/p/17283757.html</a></li>
+<li><a href="https://blog.zapic.moe/archives/tutorial-176.html">https://blog.zapic.moe/archives/tutorial-176.html</a></li>
+<li><a href="https://blog.imoeq.com/cloudflare-argo-tunnel/">cloudflare tunnel 详细介绍 —— 面向cloudflare的网站搭建,1分钟快速启动一个有ssl证书的wordpress博客 - 私は萌いQ(˘•ω•˘) (imoeq.com)</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -253,7 +399,116 @@
       </categories>
       <tags>
         <tag>Cloudflare</tag>
-        <tag>反代</tag>
+        <tag>内网穿透</tag>
+        <tag>Tunnels</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
+<h3 id="while">while</h3>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="do-…-while">do … while</h3>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h2 id="for-循环">for 循环</h2>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h2 id="break-与-continue">break 与 continue</h2>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="goto-语句">goto 语句</h2>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -565,153 +820,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>Cloudflare Tunnels 免费内网穿透</title>
-    <url>/2023/11/17/Cloudflare%20Tunnels%20%E5%85%8D%E8%B4%B9%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
-    <content><![CDATA[<h2 id="方法一">方法一</h2>
-<p>官网绑卡选择免费计划：<a href="https://one.dash.cloudflare.com/">https://one.dash.cloudflare.com/</a><br>
-然后直接面板操作，比方法二简单，缺点就是要绑卡（虽然是免费计划，但需要先绑卡）</p>
-<h2 id="方法二">方法二</h2>
-<blockquote>
-<p>本地编写配置文件，不需要去cf绑卡选计划</p>
-</blockquote>
-<ol>
-<li>
-<p>下载程序</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//amd架构</span><br><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/bin/cloudflared</span><br><span class="line"></span><br><span class="line">//arm64、aarch64架构</span><br><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O /usr/bin/cloudflared</span><br><span class="line"></span><br><span class="line">//其他</span><br><span class="line">自行官方下载：https://github.com/cloudflare/cloudflared/releases</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置权限</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/bin/cloudflared   #给可执行权限</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>登录</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>终端会给出一个链接，浏览器打开选择域名进行授权，下面授权完成后终端会显示<code>cert.pem</code>地址，保存好，丢失了重新<code>login</code>一次</p>
-</li>
-<li>
-<p>如果是有二步验证的，需要登录了以后，再次黏贴该地址，因为二步验证结束后并不会自动跳转到该 cloudflared 验证登录页面。</p>
-</li>
-<li>
-<p>授权的话，每次只能选择一个网站，当然，一个网站也就够用了，我们可以解析很多三级域名啥的。当然如果需要授权多个网站，授权完成后不要关闭网页！依次点击其他需要授权的域名，进行多次授权。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>创建隧道</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//web是隧道名</span><br><span class="line">cloudflared tunnel create web</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>会显示出隧道UUID，也可使用 <code>cloudflared tunnel list</code> 查看</p>
-</blockquote>
-<p>123是隧道名，名字是可以自定义的，但是不能重复。如果想要查看已经创建的隧道的话，可以输入</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel list</span><br></pre></td></tr></table></figure>
-<p>如果要删除，可以输入以下命令删除</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared tunnel delete web</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>配置DNS记录，给隧道分配域名</p>
-<p><code>cloudflared tunnel route dns &lt;tunnel-name&gt; &lt;domain&gt;</code>，其中的 <code>&lt;tunnel-name&gt;</code>是创建Tunnel时指定的名称，<code>&lt;domain&gt;</code>是自定义的域名，比如 <code>web.example.com</code>:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//例如：</span><br><span class="line">cloudflared tunnel route dns web web.example.com</span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后 cloudflare 就会在你的域名下自动生成一个 CNAME，把 <a href="http://web.example.com">web.example.com</a> 指向 &lt;隧道 UUID&gt;.cfargotunnel.com</li>
-<li>如果还有其他域名需要配置，可以继续执行上面的命令（别忘了改域名）。配置完成后可以前往Cloudflare控制台查看到CNAME记录。</li>
-</ul>
-<blockquote>
-<p>注意：如果之前添加的有多个不同的二级域名，比如 <a href="http://example1.com">example1.com</a> 和 <a href="http://example2.com">example2.com</a>，只会对第一个添加的 <a href="http://example1.com">example1.com</a> 生效，后面的 <a href="http://example2.com">example2.com</a> 域名下的 CNAME 记录需要自行去网站上手动添加了。当然如果只有 <a href="http://example1.com">example1.com</a> 一个域名就不影响了，可以依旧使用类似以下的命令来创建更多需要的域名解析。<br>
-<code>cloudflared tunnel route dns ednovas ssh.example1.com</code></p>
-</blockquote>
-</li>
-<li>
-<p>编写配置文件<br>
-创建配置文件config.yml</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim ~/.cloudflared/config.yml</span><br></pre></td></tr></table></figure>
-<p>然后输入 i ,进入编辑模式，黏贴修改后的配置文件，如下（自行按需修改）<br>
-把<font color="#ff0000">第四步创建隧道这一步骤</font>的隧道UUID复制下来粘贴到下面的对应的两个位置，并复制粘贴</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Tunnel UUID，即隧道UUID，就是同目录下的json文件的文件名</span><br><span class="line">tunnel: &lt;隧道UUID&gt;</span><br><span class="line"></span><br><span class="line"># 鉴权文件路径，注意根据自己的路径修改，下面的例子是Linux的路径</span><br><span class="line">credentials-file: /root/.cloudflared/&lt;隧道UUID&gt;.json</span><br><span class="line">protocol: h2mux</span><br><span class="line"></span><br><span class="line"># 服务配置</span><br><span class="line">ingress:</span><br><span class="line">  # 第一个网站，连接到本地的80端口</span><br><span class="line">  - hostname: &lt;域名1.com&gt;</span><br><span class="line">    service: http://localhost:80</span><br><span class="line">  # 第二个网站，https协议，连接到本地的443端口，禁用证书校验（用于自签名SSL证书）</span><br><span class="line">  - hostname: &lt;域名2.com&gt;</span><br><span class="line">    service: https://127.0.0.1:443</span><br><span class="line">    originRequest:</span><br><span class="line">      noTLSVerify: true</span><br><span class="line">      originServerName: &lt;域名2.com&gt;</span><br><span class="line">  # 第三个网站，8012端口，泛域名</span><br><span class="line">  - hostname: &lt;*.域名3.com&gt;</span><br><span class="line">    service: http://localhost:8012</span><br><span class="line">  # 第四个，反代MySQL sock服务</span><br><span class="line">  - hostname: &lt;mysql.域名4.com&gt;</span><br><span class="line">    service: unix:/tmp/mysql.sock</span><br><span class="line">  # 第五个，反代SSH服务</span><br><span class="line">  - hostname: &lt;ssh.域名5.com&gt;</span><br><span class="line">    service: ssh://localhost:22</span><br><span class="line"># 最后记得添加一个默认404</span><br><span class="line">  - service: http_status:404</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>配置完成后，验证一下配置文件是否正确：<br>
-<code>cloudflared tunnel ingress validate</code></p>
-</li>
-<li>
-<p>还可以再测试下规则是否命中：<br>
-<code>cloudflared tunnel ingress rule https://&lt;域名1.com&gt;</code></p>
-</li>
-<li>
-<p>如果需要更多的端口 / 协议支持，可以查看 cloudflare 官方文档：<br>
-<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/ingress/#supported-protocols">https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/local/local-management/ingress/#supported-protocols</a></p>
-</li>
-</ul>
-<p>其中<code>ingress</code>字段可以创建多个服务，支持的服务类型如下表，新建其他服务前需要到 Cloudflare 控制台对其他子域名进行解析。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">服务名称</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">service 示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">HTTP/S</td>
-<td style="text-align:left">常规网页服务</td>
-<td style="text-align:left"><code>https://localhost:8000</code></td>
-</tr>
-<tr>
-<td style="text-align:left">TCP</td>
-<td style="text-align:left">TCP 连接</td>
-<td style="text-align:left"><code>tcp://localhost:25565</code></td>
-</tr>
-<tr>
-<td style="text-align:left">SSH</td>
-<td style="text-align:left">SSH 连接</td>
-<td style="text-align:left"><code>ssh://localhost:22</code></td>
-</tr>
-<tr>
-<td style="text-align:left">RDP</td>
-<td style="text-align:left">远程桌面（RDP）</td>
-<td style="text-align:left"><code>rdp://localhost</code></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>上表转自 Cloudflare 官方文档，仅节选常用协议，若需要完整版请至 <a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/local-management/ingress/">Ingress rules</a> 页面查看。</p>
-</blockquote>
-</li>
-<li>
-<p>注册为系统服务（自动安装）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cloudflared service install</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置自启动</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl start cloudflared</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>查看状态</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status cloudflared</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://lxnchan.cn/cf-tunnel.html">https://lxnchan.cn/cf-tunnel.html</a></li>
-<li><a href="https://ednovas.xyz/2023/02/24/cloudflaretunnel/">https://ednovas.xyz/2023/02/24/cloudflaretunnel/</a></li>
-<li><a href="https://www.cnblogs.com/HeiDaotu/p/17283757.html">https://www.cnblogs.com/HeiDaotu/p/17283757.html</a></li>
-<li><a href="https://blog.zapic.moe/archives/tutorial-176.html">https://blog.zapic.moe/archives/tutorial-176.html</a></li>
-<li><a href="https://blog.imoeq.com/cloudflare-argo-tunnel/">cloudflare tunnel 详细介绍 —— 面向cloudflare的网站搭建,1分钟快速启动一个有ssl证书的wordpress博客 - 私は萌いQ(˘•ω•˘) (imoeq.com)</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Cloudflare</category>
-      </categories>
-      <tags>
-        <tag>Cloudflare</tag>
-        <tag>内网穿透</tag>
-        <tag>Tunnels</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="指针入门">指针入门</h2>
@@ -879,266 +987,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
 <li>常目标指针，在实际开发过程中比较常见，用来限制指针的权限为 <font color="#ff0000">只读</font></li>
 </ul>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nzcluo-1.webp" alt="C-pointer9"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
-<h3 id="while">while</h3>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="do-…-while">do … while</h3>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h3 id="注意">注意</h3>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h2 id="for-循环">for 循环</h2>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h2 id="break-与-continue">break 与 continue</h2>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="goto-语句">goto 语句</h2>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习四：数组</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="数组入门">数组入门</h2>
-<h3 id="概念">概念</h3>
-<ol>
-<li>
-<p>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</p>
-</li>
-<li>
-<p>语法：<code>int arr [5]</code> ;</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hd4u-1.webp" alt="C-array1"></p>
-</li>
-<li>
-<p>初始化</p>
-<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化，后面的两个为0；若完全的不初始化则为随机值</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hidx-1.webp" alt="C-array2"></p>
-<p><mark>注意：</mark></p>
-<p>数组在定义的时候必须确定他的大小。<br>
-说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
-<p><mark>数组元素引用：</mark></p>
-<ul>
-<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
-<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h7zg-1.webp" alt="C-array3"></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="字符数组">字符数组</h3>
-<ol>
-<li>
-<p>概念： 专门用来存放字符类型数据的数组，称为字符数组</p>
-</li>
-<li>
-<p>初始化+引用：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="思考">思考</h3>
-<ol>
-<li>
-<p>定义数组时没有初始化会怎么样？</p>
-<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h3up-1.webp" alt="C-array4"></p>
-</li>
-<li>
-<p>不完全初始化又会怎么样？</p>
-<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
-</li>
-<li>
-<p>补充</p>
-<p><mark>注意：</mark></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li>
-<p>char buf[5]={1,2,3,4,5};</p>
-<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。</p>
-<p>在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
-<blockquote>
-<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
-如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
-</blockquote>
-</li>
-<li>
-<p>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</p>
-<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。</p>
-<p>具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
-</li>
-</ol>
-</div></details>
-<hr>
-<h2 id="数组进阶">数组进阶</h2>
-<h3 id="数组名的含义">数组名的含义</h3>
-<p>数组名在不同的场合下的含义不同：</p>
-<ol>
-<li>
-<p>表示整个<font color="#ff0000">数组的首地址</font>：</p>
-<ul>
-<li>在数组定义的时候</li>
-<li>在使用 sizeof 运算符中数组名表示整个数组的首地址（求得整个数组的大小）</li>
-<li>在取地址符 中 &amp;arr , arr 表示整个数组</li>
-</ul>
-</li>
-<li>
-<p>表示整个数组<font color="#ff0000">首元素的首地址</font>：</p>
-<ul>
-<li>其它情况</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[10] ; // arr 表示整个数组的首地址</span><br><span class="line">int len = sizeof arr ; // arr 表示整个数组的首地址 ， sizeof 运算符后的括号可以省略</span><br><span class="line">int (* p) [10] = &amp;arr; //arr 表示整个数组的首地址</span><br><span class="line"></span><br><span class="line">int *p1 = arr ; // arr 表示数组的首元素的首地址</span><br></pre></td></tr></table></figure>
-<h3 id="数组下标">数组下标</h3>
-<p>数组的下标实际上只是编译器提供一种简写，实际上如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a [100] ;</span><br><span class="line">a[10] = 250 ;    //  ====&gt; *(a+10) = 250 ;</span><br></pre></td></tr></table></figure>
-<p>通过加法交换律，有如下结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a[10] = 250 ;</span><br><span class="line"></span><br><span class="line">*(a+10) = 250 ;</span><br><span class="line">*(10+a) = 250 ;</span><br><span class="line">10[a] = 250 ;</span><br></pre></td></tr></table></figure>
-<h3 id="字符串常量">字符串常量</h3>
-<p>字符串常量是一个被存放在常量区的字符串，实际上也可称为一个<font color="#ff0000">匿名数组</font>。</p>
-<p>匿名数组，同样满足数组名的含义。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char * msg1 = &quot;Hello&quot; ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">char * msg2 = &quot;Hello&quot;+1 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;, &quot;Hello&quot; ) ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">printf(&quot;%s\n&quot;, &amp;&quot;Hello&quot; ) ; // &quot;Hello&quot; 字符串常量的整个数组的地址</span><br><span class="line"></span><br><span class="line">printf(&quot;%c\n&quot;, &quot;Hello&quot;[4] ) ; // &quot;Hello&quot; 字符串常量首元素的首地址 [4]，[4] 相当于+4个单位（char） 得到 ‘o’</span><br></pre></td></tr></table></figure>
-<p>字符串在内存种的存储方式：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o2wz2s-1.webp" alt="C-array5"></p>
-<h3 id="零长数组">零长数组</h3>
-<p>概念： 数组的长度为0 ， char arr [0] ;</p>
-<p>用途：一般会放在结构体的末尾， 作为可变长度的入口。（数组是唯一一个允许越界访问的载体）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a;</span><br><span class="line">char b ;</span><br><span class="line">float c ;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">int len ;</span><br><span class="line">char arr[0] ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct node *p = malloc(sizeof(struct node) + 20 );// + 20 就是在原有的基础上增加20字节</span><br><span class="line">p‐&gt;len = 20 ; // 设置额外增长的长度为 20</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o3ioop-1.webp" alt="C-array6"></p>
-<h3 id="变长数组">变长数组</h3>
-<p>概念： 使用一个变量作为数组的长度（元素的个数）。</p>
-<p>重点： 变长数组并不是说在任意时候他的长度可以随意变化，实际上只是在定义之前数组的长度是未知的由一个变量来决定，但是定义语句过后变长数组的长度由定义那一刻变量的大小来决定。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 200 ; // a 作为一个普通的变量 ， 200 则可以作为arr 的长度</span><br><span class="line">a = 99 ; // 99 可以作为 arr 的长度</span><br><span class="line"></span><br><span class="line">int arr[a]; // a 当前是 99 ， 因此数组arr 的长度已经确定为 99，之后该数组的长度不会再变换</span><br><span class="line"></span><br><span class="line">a = 10 ; // a = 10 并不会影响上面数组的长度</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>因为数组的长度未确定，因此它不允许初始化。</li>
-<li>在使用的时候可以通过该变长数组来有限的节省内存空间。</li>
-</ul>
-<h3 id="多维数组">多维数组</h3>
-<ol>
-<li>
-<p>概念：数组内部的成员也是数组</p>
-<p><code>int a [2][3] ;</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/10/qiew66-1.webp" alt="C-array7"></p>
-</li>
-<li>
-<p>定义与初始化</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123; &#123;1,2,3&#125; , &#123; 4,5,6&#125; &#125;;</span><br><span class="line">int arr1[2][3] = &#123; 1,2,3,4,5,6&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>如何引用</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[0] [0] = 100 ; // 数组：（通过下标来访问）    //arr[0]指&#123;1,2,3&#125;</span><br><span class="line">*(*(arr+0)+0) = 100 ; // 通过指针偏移来访问</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>实例</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123;&#123;1, 2, 3&#125;, &#123;4, 5, 6&#125;&#125;;</span><br><span class="line">int arr1[2][3] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br><span class="line"></span><br><span class="line">int *p = arr; // p指向数组arr 的首元素，即&#123;1, 2, 3&#125;的地址</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 2; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (int j = 0; j &lt; 3; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;arr[%d][%d]:%d\t&quot;, i, j, arr[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // *arr 得到元素&#123;1, 2, 3&#125;中的 1 的地址， + 1 则是加一个 int 类型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr) + i));</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // arr 指的是首元素的首地址 &#123;1,2,3&#125; 的首地址 + 1则 + 3个整型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr + i)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // p 只是一个普通的整型指针， 与二维数组没有任何的关系</span><br><span class="line"></span><br><span class="line">printf(&quot;*(p+%d)：%d\n&quot; , i ,*(p+i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1356,110 +1204,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>Hax&amp;Woiden</title>
-    <url>/2022/12/01/Hax-Woiden/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
-</div>
-<hr>
-<h2 id="注册-ssh-连接-hax">注册&amp;ssh 连接 hax</h2>
-<ol>
-<li>
-<p>注册网站： <a href="https://hax.co.id">https://hax.co.id</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
-</li>
-<li>
-<p>翻译一下就看懂，其实很简单的</p>
-<p>创建 ipv 4 转发后，ssh 连就好了，步骤就懒得说了，我电脑用的 <a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</p>
-</li>
-<li>
-<p>当然也可以不用创建 ipv 4 转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页 ssh 登录</a>，直接用 ipv6。</p>
-</li>
-</ol>
-<hr>
-<h2 id="注册-ssh-连接-woiden">注册&amp;ssh 连接 woiden</h2>
-<ol>
-<li>
-<p>注册网站： <a href="https://woiden.id">https://woiden.id</a></p>
-<blockquote>
-<p>也是一样的，其实 woiden 和 hax 流程都差不多的，一个纯 ipv 6 机器，一个 nat 机器。这里就不多说了</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
-</li>
-</ol>
-<h2 id="安装-warp-和-x-ui">安装 warp 和 x-ui</h2>
-<ol>
-<li>
-<p>安装 warp（以 F 佬 WARP 脚本为例）</p>
-<p>复制粘贴进 ssh 回车运行：</p>
-<p><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code></p>
-<p>点击第一个，添加 warp ipv 4 网络接口 (有可能刷新不出来 ip，可以试试其他 warp 脚本)</p>
-</li>
-<li>
-<p>安装 x-ui 面板（二选一，我用的②）</p>
-<p>① <a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a></p>
-<p>直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作</p>
-<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
-<p>② <a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a></p>
-<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
-</li>
-</ol>
-<hr>
-<h2 id="套-cf-加速">套 cf 加速</h2>
-<ol>
-<li>
-<p>上面创建好的节点只有 ipv6，没有 ipv4，有些网站、软件只能用 ipv 4，所以还需要套 cf 加速</p>
-</li>
-<li>
-<p>教程：</p>
-<ul>
-<li>注册 <a href="https://dash.cloudflare.com/">cloudflre</a> 和 <a href="https://www.freenom.com/">freenom</a> （这个废了，自己找域名），当然也可以不用 freenom 免费域名，随便你，freenom 免费域名注册方法自行谷歌</li>
-<li>在 cf 首页点击添加网站，将注册好的域名添加到 cf 上，点网站点进去，左侧添加 dns，然后添加 ssl</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
-</li>
-</ol>
-<hr>
-<h2 id="注意事项">注意事项</h2>
-<ol>
-<li>Hax 网站可能进不去，那是因为你开启了去广告的浏览器插件</li>
-<li>如果 hax 中你没用去广告的浏览器插件，那可能是 fq 软件里面的去广告规则导致的，把相应的关闭就行，以 v 2 rayN 为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到 block 双击打开，在 geosite: category-ads-all 前面加个#➡保存</li>
-<li>可以不用节点，只不过网站进去有点慢</li>
-<li>Hax / Woiden OpenVZ VPS 开启 TUN 模块教程
-<ul>
-<li>在 <a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或 <a href="https://woiden.id/vps-control">https://woiden.id/vps-control</a> ） 点击 Enable TUN 按钮</li>
-<li>待 TUN 模块启动成功后，先 Stop 让 VPS 关机，然后再 Start 开机</li>
-<li>输入此命令：<code>cat /dev/net/tun</code> ，然后看见<code> cat: /dev/net/tun: File descriptor in bad state</code> 即为成功启用 TUN 模块</li>
-</ul>
-</li>
-<li>也可以不用 x-ui 面板，把命令换成下面这个就行<br>
-<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></li>
-<li>Hax 和 woiden 每天北京时间凌晨 1 点补货（要抢），7 天续期，tg 机器人最后两天会发消息提醒</li>
-<li>安装 bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）
-<ul>
-<li>可以使用 virt-what 查看 VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行 Google</li>
-<li>卸载内核版本 (一般用这个即可)<br>
-<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></li>
-<li>不卸载内核版本<br>
-<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
-一般 BBR+FQ 加速就行，当然也可以不使用 bbr</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>VPS</category>
-      </categories>
-      <tags>
-        <tag>白嫖VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用Github搭建免费图床</title>
     <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
@@ -1516,6 +1260,158 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>折腾</tag>
         <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习四：数组</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="数组入门">数组入门</h2>
+<h3 id="概念">概念</h3>
+<ol>
+<li>
+<p>逻辑： 一次性定义多个相同类型的变量，并且给他分配一片连续的内存</p>
+</li>
+<li>
+<p>语法：<code>int arr [5]</code> ;</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hd4u-1.webp" alt="C-array1"></p>
+</li>
+<li>
+<p>初始化</p>
+<p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化，后面的两个为0；若完全的不初始化则为随机值</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hidx-1.webp" alt="C-array2"></p>
+<p><mark>注意：</mark></p>
+<p>数组在定义的时候必须确定他的大小。<br>
+说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
+<p><mark>数组元素引用：</mark></p>
+<ul>
+<li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
+<li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h7zg-1.webp" alt="C-array3"></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="字符数组">字符数组</h3>
+<ol>
+<li>
+<p>概念： 专门用来存放字符类型数据的数组，称为字符数组</p>
+</li>
+<li>
+<p>初始化+引用：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char ch1 [5] = &#123;&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27;&#125; ; // 定义一个字符类型的数组并把&#x27;H&#x27;,&#x27;e&#x27;,&#x27;l&#x27;,&#x27;l&#x27;,&#x27;o&#x27; 一个一个存进去</span><br><span class="line"></span><br><span class="line">char ch2 [5] = &#123;&quot;Hello&quot;&#125; ; // 定义一个字符型的数组， 并把 &quot;Hello&quot; 字符串存放到数组中 ，因此该数组为字符串数组（后面会有一个空字符`\0`），ch2[0]为&#x27;H&#x27;,ch2[5]为空字符&#x27;\0&#x27;，在终端中看不到</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">char ch3 [5] = &quot;Hello&quot; ; // 与ch2 一样， 大括号可以省略</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ch3[1] = &#x27;E&#x27; ; // 可以， 把数组中第二个元素‘e’修改为‘E’</span><br><span class="line">ch3 = &quot;hi&quot; ; // 不可以， 只有在初始化的时候才能整体赋值</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot; , ch1); // 在访问ch1的时候并没有发现结束符，因此很有可能会把后面ch2的内容一并输出</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：ch1 为字符数组，它没有结束符，因此在打印输出的时候应该避免使用 %s 进行输出，有可能会造成越界访问。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="思考">思考</h3>
+<ol>
+<li>
+<p>定义数组时没有初始化会怎么样？</p>
+<p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h3up-1.webp" alt="C-array4"></p>
+</li>
+<li>
+<p>不完全初始化又会怎么样？</p>
+<p>不完全初始化，已经初始化部分是已知值，其它则是0</p>
+</li>
+<li>
+<p>补充</p>
+<p><mark>注意：</mark></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char buf[5]=&#123;1,2,3,4,5&#125;;    //把将1，2，3，4，5当作字符的ASCII值存放在数组中</span><br><span class="line">char buf[5]=&#123;&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;&#125;   //存放在内存中的是字符1，2，3，4，5所对应的ASCII值</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li>
+<p>char buf[5]={1,2,3,4,5};</p>
+<p>表示将整数值 1、2、3、4 和 5 直接存储到 <code>buf</code> 数组中。</p>
+<p>在 C 语言中，<code>char</code> 类型是一种整数类型，可以存储整数值。因此，整数值 1、2、3、4 和 5 会被直接存储到 <code>buf</code> 数组的连续内存位置中。</p>
+<blockquote>
+<p>需要注意的是，这些整数值并不是字符的 ASCII 码值。当您使用整数值初始化 <code>char</code> 数组时，编译器会将这些整数值直接存储到数组的内存位置中，而不会将它们解释为字符。<br>
+如果您希望将整数值解释为对应的字符，可以使用类型转换或字符操作函数来实现。例如，可以使用 <code>printf</code> 函数将 <code>buf</code> 数组中的整数值作为字符进行打印：<code>for (int i = 0; i &lt; 5; i++) { printf(&quot;%c &quot;, buf[i]); }</code></p>
+</blockquote>
+</li>
+<li>
+<p>char buf[5]={‘1’,‘2’,‘3’,‘4’,‘5’}</p>
+<p>表示将字符 ‘1’、‘2’、‘3’、‘4’ 和 ‘5’ 的 ASCII 码值存储到 <code>buf</code> 数组中。</p>
+<p>具体地说，字符 ‘1’ 的 ASCII 码值是 49，字符 ‘2’ 的 ASCII 码值是 50，字符 ‘3’ 的 ASCII 码值是 51，字符 ‘4’ 的 ASCII 码值是 52，字符 ‘5’ 的 ASCII 码值是 53。这些 ASCII 码值会被存储到 <code>buf</code> 数组的连续内存位置中。</p>
+</li>
+</ol>
+</div></details>
+<hr>
+<h2 id="数组进阶">数组进阶</h2>
+<h3 id="数组名的含义">数组名的含义</h3>
+<p>数组名在不同的场合下的含义不同：</p>
+<ol>
+<li>
+<p>表示整个<font color="#ff0000">数组的首地址</font>：</p>
+<ul>
+<li>在数组定义的时候</li>
+<li>在使用 sizeof 运算符中数组名表示整个数组的首地址（求得整个数组的大小）</li>
+<li>在取地址符 中 &amp;arr , arr 表示整个数组</li>
+</ul>
+</li>
+<li>
+<p>表示整个数组<font color="#ff0000">首元素的首地址</font>：</p>
+<ul>
+<li>其它情况</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[10] ; // arr 表示整个数组的首地址</span><br><span class="line">int len = sizeof arr ; // arr 表示整个数组的首地址 ， sizeof 运算符后的括号可以省略</span><br><span class="line">int (* p) [10] = &amp;arr; //arr 表示整个数组的首地址</span><br><span class="line"></span><br><span class="line">int *p1 = arr ; // arr 表示数组的首元素的首地址</span><br></pre></td></tr></table></figure>
+<h3 id="数组下标">数组下标</h3>
+<p>数组的下标实际上只是编译器提供一种简写，实际上如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a [100] ;</span><br><span class="line">a[10] = 250 ;    //  ====&gt; *(a+10) = 250 ;</span><br></pre></td></tr></table></figure>
+<p>通过加法交换律，有如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a[10] = 250 ;</span><br><span class="line"></span><br><span class="line">*(a+10) = 250 ;</span><br><span class="line">*(10+a) = 250 ;</span><br><span class="line">10[a] = 250 ;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串常量">字符串常量</h3>
+<p>字符串常量是一个被存放在常量区的字符串，实际上也可称为一个<font color="#ff0000">匿名数组</font>。</p>
+<p>匿名数组，同样满足数组名的含义。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char * msg1 = &quot;Hello&quot; ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">char * msg2 = &quot;Hello&quot;+1 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;, &quot;Hello&quot; ) ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">printf(&quot;%s\n&quot;, &amp;&quot;Hello&quot; ) ; // &quot;Hello&quot; 字符串常量的整个数组的地址</span><br><span class="line"></span><br><span class="line">printf(&quot;%c\n&quot;, &quot;Hello&quot;[4] ) ; // &quot;Hello&quot; 字符串常量首元素的首地址 [4]，[4] 相当于+4个单位（char） 得到 ‘o’</span><br></pre></td></tr></table></figure>
+<p>字符串在内存种的存储方式：</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o2wz2s-1.webp" alt="C-array5"></p>
+<h3 id="零长数组">零长数组</h3>
+<p>概念： 数组的长度为0 ， char arr [0] ;</p>
+<p>用途：一般会放在结构体的末尾， 作为可变长度的入口。（数组是唯一一个允许越界访问的载体）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a;</span><br><span class="line">char b ;</span><br><span class="line">float c ;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">int len ;</span><br><span class="line">char arr[0] ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct node *p = malloc(sizeof(struct node) + 20 );// + 20 就是在原有的基础上增加20字节</span><br><span class="line">p‐&gt;len = 20 ; // 设置额外增长的长度为 20</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o3ioop-1.webp" alt="C-array6"></p>
+<h3 id="变长数组">变长数组</h3>
+<p>概念： 使用一个变量作为数组的长度（元素的个数）。</p>
+<p>重点： 变长数组并不是说在任意时候他的长度可以随意变化，实际上只是在定义之前数组的长度是未知的由一个变量来决定，但是定义语句过后变长数组的长度由定义那一刻变量的大小来决定。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 200 ; // a 作为一个普通的变量 ， 200 则可以作为arr 的长度</span><br><span class="line">a = 99 ; // 99 可以作为 arr 的长度</span><br><span class="line"></span><br><span class="line">int arr[a]; // a 当前是 99 ， 因此数组arr 的长度已经确定为 99，之后该数组的长度不会再变换</span><br><span class="line"></span><br><span class="line">a = 10 ; // a = 10 并不会影响上面数组的长度</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>因为数组的长度未确定，因此它不允许初始化。</li>
+<li>在使用的时候可以通过该变长数组来有限的节省内存空间。</li>
+</ul>
+<h3 id="多维数组">多维数组</h3>
+<ol>
+<li>
+<p>概念：数组内部的成员也是数组</p>
+<p><code>int a [2][3] ;</code></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/10/qiew66-1.webp" alt="C-array7"></p>
+</li>
+<li>
+<p>定义与初始化</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123; &#123;1,2,3&#125; , &#123; 4,5,6&#125; &#125;;</span><br><span class="line">int arr1[2][3] = &#123; 1,2,3,4,5,6&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>如何引用</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">arr[0] [0] = 100 ; // 数组：（通过下标来访问）    //arr[0]指&#123;1,2,3&#125;</span><br><span class="line">*(*(arr+0)+0) = 100 ; // 通过指针偏移来访问</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>实例</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr[2][3] = &#123;&#123;1, 2, 3&#125;, &#123;4, 5, 6&#125;&#125;;</span><br><span class="line">int arr1[2][3] = &#123;1, 2, 3, 4, 5, 6&#125;;</span><br><span class="line"></span><br><span class="line">int *p = arr; // p指向数组arr 的首元素，即&#123;1, 2, 3&#125;的地址</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 2; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (int j = 0; j &lt; 3; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;arr[%d][%d]:%d\t&quot;, i, j, arr[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // *arr 得到元素&#123;1, 2, 3&#125;中的 1 的地址， + 1 则是加一个 int 类型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr) + i));</span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // arr 指的是首元素的首地址 &#123;1,2,3&#125; 的首地址 + 1则 + 3个整型</span><br><span class="line"></span><br><span class="line">    printf(&quot;*(*(arr+%d)):%d\t&quot;, i, *(*(arr + i)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt; 6; i++)</span><br><span class="line">&#123; // p 只是一个普通的整型指针， 与二维数组没有任何的关系</span><br><span class="line"></span><br><span class="line">printf(&quot;*(p+%d)：%d\n&quot; , i ,*(p+i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -1617,6 +1513,110 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>Hexo</tag>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hax&amp;Woiden</title>
+    <url>/2022/12/01/Hax-Woiden/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看最后的注意事项，本教程仅为个人备忘录，不保证内容正确性</p>
+</div>
+<hr>
+<h2 id="注册-ssh-连接-hax">注册&amp;ssh 连接 hax</h2>
+<ol>
+<li>
+<p>注册网站： <a href="https://hax.co.id">https://hax.co.id</a></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
+</li>
+<li>
+<p>翻译一下就看懂，其实很简单的</p>
+<p>创建 ipv 4 转发后，ssh 连就好了，步骤就懒得说了，我电脑用的 <a href="https://github.com/kingToolbox/WindTerm/releases">WindTerm</a>，手机用的 JuiceSSH</p>
+</li>
+<li>
+<p>当然也可以不用创建 ipv 4 转发，可以直接用<a href="https://ssh.hax.co.id/">官方的网页 ssh 登录</a>，直接用 ipv6。</p>
+</li>
+</ol>
+<hr>
+<h2 id="注册-ssh-连接-woiden">注册&amp;ssh 连接 woiden</h2>
+<ol>
+<li>
+<p>注册网站： <a href="https://woiden.id">https://woiden.id</a></p>
+<blockquote>
+<p>也是一样的，其实 woiden 和 hax 流程都差不多的，一个纯 ipv 6 机器，一个 nat 机器。这里就不多说了</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
+</li>
+</ol>
+<h2 id="安装-warp-和-x-ui">安装 warp 和 x-ui</h2>
+<ol>
+<li>
+<p>安装 warp（以 F 佬 WARP 脚本为例）</p>
+<p>复制粘贴进 ssh 回车运行：</p>
+<p><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code></p>
+<p>点击第一个，添加 warp ipv 4 网络接口 (有可能刷新不出来 ip，可以试试其他 warp 脚本)</p>
+</li>
+<li>
+<p>安装 x-ui 面板（二选一，我用的②）</p>
+<p>① <a href="https://github.com/vaxilu/x-ui">安装原版x-ui面板</a></p>
+<p>直接一条命令回车，然后看脚本，安装，设置用户名密码端口，浏览器访问，然后直接面板操作</p>
+<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</code></p>
+<p>② <a href="https://github.com/FranzKafkaYu/x-ui">FranzKafkaYu版x-ui面板</a></p>
+<p><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)</code></p>
+</li>
+</ol>
+<hr>
+<h2 id="套-cf-加速">套 cf 加速</h2>
+<ol>
+<li>
+<p>上面创建好的节点只有 ipv6，没有 ipv4，有些网站、软件只能用 ipv 4，所以还需要套 cf 加速</p>
+</li>
+<li>
+<p>教程：</p>
+<ul>
+<li>注册 <a href="https://dash.cloudflare.com/">cloudflre</a> 和 <a href="https://www.freenom.com/">freenom</a> （这个废了，自己找域名），当然也可以不用 freenom 免费域名，随便你，freenom 免费域名注册方法自行谷歌</li>
+<li>在 cf 首页点击添加网站，将注册好的域名添加到 cf 上，点网站点进去，左侧添加 dns，然后添加 ssl</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
+</li>
+</ol>
+<hr>
+<h2 id="注意事项">注意事项</h2>
+<ol>
+<li>Hax 网站可能进不去，那是因为你开启了去广告的浏览器插件</li>
+<li>如果 hax 中你没用去广告的浏览器插件，那可能是 fq 软件里面的去广告规则导致的，把相应的关闭就行，以 v 2 rayN 为例：设置➡路由设置➡双击绕过大陆➡规则列表里找到 block 双击打开，在 geosite: category-ads-all 前面加个#➡保存</li>
+<li>可以不用节点，只不过网站进去有点慢</li>
+<li>Hax / Woiden OpenVZ VPS 开启 TUN 模块教程
+<ul>
+<li>在 <a href="https://hax.co.id/vps-control">https://hax.co.id/vps-control</a> （或 <a href="https://woiden.id/vps-control">https://woiden.id/vps-control</a> ） 点击 Enable TUN 按钮</li>
+<li>待 TUN 模块启动成功后，先 Stop 让 VPS 关机，然后再 Start 开机</li>
+<li>输入此命令：<code>cat /dev/net/tun</code> ，然后看见<code> cat: /dev/net/tun: File descriptor in bad state</code> 即为成功启用 TUN 模块</li>
+</ul>
+</li>
+<li>也可以不用 x-ui 面板，把命令换成下面这个就行<br>
+<code>bash &lt;(curl -s -L https://git.io/v2ray.sh)</code></li>
+<li>Hax 和 woiden 每天北京时间凌晨 1 点补货（要抢），7 天续期，tg 机器人最后两天会发消息提醒</li>
+<li>安装 bbr 加速（仅限 KVM，openvz 不行，但可以自己网上找魔改 bbr）
+<ul>
+<li>可以使用 virt-what 查看 VPS 使用哪种虚拟化技术（OpenVZ KVM Xen），具体的自行 Google</li>
+<li>卸载内核版本 (一般用这个即可)<br>
+<code> wget -O tcp.sh &quot;https://git.io/coolspeeda&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</code></li>
+<li>不卸载内核版本<br>
+<code> wget -O tcpx.sh &quot;https://git.io/JYxKU&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh</code><br>
+一般 BBR+FQ 加速就行，当然也可以不使用 bbr</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>白嫖VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1877,175 +1877,16 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>Ubuntu 美化</title>
-    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
-<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
-<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
-</ul>
-</blockquote>
-<h2 id="安装必要插件">安装必要插件</h2>
-<blockquote>
-<p>tweaks（优化）、extensions （扩展）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
-<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
-<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
-<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
-<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
-搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
-<h3 id="安装主题">安装主题</h3>
-<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
-<li>为所有用户安装：/usr/share/themes/</li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>进入主题目录，，执行如下命令进行主题安装。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置主题</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="安装图标">安装图标</h3>
-<ol>
-<li>
-<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
-<li>为所有用户安装：/usr/share/icons</li>
-</ul>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
-</li>
-<li>
-<p>应用主题和图标</p>
-<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
-</li>
-<li>
-<p>元素位置调整</p>
-<ul>
-<li>将标题栏的操作按钮从右侧移动到左侧</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
-<ul>
-<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
-<ul>
-<li>更换壁纸<br>
-<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
-</ul>
-</li>
-</ol>
-<h2 id="更多插件">更多插件</h2>
-<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
-<ul>
-<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
-<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
-<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
-<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
-<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
-版本不兼容，我没安装</li>
-</ul>
-<hr>
-<h2 id="终端美化：zsh">终端美化：zsh</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
-</ul>
-</blockquote>
-<h3 id="安装-zsh">安装 zsh</h3>
-<p>macOS：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
-<p>ubuntu：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
-<p>ArchLinux/Manjaro：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
-<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
-<blockquote>
-<ul>
-<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
-<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
-<li>查看当前用户：<code>whoami</code></li>
-</ul>
-</blockquote>
-<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
-<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
-<p><mark>输入<code>q</code></mark></p>
-<ul>
-<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
-<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
-<li>输入输入 <code>1</code> 后，就开始进行配置</li>
-</ul>
-<blockquote>
-<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
-</blockquote>
-<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
-<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
-<blockquote>
-<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
-</blockquote>
-<p>①使用 curl 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>②或者使用 wget 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
-<h3 id="配置-zsh">配置 zsh</h3>
-<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
-<p><strong>更换自带主题</strong>：<br>
-zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
-我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
-<h3 id="安装插件">安装插件</h3>
-<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
-<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
-<p>安装步骤：</p>
-<ol>
-<li>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
-</li>
-</ol>
-<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
-<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<h3 id="补充">补充</h3>
-<p>待写。。。</p>
-]]></content>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>笔记</category>
-        <category>Linux</category>
+        <category>VMware虚拟机</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -2061,139 +1902,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>虚拟机</tag>
         <tag>Debian</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
-    <content><![CDATA[<h2 id="前言">前言</h2>
-<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
-<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
-<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
-<h2 id="创建虚拟机">创建虚拟机</h2>
-<h3 id="创建">创建</h3>
-<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
-<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
-<p>默认点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
-<h3 id="选择安装来源">选择安装来源</h3>
-<p>选择 【稍后安装系统】，点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
-<h3 id="选择系统类型">选择系统类型</h3>
-<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
-<h3 id="虚拟机命名">虚拟机命名</h3>
-<p>自定义虚拟机名称和存储位置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
-<h3 id="一些配置">一些配置</h3>
-<h4 id="处理器配置">处理器配置</h4>
-<blockquote>
-<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
-<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
-<blockquote>
-<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
-<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
-<blockquote>
-<p>我一般使用 NAT</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
-<h4 id="磁盘类型">磁盘类型</h4>
-<p>默认即可</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
-<h4 id="创建磁盘">创建磁盘</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
-<h4 id="自定义硬件">自定义硬件</h4>
-<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
-<h2 id="启动虚拟机">启动虚拟机</h2>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
-<blockquote>
-<p>默认点击继续</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
-<blockquote>
-<p>选择时区</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
-<p><strong>完成安装</strong></p>
-<h2 id="基础配置">基础配置</h2>
-<h3 id="更换国内源"><strong>更换国内源</strong></h3>
-<p>打开&quot;软件和更新&quot;</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
-<p>可自行百度选择，我这里选择的阿里云的。</p>
-<h3 id="安装常用软件">安装常用软件</h3>
-<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
-<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
-<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
-<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
-<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
-<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
-<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
-</ol>
-</div></details>
-<h3 id="其他">其他</h3>
-<ul>
-<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
-<li>查看 ip：ifconfig</li>
-</ul>
-<h2 id="美化">美化</h2>
-<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>VS Code配置</title>
@@ -2399,114 +2107,276 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>zram与swap交换内存</title>
-    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<h2 id="必看">必看</h2>
-<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
-<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
-<li>zram部分没用过，不知道，直接抄下来的</li>
-<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
-<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
-<li>一般来说，能不用swap更好</li>
-<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
-<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
-</ol>
-</div>
-<h3 id="zram">zram</h3>
-<h4 id="介绍">介绍</h4>
-<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
-<h4 id="创建zram交换分区">创建zram交换分区</h4>
+    <title>Ubuntu 美化</title>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
+<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
+<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
+</ul>
+</blockquote>
+<h2 id="安装必要插件">安装必要插件</h2>
+<blockquote>
+<p>tweaks（优化）、extensions （扩展）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
+<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
+<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
+<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
+搜索 User Themes 插件，点击进入插件界面进行安装。</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
+<h3 id="安装主题">安装主题</h3>
+<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
+<li>为所有用户安装：/usr/share/themes/</li>
+</ul>
+</blockquote>
 <ol>
 <li>
-<p>加载 zram 内核模块，并创建一个 zram设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+<p>进入主题目录，，执行如下命令进行主题安装。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭当前正在使用的 zram 设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>重置 zram 设备，清除其中所有数据。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>格式化 zram 设备，以便将其用作交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
-<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+<p>设置主题</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="swap">swap</h3>
-<h4 id="介绍-2">介绍</h4>
-<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
-<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
-<h4 id="创建swap交换分区">创建swap交换分区</h4>
+<h3 id="安装图标">安装图标</h3>
 <ol>
 <li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
+<li>为所有用户安装：/usr/share/icons</li>
+</ul>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
 </li>
 <li>
-<p>创建交换空间大小1G，可自行修改：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+<p>应用主题和图标</p>
+<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
 </li>
 <li>
-<p>授予权限</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启用交换内存</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开机启用交换空间</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>元素位置调整</p>
+<ul>
+<li>将标题栏的操作按钮从右侧移动到左侧</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
+<ul>
+<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
+<ul>
+<li>更换壁纸<br>
+<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
+</ul>
 </li>
 </ol>
-<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
+<h2 id="更多插件">更多插件</h2>
+<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
+<ul>
+<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
+<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
+<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
+<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
+<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
+版本不兼容，我没安装</li>
+</ul>
+<hr>
+<h2 id="终端美化：zsh">终端美化：zsh</h2>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
+<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
+</ul>
+</blockquote>
+<h3 id="安装-zsh">安装 zsh</h3>
+<p>macOS：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+<p>ubuntu：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>ArchLinux/Manjaro：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
+<blockquote>
+<ul>
+<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
+<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
+<li>查看当前用户：<code>whoami</code></li>
+</ul>
+</blockquote>
+<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
+<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
+<p><mark>输入<code>q</code></mark></p>
+<ul>
+<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
+<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
+<li>输入输入 <code>1</code> 后，就开始进行配置</li>
+</ul>
+<blockquote>
+<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
+</blockquote>
+<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
+<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
+<blockquote>
+<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
+</blockquote>
+<p>①使用 curl 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>②或者使用 wget 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
+<h3 id="配置-zsh">配置 zsh</h3>
+<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
+<p><strong>更换自带主题</strong>：<br>
+zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
+我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
+<h3 id="安装插件">安装插件</h3>
+<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
+<p>安装步骤：</p>
 <ol>
 <li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>关闭要删除的交换分区。 运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
-</li>
-<li>
-<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
+<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
 </li>
 </ol>
+<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h3 id="补充">补充</h3>
+<p>待写。。。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
+    <content><![CDATA[<h2 id="前言">前言</h2>
+<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
+<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
+<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
+<h2 id="创建虚拟机">创建虚拟机</h2>
+<h3 id="创建">创建</h3>
+<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
+<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
+<p>默认点击下一步</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
+<h3 id="选择安装来源">选择安装来源</h3>
+<p>选择 【稍后安装系统】，点击下一步</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
+<h3 id="选择系统类型">选择系统类型</h3>
+<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
+<h3 id="虚拟机命名">虚拟机命名</h3>
+<p>自定义虚拟机名称和存储位置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
+<h3 id="一些配置">一些配置</h3>
+<h4 id="处理器配置">处理器配置</h4>
+<blockquote>
+<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
+<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
+<blockquote>
+<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
+<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
+<blockquote>
+<p>我一般使用 NAT</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
+<h4 id="磁盘类型">磁盘类型</h4>
+<p>默认即可</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
+<h4 id="创建磁盘">创建磁盘</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
+<h4 id="自定义硬件">自定义硬件</h4>
+<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
+<h2 id="启动虚拟机">启动虚拟机</h2>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
+<blockquote>
+<p>默认点击继续</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
+<blockquote>
+<p>选择时区</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
+<p><strong>完成安装</strong></p>
+<h2 id="基础配置">基础配置</h2>
+<h3 id="更换国内源"><strong>更换国内源</strong></h3>
+<p>打开&quot;软件和更新&quot;</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
+<p>可自行百度选择，我这里选择的阿里云的。</p>
+<h3 id="安装常用软件">安装常用软件</h3>
+<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
+<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
+<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
+<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<h3 id="其他">其他</h3>
+<ul>
+<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
+<li>查看 ip：ifconfig</li>
+</ul>
+<h2 id="美化">美化</h2>
+<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -2702,6 +2572,136 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>环境</tag>
         <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>zram与swap交换内存</title>
+    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<h2 id="必看">必看</h2>
+<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
+<li>zram部分没用过，不知道，直接抄下来的</li>
+<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
+<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
+<li>一般来说，能不用swap更好</li>
+<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
+<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
+</ol>
+</div>
+<h3 id="zram">zram</h3>
+<h4 id="介绍">介绍</h4>
+<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
+<h4 id="创建zram交换分区">创建zram交换分区</h4>
+<ol>
+<li>
+<p>加载 zram 内核模块，并创建一个 zram设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭当前正在使用的 zram 设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重置 zram 设备，清除其中所有数据。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>格式化 zram 设备，以便将其用作交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
+<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+</li>
+</ol>
+<h3 id="swap">swap</h3>
+<h4 id="介绍-2">介绍</h4>
+<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
+<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
+<h4 id="创建swap交换分区">创建swap交换分区</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建交换空间大小1G，可自行修改：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>授予权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启用交换内存</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开机启用交换空间</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭要删除的交换分区。 运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+</li>
+<li>
+<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
+</li>
+<li>
+<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
