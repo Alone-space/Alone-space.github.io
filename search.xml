@@ -221,42 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cloudflare Workers反代系列</title>
-    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<blockquote>
-<p>未验证，待整理中</p>
-</blockquote>
-<h2 id="gh-proxy">gh-proxy</h2>
-<ul>
-<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
-</ul>
-<h2 id="jsdelivr">jsdelivr</h2>
-<ul>
-<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
-</ul>
-<p>bili33：</p>
-<ul>
-<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
-<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
-<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
-<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
-</ul>
-<h2 id="tg-bot-api">tg bot api</h2>
-<ul>
-<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Cloudflare</category>
-      </categories>
-      <tags>
-        <tag>Cloudflare</tag>
-        <tag>反代</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cloudflare Tunnels 免费内网穿透</title>
     <url>/2023/11/17/Cloudflare%20Tunnels%20%E5%85%8D%E8%B4%B9%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
     <content><![CDATA[<h2 id="方法一">方法一</h2>
@@ -401,6 +365,150 @@
         <tag>Cloudflare</tag>
         <tag>内网穿透</tag>
         <tag>Tunnels</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cloudflare Workers反代系列</title>
+    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<blockquote>
+<p>未验证，待整理中</p>
+</blockquote>
+<h2 id="gh-proxy">gh-proxy</h2>
+<ul>
+<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
+</ul>
+<h2 id="jsdelivr">jsdelivr</h2>
+<ul>
+<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
+</ul>
+<p>bili33：</p>
+<ul>
+<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
+<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
+<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
+<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
+</ul>
+<h2 id="tg-bot-api">tg bot api</h2>
+<ul>
+<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>Cloudflare</tag>
+        <tag>反代</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
+<h3 id="while">while</h3>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="do-…-while">do … while</h3>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h2 id="for-循环">for 循环</h2>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h2 id="break-与-continue">break 与 continue</h2>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="goto-语句">goto 语句</h2>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -712,250 +820,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h2 id="关系运算符">关系运算符</h2>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h2 id="逻辑运算符">逻辑运算符</h2>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h2 id="位运算符">位运算符</h2>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
-<p><code>&gt;&gt;</code>            右移</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h2 id="特殊运算符">特殊运算符</h2>
-<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h3 id="复合运算符">复合运算符</h3>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h3 id="sizeof-运算符">sizeof 运算符</h3>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h3 id="return-运算符">return 运算符</h3>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="优先级与结合性">优先级与结合性</h3>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
-<h3 id="逗号表达式">逗号表达式</h3>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
-<h3 id="while">while</h3>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="do-…-while">do … while</h3>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h3 id="注意">注意</h3>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h2 id="for-循环">for 循环</h2>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h2 id="break-与-continue">break 与 continue</h2>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="goto-语句">goto 语句</h2>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="指针入门">指针入门</h2>
@@ -1133,68 +997,133 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>C语言学习六：数组与指针的结合</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
-    <content><![CDATA[<h2 id="基础">基础</h2>
-<p><strong>示例一：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
-<p><strong>示例二：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
-<h2 id="数组指针">数组指针</h2>
-<p>概念：专门用来指向一个数组的指针。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong><br>
-以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
-<h2 id="指针数组">指针数组</h2>
-<p>概念：专门用来存放指针的数组，称为指针数组。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="题">题</h2>
-<h3 id="理解题">理解题</h3>
-<ol>
-<li>
-<p>题 1</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
-</li>
-<li>
-<p>题 2</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
-<p><code>&amp;b</code>—&gt;<code>b</code>—&gt;<code>*b</code>—&gt;<code>**b</code></p>
-<p>整个数组的地址—&gt;第一个元素（{1，2，3，4}）的地址—&gt;“1“的地址—&gt;“1”的值</p>
-<p>补充：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;**(b+1):%d\n&quot;, **(b + 1));  // 打印5</span><br><span class="line">printf(&quot;*(*(b+2)+2):%d\n&quot;, *(*(b + 2) + 2)); // 打印11</span><br><span class="line"></span><br><span class="line">// 使用指针来访问二维数组的每一个元素,打印所有</span><br><span class="line">for (size_t i = 0; i &lt; 12; i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d\t&quot;, *((*b) + i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用数组来访问二维数组</span><br><span class="line">for (size_t i = 0; i &lt; 3; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (size_t j = 0; j &lt; 4; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;b[%d][%d]:%d\t&quot;, i, j, b[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>题 3</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">    int i, *p = arr, len = sizeof(arr) / sizeof(int);</span><br><span class="line">    for(i=0; i&lt;len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //   * 和 ++ 得优先级是同级的 ， 又因为当前这一级的结合性是从右往左 ， 因此先 p++  , 但是是后缀，所以先预算再++</span><br><span class="line"></span><br><span class="line">        printf(&quot;%d\n&quot;, *p++ );   // 先运算（*p）得到 1  ， 然后再（p++）地址+1</span><br><span class="line">        printf(&quot;%d\n&quot;, (*p)++ );  // 先得到p得内容  3 ， 然后再对3进行自加</span><br><span class="line">        for (size_t j = 0; j &lt; len ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;arr[%d]:%d\t&quot; , j , arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h2 id="关系运算符">关系运算符</h2>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
 <p><mark>注意：</mark></p>
 <ul>
 <li>
-<p>题①中： <code>p=&amp;arr;</code> p 是一个地址，为整个数组的首地址，相当于&amp;arr。解一次引用，即* p 则为数组首元素的地址。</p>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
 </li>
 <li>
-<p>题③中： <code>* p=arr;</code> arr 为数组首元素的地址，p 指向的是首元素的首地址 （p 只是一个普普通通的整型指针），<code>*p</code> 意思为解一次引用，即第一个元素的值。—&gt; 当我们使用 <code>*p</code> 解引用指针 <code>p</code> 时，我们获取的是指针 <code>p</code> 所指向内存位置的值，<code>p</code> 是指向整型数组的指针，所以 <code>*p</code> 将获取数组中的一个整数值。</p>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
 </li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h2 id="位运算符">位运算符</h2>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
+<p><code>&gt;&gt;</code>            右移</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
 </li>
 <li>
-<p>题 4</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int a = 1, b = 2, c = 3;</span><br><span class="line">    int *arr[3] = &#123;&amp;a, &amp;b, &amp;c&#125;;//整型指针数组</span><br><span class="line">    int **parr = arr; // 第一部分 *p ， 第二部分 int * 说明类型   为指针类型   +1 则+1个指针类型 8字节（64）</span><br><span class="line"></span><br><span class="line">    //    arr[0]  --&gt; &amp;a   *&amp;a --&gt; a</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, *arr[0], *arr[1], *arr[2]);</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, **(parr+0), **(parr+1), **(parr+2));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
 </li>
 <li>
-<p>题 5</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    char *lines[5] =     //字符指针数组（里面的字符串是以 `char*` 类型的指针形式存在的）</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;COSC1283/1984&quot;,</span><br><span class="line">    &quot;Programming&quot;,</span><br><span class="line">    &quot;Techniques&quot;,</span><br><span class="line">    &quot;is&quot;,</span><br><span class="line">    &quot;great fun&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    char *str1 = lines[1];        </span><br><span class="line">    char *str2 = *(lines + 3);</span><br><span class="line">    char c1    = *(*(lines + 4) + 6);  </span><br><span class="line">    char c2    = (*lines + 5)[5];  </span><br><span class="line">    char c3    = *lines[0] + 2;</span><br><span class="line"></span><br><span class="line">    printf(&quot;str1 = %s\n&quot;, str1);  </span><br><span class="line">    printf(&quot;str2 = %s\n&quot;, str2);  </span><br><span class="line">    printf(&quot;c1   = %c\n&quot;, c1);    </span><br><span class="line">    printf(&quot;c2   = %c\n&quot;, c2);    </span><br><span class="line">    printf(&quot;c3   = %c\n&quot;, c3);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
+<p>异或运算，相同得 0 ，不同得1</p>
 </li>
 <li>
-<p>题 6</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int num;</span><br><span class="line">    int (*p)[5] = NULL;  //数组指针  </span><br><span class="line">    int arr[5] =  &#123;5,2,4,5,7&#125;;</span><br><span class="line">    p = &amp;arr;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    num = sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*p[%d] = %d\n&quot;,i,*p[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*(p+%d) = %p\n&quot;,i,*(p+i));  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;p[%d] = %p\n&quot;,i,p[i]);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;(*p)[%d] = %d\n&quot;,i,(*p)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
 </li>
-</ol>
-<h3 id="更多">更多</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//程序段一</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = &amp;arr[2];  // p只是一个普普通通的整型指针, 并指向的 数据5 的地址，是一个地址</span><br><span class="line">// arr[2] 是数据 5 ， &amp; 则把数据5 的地址进行取出</span><br><span class="line">printf(&quot;%d, %d, %d, %d, %d\n&quot;, *(p-2), *(p-1), *p, *(p+1), *(p+2) ); </span><br><span class="line">//*p解一次引用，则打印出1，3，5，7，9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段二</span><br><span class="line">int (*p)[5] = NULL; //数组指针</span><br><span class="line">int arr[5] = &#123;1,2,4,5,7&#125;;</span><br><span class="line">p = &amp;arr;   // p指向整个数组的地址</span><br><span class="line">printf(&quot;p    = %p\n&quot;,p);        //&amp;arr，地址</span><br><span class="line">printf(&quot;*p   = %p\n&quot;,*p );      //解一次引用，数组首元素的地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段三</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = arr;  //p只是一个普普通通的整型指针, 并指向的数组首元素的地址（arr） </span><br><span class="line">printf(&quot;%d\n&quot;, *p);  //*p，解一次引用，得到数组首元素的值，即 1</span><br></pre></td></tr></table></figure>]]></content>
+</ul>
+<h2 id="特殊运算符">特殊运算符</h2>
+<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h3 id="复合运算符">复合运算符</h3>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h3 id="sizeof-运算符">sizeof 运算符</h3>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h3 id="return-运算符">return 运算符</h3>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="优先级与结合性">优先级与结合性</h3>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
+<h3 id="逗号表达式">逗号表达式</h3>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
       <categories>
         <category>笔记</category>
         <category>C语言</category>
@@ -1356,6 +1285,241 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>利用Github搭建免费图床</title>
+    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
+<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
+<h2 id="生成一个-Token">生成一个 Token</h2>
+<ol>
+<li>
+<p>点击右上角用户头像 -&gt; 选择 设置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
+</li>
+<li>
+<p>点击网站左侧的最下面的开发者设置</p>
+<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
+<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
+<blockquote>
+<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="配置-PicGo">配置 PicGo</h2>
+<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
+<blockquote>
+<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
+</blockquote>
+<ol>
+<li>
+<p>首先下载PicGo</p>
+<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
+<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
+</li>
+<li>
+<p>打开PicGo工具进行配置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
+<ul>
+<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
+<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
+<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
+<li>设定 Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
+</ul>
+<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</li>
+</ol>
+<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习六：数组与指针的结合</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
+    <content><![CDATA[<h2 id="基础">基础</h2>
+<p><strong>示例一：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
+<p><strong>示例二：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
+<p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
+<h2 id="数组指针">数组指针</h2>
+<p>概念：专门用来指向一个数组的指针。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;</span><br><span class="line">int (* p) [5] ; //定义一个 名为p 的指针，</span><br><span class="line"></span><br><span class="line">//并且确定他指向的类型为int [5] ,一个拥有5个元素的整型数组4</span><br><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int (*p) [5] = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;arr:%p\n&quot; , &amp;arr );</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; ,p , (*p)[2] ); // 3 * p ==&gt; arr</span><br><span class="line">printf(&quot;%p‐‐‐%d\n&quot; , p+1 , (*(p+1))[2] ); // 已经越界访问</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong><br>
+以上代码中 p指向的是 一个整型数组并有5个元素。 因此在对p 进行加减运算时， 是加减一个数组。</p>
+<h2 id="指针数组">指针数组</h2>
+<p>概念：专门用来存放指针的数组，称为指针数组。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line">int c = 550 ;</span><br><span class="line">int d = 256 ;</span><br><span class="line">int e = 998 ;</span><br><span class="line"></span><br><span class="line">int * p [5] = &#123;&amp;a, &amp;b , &amp;c , &amp;d , &amp;e&#125; ; // 定义一个名字为 p的数组， 并且确定该数组中用来存放int * 整型地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (size_t i = 0; i &lt; 5; i++)</span><br><span class="line"> &#123;</span><br><span class="line">    printf(&quot;*p[%d]:%d \n&quot; , i , *(p[i]) ); // p[0] ‐‐&gt; &amp;a</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题">题</h2>
+<h3 id="理解题">理解题</h3>
+<ol>
+<li>
+<p>题 1</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
+</li>
+<li>
+<p>题 2</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
+<p><code>&amp;b</code>—&gt;<code>b</code>—&gt;<code>*b</code>—&gt;<code>**b</code></p>
+<p>整个数组的地址—&gt;第一个元素（{1，2，3，4}）的地址—&gt;“1“的地址—&gt;“1”的值</p>
+<p>补充：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">printf(&quot;**(b+1):%d\n&quot;, **(b + 1));  // 打印5</span><br><span class="line">printf(&quot;*(*(b+2)+2):%d\n&quot;, *(*(b + 2) + 2)); // 打印11</span><br><span class="line"></span><br><span class="line">// 使用指针来访问二维数组的每一个元素,打印所有</span><br><span class="line">for (size_t i = 0; i &lt; 12; i++)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;%d\t&quot;, *((*b) + i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用数组来访问二维数组</span><br><span class="line">for (size_t i = 0; i &lt; 3; i++)</span><br><span class="line">&#123;</span><br><span class="line">    for (size_t j = 0; j &lt; 4; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;b[%d][%d]:%d\t&quot;, i, j, b[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>题 3</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">    int i, *p = arr, len = sizeof(arr) / sizeof(int);</span><br><span class="line">    for(i=0; i&lt;len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        //   * 和 ++ 得优先级是同级的 ， 又因为当前这一级的结合性是从右往左 ， 因此先 p++  , 但是是后缀，所以先预算再++</span><br><span class="line"></span><br><span class="line">        printf(&quot;%d\n&quot;, *p++ );   // 先运算（*p）得到 1  ， 然后再（p++）地址+1</span><br><span class="line">        printf(&quot;%d\n&quot;, (*p)++ );  // 先得到p得内容  3 ， 然后再对3进行自加</span><br><span class="line">        for (size_t j = 0; j &lt; len ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;arr[%d]:%d\t&quot; , j , arr[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>题①中： <code>p=&amp;arr;</code> p 是一个地址，为整个数组的首地址，相当于&amp;arr。解一次引用，即* p 则为数组首元素的地址。</p>
+</li>
+<li>
+<p>题③中： <code>* p=arr;</code> arr 为数组首元素的地址，p 指向的是首元素的首地址 （p 只是一个普普通通的整型指针），<code>*p</code> 意思为解一次引用，即第一个元素的值。—&gt; 当我们使用 <code>*p</code> 解引用指针 <code>p</code> 时，我们获取的是指针 <code>p</code> 所指向内存位置的值，<code>p</code> 是指向整型数组的指针，所以 <code>*p</code> 将获取数组中的一个整数值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>题 4</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int a = 1, b = 2, c = 3;</span><br><span class="line">    int *arr[3] = &#123;&amp;a, &amp;b, &amp;c&#125;;//整型指针数组</span><br><span class="line">    int **parr = arr; // 第一部分 *p ， 第二部分 int * 说明类型   为指针类型   +1 则+1个指针类型 8字节（64）</span><br><span class="line"></span><br><span class="line">    //    arr[0]  --&gt; &amp;a   *&amp;a --&gt; a</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, *arr[0], *arr[1], *arr[2]);</span><br><span class="line">    printf(&quot;%d, %d, %d\n&quot;, **(parr+0), **(parr+1), **(parr+2));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>题 5</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    char *lines[5] =     //字符指针数组（里面的字符串是以 `char*` 类型的指针形式存在的）</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;COSC1283/1984&quot;,</span><br><span class="line">    &quot;Programming&quot;,</span><br><span class="line">    &quot;Techniques&quot;,</span><br><span class="line">    &quot;is&quot;,</span><br><span class="line">    &quot;great fun&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    char *str1 = lines[1];        </span><br><span class="line">    char *str2 = *(lines + 3);</span><br><span class="line">    char c1    = *(*(lines + 4) + 6);  </span><br><span class="line">    char c2    = (*lines + 5)[5];  </span><br><span class="line">    char c3    = *lines[0] + 2;</span><br><span class="line"></span><br><span class="line">    printf(&quot;str1 = %s\n&quot;, str1);  </span><br><span class="line">    printf(&quot;str2 = %s\n&quot;, str2);  </span><br><span class="line">    printf(&quot;c1   = %c\n&quot;, c1);    </span><br><span class="line">    printf(&quot;c2   = %c\n&quot;, c2);    </span><br><span class="line">    printf(&quot;c3   = %c\n&quot;, c3);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
+</li>
+<li>
+<p>题 6</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int num;</span><br><span class="line">    int (*p)[5] = NULL;  //数组指针  </span><br><span class="line">    int arr[5] =  &#123;5,2,4,5,7&#125;;</span><br><span class="line">    p = &amp;arr;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    num = sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*p[%d] = %d\n&quot;,i,*p[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*(p+%d) = %p\n&quot;,i,*(p+i));  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;p[%d] = %p\n&quot;,i,p[i]);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;(*p)[%d] = %d\n&quot;,i,(*p)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
+</li>
+</ol>
+<h3 id="更多">更多</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//程序段一</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = &amp;arr[2];  // p只是一个普普通通的整型指针, 并指向的 数据5 的地址，是一个地址</span><br><span class="line">// arr[2] 是数据 5 ， &amp; 则把数据5 的地址进行取出</span><br><span class="line">printf(&quot;%d, %d, %d, %d, %d\n&quot;, *(p-2), *(p-1), *p, *(p+1), *(p+2) ); </span><br><span class="line">//*p解一次引用，则打印出1，3，5，7，9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段二</span><br><span class="line">int (*p)[5] = NULL; //数组指针</span><br><span class="line">int arr[5] = &#123;1,2,4,5,7&#125;;</span><br><span class="line">p = &amp;arr;   // p指向整个数组的地址</span><br><span class="line">printf(&quot;p    = %p\n&quot;,p);        //&amp;arr，地址</span><br><span class="line">printf(&quot;*p   = %p\n&quot;,*p );      //解一次引用，数组首元素的地址</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//程序段三</span><br><span class="line">int arr[] = &#123; 1, 3, 5, 7, 9&#125;;</span><br><span class="line">int *p = arr;  //p只是一个普普通通的整型指针, 并指向的数组首元素的地址（arr） </span><br><span class="line">printf(&quot;%d\n&quot;, *p);  //*p，解一次引用，得到数组首元素的值，即 1</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置多个github账号</title>
+    <url>/2024/02/05/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/</url>
+    <content><![CDATA[<h2 id="配置">配置</h2>
+<ol>
+<li>
+<p>清空默认的全局 <code>user.name</code> 和 <code>user.email</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --unset user.name</span><br><span class="line">git config --global --unset user.email</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可通过一下命令查看全局 Git 配置的所有设置</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>为不同的 <code>git</code> 账户生成不同的 <code>ssh-key</code></p>
+<blockquote>
+<p><code>id_rsa</code> 是默认的文件名称，我们现在需要生成不同的 <code>ssh-key</code>，所以要设置不同的文件存储对应的公钥，比如：私人的 GitHub 账户使用 <code>id_rsa_Private</code> 命名；公开的GitHub 账户使用 <code>id_rsa_Public</code> 来命名</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_Private -C &quot;your_email@example.com&quot;</span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_Public -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>注意：输入完回车后会询问是否添加密码，可以直接回车</p>
+<p>上面的命令调用完后会生成四个文件：</p>
+<ul>
+<li><code>id_rsa_Private</code></li>
+<li><code>id_rsa_Private.pub</code></li>
+<li><code>id_rsa_Public</code></li>
+<li><code>id_rsa_Public.pub</code></li>
+</ul>
+</li>
+<li>
+<p>将 <code>ssh-key</code> 分别添加到 <code>ssh-agent</code> 信任列表</p>
+<blockquote>
+<p>ssh-add 命令用于将私钥添加到 SSH 代理 (ssh-agent) 中，这样您就不必每次使用 SSH 时都输入私钥密码。SSH 代理可以在您登录时启动，并在您的登录会话中一直运行，为您管理已解锁的私钥。这样，您就只需在每个新的登录会话中解锁一次私钥，而不必每次都输入私钥密码。这对于频繁使用 SSH 的用户来说非常Correção no código.方便。</p>
+</blockquote>
+<p>启动 SSH 代理</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure>
+<p>添加私钥</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa_Private</span><br><span class="line">ssh-add ~/.ssh/id_rsa_Public</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果看到 <code>Identitiy added: ~/.ssh/id_rsa_Private</code>，就表示添加成功了。</p>
+</blockquote>
+</li>
+<li>
+<p>将公钥配置到对应的github账号中</p>
+<p><code>公钥</code>即<code>.pub</code>文件可以直接用文本打开，内容粘贴到github的<code>Settings -&gt; SSH and GPG keys -&gt; New SSH Key</code>，Title随便起，自己能认出来即可，Key里面填写复制的<code>.pub</code>里的内容，这样公钥就配置好了</p>
+</li>
+<li>
+<p>在 <code>config</code> 文件中配置多个 <code>ssh-key</code></p>
+<blockquote>
+<p>在 .ssh/ 目录下，找到config文件（没有的话新建一个，之前的<code>ssh-key</code>也在这个目录）</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#Private 私人账户</span><br><span class="line">Host Private.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_Private</span><br><span class="line"></span><br><span class="line">#Public 公开账户</span><br><span class="line">Host Public.github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_Public</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><em><code>config</code>文件部分参数含义，仅做记录</em></p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Host: 主机别名</span></span><br><span class="line"><span class="comment"># HostName: 托管平台域名地址，如github.com</span></span><br><span class="line"><span class="comment"># IdentityFile: 该Host私钥文件</span></span><br><span class="line"><span class="comment"># User: 托管平台用户名</span></span><br><span class="line"><span class="comment"># Port: 端口号，可不填（如果不是默认22号端口则需要指定）</span></span><br><span class="line"><span class="comment"># PreferredAuthentications publickey</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>测试</p>
+<blockquote>
+<p>测试：ssh -T git@{config里面的user}.xxx主机名</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@Private.github.com</span><br><span class="line">ssh -T git@Public.github.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>出现以下，则说明成功！</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hi xxx! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>此时<code>私钥</code> 和 <code>公钥</code> 都配置正常了</p>
+</li>
+</ol>
+<h2 id="使用">使用</h2>
+<ol>
+<li>
+<p>配置当前仓库账号</p>
+<blockquote>
+<p>注意：在不同的代码仓库进行代码提交时，记得检查用户名和邮箱，以免混淆。</p>
+<p>在上面操作中为了配置多个账户，取消了全局 <code>user.name</code> 和 <code>user.email</code>，现在需要为每个仓库单独配置，这样做的好处就是可以将两个<code>GitHub</code>账户的仓库分开管理，只在当前仓库中生效，不会影响其他仓库。</p>
+</blockquote>
+<ul>
+<li><strong>全局配置：</strong> 对于用户在计算机上的所有 Git 仓库都生效，是全局默认设置。</li>
+<li><strong>用户配置：</strong> 对于当前用户在当前仓库生效，会覆盖全局配置。</li>
+<li><strong>本地配置：</strong> 只在当前仓库中生效，会覆盖用户配置和全局配置。</li>
+</ul>
+<p>为每个仓库设置本地配置</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --local user.name xxx</span><br><span class="line">git config --local user.email xxx@xxx.com</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用不同的github账户clone仓库</p>
+<blockquote>
+<p>必须使用SSH方式clone。SSH类型的链接格式为：<code>git@github.com:github用户名/仓库名.git</code></p>
+</blockquote>
+<p>若要使用不同的github账户clone仓库，则<code>github.com</code>这一部分更改，改为上面教程中的<code>config</code>文件中的<code>Host</code>部分</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git@Private.github.com:github用户名/仓库名.git</span><br><span class="line"></span><br><span class="line">git@Public.github.com:github用户名/仓库名.git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://blog.51cto.com/u_4160094/2912836">Git配置多个github账号_maven的技术博客_51CTO博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/379982981">git config多用户配置 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://blog.csdn.net/inthat/article/details/132116332">Git 用户名邮箱的全局配置和单仓库配置(不同项目使用不同账号登录)_git 全局账号-CSDN博客</a></li>
+<li><a href="https://gist.github.com/suziewong/4378434">https://gist.github.com/suziewong/4378434</a></li>
+<li><a href="https://www.cnblogs.com/convict/p/14887421.html">https://www.cnblogs.com/convict/p/14887421.html</a></li>
+<li><a href="https://juejin.cn/post/6999630383130083358">https://juejin.cn/post/6999630383130083358</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/423007454">https://zhuanlan.zhihu.com/p/423007454</a></li>
+<li><a href="https://juejin.cn/post/7277875323164835894">git 本地config 和 全局config的区别 - 掘金 (juejin.cn)</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Hax&amp;Woiden</title>
     <url>/2022/12/01/Hax-Woiden/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
@@ -1460,65 +1624,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>利用Github搭建免费图床</title>
-    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
-<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
-<h2 id="生成一个-Token">生成一个 Token</h2>
-<ol>
-<li>
-<p>点击右上角用户头像 -&gt; 选择 设置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
-</li>
-<li>
-<p>点击网站左侧的最下面的开发者设置</p>
-<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
-<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
-<blockquote>
-<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="配置-PicGo">配置 PicGo</h2>
-<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
-<blockquote>
-<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
-</blockquote>
-<ol>
-<li>
-<p>首先下载PicGo</p>
-<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
-<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
-</li>
-<li>
-<p>打开PicGo工具进行配置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
-<ul>
-<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
-<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
-<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
-<li>设定 Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
-</ul>
-<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
-</li>
-</ol>
-<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo常用命令</title>
     <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
@@ -1620,6 +1725,16 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Linux 学习系列</title>
+    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Linux | vps 常用命令</title>
     <url>/2022/12/13/Linux_VPS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p><mark><strong>Linux命令大全(手册)</strong></mark></p>
@@ -1711,7 +1826,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <p>①FSCARMEN (<a href="https://gitlab.com/fscarmen/warp.git">fscarmen / warp · GitLab</a>) :</p>
 <p>首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh</code></p>
 <p>日常维护 <code>warp</code></p>
-<p>②WARP-GO ([<a href="https://gitlab.com/ProjectWARP/warp-go/-/tree/master/">README.md · main · fscarmen / warp · GitLab</a>) :</p>
+<p>②WARP-GO  (<a href="https://gitlab.com/fscarmen/warp.git">fscarmen / warp · GitLab</a>) :</p>
 <p>首次运行 <code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/warp-go.sh &amp;&amp; bash warp-go.sh</code></p>
 <p>日常维护 <code>warp-go</code></p>
 <p>③P3TERX (<a href="https://github.com/P3TERX/warp.sh">https://github.com/P3TERX/warp.sh</a>) :</p>
@@ -1867,14 +1982,132 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Linux 学习系列</title>
-    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
+    <content><![CDATA[<h2 id="前言">前言</h2>
+<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
+<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
+<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
+<h2 id="创建虚拟机">创建虚拟机</h2>
+<h3 id="创建">创建</h3>
+<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
+<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
+<p>默认点击下一步</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
+<h3 id="选择安装来源">选择安装来源</h3>
+<p>选择 【稍后安装系统】，点击下一步</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
+<h3 id="选择系统类型">选择系统类型</h3>
+<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
+<h3 id="虚拟机命名">虚拟机命名</h3>
+<p>自定义虚拟机名称和存储位置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
+<h3 id="一些配置">一些配置</h3>
+<h4 id="处理器配置">处理器配置</h4>
+<blockquote>
+<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
+<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
+<blockquote>
+<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
+<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
+<blockquote>
+<p>我一般使用 NAT</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
+<h4 id="磁盘类型">磁盘类型</h4>
+<p>默认即可</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
+<h4 id="创建磁盘">创建磁盘</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
+<h4 id="自定义硬件">自定义硬件</h4>
+<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
+<h2 id="启动虚拟机">启动虚拟机</h2>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
+<blockquote>
+<p>默认点击继续</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
+<blockquote>
+<p>选择时区</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
+<p><strong>完成安装</strong></p>
+<h2 id="基础配置">基础配置</h2>
+<h3 id="更换国内源"><strong>更换国内源</strong></h3>
+<p>打开&quot;软件和更新&quot;</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
+<p>可自行百度选择，我这里选择的阿里云的。</p>
+<h3 id="安装常用软件">安装常用软件</h3>
+<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
+<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
+<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
+<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<h3 id="其他">其他</h3>
+<ul>
+<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
+<li>查看 ip：ifconfig</li>
+</ul>
+<h2 id="美化">美化</h2>
+<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title>Ubuntu 美化</title>
@@ -2046,120 +2279,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
-    <content><![CDATA[<h2 id="前言">前言</h2>
-<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
-<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
-<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
-<h2 id="创建虚拟机">创建虚拟机</h2>
-<h3 id="创建">创建</h3>
-<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
-<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
-<p>默认点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
-<h3 id="选择安装来源">选择安装来源</h3>
-<p>选择 【稍后安装系统】，点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
-<h3 id="选择系统类型">选择系统类型</h3>
-<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
-<h3 id="虚拟机命名">虚拟机命名</h3>
-<p>自定义虚拟机名称和存储位置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
-<h3 id="一些配置">一些配置</h3>
-<h4 id="处理器配置">处理器配置</h4>
-<blockquote>
-<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
-<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
-<blockquote>
-<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
-<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
-<blockquote>
-<p>我一般使用 NAT</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
-<h4 id="磁盘类型">磁盘类型</h4>
-<p>默认即可</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
-<h4 id="创建磁盘">创建磁盘</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
-<h4 id="自定义硬件">自定义硬件</h4>
-<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
-<h2 id="启动虚拟机">启动虚拟机</h2>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
-<blockquote>
-<p>默认点击继续</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
-<blockquote>
-<p>选择时区</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
-<p><strong>完成安装</strong></p>
-<h2 id="基础配置">基础配置</h2>
-<h3 id="更换国内源"><strong>更换国内源</strong></h3>
-<p>打开&quot;软件和更新&quot;</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
-<p>可自行百度选择，我这里选择的阿里云的。</p>
-<h3 id="安装常用软件">安装常用软件</h3>
-<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
-<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
-<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
-<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
-<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
-<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
-<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
-</ol>
-</div></details>
-<h3 id="其他">其他</h3>
-<ul>
-<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
-<li>查看 ip：ifconfig</li>
-</ul>
-<h2 id="美化">美化</h2>
-<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -2385,20 +2504,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h2 id="Git">Git</h2>
@@ -2591,236 +2696,6 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>环境</tag>
         <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建免费博客：Hexo+butterfly</title>
-    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
-</div>
-<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
-官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-</div>
-<h2 id="环境搭建">环境搭建</h2>
-<h3 id="安装-Git：">安装 Git：</h3>
-<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
-<h3 id="安装-node-js">安装 node.js</h3>
-<p>见安装Node.Js部分</p>
-<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h2 id="安装-Hexo">安装 Hexo</h2>
-<ol>
-<li>
-<p>安装Hexo<br>
-首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
-<blockquote>
-<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
-需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
-</blockquote>
-<ul>
-<li>全局安装：<code>npm install -g hexo-cli </code></li>
-<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
-<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
-</ul>
- <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。</p>
-<p><strong>全局安装的优势：</strong></p>
-<ul>
-<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
-<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
-<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
-</ul>
-<p><strong>局部安装的优势</strong>：</p>
-<ul>
-<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
-<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
-<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
-</ul>
-<p><strong>综合考虑</strong>，一般建议在以下情况下使用全局安装：</p>
-<ul>
-<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
-<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
-</ul>
-<p>而在以下情况下使用局部安装<strong>更为合适</strong>：</p>
-<ul>
-<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
-<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
-<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
-</ul>
-</div></details>
-<blockquote>
-<p>特别注意：<br>
-局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
-</blockquote>
-</li>
-<li>
-<p>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</p>
- <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>执行完成后我们打开 blog 文件夹：<br>
-scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
-source 是资源文件夹；<br>
-themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
-</blockquote>
-<p>初始化后，目录结构如下：</p>
- <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">└── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
-<ol>
-<li>
-<p>安装 hexo-deployer-git</p>
-<p><code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li>
-<p>修改 _config.yml 文件</p>
-<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
-修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
-<blockquote>
-<p>请检查自己的默认分支是不是 main</p>
-</blockquote>
-</li>
-<li>
-<p>部署项目到 GitHub</p>
-<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
-<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
-<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
-</ul>
-<blockquote>
-<p>注意：deploy 时可能要输入 username 和 password</p>
-</blockquote>
-<p>如果出现 Deploy done，则说明部署成功了。</p>
-</li>
-</ol>
-<hr>
-<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
-<blockquote>
-<p><a href="https://butterfly.js.org/posts/21cfbf15/">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
-</blockquote>
-<ol>
-<li>
-<p>本人用的是 git clone 方式安装的 hexo-theme-butterfly</p>
-<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
-<ul>
-<li>稳定版【建议】</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试版</li>
-</ul>
-<blockquote>
-<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
-</blockquote>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
-<ul>
-<li>升级方法：在主题目录下，运行 git pull</li>
-</ul>
-<blockquote>
-<p>注意：如果自己魔改了，谨慎升级</p>
-</blockquote>
-</li>
-<li>
-<p>应用主题</p>
-<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly<br>
-<code>theme: butterfly</code></p>
-</li>
-<li>
-<p>安装插件</p>
-<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>升级建议</p>
-<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）</p>
-<p>在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
-<blockquote>
-<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
-</blockquote>
-<blockquote>
-<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
-如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
-</blockquote>
-<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
-</li>
-</ol>
-<h2 id="美化">美化</h2>
-<ol>
-<li>
-<p>首先先按照官方文档进行一些基础设置和美化</p>
-<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
-<blockquote>
-<p>官方文档中都有，按照顺序搞一遍进行了</p>
-</blockquote>
-</li>
-<li>
-<p>更多美化和魔改</p>
-<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
-<ul>
-<li>
-<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
-</li>
-<li>
-<p>我参考的：</p>
-</li>
-</ul>
- <details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
-<li>
-<p>参考比较多的</p>
-<ul>
-<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
-</ul>
-</li>
-<li>
-<p>其他</p>
-<ul>
-<li>
-<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
-</li>
-<li>
-<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
-</li>
-<li>
-<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
-</li>
-<li>
-<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
-</li>
-<li>
-<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
-</li>
-<li>
-<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
-</li>
-<li>
-<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
-</li>
-<li>
-<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
-</li>
-</ul>
-</li>
-</ol>
-</div></details>
-</li>
-</ol>
-<h2 id="参考">参考</h2>
-<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-        <category>Butterfly</category>
-      </categories>
-      <tags>
-        <tag>Butterfly</tag>
-        <tag>美化</tag>
       </tags>
   </entry>
   <entry>
@@ -3127,6 +3002,236 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建免费博客：Hexo+butterfly</title>
+    <url>/2023/10/17/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2%EF%BC%9AHexo-butterfly/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我博客的安装和美化，本教程仅为个人备忘录</p>
+</div>
+<div class="note blue icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>开始前先看官方文档（最起码过一遍）<br>
+官方文档：<a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+</div>
+<h2 id="环境搭建">环境搭建</h2>
+<h3 id="安装-Git：">安装 Git：</h3>
+<p><a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装Git | ZのBlog (fkcc.me)</a></p>
+<h3 id="安装-node-js">安装 node.js</h3>
+<p>见安装Node.Js部分</p>
+<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h2 id="安装-Hexo">安装 Hexo</h2>
+<ol>
+<li>
+<p>安装Hexo<br>
+首先新建一个文件夹为 Hexo <strong>安装文件夹</strong>，例如：<code>E:\Blog\Hexo-Blog</code></p>
+<blockquote>
+<p>在 Git Bash 中使用 <code>cd</code> 命令进入文件夹：<br>
+需使用 cd E:/Blog/Hexo-Blog 或者 cd /e/Blog/Hexo-Blog</p>
+</blockquote>
+<ul>
+<li>全局安装：<code>npm install -g hexo-cli </code></li>
+<li>仅局部安装 <code>hexo</code> ：<code>npm install hexo</code>        <strong># 本教程采用局部安装</strong></li>
+<li>安装hexo服务器模块：<code>npm install hexo-server --save</code></li>
+</ul>
+ <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><p>全局安装和局部安装都有各自的用途和优势，选择使用哪种安装方式取决于您的具体需求。</p>
+<p><strong>全局安装的优势：</strong></p>
+<ul>
+<li>全局安装的软件包可以在系统的任何位置使用，而不仅限于特定的项目目录。</li>
+<li>全局安装的软件包可以通过命令行直接调用，无需指定完整的路径。</li>
+<li>全局安装的软件包可以在多个项目中共享，避免了重复安装和占用磁盘空间。</li>
+</ul>
+<p><strong>局部安装的优势</strong>：</p>
+<ul>
+<li>局部安装将软件包安装在特定的项目目录中，使得每个项目都可以独立管理自己的依赖项。</li>
+<li>局部安装的软件包版本可以与每个项目的要求相匹配，避免了不同项目之间的冲突。</li>
+<li>局部安装可以使得项目更加可移植和可复制，其他用户或开发者可以通过简单的安装依赖来复现您的项目环境。</li>
+</ul>
+<p><strong>综合考虑</strong>，一般建议在以下情况下使用全局安装：</p>
+<ul>
+<li>安装命令行工具，如 Hexo CLI、Vue CLI、Angular CLI 等，这些工具通常需要在全局范围内使用。</li>
+<li>安装全局的开发工具，如 TypeScript、ESLint 等，这些工具在多个项目中都可以使用。</li>
+</ul>
+<p>而在以下情况下使用局部安装<strong>更为合适</strong>：</p>
+<ul>
+<li>安装项目特定的依赖项，这样可以确保每个项目都有独立的依赖环境。</li>
+<li>在不同的项目中使用不同版本的软件包，以满足不同项目的特定需求。</li>
+<li>分发和共享项目时，可以通过将依赖项包含在项目中，使得其他用户或开发者可以轻松地复现项目环境。</li>
+</ul>
+</div></details>
+<blockquote>
+<p>特别注意：<br>
+局部安装需要将 Hexo 所在的目录下的 <code>node_modules中的.bin</code> 添加到环境变量 PATH 之中</p>
+</blockquote>
+</li>
+<li>
+<p>在<strong>安装文件夹</strong>（E:\Blog\Hexo-Blog）下新建一个文件夹为博客文件夹 blog，并初始化博客</p>
+ <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init blog     //初始化项目</span><br><span class="line">cd blog            //进入项目文件夹</span><br><span class="line">npm install        //安装相关依赖</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完成后我们打开 blog 文件夹：<br>
+scaffolds 是模板文件夹，创建新文章或者新页面时，Hexo 会根据此文件夹建立文件；<br>
+source 是资源文件夹；<br>
+themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
+</blockquote>
+<p>初始化后，目录结构如下：</p>
+ <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml      # 博客配置信息</span><br><span class="line">├── package.json     # 项目名称、描述、版本、运行和开发等信息</span><br><span class="line">├── scaffolds        # 生成文章的一些模板</span><br><span class="line">├── source           # 存放用户资源</span><br><span class="line">|   ├── _drafts</span><br><span class="line">└── _posts</span><br><span class="line">├── node_modules     # 依赖包</span><br><span class="line">└── themes           # 主题文件夹</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="将静态博客挂载到-GitHub">将静态博客挂载到 GitHub</h2>
+<ol>
+<li>
+<p>安装 hexo-deployer-git</p>
+<p><code>npm install hexo-deployer-git --save</code></p>
+</li>
+<li>
+<p>修改 _config.yml 文件</p>
+<p>在 blog 目录下的_config.yml，就是整个 Hexo 框架的配置文件了。可以在里面修改大部分的配置。详细可参考官方的 <a href="https://hexo.io/zh-cn/docs/configuration">配置描述</a>。<br>
+修改最后一行的配置，将 repository 修改为你自己的 github 项目地址即可。</p>
+<blockquote>
+<p>请检查自己的默认分支是不是 main</p>
+</blockquote>
+</li>
+<li>
+<p>部署项目到 GitHub</p>
+<p>修改好配置后，运行如下命令，将代码部署到 GitHub</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Hexo clean：删除之前生成的文件，若未生成过静态文件，可忽略此命令。</li>
+<li>Hexo generate：生成静态文章，可以用 hexo g 缩写</li>
+<li>Hexo deploy：部署文章，可以用 hexo d 缩写</li>
+</ul>
+<blockquote>
+<p>注意：deploy 时可能要输入 username 和 password</p>
+</blockquote>
+<p>如果出现 Deploy done，则说明部署成功了。</p>
+</li>
+</ol>
+<hr>
+<h2 id="安装-Butterfly-主题">安装 Butterfly 主题</h2>
+<blockquote>
+<p><a href="https://butterfly.js.org/posts/21cfbf15/">Butterfly 安裝文檔(一) 快速開始 | Butterfly</a></p>
+</blockquote>
+<ol>
+<li>
+<p>本人用的是 git clone 方式安装的 hexo-theme-butterfly</p>
+<p>在你的博客根目录里（本教程路径为【E:/Blog/Hexo-Blog/blog】），打开 Git 工具，执行命令即可。</p>
+<ul>
+<li>稳定版【建议】</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试版</li>
+</ul>
+<blockquote>
+<p>测试版可能存在 bug，追求稳定的请安装稳定版</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级方法：在主题目录下，运行 git pull</li>
+</ul>
+<blockquote>
+<p>注意：如果自己魔改了，谨慎升级</p>
+</blockquote>
+</li>
+<li>
+<p>应用主题</p>
+<p>修改 Hexo 根目录下的 _config.yml，把主题改为 butterfly<br>
+<code>theme: butterfly</code></p>
+</li>
+<li>
+<p>安装插件</p>
+<p>如果你没有 pug 以及 stylus 的渲染器，请下载安装：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>升级建议</p>
+<p>为了减少升级主题后带来的不便，请使用以下方法（建议，也可以不做）</p>
+<p>在 hexo 的根目录创建一个文件· <code>_config.butterfly.yml</code>，并把主题目录的 <code>_config.yml</code> 内容复制到 <code> _config.butterfly.yml</code> 去。( 注意: 复制的是主题的 <code>_config.yml</code> ，而不是 hexo 的 <code>_config.yml</code>)</p>
+<blockquote>
+<p>注意：不要把主题目录的 <code>_config.yml</code> 删掉</p>
+</blockquote>
+<blockquote>
+<p>注意： 以后只需要在 <code>_config. Butterfly.yml</code> 进行配置就行。<br>
+如果使用了 <code>_config. Butterfly.yml</code>，配置主题的 <code>_config.yml</code> 将不会有效果。</p>
+</blockquote>
+<p>Hexo 会自动合并主题中的 <code> _config.yml</code> 和 <code> _config.butterfly.yml</code> 里的配置，如果存在同名配置，会使用 <code>_config.butterfly.yml</code> 的配置，其优先度较高。</p>
+</li>
+</ol>
+<h2 id="美化">美化</h2>
+<ol>
+<li>
+<p>首先先按照官方文档进行一些基础设置和美化</p>
+<p><a href="https://butterfly.js.org/">Butterfly - A Simple and Card UI Design theme for Hexo</a></p>
+<blockquote>
+<p>官方文档中都有，按照顺序搞一遍进行了</p>
+</blockquote>
+</li>
+<li>
+<p>更多美化和魔改</p>
+<p>其实按照官方文档设置后差不多就可以了，想要更加花里胡哨的话，可以在此基础上添加其他的美化和魔改</p>
+<ul>
+<li>
+<p>我添加的美化和魔改：<a href="https://fkcc.me/2023/09/15/Butterfly-%E4%B8%80%E4%BA%9B%E9%AD%94%E6%94%B9%E7%BE%8E%E5%8C%96/">Butterfly 一些魔改美化 | Z の Blog (fkcc.me)</a></p>
+</li>
+<li>
+<p>我参考的：</p>
+</li>
+</ul>
+ <details class="toggle" ><summary class="toggle-button" style="">点击查看更多</summary><div class="toggle-content"><ol>
+<li>
+<p>参考比较多的</p>
+<ul>
+<li><a href="https://fe32.top/articles/hexo1606/#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E5%85%AC%E4%BC%97%E5%8F%B7">基于 Hexo 从零开始搭建个人博客（六） | 唐志远の博客</a></li>
+</ul>
+</li>
+<li>
+<p>其他</p>
+<ul>
+<li>
+<p><a href="https://akilar.top/">Akilarの糖果屋 - Akilar.top</a></p>
+</li>
+<li>
+<p><a href="https://yisous.xyz/">Ariasakaの小窝</a></p>
+</li>
+<li>
+<p><a href="https://9527zxl.github.io/2021/07/22/butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F/#%E9%A1%B5%E8%84%9A%E9%80%8F%E6%98%8E">butterfly主题魔改样式 | 从你的世界路过</a></p>
+</li>
+<li>
+<p><a href="https://code7rain.github.io/2022/11/19/Hexo%E4%B8%BB%E9%A2%98Butterfly%E9%85%8D%E7%BD%AE%E3%80%81%E8%B8%A9%E5%9D%91%E5%8F%8A%E9%AD%94%E6%94%B9/">Hexo主题Butterfly配置、踩坑及魔改 | CodeRain</a></p>
+</li>
+<li>
+<p><a href="https://qianchenggit.github.io/2021/10/19/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E9%AD%94%E6%94%B9/">自定义样式魔改 | QianChengGit の小森林</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106361169">butterfly外挂插件增强(超全)_butterfly插件_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/howareyou2104/article/details/106393184">手把手教你修改butterfly主题的样式_butrerfly主题background更换_会飞的小弋的博客-CSDN博客</a></p>
+</li>
+<li>
+<p><a href="https://lovelijunyi.gitee.io/posts/c898.html">小弋の生活馆全样式预览 | 小弋の生活馆</a></p>
+</li>
+<li>
+<p><a href="https://hr-insist.github.io/Hexo/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84Butterfly%E4%B8%BB%E9%A2%98%E7%9A%84%E6%89%80%E6%9C%89%E4%BC%98%E5%8C%96/">关于我的Butterfly主题的所有优化 | Modesty</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/csdn__cpp/article/details/110007453">在butterfly主题下如何配置加强版看板娘？-CSDN博客</a></p>
+</li>
+</ul>
+</li>
+</ol>
+</div></details>
+</li>
+</ol>
+<h2 id="参考">参考</h2>
+<p><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>Hexo</category>
+        <category>Butterfly</category>
+      </categories>
+      <tags>
+        <tag>Butterfly</tag>
+        <tag>美化</tag>
       </tags>
   </entry>
   <entry>
