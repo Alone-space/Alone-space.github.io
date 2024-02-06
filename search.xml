@@ -221,42 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cloudflare Workers反代系列</title>
-    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<blockquote>
-<p>未验证，待整理中</p>
-</blockquote>
-<h2 id="gh-proxy">gh-proxy</h2>
-<ul>
-<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
-</ul>
-<h2 id="jsdelivr">jsdelivr</h2>
-<ul>
-<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
-</ul>
-<p>bili33：</p>
-<ul>
-<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
-<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
-<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
-<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
-</ul>
-<h2 id="tg-bot-api">tg bot api</h2>
-<ul>
-<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Cloudflare</category>
-      </categories>
-      <tags>
-        <tag>Cloudflare</tag>
-        <tag>反代</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cloudflare Tunnels 免费内网穿透</title>
     <url>/2023/11/17/Cloudflare%20Tunnels%20%E5%85%8D%E8%B4%B9%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
     <content><![CDATA[<h2 id="方法一">方法一</h2>
@@ -401,6 +365,42 @@
         <tag>Cloudflare</tag>
         <tag>内网穿透</tag>
         <tag>Tunnels</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cloudflare Workers反代系列</title>
+    <url>/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<blockquote>
+<p>未验证，待整理中</p>
+</blockquote>
+<h2 id="gh-proxy">gh-proxy</h2>
+<ul>
+<li><a href="https://github.com/hunshcn/gh-proxy">GitHub - hunshcn/gh-proxy: github release、archive以及项目文件的加速项目</a></li>
+</ul>
+<h2 id="jsdelivr">jsdelivr</h2>
+<ul>
+<li><a href="https://blog.moeworld.tech/2022/06/18/%e4%bd%bf%e7%94%a8works%e6%90%ad%e5%bb%bajsdelivr%e9%95%9c%e5%83%8f%e7%ab%99/">使用Works搭建Jsdelivr镜像站 - 晓空blog</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1987458">使用Cloudflare Worker为jsDelivr搭建反向代理服务-腾讯云开发者社区-腾讯云</a></li>
+</ul>
+<p>bili33：</p>
+<ul>
+<li><a href="https://bili33.top/posts/vercel-reverse-proxy/">Vercel搭建反向代理 | GamerNoTitle</a></li>
+<li><a href="https://github.com/biliCDN/bilicdn.github.io">GitHub - biliCDN/bilicdn.github.io: 哔哩CDN：公益性的jsdelivr镜像源</a></li>
+<li><a href="https://bili33.top/posts/jsDelivr-Usage/">jsDelivr的正确打开方式 | GamerNoTitle</a></li>
+<li><a href="https://bili33.top/posts/Migrate-jsdelivr-mirror-to-Gcore/#%E6%88%98%E5%89%8D%E5%87%86%E5%A4%87">将jsdelivr镜像源迁移到Gcore —— Gcore CDN使用 | GamerNoTitle</a></li>
+</ul>
+<h2 id="tg-bot-api">tg bot api</h2>
+<ul>
+<li><a href="https://anerg.com/2022/07/25/reverse-proxy-telegram-bot-api-using-cloudflare-worker.html">使用Cloudflare Worker代理Telegram Bot Api – 废墟</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>Cloudflare</tag>
+        <tag>反代</tag>
       </tags>
   </entry>
   <entry>
@@ -712,250 +712,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
-<h3 id="while">while</h3>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="do-…-while">do … while</h3>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h3 id="注意">注意</h3>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h2 id="for-循环">for 循环</h2>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h2 id="break-与-continue">break 与 continue</h2>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="goto-语句">goto 语句</h2>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h2 id="关系运算符">关系运算符</h2>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h2 id="逻辑运算符">逻辑运算符</h2>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h2 id="位运算符">位运算符</h2>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
-<p><code>&gt;&gt;</code>            右移</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h2 id="特殊运算符">特殊运算符</h2>
-<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h3 id="复合运算符">复合运算符</h3>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h3 id="sizeof-运算符">sizeof 运算符</h3>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h3 id="return-运算符">return 运算符</h3>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="优先级与结合性">优先级与结合性</h3>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
-<h3 id="逗号表达式">逗号表达式</h3>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="指针入门">指针入门</h2>
@@ -1123,6 +879,309 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>常目标指针，在实际开发过程中比较常见，用来限制指针的权限为 <font color="#ff0000">只读</font></li>
 </ul>
 <p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nzcluo-1.webp" alt="C-pointer9"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h2 id="关系运算符">关系运算符</h2>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h2 id="位运算符">位运算符</h2>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
+<p><code>&gt;&gt;</code>            右移</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h2 id="特殊运算符">特殊运算符</h2>
+<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h3 id="复合运算符">复合运算符</h3>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h3 id="sizeof-运算符">sizeof 运算符</h3>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h3 id="return-运算符">return 运算符</h3>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="优先级与结合性">优先级与结合性</h3>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
+<h3 id="逗号表达式">逗号表达式</h3>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Github搭建免费图床</title>
+    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
+<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
+<h2 id="生成一个-Token">生成一个 Token</h2>
+<ol>
+<li>
+<p>点击右上角用户头像 -&gt; 选择 设置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
+</li>
+<li>
+<p>点击网站左侧的最下面的开发者设置</p>
+<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
+<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
+<blockquote>
+<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="配置-PicGo">配置 PicGo</h2>
+<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
+<blockquote>
+<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
+</blockquote>
+<ol>
+<li>
+<p>首先下载PicGo</p>
+<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
+<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
+</li>
+<li>
+<p>打开PicGo工具进行配置</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
+<ul>
+<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
+<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
+<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
+<li>设定 Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
+</ul>
+<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</li>
+</ol>
+<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>折腾</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
+<h3 id="while">while</h3>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="do-…-while">do … while</h3>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h2 id="for-循环">for 循环</h2>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h2 id="break-与-continue">break 与 continue</h2>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="goto-语句">goto 语句</h2>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -1356,65 +1415,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>利用Github搭建免费图床</title>
-    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
-<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
-<h2 id="生成一个-Token">生成一个 Token</h2>
-<ol>
-<li>
-<p>点击右上角用户头像 -&gt; 选择 设置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
-</li>
-<li>
-<p>点击网站左侧的最下面的开发者设置</p>
-<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
-<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
-<blockquote>
-<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="配置-PicGo">配置 PicGo</h2>
-<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
-<blockquote>
-<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
-</blockquote>
-<ol>
-<li>
-<p>首先下载PicGo</p>
-<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
-<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
-</li>
-<li>
-<p>打开PicGo工具进行配置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
-<ul>
-<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
-<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
-<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
-<li>设定 Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
-</ul>
-<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
-</li>
-</ol>
-<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>折腾</tag>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git配置多个github账号</title>
     <url>/2024/02/05/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/</url>
     <content><![CDATA[<h2 id="配置">配置</h2>
@@ -1531,11 +1531,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
         <tag>Git</tag>
         <tag>GitHub</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Linux 学习系列</title>
-    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hax&amp;Woiden</title>
@@ -1740,210 +1735,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       <tags>
         <tag>Hexo</tag>
         <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Ubuntu 美化</title>
-    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
-<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
-<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
-</ul>
-</blockquote>
-<h2 id="安装必要插件">安装必要插件</h2>
-<blockquote>
-<p>tweaks（优化）、extensions （扩展）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
-<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
-<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
-<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
-<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
-搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
-<h3 id="安装主题">安装主题</h3>
-<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
-<li>为所有用户安装：/usr/share/themes/</li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>进入主题目录，，执行如下命令进行主题安装。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>设置主题</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="安装图标">安装图标</h3>
-<ol>
-<li>
-<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
-<blockquote>
-<ul>
-<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
-<li>为所有用户安装：/usr/share/icons</li>
-</ul>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
-</li>
-<li>
-<p>应用主题和图标</p>
-<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
-</li>
-<li>
-<p>元素位置调整</p>
-<ul>
-<li>将标题栏的操作按钮从右侧移动到左侧</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
-<ul>
-<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
-<ul>
-<li>更换壁纸<br>
-<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
-</ul>
-</li>
-</ol>
-<h2 id="更多插件">更多插件</h2>
-<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
-<ul>
-<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
-<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
-<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
-<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
-<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
-版本不兼容，我没安装</li>
-</ul>
-<hr>
-<h2 id="终端美化：zsh">终端美化：zsh</h2>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
-<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
-</ul>
-</blockquote>
-<h3 id="安装-zsh">安装 zsh</h3>
-<p>macOS：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
-<p>ubuntu：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
-<p>ArchLinux/Manjaro：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
-<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
-<blockquote>
-<ul>
-<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
-<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
-<li>查看当前用户：<code>whoami</code></li>
-</ul>
-</blockquote>
-<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
-<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
-<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
-<p><mark>输入<code>q</code></mark></p>
-<ul>
-<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
-<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
-<li>输入输入 <code>1</code> 后，就开始进行配置</li>
-</ul>
-<blockquote>
-<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
-</blockquote>
-<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
-<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
-<blockquote>
-<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
-</blockquote>
-<p>①使用 curl 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>②或者使用 wget 下载脚本并安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
-<h3 id="配置-zsh">配置 zsh</h3>
-<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
-<p><strong>更换自带主题</strong>：<br>
-zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
-我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
-<h3 id="安装插件">安装插件</h3>
-<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
-<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
-<p>安装步骤：</p>
-<ol>
-<li>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
-</li>
-</ol>
-<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
-<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
-<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
-<h3 id="补充">补充</h3>
-<p>待写。。。</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程一：安装软件</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
       </tags>
   </entry>
   <entry>
@@ -2194,6 +1985,188 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
+    <title>Linux 学习系列</title>
+    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Ubuntu 美化</title>
+    <url>/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="主题优化">主题优化</h2>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/344554622">Gnome插件推荐 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/nineya_com/article/details/128244009">Ubuntu 22.04 桌面美化之Mac Big Sur风格_ubuntu美化mac-CSDN博客</a></li>
+<li><a href="https://www.bilibili.com/video/BV1LD4y1W7S6/?spm_id_from=333.337.search-card.all.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">将Ubuntu22.04美化为MacOs，Ubuntu+Mac=Ubunmac_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1G14y1J7b5/?spm_id_from=333.1007.0.0&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">手把手教你Ubuntu 22.10 桌面美化_哔哩哔哩_bilibili</a></li>
+<li><a href="https://yaozhijin.gitee.io/Ubuntu20-04%E7%BB%88%E6%9E%81%E7%BE%8E%E5%8C%96.html">Ubuntu20.04终极美化 - Tom的博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38263083/article/details/129529137">ubuntu22.04 安装优化（主题，软件，换源，插件扩展）_ubuntu主题怎么安装_灵泽~的博客-CSDN博客</a></li>
+</ul>
+</blockquote>
+<h2 id="安装必要插件">安装必要插件</h2>
+<blockquote>
+<p>tweaks（优化）、extensions （扩展）</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
+<p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
+<h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
+<p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
+搜索 User Themes 插件，点击进入插件界面进行安装。</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
+<h3 id="安装主题">安装主题</h3>
+<p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.themes</code>，将主题文件解压在此</li>
+<li>为所有用户安装：/usr/share/themes/</li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>进入主题目录，，执行如下命令进行主题安装。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./install.sh -t all -N glassy -s 220</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置主题</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./tweaks.sh -g</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="安装图标">安装图标</h3>
+<ol>
+<li>
+<p>Mac 图标下载地址： <a href="https://www.gnome-look.org/p/1400021">https://www.gnome-look.org/p/1400021</a></p>
+<blockquote>
+<ul>
+<li>为当前用户安装：在用户主目录创建 <code>.icons</code> 目录，将图标压缩包中的文件解压在此</li>
+<li>为所有用户安装：/usr/share/icons</li>
+</ul>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
+</li>
+<li>
+<p>应用主题和图标</p>
+<p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
+</li>
+<li>
+<p>元素位置调整</p>
+<ul>
+<li>将标题栏的操作按钮从右侧移动到左侧</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
+<ul>
+<li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
+<ul>
+<li>更换壁纸<br>
+<code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="更多插件">更多插件</h2>
+<p>进入 gnome 官网：<a href="https://extensions.gnome.org/">GNOME Shell Extensions</a></p>
+<ul>
+<li>blur my shell   —&gt;      抽屉界面爆玻璃效果</li>
+<li>Compiz windows effect（by hermes83 ）   —&gt;      窗口特效-移动</li>
+<li>Compiz alike magic lamp effect （by hermes83 ）   —&gt;      窗口特效-收起打开</li>
+<li>Coverflow Alt-Tab （by dsheeler ） —&gt;      窗口切换特效   （花里胡哨，没必要）</li>
+<li>NetSpeed （by hedayaty） —&gt;     上方状态栏显示网速，点击网速可以更换显示的内容<br>
+版本不兼容，我没安装</li>
+</ul>
+<hr>
+<h2 id="终端美化：zsh">终端美化：zsh</h2>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/441676276">zsh 安装与配置：9步打造高效命令行 - 知乎</a></li>
+<li><a href="https://www.bilibili.com/video/BV13P411v745/?spm_id_from=333.880.my_history.page.click&amp;vd_source=979e709fec527b7f08f5ef06efb9ff78">【Linux】从零开始的Ubuntu操作系统美化、优化、常用软件推荐_哔哩哔哩_bilibili</a></li>
+</ul>
+</blockquote>
+<h3 id="安装-zsh">安装 zsh</h3>
+<p>macOS：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+<p>ubuntu：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">sudo apt-get install zsh</span><br></pre></td></tr></table></figure>
+<p>ArchLinux/Manjaro：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>若你使用的是其他发行版本，则使用对应的包管理器安装即可。</p>
+<blockquote>
+<ul>
+<li>安装好后，可以使用 <code>cat /etc/shells</code> 查看系统可以用的 shell</li>
+<li>查看当前正在使用的 shell 的路径：<code>echo $SHELL</code></li>
+<li>查看当前用户：<code>whoami</code></li>
+</ul>
+</blockquote>
+<p>使用 <code>chsh -s /bin/zsh</code> 命令将 zsh 设置为系统默认 shell，然后注销登录一次，就生效了。</p>
+<p><mark>注意：</mark>只在普通用户下使用 <code>chsh -s /bin/zsh</code> 的话，root 用户还是默认的 Bash，在 root 用户下使用，它将应用于指定的用户以及其他用户。这将导致系统中的所有用户（包括普通用户和超级用户）的默认 shell 都变为 Zsh。</p>
+<p>第一次运行 zsh 时会进入如下的配置引导页面：<code>没截图</code></p>
+<p><mark>输入<code>q</code></mark></p>
+<ul>
+<li>输入 <code>q</code> 会直接退出配置引导，下一次运行 zsh 时会再次进入配置引导。</li>
+<li>输入 <code>0</code>，也会退出配置引导，但是会在当前用户目录生成一个空白的文件 <code>.zshrc</code>，下一次运行时就不会再进入配置引导。下一次运行时是否再进入配置引导，取决于用户目录下是否存在.zshrc 文件。</li>
+<li>输入输入 <code>1</code> 后，就开始进行配置</li>
+</ul>
+<blockquote>
+<p>由于 zsh 配置较为复杂，推荐使用下面配置管理工具 oh-my-zsh 来配置 zsh</p>
+</blockquote>
+<h3 id="安装-oh-my-zsh">安装 oh-my-zsh</h3>
+<p>官方地址：<a href="https://ohmyz.sh/">Oh My Zsh - a delightful &amp; open source framework for Zsh</a></p>
+<blockquote>
+<p>可添加 <a href="https://ghproxy.com/">GitHub Proxy 代理加速</a></p>
+</blockquote>
+<p>①使用 curl 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>②或者使用 wget 下载脚本并安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后同意使用 Oh-my-zsh 的配置模板覆盖已有的 <code>.zshrc</code>：</p>
+<h3 id="配置-zsh">配置 zsh</h3>
+<p>在 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a> 中查看内置的主题样式和对应的主题名。这些内置主题已经放在 <code>～/.oh-my-zsh/themes</code> 目录下（<code>~/</code> 表示当前用户的主目录），不需要再下载</p>
+<p><strong>更换自带主题</strong>：<br>
+zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.zshrc 里面改一行即可。<br>
+我这里为：<code>ZSH_THEME=&quot;sonicradish&quot;</code></p>
+<h3 id="安装插件">安装插件</h3>
+<h4 id="zsh-autosuggestions：命令提示">zsh-autosuggestions：命令提示</h4>
+<p><a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a> 是一个命令提示插件，，当你输入命令时，会自动推测你可能需要输入的命令，按下右键可以快速采用建议。</p>
+<p>安装步骤：</p>
+<ol>
+<li>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在 <code>.zshrc</code> 中，把 <code>zsh-autosuggestions</code> 加入插件列表：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插件之间使用空格隔开</span></span><br><span class="line">plugins=(</span><br><span class="line">        git zsh-autosuggestions zsh-syntax-highlighting</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开启新的 Shell 或执行 <code>source ~/.zshrc</code>，就可以开始体验插件。</p>
+</li>
+</ol>
+<h4 id="zsh-syntax-highlighting：高亮，语法校验">zsh-syntax-highlighting：高亮，语法校验</h4>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a> 是一个命令语法校验插件，在输入命令的过程中，若指令不合法，则指令显示为红色，若指令合法就会显示为绿色。</p>
+<p>把插件下载到本地的 <code>~/.oh-my-zsh/custom/plugins</code> 目录，其余命令和上面一样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h3 id="补充">补充</h3>
+<p>待写。。。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
     <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
     <content><![CDATA[<h2 id="前言">前言</h2>
@@ -2292,6 +2265,33 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
         <tag>Ubuntu</tag>
         <tag>VMware</tag>
         <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程一：安装软件</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%80%EF%BC%9A%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
       </tags>
   </entry>
   <entry>
@@ -2517,6 +2517,117 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 ]]></content>
   </entry>
   <entry>
+    <title>zram与swap交换内存</title>
+    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<h2 id="必看">必看</h2>
+<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
+<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
+<li>zram部分没用过，不知道，直接抄下来的</li>
+<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
+<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
+<li>一般来说，能不用swap更好</li>
+<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
+<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
+</ol>
+</div>
+<h3 id="zram">zram</h3>
+<h4 id="介绍">介绍</h4>
+<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
+<h4 id="创建zram交换分区">创建zram交换分区</h4>
+<ol>
+<li>
+<p>加载 zram 内核模块，并创建一个 zram设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭当前正在使用的 zram 设备。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重置 zram 设备，清除其中所有数据。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>格式化 zram 设备，以便将其用作交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
+<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
+</li>
+</ol>
+<h3 id="swap">swap</h3>
+<h4 id="介绍-2">介绍</h4>
+<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
+<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
+<h4 id="创建swap交换分区">创建swap交换分区</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建交换空间大小1G，可自行修改：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>授予权限</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启用交换内存</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>开机启用交换空间</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
+<ol>
+<li>
+<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>关闭要删除的交换分区。 运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
+</li>
+<li>
+<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
+<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
+</li>
+<li>
+<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h2 id="Git">Git</h2>
@@ -2602,7 +2713,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <h3 id="更换国内源">更换国内源</h3>
 <h4 id="更换-npm-源为淘宝镜像">更换 npm 源为淘宝镜像</h4>
 <blockquote>
-<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></p>
+<p>npm 默认的  registry ,也就是下载 npm 包时是从国外的服务器下载，国内很慢，一般都会指向淘宝 <a href="https://registry.npmmirror.com">https://registry.npmmirror.com</a></p>
 </blockquote>
 <ol>
 <li>
@@ -2611,7 +2722,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 </li>
 <li>
 <p>更换镜像为淘宝镜像</p>
-<p><code>npm config set registry https://registry.npm.taobao.org/</code></p>
+<p><code>npm config set registry https://registry.npmmirror.com</code></p>
 </li>
 </ol>
 <h4 id="全局安装基于淘宝源的-cnpm（可使用上面那个）">全局安装基于淘宝源的 cnpm（可使用上面那个）</h4>
@@ -2621,7 +2732,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <ol>
 <li>
 <p>全局安装基于淘宝源的 cnpm</p>
-<p><code>npm install -g cnpm --registry= https://registry.npm.taobao.org</code></p>
+<p><code>npm install -g cnpm --registry= https://registry.npmmirror.com</code></p>
 <p>下载完后，我们在本地就能看到 cnpm 模块, 在 node_modules 文件夹会出现一个名叫 cnpm 的文件夹</p>
 </li>
 <li>
@@ -2709,6 +2820,201 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       <tags>
         <tag>环境</tag>
         <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows 安装Git</title>
+    <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
+    <content><![CDATA[<h2 id="windows-安装">windows 安装</h2>
+<h3 id="官网下载安装包：-Git-Downloading-Package"><strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h3>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w19tn-1.webp" alt="git1"></p>
+<h3 id="安装："><strong>安装：</strong></h3>
+<h4 id="选择-Git-的安装路径：">选择 Git 的安装路径：</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w0tou-1.webp" alt="git2"></p>
+<h4 id="选择安装组件">选择安装组件</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y53pa-1.webp" alt="git3"></p>
+<ul>
+<li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
+<li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
+可以右键选择使用 Git Bash 和 Git GUI 两种方式的客户端</li>
+<li>Git LFS （Large File Support） 大文件支持，推荐勾选</li>
+<li>Associate .git* configuration files with the default text editor 关联.git 后缀文件，推荐勾选</li>
+<li>Associate .sh files to be run with Bash 关联<code>.sh</code> 文件，推荐勾选</li>
+<li>Check daily for Git for Windows updates 每天检查版本更新，不推荐勾选</li>
+<li>(NEW!) Add a Git Bash Profile to Windows Terminal 将 Git Bash 添加到 Windows Terminal 中推荐勾</li>
+<li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
+</ul>
+<h4 id="创建菜单文件夹">创建菜单文件夹</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y59st-1.webp" alt="git4"></p>
+<blockquote>
+<p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
+</blockquote>
+<h4 id="选择-Git-默认编辑器">选择 Git 默认编辑器</h4>
+<p>Git 安装程序里面内置了10种编辑器供你挑选，比如 Atom、Notepad、Notepad++、Sublime Text、Visual Studio Code、Vim 等等，默认的是 Vim ，选择 Vim 后可以直接进行到下一步，但是 Vim 是纯命令行，操作有点难度，需要学习。如果选其他编辑器，则还需要去其官网安装后才能进行下一步。</p>
+<blockquote>
+<p>本教程选择 Vim 编辑器</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y54jx-1.webp" alt="git5"></p>
+<h4 id="决定初始化新项目（仓库）的主干名字">决定初始化新项目（仓库）的主干名字</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y52s9-1.webp" alt="git6"></p>
+<blockquote>
+<p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
+</blockquote>
+<h4 id="调整你的-path-环境变量">调整你的 path 环境变量</h4>
+<ul>
+<li>第一种是仅从 Git Bash 使用 Git。这个的意思就是你只能通过 Git 安装后的 Git Bash 来使用 Git ，其他的什么命令提示符啊等第三方软件都不行。</li>
+<li>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</li>
+<li>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</li>
+</ul>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y50rg-1.webp" alt="git7"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
+</div></details>
+<h4 id="选择-SSH-执行文件">选择 SSH 执行文件</h4>
+<blockquote>
+<p>勾选默认即可</p>
+</blockquote>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y4taa-1.webp" alt="git8"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
+<h4 id="选择-HTTPS-后端传输">选择 HTTPS 后端传输</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y88zz-1.webp" alt="git9"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">    </span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
+<p>这两种选项有什么区别：<br>
+来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
+<blockquote>
+<p>如果在具有企业管理证书的组织中使用 Git，则将需要使用安全通道。如果你仅使用 Git 来访问公共存储库（例如 GitHub ），或者你的组织不管理自己的证书，那么使用 SSL 后端（它们只是同一协议的不同实现）就可以了。</p>
+</blockquote>
+<p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
+<h4 id="配置行尾符号转换">配置行尾符号转换</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyuj7-1.webp" alt="git10"></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>这三种选择分别是：</strong><br>
+<code>签出 Windows 样式，提交 Unix 样式的行结尾。</code><br>
+<code>按原样签出，提交Unix样式的行结尾。</code><br>
+<code>按原样签出，按原样提交。</code></p>
+</blockquote>
+<p><strong>更多：</strong></p>
+<p>那 Windows 样式和 Unix 样式到底有什么区别呢？引用《<a href="https://book.douban.com/subject/26462816/">GitHub入门与实践</a>》第 50 页内容</p>
+<blockquote>
+<p>GitHub 中公开的代码大部分都是以 Mac 或 Linux 中的 LF（Line Feed）换行。然而，由于 Windows 中是以 CRLF（Carriage Return+ Line Feed）换行的，所以在非对应的编辑器中将不能正常显示。<br>
+Git 可以通过设置自动转换这些换行符。使用 Windows 环境的各位，请选择推荐的 “Checkout Windows-style，commit Unix-style line endings” 选项。换行符在签出时会自动转换为 CRLF，在提交时则会自动转换为 LF .</p>
+</blockquote>
+<p>上面说 Mac 、Linux、Unix 的 Line Feed ，翻译过来就是换行符，用 “\n” 表示，换行符 “\n” 的 ASCII 值为 10；<br>
+Windows 的是 Carriage Return+ Line Feed（回车+换行），用 “\r\n” 表示，回车符 “\r” 的 ASCII 值为 13；<br>
+这上下两者是不一样的。<br>
+所以这就需要转换了，至于为什么选第一项？<br>
+这还用问吗？<strong><code>我们现在的教程就是介绍怎么安装 Windows 版 Git，肯定选第一项啦。</code></strong><br>
+至于 “回车”（carriage return）和 “换行”（line feed）这两个概念的来历和区别？<br>
+引用一下阮一峰老师博客的部分内容</p>
+<blockquote>
+<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打 10 个字符。但是它有一个问题，就是打字机打完一行换行的时候，要用去 0.2 秒，正好可以打两个字符。要是在这 0.2 秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做&quot;回车&quot;，告诉打字机把打印头定位在左边界；另一个叫做&quot;换行&quot;，告诉打字机把纸向下移一行。</p>
+</blockquote>
+<p>更多资料参考：<br>
+腾讯云 - 换行符‘\n’和回车符‘\r’的区别？[ <a href="https://cloud.tencent.com/developer/article/1353286">https://cloud.tencent.com/developer/article/1353286</a> ]<br>
+知乎 - 为什么会用\r\n 两个字符表示换行？[ <a href="https://www.zhihu.com/question/29326647">https://www.zhihu.com/question/29326647</a> ]<br>
+Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed">https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed</a> ]<br>
+点击 next 到下一步。</p>
+</div></details>
+<h4 id="配置终端模拟器以与-Git-Bash-一起使用">配置终端模拟器以与 Git Bash 一起使用</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyzl6-1.webp" alt="git11"></p>
+<ul>
+<li>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
+<li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
+<li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</li>
+</ul>
+<h4 id="选择默认的-“git-pull”-行为">选择默认的 “git pull” 行为</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y5xa4-1.webp" alt="git12"></p>
+<ul>
+<li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
+上面给了三个 “git pull” 的行为：
+<ul>
+<li>第一个是 merge</li>
+<li>第二个是 rebase</li>
+<li>第三个是直接获取</li>
+</ul>
+</li>
+<li>第一种 git pull = git fetch + git merge<br>
+第二种 git pull = git fetch + git rebase<br>
+第三种 git pull = git fetch ？(这个没试过，纯属猜测)</li>
+</ul>
+<blockquote>
+<p>一般默认选择第一项，git rebase 绝大部分程序员都用不好或者不懂，而且风险很大，但是很多会用的人也很推崇，但是用不好就是灾难。<br>
+Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是拉取远程分支，怎么合并，选择 merge 还是 rebase ，可以再做选择。</p>
+</blockquote>
+<details class="toggle" ><summary class="toggle-button" style="">点击查看更多参考资料</summary><div class="toggle-content"><ul>
+<li>知乎 - git pull 和 git fetch 的区别？ [ <a href="https://www.zhihu.com/question/38305012">https://www.zhihu.com/question/38305012</a> ]</li>
+<li>知乎 - 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ [ <a href="https://www.zhihu.com/question/36509119">https://www.zhihu.com/question/36509119</a> ]</li>
+<li>Stackoverflow - Why does git perform fast-forward merges by default? [ <a href="https://stackoverflow.com/questions/2850369">https://stackoverflow.com/questions/2850369</a> ]</li>
+<li>Stackoverflow - In git how is fetch different than pull and how is merge different than rebase? [ <a href="https://stackoverflow.com/questions/14894768/">https://stackoverflow.com/questions/14894768/</a> ]</li>
+<li>Stackoverflow - Difference between git pull and git pull --rebase [ <a href="https://stackoverflow.com/questions/18930527">https://stackoverflow.com/questions/18930527</a> ]</li>
+</ul>
+</div></details>
+<h4 id="选择一个凭证帮助程序">选择一个凭证帮助程序</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y656i-1.webp" alt="git13"></p>
+<p><strong>一共两个选项：</strong><br>
+<code>Git 凭证管理</code><br>
+<code>不使用凭证助手</code></p>
+<p>第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
+<h4 id="配置额外的选项">配置额外的选项</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y63fm-1.webp" alt="git14"></p>
+<p><strong>有两个选项：</strong><br>
+<code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
+启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
+<p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
+<h4 id="配置实验性选项">配置实验性选项</h4>
+<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y6y2b-1.webp" alt="git15"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
+点击 install 进行安装。</p>
+</blockquote>
+<h4 id="测试安装">测试安装</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看Git版本</span><br><span class="line">git version</span><br><span class="line"></span><br><span class="line"># 查看Git路径</span><br><span class="line">where git</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="将-git-与-GitHub-账号绑定">将 git 与 GitHub 账号绑定</h2>
+<ol>
+<li>
+<p>使用注册 <a href="https://github.com/">GitHub</a> 账户<br>
+选择免费账户（Free），并完成邮件验证。桌面鼠标右键 -&gt; 打开Git Bash Here</p>
+</li>
+<li>
+<p><strong>配置用户名和邮箱：</strong></p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;github 用户名&quot;</span><br><span class="line">git config --global user.email &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>创建 SSH 密匙</strong>：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成 ssh 密钥,输入下方命令，然后一路回车。</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>添加密匙：</strong></p>
+<ul>
+<li>一般执行上述命令之后，会生成 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，前者是我们私有的，而后者则是对外开放的。</li>
+<li>接着找到生成的 <code>.ssh</code> 的文件夹中的 id_rsa.pub 密钥。</li>
+<li>进入 C:\Users\用户名.ssh 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</li>
+<li>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。<br>
+即：<a href="https://github.com/settings/keys">Sign in to GitHub · GitHub</a></li>
+<li>选择 new ssh keys，创建一个新的 SSH key，填写 <code>Title</code> 和 <code>Key</code>。 <code>Title</code> 可以随意，而 <code>Key</code> 的内容则是我们刚才复制的 <code>id_rsa.pub</code> 中的内容，最后点击 <code>Add SSH key</code> 即可。</li>
+</ul>
+</li>
+<li>
+<p><strong>验证连接：</strong></p>
+<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。<br>
+显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+</li>
+</ol>
+<hr>
+<h2 id="参考文档">参考文档</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/607970211">Git安装全教程（Win11） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>软件与环境</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -2928,6 +3234,10 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
 </div></details>
 </li>
 </ol>
+<h2 id="更新（补充）">更新（补充）</h2>
+<p>Hexo 升级比较简单，老方法 <code>npm-check</code>、<code>npm-upgrade</code>、<code>npm-update</code> 一键三连。按以下顺序逐步执行完成后，Hexo 版本及系统插件均会升级到最新。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//以下指令均在Hexo目录下操作，先定位到Hexo目录，比如：cd E:/Blog/Hexo-Blog</span><br><span class="line">//注意一下命令为局部安装的命令</span><br><span class="line"></span><br><span class="line">//查看当前版本，判断是否需要升级</span><br><span class="line">&gt; hexo version</span><br><span class="line"></span><br><span class="line">//局部升级hexo</span><br><span class="line">&gt; npm install hexo</span><br><span class="line"></span><br><span class="line">//再次查看版本，看hexo是否升级成功</span><br><span class="line">&gt; hexo version</span><br><span class="line"></span><br><span class="line">//安装npm-check，若已安装可以跳过</span><br><span class="line">&gt; npm install npm-check</span><br><span class="line"></span><br><span class="line">//检查系统插件是否需要升级</span><br><span class="line">&gt; npm-check</span><br><span class="line"></span><br><span class="line">//安装npm-upgrade，若已安装可以跳过</span><br><span class="line">&gt; npm install npm-upgrade</span><br><span class="line"></span><br><span class="line">//更新package.json</span><br><span class="line">&gt; npm-upgrade</span><br><span class="line"></span><br><span class="line">//更新全局插件</span><br><span class="line">&gt; npm update</span><br><span class="line"></span><br><span class="line">//更新系统插件</span><br><span class="line">&gt; npm update --save</span><br><span class="line"></span><br><span class="line">//再次查看版本，判断是否升级成功</span><br><span class="line">&gt; hexo version</span><br></pre></td></tr></table></figure>
+<p>然后在到<code>cd E:/Blog/Hexo-Blog/blog</code>目录，运行<code>npm-check</code>、<code>npm-upgrade</code>、<code>npm update</code>、<code>npm update --save</code>，更新里面的插件</p>
 <h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://juejin.cn/post/6844904122353713165">使用 Hexo + GitHub + Netlify + Cloudflare 搭建个人博客 - 掘金</a></li>
@@ -2946,198 +3256,50 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
       </tags>
   </entry>
   <entry>
-    <title>windows 安装Git</title>
-    <url>/2023/10/17/%E5%AE%89%E8%A3%85Git/</url>
-    <content><![CDATA[<h2 id="windows-安装">windows 安装</h2>
-<h3 id="官网下载安装包：-Git-Downloading-Package"><strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h3>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w19tn-1.webp" alt="git1"></p>
-<h3 id="安装："><strong>安装：</strong></h3>
-<h4 id="选择-Git-的安装路径：">选择 Git 的安装路径：</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w0tou-1.webp" alt="git2"></p>
-<h4 id="选择安装组件">选择安装组件</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y53pa-1.webp" alt="git3"></p>
-<ul>
-<li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
-<li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
-可以右键选择使用 Git Bash 和 Git GUI 两种方式的客户端</li>
-<li>Git LFS （Large File Support） 大文件支持，推荐勾选</li>
-<li>Associate .git* configuration files with the default text editor 关联.git 后缀文件，推荐勾选</li>
-<li>Associate .sh files to be run with Bash 关联<code>.sh</code> 文件，推荐勾选</li>
-<li>Check daily for Git for Windows updates 每天检查版本更新，不推荐勾选</li>
-<li>(NEW!) Add a Git Bash Profile to Windows Terminal 将 Git Bash 添加到 Windows Terminal 中推荐勾</li>
-<li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
-</ul>
-<h4 id="创建菜单文件夹">创建菜单文件夹</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y59st-1.webp" alt="git4"></p>
-<blockquote>
-<p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
-</blockquote>
-<h4 id="选择-Git-默认编辑器">选择 Git 默认编辑器</h4>
-<p>Git 安装程序里面内置了10种编辑器供你挑选，比如 Atom、Notepad、Notepad++、Sublime Text、Visual Studio Code、Vim 等等，默认的是 Vim ，选择 Vim 后可以直接进行到下一步，但是 Vim 是纯命令行，操作有点难度，需要学习。如果选其他编辑器，则还需要去其官网安装后才能进行下一步。</p>
-<blockquote>
-<p>本教程选择 Vim 编辑器</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y54jx-1.webp" alt="git5"></p>
-<h4 id="决定初始化新项目（仓库）的主干名字">决定初始化新项目（仓库）的主干名字</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y52s9-1.webp" alt="git6"></p>
-<blockquote>
-<p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
-</blockquote>
-<h4 id="调整你的-path-环境变量">调整你的 path 环境变量</h4>
-<ul>
-<li>第一种是仅从 Git Bash 使用 Git。这个的意思就是你只能通过 Git 安装后的 Git Bash 来使用 Git ，其他的什么命令提示符啊等第三方软件都不行。</li>
-<li>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</li>
-<li>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y50rg-1.webp" alt="git7"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
-</div></details>
-<h4 id="选择-SSH-执行文件">选择 SSH 执行文件</h4>
-<blockquote>
-<p>勾选默认即可</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y4taa-1.webp" alt="git8"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
-<h4 id="选择-HTTPS-后端传输">选择 HTTPS 后端传输</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y88zz-1.webp" alt="git9"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">    </span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
-<p>这两种选项有什么区别：<br>
-来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
-<blockquote>
-<p>如果在具有企业管理证书的组织中使用 Git，则将需要使用安全通道。如果你仅使用 Git 来访问公共存储库（例如 GitHub ），或者你的组织不管理自己的证书，那么使用 SSL 后端（它们只是同一协议的不同实现）就可以了。</p>
-</blockquote>
-<p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
-<h4 id="配置行尾符号转换">配置行尾符号转换</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyuj7-1.webp" alt="git10"></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>这三种选择分别是：</strong><br>
-<code>签出 Windows 样式，提交 Unix 样式的行结尾。</code><br>
-<code>按原样签出，提交Unix样式的行结尾。</code><br>
-<code>按原样签出，按原样提交。</code></p>
-</blockquote>
-<p><strong>更多：</strong></p>
-<p>那 Windows 样式和 Unix 样式到底有什么区别呢？引用《<a href="https://book.douban.com/subject/26462816/">GitHub入门与实践</a>》第 50 页内容</p>
-<blockquote>
-<p>GitHub 中公开的代码大部分都是以 Mac 或 Linux 中的 LF（Line Feed）换行。然而，由于 Windows 中是以 CRLF（Carriage Return+ Line Feed）换行的，所以在非对应的编辑器中将不能正常显示。<br>
-Git 可以通过设置自动转换这些换行符。使用 Windows 环境的各位，请选择推荐的 “Checkout Windows-style，commit Unix-style line endings” 选项。换行符在签出时会自动转换为 CRLF，在提交时则会自动转换为 LF .</p>
-</blockquote>
-<p>上面说 Mac 、Linux、Unix 的 Line Feed ，翻译过来就是换行符，用 “\n” 表示，换行符 “\n” 的 ASCII 值为 10；<br>
-Windows 的是 Carriage Return+ Line Feed（回车+换行），用 “\r\n” 表示，回车符 “\r” 的 ASCII 值为 13；<br>
-这上下两者是不一样的。<br>
-所以这就需要转换了，至于为什么选第一项？<br>
-这还用问吗？<strong><code>我们现在的教程就是介绍怎么安装 Windows 版 Git，肯定选第一项啦。</code></strong><br>
-至于 “回车”（carriage return）和 “换行”（line feed）这两个概念的来历和区别？<br>
-引用一下阮一峰老师博客的部分内容</p>
-<blockquote>
-<p>在计算机还没有出现之前，有一种叫做电传打字机（Teletype Model 33）的玩意，每秒钟可以打 10 个字符。但是它有一个问题，就是打字机打完一行换行的时候，要用去 0.2 秒，正好可以打两个字符。要是在这 0.2 秒里面，又有新的字符传过来，那么这个字符将丢失。于是，研制人员想了个办法解决这个问题，就是在每行后面加两个表示结束的字符。一个叫做&quot;回车&quot;，告诉打字机把打印头定位在左边界；另一个叫做&quot;换行&quot;，告诉打字机把纸向下移一行。</p>
-</blockquote>
-<p>更多资料参考：<br>
-腾讯云 - 换行符‘\n’和回车符‘\r’的区别？[ <a href="https://cloud.tencent.com/developer/article/1353286">https://cloud.tencent.com/developer/article/1353286</a> ]<br>
-知乎 - 为什么会用\r\n 两个字符表示换行？[ <a href="https://www.zhihu.com/question/29326647">https://www.zhihu.com/question/29326647</a> ]<br>
-Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed">https://stackoverflow.com/questions/3091524/what-are-carriage-return-linefeed-and-form-feed</a> ]<br>
-点击 next 到下一步。</p>
-</div></details>
-<h4 id="配置终端模拟器以与-Git-Bash-一起使用">配置终端模拟器以与 Git Bash 一起使用</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyzl6-1.webp" alt="git11"></p>
-<ul>
-<li>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
-<li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
-<li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</li>
-</ul>
-<h4 id="选择默认的-“git-pull”-行为">选择默认的 “git pull” 行为</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y5xa4-1.webp" alt="git12"></p>
-<ul>
-<li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
-上面给了三个 “git pull” 的行为：
-<ul>
-<li>第一个是 merge</li>
-<li>第二个是 rebase</li>
-<li>第三个是直接获取</li>
-</ul>
-</li>
-<li>第一种 git pull = git fetch + git merge<br>
-第二种 git pull = git fetch + git rebase<br>
-第三种 git pull = git fetch ？(这个没试过，纯属猜测)</li>
-</ul>
-<blockquote>
-<p>一般默认选择第一项，git rebase 绝大部分程序员都用不好或者不懂，而且风险很大，但是很多会用的人也很推崇，但是用不好就是灾难。<br>
-Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是拉取远程分支，怎么合并，选择 merge 还是 rebase ，可以再做选择。</p>
-</blockquote>
-<details class="toggle" ><summary class="toggle-button" style="">点击查看更多参考资料</summary><div class="toggle-content"><ul>
-<li>知乎 - git pull 和 git fetch 的区别？ [ <a href="https://www.zhihu.com/question/38305012">https://www.zhihu.com/question/38305012</a> ]</li>
-<li>知乎 - 在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ [ <a href="https://www.zhihu.com/question/36509119">https://www.zhihu.com/question/36509119</a> ]</li>
-<li>Stackoverflow - Why does git perform fast-forward merges by default? [ <a href="https://stackoverflow.com/questions/2850369">https://stackoverflow.com/questions/2850369</a> ]</li>
-<li>Stackoverflow - In git how is fetch different than pull and how is merge different than rebase? [ <a href="https://stackoverflow.com/questions/14894768/">https://stackoverflow.com/questions/14894768/</a> ]</li>
-<li>Stackoverflow - Difference between git pull and git pull --rebase [ <a href="https://stackoverflow.com/questions/18930527">https://stackoverflow.com/questions/18930527</a> ]</li>
-</ul>
-</div></details>
-<h4 id="选择一个凭证帮助程序">选择一个凭证帮助程序</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y656i-1.webp" alt="git13"></p>
-<p><strong>一共两个选项：</strong><br>
-<code>Git 凭证管理</code><br>
-<code>不使用凭证助手</code></p>
-<p>第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
-<h4 id="配置额外的选项">配置额外的选项</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y63fm-1.webp" alt="git14"></p>
-<p><strong>有两个选项：</strong><br>
-<code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
-启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
-<p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
-<h4 id="配置实验性选项">配置实验性选项</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y6y2b-1.webp" alt="git15"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
-点击 install 进行安装。</p>
-</blockquote>
-<h4 id="测试安装">测试安装</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看Git版本</span><br><span class="line">git version</span><br><span class="line"></span><br><span class="line"># 查看Git路径</span><br><span class="line">where git</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="将-git-与-GitHub-账号绑定">将 git 与 GitHub 账号绑定</h2>
+    <title>记录使用Hexo时遇到的问题</title>
+    <url>/2023/10/17/%E8%AE%B0%E5%BD%95%E4%BD%BF%E7%94%A8Hexo%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题一：解决-ssh-connect-to-host-github-com-port-22-Connection-timed-out">问题一：解决 ssh: connect to host <a href="http://github.com">github.com</a> port 22: Connection timed out</h2>
 <ol>
 <li>
-<p>使用注册 <a href="https://github.com/">GitHub</a> 账户<br>
-选择免费账户（Free），并完成邮件验证。桌面鼠标右键 -&gt; 打开Git Bash Here</p>
+<p>问题</p>
+<blockquote>
+<p>在使用<code>hexo d</code>向GitHub上传代码时，出现错误（此前已经使用SSH的方式连接了GitHub仓库并且<code>hexo d</code>没问题）</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>首先输入以下命令检查<code>SSH</code>是否能够连接成功（ssh后面有空格）</p>
+</blockquote>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com   （或者ssh -vT git@github.com，即显示详细信息）</span><br></pre></td></tr></table></figure>
+<p>发现报错</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br></pre></td></tr></table></figure>
+<p>再使用下方命令，若成功，则使用下面的解决方法</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T -p 443 git@ssh.github.com</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p><strong>配置用户名和邮箱：</strong></p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;github 用户名&quot;</span><br><span class="line">git config --global user.email &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>解决方案<br>
+在C盘——用户——找到<code>.ssh</code>文件夹；（此前配置SSH时会生成该文件夹）<br>
+在<code>.ssh</code>文件夹中新建文件<code> config</code>，不带后缀（可以新建文本文档，去掉.txt后缀）<br>
+使用ndd–（或其他方式）打开<code>config</code>文件，输入以下内容，保存后即可</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User YourEmail（填你github注册邮箱）</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+<p>会出现提示后 ，输入yes回车即可，然后再次执行<code>ssh -T git@github.com</code>，发现验证通过</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hi xxx! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p><strong>创建 SSH 密匙</strong>：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#生成 ssh 密钥,输入下方命令，然后一路回车。</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;github 注册邮箱&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>添加密匙：</strong></p>
+<p>参考：</p>
 <ul>
-<li>一般执行上述命令之后，会生成 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 两个文件，前者是我们私有的，而后者则是对外开放的。</li>
-<li>接着找到生成的 <code>.ssh</code> 的文件夹中的 id_rsa.pub 密钥。</li>
-<li>进入 C:\Users\用户名.ssh 目录（要勾选显示“隐藏的项目”），用记事本打开公钥 id_rsa.pub 文件并复制里面的内容。</li>
-<li>登陆 GitHub ，进入 Settings 页面，选择左边栏的 SSH and GPG keys，点击 New SSH key。<br>
-即：<a href="https://github.com/settings/keys">Sign in to GitHub · GitHub</a></li>
-<li>选择 new ssh keys，创建一个新的 SSH key，填写 <code>Title</code> 和 <code>Key</code>。 <code>Title</code> 可以随意，而 <code>Key</code> 的内容则是我们刚才复制的 <code>id_rsa.pub</code> 中的内容，最后点击 <code>Add SSH key</code> 即可。</li>
+<li><a href="https://www.cnblogs.com/tsalita/p/16181711.html">SSH：连接到主机github.com端口22：连接时间超时 - 天使阿丽塔 - 博客园 (cnblogs.com)</a></li>
+<li><a href="https://segmentfault.com/a/1190000040896781">解决 ssh: connect to host github.com port 22: Connection timed out - the_blog - SegmentFault 思否</a></li>
 </ul>
-</li>
-<li>
-<p><strong>验证连接：</strong></p>
-<p>打开 Git Bash，输入 <code>ssh -T git@github.com</code> 出现 “Are you sure……”，输入 yes 回车确认。<br>
-显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
 </li>
 </ol>
-<hr>
-<h2 id="参考文档">参考文档</h2>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/607970211">Git安装全教程（Win11） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装_mukes的博客-CSDN博客</a></li>
-</ul>
+<h2 id="其他">其他</h2>
 ]]></content>
       <categories>
-        <category>笔记</category>
-        <category>软件与环境</category>
+        <category>教程</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -3207,164 +3369,6 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       <tags>
         <tag>折腾</tag>
         <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>zram与swap交换内存</title>
-    <url>/2023/10/31/zram%E4%B8%8Eswap%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<h2 id="必看">必看</h2>
-<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><ol>
-<li>本篇文章是结合chatgpt所写,不保证正确性。</li>
-<li>zram部分没用过，不知道，直接抄下来的</li>
-<li>swap已使用，并成功，但是”删除swap交换分区“这一部分没用过</li>
-<li>本教程操作设备为刷了debian的随机WiFi棒子</li>
-<li>一般来说，能不用swap更好</li>
-<li>zram读写速度快于swap，因为它将内存中的数据进行压缩，可以节省 I/O 操作时间和磁盘空间。</li>
-<li>zram适合用于内存较小的系统或者需要频繁使用交换分区的场合，因为它可以在不占用额外磁盘空间的情况下提供更多的虚拟内存。而 swap 则适用于具有大量磁盘空间但内存较少的系统，或者需要在磁盘上保留一定的空间以供其他用途的场合。</li>
-</ol>
-</div>
-<h3 id="zram">zram</h3>
-<h4 id="介绍">介绍</h4>
-<p>zram 是一种基于内存压缩技术的交换空间，它将一部分空闲物理内存作为交换空间，并将其中的数据进行压缩，从而更高效地使用内存。与传统的 swap 分区不同，zram 使用的是内存而不是硬盘，因此其读写速度比 swap 分区更快。并且 zram 压缩技术可以在不降低系统性能的情况下提供更多的可用内存。</p>
-<h4 id="创建zram交换分区">创建zram交换分区</h4>
-<ol>
-<li>
-<p>加载 zram 内核模块，并创建一个 zram设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo modprobe zram num_devices=1</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>将 zram 设备上的压缩算法设置为 LZ4，这是一种高效的压缩算法，可以提高交换空间的性能。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo lz4 | sudo tee /sys/block/zram0/comp_algorithm</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>调整系统的缺省换页策略（swappiness），将其设置为10，这意味着系统更倾向于使用物理内存而不是交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭当前正在使用的 zram 设备。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>重置 zram 设备，清除其中所有数据。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo zramctl --reset /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>格式化 zram 设备，以便将其用作交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mkswap /dev/zram0</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>打开 zram 设备，并将其设置为默认的交换空间。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon /dev/zram0</span><br></pre></td></tr></table></figure>
-<p>这里使用了 lz4 压缩算法，并将 num_devices 参数设置为 1。如果需要更多的设备，可以适当调整该参数。</p>
-</li>
-</ol>
-<h3 id="swap">swap</h3>
-<h4 id="介绍-2">介绍</h4>
-<p>Swap 是将部分物理内存空间暂时移动到硬盘上的交换空间。当物理内存不足时，系统将不经常使用的数据转移到 swap 分区中，以便为当前运行的程序提供更多的物理内存。Swap 使用。硬盘作为存储介质，因此其速度相对较慢。而且当交换频繁发生时，也容易降低系统的性能和响应速度。会减小硬盘的寿命。</p>
-<p><strong>所以把swap优先级放在zram后面，即先使用zram，再使用swap。（数字越大，优先级越高，越先使用）</strong></p>
-<h4 id="创建swap交换分区">创建swap交换分区</h4>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>创建交换空间大小1G，可自行修改：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo fallocate -l 1G /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>授予权限</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">chmod 600 /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启用交换内存</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkswap /swapfile</span><br><span class="line">swapon /swapfile</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>交换空间使用权重，即优先级（随便，越大越靠前，越先使用）</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sysctl vm.swappiness=100</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>开机启用交换空间</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo &#x27;/swapfile swap swap defaults 0 0&#x27; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="删除swap交换分区（没用过）">删除swap交换分区（没用过）</h4>
-<ol>
-<li>
-<p>此命令将显示当前正在使用的所有交换分区及其相关信息，包括标签和 UUID。</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>关闭要删除的交换分区。 运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -L &#123;swap_label&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_label}” 替换为要删除的交换分区的标签。 如果您知道它的 UUID，请使用以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo swapoff -U &#123;swap_uuid&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_uuid}” 替换为要删除的交换分区的 UUID。</p>
-</li>
-<li>
-<p>删除交换分区文件。如果您使用的是文件作为交换分区的话，运行以下命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm &#123;swap_file&#125;</span><br></pre></td></tr></table></figure>
-<p>将 “{swap_file}” 替换为包含交换分区的文件路径和名称。</p>
-</li>
-<li>
-<p>更新 /etc/fstab 文件。 打开 /etc/fstab 文件，并找到包含要删除的交换分区的行。 在此行上添加 “#” 符号（无引号），以将其注释掉，或者直接将该行从文件中删除。 保存更改。完成以上步骤后，即可成功删除指定的交换分区。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录使用Hexo时遇到的问题</title>
-    <url>/2023/10/17/%E8%AE%B0%E5%BD%95%E4%BD%BF%E7%94%A8Hexo%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题一：解决-ssh-connect-to-host-github-com-port-22-Connection-timed-out">问题一：解决 ssh: connect to host <a href="http://github.com">github.com</a> port 22: Connection timed out</h2>
-<ol>
-<li>
-<p>问题</p>
-<blockquote>
-<p>在使用<code>hexo d</code>向GitHub上传代码时，出现错误（此前已经使用SSH的方式连接了GitHub仓库并且<code>hexo d</code>没问题）</p>
-</blockquote>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>首先输入以下命令检查<code>SSH</code>是否能够连接成功（ssh后面有空格）</p>
-</blockquote>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com   （或者ssh -vT git@github.com，即显示详细信息）</span><br></pre></td></tr></table></figure>
-<p>发现报错</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br></pre></td></tr></table></figure>
-<p>再使用下方命令，若成功，则使用下面的解决方法</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T -p 443 git@ssh.github.com</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>解决方案<br>
-在C盘——用户——找到<code>.ssh</code>文件夹；（此前配置SSH时会生成该文件夹）<br>
-在<code>.ssh</code>文件夹中新建文件<code> config</code>，不带后缀（可以新建文本文档，去掉.txt后缀）<br>
-使用ndd–（或其他方式）打开<code>config</code>文件，输入以下内容，保存后即可</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User YourEmail（填你github注册邮箱）</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
-<p>会出现提示后 ，输入yes回车即可，然后再次执行<code>ssh -T git@github.com</code>，发现验证通过</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hi xxx! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.cnblogs.com/tsalita/p/16181711.html">SSH：连接到主机github.com端口22：连接时间超时 - 天使阿丽塔 - 博客园 (cnblogs.com)</a></li>
-<li><a href="https://segmentfault.com/a/1190000040896781">解决 ssh: connect to host github.com port 22: Connection timed out - the_blog - SegmentFault 思否</a></li>
-</ul>
-</li>
-</ol>
-<h2 id="其他">其他</h2>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
