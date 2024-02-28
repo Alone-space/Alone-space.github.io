@@ -440,6 +440,250 @@
       </tags>
   </entry>
   <entry>
+    <title>C语言学习三：控制流</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
+<ul>
+<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
+<li>语法：
+<ul>
+<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
+<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark><br>
+if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
+<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
+<ul>
+<li>逻辑： 根据不同的条件来执行不同的代码块</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
+<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
+<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
+<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
+</ul>
+<h2 id="const">const</h2>
+<p>用来修饰一个变量使之不可被修改</p>
+<ul>
+<li>
+<p>作用：</p>
+<ul>
+<li>修饰变量： 使得变量不能被修改</li>
+<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
+<h3 id="while">while</h3>
+<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="do-…-while">do … while</h3>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
+<h3 id="注意">注意</h3>
+<ul>
+<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
+<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
+<li>while(num); --&gt; 空循环这个分号要慎重</li>
+<li>do… While (num) ; 这个分号不能丢</li>
+</ul>
+<h2 id="for-循环">for 循环</h2>
+<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>初始化语句只会被执行一次</li>
+<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
+<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
+<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
+<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
+<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
+</ul>
+<h2 id="break-与-continue">break 与 continue</h2>
+<ul>
+<li>break: 跳出循环结构 / 跳出当前层的循环</li>
+<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="goto-语句">goto 语句</h2>
+<p>逻辑： 无条件跳转<br>
+语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>标签后面有个冒号 <code>:</code></li>
+<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
+<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言学习二：运算符</title>
+    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
+<p><code>+</code>                加法运算，一目取正<br>
+<code>-</code>                减法运算，一目取负<br>
+<code>*</code>                乘法运算<br>
+<code>/</code>                除法运算<br>
+<code>%</code>                取模（求余）<br>
+<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
+<code>--</code>              自减 1</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
+<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
+<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
+<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
+<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
+<h2 id="关系运算符">关系运算符</h2>
+<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
+<code>&lt;</code>           小于<br>
+<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
+<code>&lt;=</code>         小于等于<br>
+<code>==</code>         等于                     a == b 判断是否相等<br>
+<code>！=</code>        不等于                 a != b 判断是否不相等</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
+<li>关系运算符的表达式值为布尔值</li>
+<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
+</ul>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
+<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
+<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
+</li>
+<li>
+<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
+<h2 id="位运算符">位运算符</h2>
+<p><code>~</code>             位逻辑反</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
+<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
+<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
+<p><code>&lt;&lt;</code>            左移</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
+<p><code>&gt;&gt;</code>            右移</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
+<p><mark>注意：</mark></p>
+<ul>
+<li>
+<p>位运算符操作的是操作数的每一个二进制位</p>
+</li>
+<li>
+<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
+</li>
+<li>
+<p>异或运算，相同得 0 ，不同得1</p>
+</li>
+<li>
+<p>位移，移出去的丢弃，空出来的补0<br>
+如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
+</li>
+</ul>
+<h2 id="特殊运算符">特殊运算符</h2>
+<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
+<ul>
+<li>
+<p>左值不能是常量 ,比如100 = a ；</p>
+</li>
+<li>
+<p>不能直接对数组赋值</p>
+</li>
+<li>
+<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
+<h3 id="复合运算符">复合运算符</h3>
+<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
+<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
+<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
+<ul>
+<li>唯一一个需要三个操作数的运算符（表达式）</li>
+<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
+<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
+<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
+<h3 id="sizeof-运算符">sizeof 运算符</h3>
+<blockquote>
+<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
+<h3 id="return-运算符">return 运算符</h3>
+<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
+<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="优先级与结合性">优先级与结合性</h3>
+<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
+<p>优先级：<code>man operator</code><br>
+<img src="https://tc.381183.xyz/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
+<h3 id="逗号表达式">逗号表达式</h3>
+<blockquote>
+<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
+<p><mark>注意：</mark></p>
+<ul>
+<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
+<li>整个表达式的值取决于最后一个表达式的值</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习一：数据类型</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h2 id="数据类型">数据类型</h2>
@@ -503,7 +747,7 @@
 <p>用于计算变量/类型的大小。</p>
 </blockquote>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int a=123;</span><br><span class="line">printf(&quot;sizeof(short):%ld\n&quot;,sizeof(short));</span><br><span class="line">printf(&quot;sizeof(int):%ld\n&quot;,sizeof(int));</span><br><span class="line">printf(&quot;sizeof(long):%ld\n&quot;,sizeof(long));</span><br><span class="line">printf(&quot;sizeof(long long):%ld\n&quot;,sizeof(long long));</span><br><span class="line">&#125;</span><br><span class="line">//注意括号内部可以写变量类型， 也可以写变量名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">sizeof(a):4</span><br><span class="line">sizeof(short):2</span><br><span class="line">sizeof(int):4</span><br><span class="line">sizeof(long):8</span><br><span class="line">sizeof(long long):8</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/119edfv-1.webp" alt="C-type1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/119edfv-1.webp" alt="C-type1"></p>
 <blockquote>
 <p>在 32 位平台下，int 型和 long 型是一致的，都是占用 4 个字节。Long long 是 8 个字节。<br>
 在 64 位平台下，int 型是占用 4 个字节，而 long 和 long long 都是占用 8个字节的。<br>
@@ -538,7 +782,7 @@
 </ul>
 </blockquote>
 <p>IEEE 浮点标准采用如下形式来表示一个浮点数</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/119eldv-1.webp" alt="C-type2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/119eldv-1.webp" alt="C-type2"></p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">float f = 3.14; // 浮点数3.14 通过以上公式计算得到的二进制码，存放在在内存f中</span><br><span class="line">printf(&quot;f:%f\n&quot;,f); // 使用浮点的计算方法来解析内存f中的值(二进制)</span><br><span class="line">printf(&quot;d:%d\n&quot;,f);// 直接使用整型的计算方法来直接解析内存f 中的值 (二进制)</span><br></pre></td></tr></table></figure>
 <p>虽然所有的数据都会被转换成二进制进行存储，但如果想到的到正确的数据，必须使用正确的理解方式（类型），来解析二进制数据。所以不能用%d</p>
 </li>
@@ -585,12 +829,12 @@
 <blockquote>
 <p>以上语句其实是把一个字符串常量 “Hello” ，复制到数组 s1 所代表的内存当中</p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/119ecv5-1.webp" alt="C-type3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/119ecv5-1.webp" alt="C-type3"></p>
 </li>
 <li>
 <p>指针 （只读）：（指向）</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char *s2 = &quot;Even&quot;; // 使用一个指针来指向常量字符串</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/119e6fa-1.webp" alt="C-type4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/119e6fa-1.webp" alt="C-type4"></p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s1[] = &quot;abc&quot;;</span><br><span class="line">    char *s2=&quot;def&quot;;</span><br><span class="line">    printf(&quot;%s %s\n&quot;,s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//输出结果</span><br><span class="line">abc def</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -748,250 +992,6 @@ Long 的长度等于系统的字长（系统位数，比如 32 位，64 位）</
       </tags>
   </entry>
   <entry>
-    <title>C语言学习三：控制流</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%89%EF%BC%9A%E6%8E%A7%E5%88%B6%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="二路分支-：if-语句">二路分支 ：if 语句</h2>
-<ul>
-<li>逻辑： 程序中某一段代码需要满足一定的条件才会被执行</li>
-<li>语法：
-<ul>
-<li>if 语句： 表达一种，如果条件满足则执行某个代码块</li>
-<li>if-else 语句： 表达一种，如果条件将满足则执行某个代码块否则执行另外一个代码块</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//if 语句：</span><br><span class="line">int a = 100 ;</span><br><span class="line">if ( a &gt; 100 )//判断条件</span><br><span class="line">&#123;</span><br><span class="line">/* 如果满足则执行该代码块 */</span><br><span class="line">printf(&quot;啊啊啊！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if ‐ else 语句</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// if‐ esle if ‐ esle if ‐ else</span><br><span class="line">if (a &lt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;啊啊啊！！！\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else if (a &gt; 99 )</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;哦哦哦！！！\n&quot;);</span><br><span class="line">&#125;else</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;噢噢噢！！！\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark><br>
-if 语句可以单独使用，但是 else 不可以单独使用，必须在 if 后面配套使用，不管是 if 还是 else ，都建议给他们配一对大括号 { } ，否则需要注意，只能识别 if / esle 后面的第一个逻辑行的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if (a &gt; 1)</span><br><span class="line">printf(&quot;Hello\n&quot;); // if的第一个逻辑行，能识别</span><br><span class="line">else</span><br><span class="line">printf(&quot;hi\n&quot;);// else 的第一个逻辑行，能识别</span><br><span class="line">printf(&quot;abc\n&quot;); // 注意此行代码已经不在else的管辖范围内，不能识别</span><br></pre></td></tr></table></figure>
-<h2 id="多路分支：switch-case">多路分支：switch-case</h2>
-<ul>
-<li>逻辑： 根据不同的条件来执行不同的代码块</li>
-<li>语法：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch (表达式&lt;判断的条件&gt;)</span><br><span class="line">&#123;</span><br><span class="line">case &lt;常量1&gt; :</span><br><span class="line">// 代码块 1</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量2&gt; :</span><br><span class="line">// 代码块 2</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">case &lt;常量3&gt; :</span><br><span class="line">// 代码块 3</span><br><span class="line">break ;</span><br><span class="line"></span><br><span class="line">default :</span><br><span class="line">// 代码块 N</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int num = 0;</span><br><span class="line">printf(&quot;请输入数字\n&quot;);</span><br><span class="line">scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">switch (num)</span><br><span class="line">&#123;</span><br><span class="line">case 1:</span><br><span class="line">    printf(&quot;啊\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">case 2:</span><br><span class="line">    printf(&quot;哦\n&quot;);</span><br><span class="line">    break;</span><br><span class="line"></span><br><span class="line">case 3:</span><br><span class="line">    printf(&quot;噢\n&quot;);</span><br><span class="line">    break;</span><br><span class="line">  </span><br><span class="line">default:</span><br><span class="line">    printf(&quot;咦\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>switch(num )语句中的 num , 它必须是一个整型的表达式，也就是所switch 只能判断整型的数据</li>
-<li>case 语句中的必须是整型常量，包括普通的<font color="#ff0000">字符</font>。不包括被 const 修改的整型数据</li>
-<li>break 用来中断/跳出当前的循环。如果没有则会从条件满足的语句开始一条一条的往下执行，直到整个switch - case 结束或者遇到其它代码块中的break</li>
-<li>default 并不是必须存在，它一般放在最后面，用来提示用户表示都不满足以上条件。由于在最后面可以不添加 break</li>
-</ul>
-<h2 id="const">const</h2>
-<p>用来修饰一个变量使之不可被修改</p>
-<ul>
-<li>
-<p>作用：</p>
-<ul>
-<li>修饰变量： 使得变量不能被修改</li>
-<li>修饰指针：使得指针的指向不能改变或者指针所指向的内容不得改变</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int const a = 100 ; // 定义了一个不可被修改的变量a</span><br><span class="line">const int b = 200;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = 300 ; // 错误 assignment of read‐only variable ‘a’</span><br><span class="line">b = 250 ; // 错误 assignment of read‐only variable ‘a’</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="while-和-do…while-循环">while 和 do…while 循环</h2>
-<h3 id="while">while</h3>
-<p>逻辑： 使得程序中某一端代码块重复循环执行。<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while( 表达式 )</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115vgff-1.webp" alt="C-control1"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while(num) // 非零则真 （布尔值）</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num‐‐ );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="do-…-while">do … while</h3>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;while(表达式);</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115uyng-1.webp" alt="C-control2"></p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">do</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;num:%d\n&quot; , num-- );</span><br><span class="line">&#125; while (num);</span><br></pre></td></tr></table></figure>
-<h3 id="注意">注意</h3>
-<ul>
-<li>wehile 循环先进行判断而且条件为真，然后再执行代码块（有可能一次都不执行）</li>
-<li>do … while 则是先执行一次代码块，然后再判断条件是否成立（最少会执行一次代码块）</li>
-<li>while(num); --&gt; 空循环这个分号要慎重</li>
-<li>do… While (num) ; 这个分号不能丢</li>
-</ul>
-<h2 id="for-循环">for 循环</h2>
-<p>逻辑： 与 while 类似，都是让程序中某一段代码块重复运行，但是 for 相对与 while 来说更加紧凑。把所有的循环控制都集中到一行代码中</p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for(初始化语句 ; 判断语句 ; 表达式 (一般用于自加/自减))</span><br><span class="line">&#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (size_t i = 0; i &lt; num ; ++i)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%ld\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (;;) // 相当与 while(1)死循环</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;i:%d\n&quot; , i );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>初始化语句只会被执行一次</li>
-<li>第三个表达式 <code>++i</code> 再第一次循环的时候并没有被执行</li>
-<li>第三个表达式中前缀/后缀并不影响 <code>i</code> 再循环中取值的先后</li>
-<li>for 循环语句中，三个表达式都可以省略，但是分号<font color="#ff0000">必须</font>留下</li>
-<li>for 循环语句中，三个表达式中间用分号来隔开 ;</li>
-<li>在 for 循环中直接定义并初始化只在 C99的编译规则下可以这么干，所以可以添加 <code>-std=c 99</code> 或者 <code>-std=gnu 99</code></li>
-</ul>
-<h2 id="break-与-continue">break 与 continue</h2>
-<ul>
-<li>break: 跳出循环结构 / 跳出当前层的循环</li>
-<li>continue : 结束当前这一次循环，重新进入下一次的循环</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (int i = 0; i &lt; num; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    while (1) // 在循环体内部可以嵌套其它的循环</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;啊！\n&quot;);</span><br><span class="line">        break; // 跳出while这一层循环， 并不影响外面的for循环</span><br><span class="line">    &#125;</span><br><span class="line">    if (i == 5)</span><br><span class="line">    &#123;</span><br><span class="line">        continue; // 跳过当前这一次循环， 导致后面的代码在当次循环中不执行</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;i:%d\n&quot;, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="goto-语句">goto 语句</h2>
-<p>逻辑： 无条件跳转<br>
-语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">标签：</span><br><span class="line">//代码块</span><br><span class="line"></span><br><span class="line">goto 标签;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    int num = 0;</span><br><span class="line">    printf(&quot;请输入数字\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;num);</span><br><span class="line">    while (getchar() != &#x27;\n&#x27;); // 清空标准输入缓冲区</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    for (int i = 0; i &lt; num; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        goto baioqian; // 无条件跳转到标签为 baioqian 的位置</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">baioqian:</span><br><span class="line">    printf(&quot;这里是标签的位置!!!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>标签后面有个冒号 <code>:</code></li>
-<li>goto 语句是一个无条件跳转的语句，不利于程序的可读性，一般不建议使用</li>
-<li>goto 语句一般出现在驱动比较多，用来处理严重的错误，并退出</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言学习二：运算符</title>
-    <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9A%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
-    <content><![CDATA[<h2 id="算术运算符">算术运算符</h2>
-<p><code>+</code>                加法运算，一目取正<br>
-<code>-</code>                减法运算，一目取负<br>
-<code>*</code>                乘法运算<br>
-<code>/</code>                除法运算<br>
-<code>%</code>                取模（求余）<br>
-<code>++</code>              自加 1                             a++（再参与表达式的运算，在自加） , ++a （先自加）<br>
-<code>--</code>              自减 1</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>减号也是一个负号表示取反， a = -100 , -a -&gt; 100</li>
-<li>取模运算的左右两个操作数必须是<font color="#ff0000">整型的</font>  （5%3）</li>
-<li>自加，自减既可以操作<font color="#ff0000">整型</font>也可以操作<font color="#ff0000">浮点</font>，也可以操作<font color="#ff0000">指针</font></li>
-<li>前缀（++a） ： 先进行自加/自减的运算，然后再参与表达式的运算</li>
-<li>后缀（a++）： 先参与表达式的运算，然后再进行自加/自减的运算</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int c = 3 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;5/3 = %d , 5%%3 = %d \n &quot; ,a/c , a%c);     //两个%%---&gt;防止识别为格式控制符</span><br><span class="line"></span><br><span class="line">printf(&quot;a++:%d\n&quot;, a++); // 5 --&gt;先打印5，在加一为6</span><br><span class="line">printf(&quot;++a:%d\n&quot;, ++a); // 7 --&gt;经过上面a++后a已经变成了6，这一步先加一变成7，在打印</span><br></pre></td></tr></table></figure>
-<h2 id="关系运算符">关系运算符</h2>
-<p><code>&gt;</code>           大于                     a&gt; b 判断 a 是否大于 b ，该表达式的值为布尔值<br>
-<code>&lt;</code>           小于<br>
-<code>&gt;=</code>         大于等于              a &gt;= b 判断 a 是否大于或者等于 b , 该表达式的值为布尔值（表达式中<font color="#ff0000">只要</font>a 是大于<font color="#ff0000">或者</font>等于b 表达式都为真）<br>
-<code>&lt;=</code>         小于等于<br>
-<code>==</code>         等于                     a == b 判断是否相等<br>
-<code>！=</code>        不等于                 a != b 判断是否不相等</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>判断两个数是否相等使用的<code>==</code>, 是两个等号，而不是一个</li>
-<li>关系运算符的表达式值为布尔值</li>
-<li>在数学中 100&lt; a &lt;200 , 在代码中需要拆开 ， a &gt; 100 &amp;&amp; a &lt; 200</li>
-</ul>
-<h2 id="逻辑运算符">逻辑运算符</h2>
-<p><code>！</code>           <font color="#ff0000">逻辑反</font>                !(x&gt;9) 如果 x 确实大于 9 则整个表达式为假，反之为真<br>
-<code>&amp;&amp;</code>          逻辑与              （ a &gt; 100 &amp;&amp; a &lt; 200 ） 该表达式两边同时为真则为真， 如果其中一个为假则整个表达式为 假<br>
-<code>||</code>            逻辑或            （ a &gt; 100 || a &lt; 200 ） 该表达式中<font color="#ff0000">其中一个</font>为真则整个表达式为真</p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>在<font color="#ff0000">逻辑与</font>的运算中，如果左边为假则直接判断为假，右边的表达式将不会执行</p>
-</li>
-<li>
-<p>在<font color="#ff0000">逻辑或</font>的运算中，如果左边为真则表达式直接判断为真，右边的表达式将不会执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 200;</span><br><span class="line"></span><br><span class="line">if (a &lt; 50 &amp;&amp; (b = b + 300)); // 左边为假， 右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br><span class="line"></span><br><span class="line">if (a &gt; 50 || (b = b + 300)); //左边为真 ，右边不被执行</span><br><span class="line">printf(&quot;a=%d , b=%d\n&quot; , a , b ); // a = 100 , b = 200</span><br></pre></td></tr></table></figure>
-<h2 id="位运算符">位运算符</h2>
-<p><code>~</code>             位逻辑反</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011     //3的二进制数</span><br><span class="line">~a ‐&gt; 1111 1111 1111 1111 1111 1111 1111 1100    //取反</span><br></pre></td></tr></table></figure>
-<p><code>&amp;</code>             位逻辑与            <font color="#ff0000">有零得零 --&gt; 清零操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011    //没写全，实际为：a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">b:0101    //没写全，实际为：b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0101</span><br><span class="line">a&amp;b : 0001    //没写全，实际为：a&amp;b ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0001</span><br></pre></td></tr></table></figure>
-<p><code>|</code>             位逻辑或             <font color="#ff0000">有一得一  --&gt; 置1 操作</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a|b : 0111</span><br></pre></td></tr></table></figure>
-<p><code>^</code>             位逻辑异或        <font color="#ff0000"> 相同得0 ，不同得1</font></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line">int b = 5 ;</span><br><span class="line"></span><br><span class="line">a:0011</span><br><span class="line">b:0101</span><br><span class="line">a^b : 0110</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 5 ;</span><br><span class="line">int b = 3 ;</span><br><span class="line">int c = a ^ b ;</span><br><span class="line"></span><br><span class="line">printf(&quot;c:%d\n&quot; , c ); // 6</span><br><span class="line">printf(&quot;c^a:%d\n&quot; , c^a ); // 3 ‐‐&gt; b</span><br><span class="line">printf(&quot;c^b:%d\n&quot; , c^b ); // 5 ‐‐&gt; a</span><br></pre></td></tr></table></figure>
-<p><code>&lt;&lt;</code>            左移</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 3 ;</span><br><span class="line"></span><br><span class="line">a ‐&gt; 0000 0000 0000 0000 0000 0000 0000 0011</span><br><span class="line">a&lt;&lt;4 ‐&gt;0000 0000 0000 0000 0000 0000 0011 0000</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t8jw-1.webp" alt="C-count1"></p>
-<p><code>&gt;&gt;</code>            右移</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114t5qm-1.webp" alt="C-count2"></p>
-<p><mark>注意：</mark></p>
-<ul>
-<li>
-<p>位运算符操作的是操作数的每一个二进制位</p>
-</li>
-<li>
-<p>位逻辑反，实际上是对操作数的每一个二进制位进行取反， 0与1之间对调</p>
-</li>
-<li>
-<p>异或运算，相同得 0 ，不同得1</p>
-</li>
-<li>
-<p>位移，移出去的丢弃，空出来的补0<br>
-如果移动是一个有符号的数据（正负），并右移运算时，移出去丢弃，空出来补符号位</p>
-</li>
-</ul>
-<h2 id="特殊运算符">特殊运算符</h2>
-<h3 id="赋值运算符-（左值-右值）">赋值运算符 <code>=</code> （左值=右值）</h3>
-<ul>
-<li>
-<p>左值不能是常量 ,比如100 = a ；</p>
-</li>
-<li>
-<p>不能直接对数组赋值</p>
-</li>
-<li>
-<p>可以使用连续赋值 a = b = c = d = 100 ;</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a , b ;</span><br><span class="line">int x[5] ;</span><br><span class="line"></span><br><span class="line">100 = a ;// 错， 左值不能是常量</span><br><span class="line">a = 100 ; // 正确， 对变量a进行赋值</span><br><span class="line">x = 123 ; // 错， 数组不可以这么赋值</span><br><span class="line">a = b = 100 ; // 正确 ， 连续赋值， 先把100 赋值给 b , 然后再把 b 赋值给a</span><br></pre></td></tr></table></figure>
-<h3 id="复合运算符">复合运算符</h3>
-<p>当左右两边有相同的操作数时，可以使用符合运算符，使得代码看起来更加简明，且可以在一定程度上提高效率。</p>
-<p>只有以下<font color="#ff0000">十种</font>复合运算符：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 加减乘除</span><br><span class="line">a += b ;// 相当于 a = a + b ;</span><br><span class="line">a ‐= b ;</span><br><span class="line">a *= b ;</span><br><span class="line">a /= b ;</span><br><span class="line"></span><br><span class="line">// 求余</span><br><span class="line">a %= b ; // 相当于 a = a % b ;</span><br><span class="line"></span><br><span class="line">// 位运算</span><br><span class="line">a &amp;= b ; // 相当于 a = a &amp; b ;</span><br><span class="line">a |= b ;</span><br><span class="line">a ^= b ;</span><br><span class="line">a &gt;&gt;= b ;</span><br><span class="line">a &lt;&lt;= b ;</span><br></pre></td></tr></table></figure>
-<h3 id="条件运算符（三目运算符）">条件运算符（三目运算符）</h3>
-<ul>
-<li>唯一一个需要三个操作数的运算符（表达式）</li>
-<li>语法： <code>表达式1 ？ 表达式2 : 表达式3</code></li>
-<li>如果表达式1的值为真，则整个表达式的值为表达式2 ，冒号左边</li>
-<li>如果表达式1的值为假，则整个表达式的值为表达式3 ，冒号右边</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int b = 250 ;</span><br><span class="line"></span><br><span class="line">int max = a &gt; b ? a : b ;  //为假，整个表达式的值为表达式3，即b</span><br></pre></td></tr></table></figure>
-<h3 id="sizeof-运算符">sizeof 运算符</h3>
-<blockquote>
-<p>该运算符看起来很像一个函数，不要忘记它实际只是一个运算符，用来计算指定的变量或变量类型从而得到他在内存中所需要占用的字节</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 求变量类型</span><br><span class="line">printf (&quot;sizof(long):%ld\n&quot; , sizof(long) ); // 计算long 类型的大小 （得知系统的字长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 求变量</span><br><span class="line">int a ;</span><br><span class="line">printf (&quot;sizof(a):%ld\n&quot; , sizof(a) ); // 计算变量 a 的大小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算数组的大小</span><br><span class="line">int buf [5];</span><br><span class="line">printf (&quot;sizof(buf):%ld\n&quot; , sizof(buf) ); //计算数组 buf 的大小，5乘以int类型的字节4，即为20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 计算结构体大小</span><br><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a ; //4</span><br><span class="line">char b ; // 1</span><br><span class="line">double c ; // 8</span><br><span class="line">&#125;;</span><br><span class="line">printf(&quot;sizeof(struct node):%ld\n&quot; ,sizeof(struct node) );// 16</span><br></pre></td></tr></table></figure>
-<h3 id="return-运算符">return 运算符</h3>
-<p>含义：退出某一个函数（如果是在主函数遇到 return，则退出程序，进程结束；如果不是主函数，则返回到被调用的位置）</p>
-<p>语法：必须出现在函数体内部，可以携带对应类型的值，进行返回</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line"> return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="优先级与结合性">优先级与结合性</h3>
-<p>当一个表达式中同时出现了多个运算符时，根据优先级以及结合性进行运算，比如先乘除后加减</p>
-<p>优先级：<code>man operator</code><br>
-<img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/114sw2m-1.webp" alt="C-count3"></p>
-<h3 id="逗号表达式">逗号表达式</h3>
-<blockquote>
-<p>语法 ： 表达式1 = （表达式2 ，表达式3 ，表达式4 ， … , 表达式 n ）；</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 10 ;</span><br><span class="line">int c = 250 ;</span><br><span class="line"></span><br><span class="line">//对应下面 11  261= 11+250 261</span><br><span class="line">int b = (a++ , a = a + c , a , 300 );</span><br><span class="line"></span><br><span class="line">printf(&quot;b:%d\n&quot; , b );</span><br><span class="line">printf(&quot;a:%d\n&quot; , a );</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line">b:300</span><br><span class="line">a:261</span><br></pre></td></tr></table></figure>
-<p><mark>注意：</mark></p>
-<ul>
-<li>逗号表达式中，会从左往右依次运算每一一个表达式</li>
-<li>整个表达式的值取决于最后一个表达式的值</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C语言学习五：指针</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%BA%94%EF%BC%9A%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="指针入门">指针入门</h2>
@@ -1001,17 +1001,17 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>字节： 字节是内存容量的一个单位， <code>byte</code> ，一个字节 <code>byte</code> 有 <code>8</code>个位 <code>bit</code></li>
 <li>地址： 系统为了方便区分每一个字节的数据，而对内存进行了逐一编号，而该编号就是内存地址。</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117cf2l-1.webp" alt="C-pointer1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117cf2l-1.webp" alt="C-pointer1"></p>
 <h4 id="基地址">基地址</h4>
 <ul>
 <li>单字节的数据： <code>char</code> 它所在地址的编号就是该数据的地址</li>
 <li>多字节的数据：<code>int</code> 它拥有<code>4</code>个连续的地址的编号 ，其中地址值最小的称为该量的地址</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117cdqg-1.webp" alt="C-pointer2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117cdqg-1.webp" alt="C-pointer2"></p>
 <h4 id="取地址符号">取地址符号</h4>
 <p>每一个变量其实都对应了一片内存，因此都可以通过 &amp; 取地址符号将其地址获得。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i ;</span><br><span class="line">double d;</span><br><span class="line">float f ;</span><br><span class="line">char c ;</span><br><span class="line">    </span><br><span class="line">printf(&quot;i的地址为:%p\n&quot; , &amp;i);</span><br><span class="line">printf(&quot;d的地址为:%p\n&quot; , &amp;d);</span><br><span class="line">printf(&quot;f的地址为:%p\n&quot; , &amp;f);</span><br><span class="line">printf(&quot;c的地址为:%p\n&quot; , &amp;c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//运行结果：</span><br><span class="line">i的地址为:0x7ffec726bc58</span><br><span class="line">d的地址为:0x7ffec726bc60</span><br><span class="line">f的地址为:0x7ffec726bc5c</span><br><span class="line">c的地址为:0x7ffec726bc57</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117cm8y-1.webp" alt="C-pointer3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117cm8y-1.webp" alt="C-pointer3"></p>
 <p><mark>注意：</mark></p>
 <ul>
 <li>虽然不同的数据类型所占用的内存空间不同，但是他们的地址所占用的内存空间（地址的大小= 指针的大小）是恒定的，由系统的位数来决定 32位 / 64位</li>
@@ -1031,7 +1031,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>指针的赋值以及初始化</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p = &amp;a ; // 定义并初始化</span><br><span class="line">  </span><br><span class="line">double d = 1024.1234 ;</span><br><span class="line">double * p1 = &amp;d ;// 定义并初始化</span><br><span class="line">  </span><br><span class="line">float f ;</span><br><span class="line">float * p2 ;// 只定义，没有初始化</span><br><span class="line">p2 = &amp;f ; // 给指针赋值</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117mwa3-1.webp" alt="C-pointer4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117mwa3-1.webp" alt="C-pointer4"></p>
 <blockquote>
 <p>注意：指针自己也有一个地址</p>
 </blockquote>
@@ -1049,7 +1049,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>概念：指向一块<font color="#ff0000">未知内存</font>的指针， 被称为野指针。</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p ;   //仅定义了，但没有初始化也没有给指针赋值</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117c90t-1.webp" alt="C-pointer5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117c90t-1.webp" alt="C-pointer5"></p>
 </li>
 <li>
 <p>危害：</p>
@@ -1079,7 +1079,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <blockquote>
 <p>在很多的情况下，我们一开始还不确定一个指针需要指向哪里，因此可以让该指针先指向一个不会破坏系统关键数据的位置，而这个位置一般就是 NULL （空）。因此指向该地址的指针都称之为空指针。</p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117m4dh-1.png" alt="C-pointer6"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117m4dh-1.png" alt="C-pointer6"></p>
 <p><strong>概念：</strong> 空指针就是保存了地址值为零的一个地址， 也就零地址NULL</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int * p1 = NULL ; // 定义一个指针， 并初始化为空指针（ 指向 NULL ）</span><br><span class="line">*p1 = 250 ; // 段错误 ， 该地址不允许写入任何东西</span><br><span class="line"></span><br><span class="line">printf(&quot;%p ‐‐ %d \n&quot; , NULL , NULL ); // （nul‐‐0）</span><br></pre></td></tr></table></figure>
 <h3 id="指针运算">指针运算</h3>
@@ -1088,7 +1088,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>指针的减法：意味着地址向下移动若干个目标 （指针的类型）</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">long l ;     //long int</span><br><span class="line">long *p = &amp;l ;</span><br><span class="line"></span><br><span class="line">int i ;</span><br><span class="line">int * p1 = &amp;i;</span><br><span class="line"></span><br><span class="line">printf(&quot;p:%p\n&quot; , p );</span><br><span class="line">printf(&quot;p+1:%p\n&quot; , p+1 );</span><br><span class="line"></span><br><span class="line">printf(&quot;p1:%p\n&quot; , p1 );</span><br><span class="line">printf(&quot;p1+1:%p\n&quot; , p1+1 );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">运行结果：</span><br><span class="line">p:0x7fffcb862610</span><br><span class="line">p+1:0x7fffcb862618</span><br><span class="line">p1:0x7fffcb86260c</span><br><span class="line">p1+1:0x7fffcb862610</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/117lt0a-1.webp" alt="C-pointer7"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/117lt0a-1.webp" alt="C-pointer7"></p>
 <p><mark>注意：</mark><br>
 指针在加减运算的过程中， 加/减的大小取决于该指针他自己的类型，与它所执行的数据实际的类型没有关系。</p>
 <hr>
@@ -1103,7 +1103,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>如果一个指针 p3 它所指向的是一个<font color="#ff0000">指向二级指针变量</font>的地址，那么 p3就是一个三级指针</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int a = 100 ;</span><br><span class="line">int * p1 = &amp;a ; // p1是一个一级指针</span><br><span class="line">int ** p2 = &amp;p1 ; // p2是一个二级指针</span><br><span class="line">int *** p3 = &amp;p2 ; // p3是一个三级指针</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nurhan-1.webp" alt="C-pointer8"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/04/nurhan-1.webp" alt="C-pointer8"></p>
 <p><mark>指针的拆解方法：</mark><br>
 对于任何的指针都可以分为两部分：<br>
 第一部分： 说明他是一个指针 （* p ）<br>
@@ -1158,7 +1158,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>常指针并不常见</li>
 <li>常目标指针，在实际开发过程中比较常见，用来限制指针的权限为 <font color="#ff0000">只读</font></li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/nzcluo-1.webp" alt="C-pointer9"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/04/nzcluo-1.webp" alt="C-pointer9"></p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -1169,12 +1169,71 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>利用Github搭建免费图床</title>
+    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
+<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
+<h2 id="生成一个-Token">生成一个 Token</h2>
+<ol>
+<li>
+<p>点击右上角用户头像 -&gt; 选择 设置</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
+</li>
+<li>
+<p>点击网站左侧的最下面的开发者设置</p>
+<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
+<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
+<blockquote>
+<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="配置-PicGo">配置 PicGo</h2>
+<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
+<blockquote>
+<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
+</blockquote>
+<ol>
+<li>
+<p>首先下载PicGo</p>
+<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
+<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
+</li>
+<li>
+<p>打开PicGo工具进行配置</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
+<ul>
+<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
+<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
+<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
+<li>设定 Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
+</ul>
+<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
+</li>
+</ol>
+<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
+<p>待。。。</p>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>图床</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习六：数组与指针的结合</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%85%AD%EF%BC%9A%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88%E7%9A%84%E7%BB%93%E5%90%88/</url>
     <content><![CDATA[<h2 id="基础">基础</h2>
 <p><strong>示例一：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p1 = &amp;arr ;</span><br><span class="line">int * p2 = arr ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p1:%d\n&quot; , *(p1+1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/115fr9q-1.webp" alt="C-array-pointer1"></p>
 <p><strong>示例二：</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ;</span><br><span class="line">int * p2 = &amp;arr[2] ;</span><br><span class="line"></span><br><span class="line">printf(&quot;*p2‐1:%d\n&quot; , *(p2‐1)) ;</span><br><span class="line">printf(&quot;*p2:%d\n&quot; , *p2) ;</span><br><span class="line">printf(&quot;*p2+1:%d\n&quot; , *(p2+1)) ;</span><br></pre></td></tr></table></figure>
 <p>以上代码是通过指针 p2 来访问数组中的元素。一开始定义p2并初始化让指针p2 指向数组中第3个元素的地址。当我们使用p2 进行指针加减运算的时候 ，由于指针是整型的，可以访问到数组中的下一个元素以及上一个元素。</p>
@@ -1191,11 +1250,11 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <ol>
 <li>
 <p>题 1</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/12/nj93fp-1.webp" alt="C-array-pointer2"></p>
 </li>
 <li>
 <p>题 2</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/12/nj92cn-1.webp" alt="C-array-pointer3"></p>
 <p><code>&amp;b</code>—&gt;<code>b</code>—&gt;<code>*b</code>—&gt;<code>**b</code></p>
 <p>整个数组的地址—&gt;第一个元素（{1，2，3，4}）的地址—&gt;“1“的地址—&gt;“1”的值</p>
 <p>补充：</p>
@@ -1221,12 +1280,12 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>题 5</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    char *lines[5] =     //字符指针数组（里面的字符串是以 `char*` 类型的指针形式存在的）</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;COSC1283/1984&quot;,</span><br><span class="line">    &quot;Programming&quot;,</span><br><span class="line">    &quot;Techniques&quot;,</span><br><span class="line">    &quot;is&quot;,</span><br><span class="line">    &quot;great fun&quot;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    char *str1 = lines[1];        </span><br><span class="line">    char *str2 = *(lines + 3);</span><br><span class="line">    char c1    = *(*(lines + 4) + 6);  </span><br><span class="line">    char c2    = (*lines + 5)[5];  </span><br><span class="line">    char c3    = *lines[0] + 2;</span><br><span class="line"></span><br><span class="line">    printf(&quot;str1 = %s\n&quot;, str1);  </span><br><span class="line">    printf(&quot;str2 = %s\n&quot;, str2);  </span><br><span class="line">    printf(&quot;c1   = %c\n&quot;, c1);    </span><br><span class="line">    printf(&quot;c2   = %c\n&quot;, c2);    </span><br><span class="line">    printf(&quot;c3   = %c\n&quot;, c3);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/12/nj903c-1.webp" alt="C-array-pointer4"></p>
 </li>
 <li>
 <p>题 6</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    int num;</span><br><span class="line">    int (*p)[5] = NULL;  //数组指针  </span><br><span class="line">    int arr[5] =  &#123;5,2,4,5,7&#125;;</span><br><span class="line">    p = &amp;arr;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    num = sizeof(arr)/sizeof(arr[0]);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*p[%d] = %d\n&quot;,i,*p[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;*(p+%d) = %p\n&quot;,i,*(p+i));  </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;p[%d] = %p\n&quot;,i,p[i]);    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(&quot;=====================================\n&quot;);</span><br><span class="line">    for(i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;(*p)[%d] = %d\n&quot;,i,(*p)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/12/nj8xrz-1.webp" alt="C-array-pointer5"></p>
 </li>
 </ol>
 <h3 id="更多">更多</h3>
@@ -1240,6 +1299,27 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Git 学习</title>
+    <url>/2024/02/08/Git-%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="windows-安装-Git">windows 安装 Git</h2>
+<p>参考：<a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装 Git | Z の Blog (fkcc.me)</a></p>
+<h2 id="Git-配置多账号">Git 配置多账号</h2>
+<h3 id="多GitHub账号">多GitHub账号</h3>
+<p>参考：<a href="https://fkcc.me/2024/02/05/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/">Git 配置多个 github 账号 | Z の Blog (fkcc.me)</a></p>
+<h2 id="基本使用（待补充）">基本使用（待补充）</h2>
+<p><a href="https://blog.csdn.net/qq_44094296/article/details/114324505">https://blog.csdn.net/qq_44094296/article/details/114324505</a></p>
+<p><a href="https://nomao.blog.highp.ing/p/pgptogithub/#%E5%BF%AB%E9%80%9F%E4%BB%8B%E7%BB%8D">https://nomao.blog.highp.ing/p/pgptogithub/#快速介绍</a></p>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>软件与环境</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言学习四：数组</title>
     <url>/2023/10/22/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E5%9B%9B%EF%BC%9A%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="数组入门">数组入门</h2>
@@ -1250,13 +1330,13 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 </li>
 <li>
 <p>语法：<code>int arr [5]</code> ;</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hd4u-1.webp" alt="C-array1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/116hd4u-1.webp" alt="C-array1"></p>
 </li>
 <li>
 <p>初始化</p>
 <p>只有在定义的时候赋值，才可以称为初始化。数组只有在初始化的时候才可以统一赋值。</p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 正确，定义并初始化数组</span><br><span class="line">int arr [5] = &#123;1,2,3&#125; ; //可以， 为不完全初始化，后面的两个为0；若完全的不初始化则为随机值</span><br><span class="line"></span><br><span class="line">int arr [5] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 错误（但是可以用），越界初始化， 越界部分将会被编译器舍弃</span><br><span class="line"></span><br><span class="line">int arr [ ] = &#123;1,2,3,4,5,6,7,8,9&#125; ; // 可以， 用户没有直接给定数组大小，</span><br><span class="line">// 但是有初始化， 因此数组的大小会在初始化时确定， 大小为 9</span><br><span class="line"></span><br><span class="line">int arr [ ]; // 错误， 没有给定大小也没有初始化， 因此数组的内存大小无法确定，系统无法分配</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116hidx-1.webp" alt="C-array2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/116hidx-1.webp" alt="C-array2"></p>
 <p><mark>注意：</mark></p>
 <p>数组在定义的时候必须确定他的大小。<br>
 说白了就是中括号中 <code>[]</code> 必须有数组的大小，如果没有就必须初始化</p>
@@ -1265,7 +1345,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>存储模式：一片连续的内存，按照数据的类型进行分割成若干个大小相同的格子</li>
 <li>元素的下标与偏移量：以数组开头为基础的偏移的量（数据类型大小）</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h7zg-1.webp" alt="C-array3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/116h7zg-1.webp" alt="C-array3"></p>
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int arr [5] = &#123;1,2,3,4,5&#125; ; // 定义并初始化数组</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[0] = 99 ; // 把数组的第1个元素（ 偏移量为0 ）修改为 99</span><br><span class="line">printf(&quot;arr[0]:%d\n&quot; , arr[0]);</span><br><span class="line">arr[5] = 250 ; //&quot;错误&quot; 越界访问， 很有可能造成非法访问</span><br><span class="line">printf(&quot;arr[5]:%d\n&quot; , arr[5]);</span><br><span class="line"></span><br><span class="line">arr = &#123;9,8,7,6,5,4&#125;; // 整体赋值只允许在初始化中</span><br><span class="line">arr = 100 ; // 错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;sizeof(arr):%ld\n&quot; , sizeof(arr));</span><br><span class="line">int len = sizeof(arr) / sizeof(int) ; // 求数组元素的个数</span><br><span class="line">for (size_t i = 0; i &lt; len ; i++)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;arr[%ld]:%d\n&quot; , i , arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -1287,7 +1367,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>定义数组时没有初始化会怎么样？</p>
 <p>没有初始化的情况下内存的内容是随机值（内存中原有的内容）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/116h3up-1.webp" alt="C-array4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/116h3up-1.webp" alt="C-array4"></p>
 </li>
 <li>
 <p>不完全初始化又会怎么样？</p>
@@ -1347,12 +1427,12 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <p>匿名数组，同样满足数组名的含义。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">char * msg1 = &quot;Hello&quot; ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">char * msg2 = &quot;Hello&quot;+1 ;</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;, &quot;Hello&quot; ) ;// &quot;Hello&quot; 字符串常量首元素的首地址</span><br><span class="line">printf(&quot;%s\n&quot;, &amp;&quot;Hello&quot; ) ; // &quot;Hello&quot; 字符串常量的整个数组的地址</span><br><span class="line"></span><br><span class="line">printf(&quot;%c\n&quot;, &quot;Hello&quot;[4] ) ; // &quot;Hello&quot; 字符串常量首元素的首地址 [4]，[4] 相当于+4个单位（char） 得到 ‘o’</span><br></pre></td></tr></table></figure>
 <p>字符串在内存种的存储方式：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o2wz2s-1.webp" alt="C-array5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/04/o2wz2s-1.webp" alt="C-array5"></p>
 <h3 id="零长数组">零长数组</h3>
 <p>概念： 数组的长度为0 ， char arr [0] ;</p>
 <p>用途：一般会放在结构体的末尾， 作为可变长度的入口。（数组是唯一一个允许越界访问的载体）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">struct node</span><br><span class="line">&#123;</span><br><span class="line">int a;</span><br><span class="line">char b ;</span><br><span class="line">float c ;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">int len ;</span><br><span class="line">char arr[0] ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct node *p = malloc(sizeof(struct node) + 20 );// + 20 就是在原有的基础上增加20字节</span><br><span class="line">p‐&gt;len = 20 ; // 设置额外增长的长度为 20</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/04/o3ioop-1.webp" alt="C-array6"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/04/o3ioop-1.webp" alt="C-array6"></p>
 <h3 id="变长数组">变长数组</h3>
 <p>概念： 使用一个变量作为数组的长度（元素的个数）。</p>
 <p>重点： 变长数组并不是说在任意时候他的长度可以随意变化，实际上只是在定义之前数组的长度是未知的由一个变量来决定，但是定义语句过后变长数组的长度由定义那一刻变量的大小来决定。</p>
@@ -1367,7 +1447,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>
 <p>概念：数组内部的成员也是数组</p>
 <p><code>int a [2][3] ;</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/12/10/qiew66-1.webp" alt="C-array7"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/12/10/qiew66-1.webp" alt="C-array7"></p>
 </li>
 <li>
 <p>定义与初始化</p>
@@ -1392,6 +1472,120 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
+    <title>Hexo常用命令</title>
+    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
+<h3 id="新建">新建</h3>
+<p><code>hexo new [layout] &lt;title&gt;</code></p>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<p>例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
+<h3 id="清除缓存文件">清除缓存文件</h3>
+<p><code>hexo clean</code></p>
+<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
+在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h3 id="生成静态文件">生成静态文件</h3>
+<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d ,  --deploy</td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td>-w ,  --watch</td>
+<td>监视文件变动</td>
+</tr>
+<tr>
+<td>-b ,  --bail</td>
+<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
+</tr>
+<tr>
+<td>-f ,  --force</td>
+<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
+</tr>
+<tr>
+<td>-c ,  --concurrency</td>
+<td>最大同时生成文件的数量，默认无限制</td>
+</tr>
+</tbody>
+</table>
+<h3 id="本地预览">本地预览</h3>
+<p><code>hexo server</code>   #该命令可以简写为：hexo s</p>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, --port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s ,  --static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l ,  --log-s ,  --static</td>
+<td>启动日记记录，使用覆盖记录格式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="部署网站">部署网站</h3>
+<p><code>hexo deploy</code>   #该命令可以简写为：hexo d</p>
+<p>部署网站并上传</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-g ,  --generate</td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示 Hexo 版本</li>
+</ul>
+<p><code>hexo version</code></p>
+<h2 id="待补充">待补充</h2>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 学习系列</title>
+    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<p><a href="https://blog.hgtrojan.com/index.php/archives/12/">https://blog.hgtrojan.com/index.php/archives/12/</a></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hax&amp;Woiden</title>
     <url>/2022/12/01/Hax-Woiden/</url>
     <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我每次拿到hax&amp;woiden后做的事</p>
@@ -1403,7 +1597,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <ol>
 <li>
 <p>注册网站： <a href="https://hax.co.id">https://hax.co.id</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8uul-1.webp" alt="Hax&amp;Woiden1"></p>
 </li>
 <li>
 <p>翻译一下就看懂，其实很简单的</p>
@@ -1421,7 +1615,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <blockquote>
 <p>也是一样的，其实 woiden 和 hax 流程都差不多的，一个纯 ipv 6 机器，一个 nat 机器。这里就不多说了</p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8n1o-1.webp" alt="Hax&amp;Woiden2"></p>
 </li>
 </ol>
 <h2 id="安装-warp-和-x-ui">安装 warp 和 x-ui</h2>
@@ -1453,10 +1647,10 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>注册 <a href="https://dash.cloudflare.com/">cloudflre</a> 和 <a href="https://www.freenom.com/">freenom</a> （这个废了，自己找域名），当然也可以不用 freenom 免费域名，随便你，freenom 免费域名注册方法自行谷歌</li>
 <li>在 cf 首页点击添加网站，将注册好的域名添加到 cf 上，点网站点进去，左侧添加 dns，然后添加 ssl</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8zj9-1.webp" alt="Hax&amp;Woiden3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8rgv-1.webp" alt="Hax&amp;Woiden4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8ngp-1.webp" alt="Hax&amp;Woiden5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11a8gfi-1.webp" alt="Hax&amp;Woiden6"></p>
 </li>
 </ol>
 <hr>
@@ -1492,65 +1686,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </categories>
       <tags>
         <tag>白嫖VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用Github搭建免费图床</title>
-    <url>/2023/11/17/Github%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="新建一个Github仓库">新建一个Github仓库</h2>
-<p>怎么注册Github并新建一个Github仓库自行谷歌，注意仓库要公开仓库</p>
-<h2 id="生成一个-Token">生成一个 Token</h2>
-<ol>
-<li>
-<p>点击右上角用户头像 -&gt; 选择 设置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n6bfed-1.webp" alt="github-image1"></p>
-</li>
-<li>
-<p>点击网站左侧的最下面的开发者设置</p>
-<p>左侧点击 <code>developer settings</code> ，再点击 <code>personal access tokens</code> ，然后点击 <code>generate new token</code></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n7grnz-1.png" alt="github-image2"></p>
-<p>Note 用来说明你创建 token 的用途，填写Token描述，scopes 中只需要选 repo 的所有选项即可,然后点击Generate token生成一个Token</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/n8kyhw-1.png" alt="github-image3"></p>
-<blockquote>
-<p>注意这个 Token 只会显示一次，自己先保存下来，或者等后面配置好 PicGo 后再关闭此网页，如果没有记住，等再查看时就只能重新生成</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="配置-PicGo">配置 PicGo</h2>
-<h3 id="使用-jsdelivr-作为-CDN-加速">使用 jsdelivr 作为 CDN 加速</h3>
-<blockquote>
-<p>其实使用 jsdelivr 作为 CDN 加速已经不推荐了，现在jsdelivr太慢了，有vps的可以自行搭建图床，或者直接使用别人提供的名气较大的图床（有风险，毕竟东西在别人哪里，什么时候删了都不知道）</p>
-</blockquote>
-<ol>
-<li>
-<p>首先下载PicGo</p>
-<p>文档地址：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo is Here | PicGo</a></p>
-<p>下载地址：<a href="https://github.com/Molunerfinn/PicGo/releases">Releases · Molunerfinn/PicGo · GitHub</a></p>
-</li>
-<li>
-<p>打开PicGo工具进行配置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/25/ndaa2w-1.webp" alt="github-image4"></p>
-<ul>
-<li>在 PicGo 中，找到图床设置 -&gt; GitHub图床。</li>
-<li>设定仓库名：按照 用户名/图床仓库名 的格式填写</li>
-<li>设定分支名：main （#分支默认是main，也可去github对应仓库查看）</li>
-<li>设定 Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如 img/，这样就会在仓库下创建一个名为img的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo 会按照自定义域名+上传的图片名的方式生成访问链接，放到粘贴板上，因为我们要使用 jsDelivr 加速访问，所以可以设置为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名@分支</code></li>
-</ul>
-<p><mark>注意</mark>：理论上GitHub仓库大小是100g,但到了1g就会有人工审核,而使用jsdelivr加速的文件到达50m（也就是仓库大小）仓库里的资源就有可能失效,仓库理论上是无限建的,到了50m可以新建一个新的来达到白嫖的效果</p>
-</li>
-</ol>
-<h3 id="使用-其他加速-作为-CDN-加速">使用 其他加速 作为 CDN 加速</h3>
-<p>待。。。</p>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>图床</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -1673,24 +1808,16 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>Git 学习</title>
-    <url>/2024/02/08/Git-%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h2 id="windows-安装-Git">windows 安装 Git</h2>
-<p>参考：<a href="https://fkcc.me/2023/10/17/%E5%AE%89%E8%A3%85Git/">windows 安装 Git | Z の Blog (fkcc.me)</a></p>
-<h2 id="Git-配置多账号">Git 配置多账号</h2>
-<h3 id="多GitHub账号">多GitHub账号</h3>
-<p>参考：<a href="https://fkcc.me/2024/02/05/Git%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E5%8F%B7/">Git 配置多个 github 账号 | Z の Blog (fkcc.me)</a></p>
-<h2 id="基本使用（待补充）">基本使用（待补充）</h2>
-<p><a href="https://blog.csdn.net/qq_44094296/article/details/114324505">https://blog.csdn.net/qq_44094296/article/details/114324505</a></p>
-<p><a href="https://nomao.blog.highp.ing/p/pgptogithub/#%E5%BF%AB%E9%80%9F%E4%BB%8B%E7%BB%8D">https://nomao.blog.highp.ing/p/pgptogithub/#快速介绍</a></p>
-]]></content>
+    <title>N1盒子刷armbian</title>
+    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>技术折腾</category>
-        <category>软件与环境</category>
-        <category>Git</category>
+        <category>刷机</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>armbian</tag>
+        <tag>N1</tag>
       </tags>
   </entry>
   <entry>
@@ -1737,120 +1864,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
       </tags>
   </entry>
   <entry>
-    <title>Linux 学习系列</title>
-    <url>/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<p><a href="https://blog.hgtrojan.com/index.php/archives/12/">https://blog.hgtrojan.com/index.php/archives/12/</a></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2022/12/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新建并部署上传">新建并部署上传</h2>
-<h3 id="新建">新建</h3>
-<p><code>hexo new [layout] &lt;title&gt;</code></p>
-<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
-<p>例如：<code>hexo new &quot;post title with whitespace&quot;</code></p>
-<h3 id="清除缓存文件">清除缓存文件</h3>
-<p><code>hexo clean</code></p>
-<p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>
-在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="生成静态文件">生成静态文件</h3>
-<p><code>hexo generate</code>   #该命令可以简写为:<code>hexo g</code></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d ,  --deploy</td>
-<td>文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td>-w ,  --watch</td>
-<td>监视文件变动</td>
-</tr>
-<tr>
-<td>-b ,  --bail</td>
-<td>生成过程中如果发生任何未处理的异常则抛出异常</td>
-</tr>
-<tr>
-<td>-f ,  --force</td>
-<td>强制重新生成文件<br/>Hexo 引入了差分机制，如果 <code>public</code> 目录存在，那么 <code>hexo g</code> 只会重新生成改动的文件。<br/>使用该参数的效果接近 <code>hexo clean &amp;&amp; hexo generate</code></td>
-</tr>
-<tr>
-<td>-c ,  --concurrency</td>
-<td>最大同时生成文件的数量，默认无限制</td>
-</tr>
-</tbody>
-</table>
-<h3 id="本地预览">本地预览</h3>
-<p><code>hexo server</code>   #该命令可以简写为：hexo s</p>
-<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/">http://localhost:4000/</a></p>
-<table>
-<thead>
-<tr>
-<th><strong>选项</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-p, --port</td>
-<td>重设端口</td>
-</tr>
-<tr>
-<td>-s ,  --static</td>
-<td>只使用静态文件</td>
-</tr>
-<tr>
-<td>-l ,  --log-s ,  --static</td>
-<td>启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h3 id="部署网站">部署网站</h3>
-<p><code>hexo deploy</code>   #该命令可以简写为：hexo d</p>
-<p>部署网站并上传</p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-g ,  --generate</td>
-<td>部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>显示 Hexo 版本</li>
-</ul>
-<p><code>hexo version</code></p>
-<h2 id="待补充">待补充</h2>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux | vps 常用命令</title>
     <url>/2022/12/13/Linux_VPS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p><mark><strong>Linux命令大全(手册)</strong></mark></p>
@@ -1875,7 +1888,7 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <ol>
 <li>
 <p>Debian/Ubuntu常用命令：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源&amp;更新软件：sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">查看ip：ip addr show 或者 ifconfig</span><br><span class="line">关闭系统电源：sudo systemctl poweroff</span><br><span class="line"></span><br><span class="line">查看磁盘使用情况：df -h  </span><br><span class="line">查看交换内存使用情况：free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line"></span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line"></span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新软件源&amp;更新软件：sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line"></span><br><span class="line">查看内核版本：uname -a  </span><br><span class="line">查看ubuntu版本：cat /etc/issue  </span><br><span class="line">查看ip：ip addr show 或者 ifconfig</span><br><span class="line">关闭系统电源：sudo systemctl poweroff</span><br><span class="line"></span><br><span class="line">查看 VPS 虚拟化技术：virt-what</span><br><span class="line">查看磁盘使用情况：df -h  </span><br><span class="line">查看交换内存使用情况：free -h  </span><br><span class="line">查看当前的内存使用情况：free -m  </span><br><span class="line">查看当前有哪些进程：ps -A  </span><br><span class="line">杀死一个进程：kill id / killall id / kill -9 id  </span><br><span class="line"></span><br><span class="line">安装 openssh-server：sudo apt install openssh-server  </span><br><span class="line">确认sshserver是否启动：ps -e | grep ssh  </span><br><span class="line"></span><br><span class="line">Linux开启原版BBR：  </span><br><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf  </span><br><span class="line">sysctl -p  </span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>常用工具：</p>
@@ -2093,22 +2106,9 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>命令</tag>
+        <tag>Linux</tag>
         <tag>vps</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>N1盒子刷armbian</title>
-    <url>/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>刷机</category>
-      </categories>
-      <tags>
-        <tag>armbian</tag>
-        <tag>N1</tag>
       </tags>
   </entry>
   <entry>
@@ -2123,344 +2123,6 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
         <tag>VMware</tag>
         <tag>虚拟机</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程三：安装Debian</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
-    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
-    <content><![CDATA[<h2 id="前言">前言</h2>
-<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
-<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
-<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
-<h2 id="创建虚拟机">创建虚拟机</h2>
-<h3 id="创建">创建</h3>
-<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
-<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
-<p>默认点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
-<h3 id="选择安装来源">选择安装来源</h3>
-<p>选择 【稍后安装系统】，点击下一步</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
-<h3 id="选择系统类型">选择系统类型</h3>
-<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
-<h3 id="虚拟机命名">虚拟机命名</h3>
-<p>自定义虚拟机名称和存储位置</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
-<h3 id="一些配置">一些配置</h3>
-<h4 id="处理器配置">处理器配置</h4>
-<blockquote>
-<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
-<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
-<blockquote>
-<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
-<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
-<blockquote>
-<p>我一般使用 NAT</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
-<h4 id="磁盘类型">磁盘类型</h4>
-<p>默认即可</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
-<h4 id="创建磁盘">创建磁盘</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
-<h4 id="自定义硬件">自定义硬件</h4>
-<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
-<h2 id="启动虚拟机">启动虚拟机</h2>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
-<blockquote>
-<p>默认点击继续</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
-<blockquote>
-<p>选择时区</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
-<p><strong>完成安装</strong></p>
-<h2 id="基础配置">基础配置</h2>
-<h3 id="更换国内源"><strong>更换国内源</strong></h3>
-<p>打开&quot;软件和更新&quot;</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
-<p>可自行百度选择，我这里选择的阿里云的。</p>
-<h3 id="安装常用软件">安装常用软件</h3>
-<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
-<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
-<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
-<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
-<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
-<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
-<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
-<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
-<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
-</ol>
-</div></details>
-<h3 id="其他">其他</h3>
-<ul>
-<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
-<li>查看 ip：ifconfig</li>
-</ul>
-<h2 id="美化">美化</h2>
-<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>VMware虚拟机</category>
-      </categories>
-      <tags>
-        <tag>VMware</tag>
-        <tag>虚拟机</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VS Code配置</title>
-    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
-</div>
-<blockquote>
-<p>vs 配置参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>首先先安装中文扩展：搜索 Chinese</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126f1xx-1.webp" alt="vs"></p>
-<h2 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h2>
-<h3 id="安装MinGW-w64">安装MinGW-w64</h3>
-<p>见安装 MinGW-w64部分：</p>
-<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h3 id="设置-vscode-里的环境">设置 vscode 里的环境</h3>
-<blockquote>
-<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json</p>
-<p>// launch.json可以不创建</p>
-</blockquote>
-<blockquote>
-<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程后面会给出，注意更改路径）</p>
-</blockquote>
-<h4 id="配置-C-C-语言环境-2">配置 C/C++ 语言环境</h4>
-<h5 id="配置-C-语言环境">配置 C 语言环境</h5>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></li>
-<li><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>安装必要扩展</p>
-<ul>
-<li>C/C++</li>
-</ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126f6vf-1.webp" alt="C-1"></p>
-<ul>
-<li>其他扩展<br>
-待写。。。</li>
-</ul>
-</li>
-<li>
-<p>配置</p>
-<p>①新建项目仓库，比如  <code>C </code> 文件夹<br>
-②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello. c 文件中，保存</p>
- <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json<br>
-按 F5，按图示选择第一个：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126ew0a-1.png" alt="C-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>然后会自动创建文件</p>
-<p>⑤配置调试设置文件：launch.json<br>
-点击左边调试，点击创建 launch.json 文件</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126f2ov-1.webp" alt="C-3"></p>
-<p>选择 C++(GDB/LLDB)</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126euxn-1.webp" alt="C-4"></p>
-<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
- <details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>来自Chatgpt的解释：</strong></p>
-<ol>
-<li>
-<p>program变量</p>
-<ul>
-<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
-<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
-</ul>
-</li>
-<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
-<ul>
-<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
-<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
-</ul>
-</li>
-</ul>
-<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
-</li>
-<li>
-<p>cwd变量</p>
-<ul>
-<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
-<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
-</ul>
-<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
-<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
-</li>
-</ol>
-</div></details>
-</li>
-</ol>
-<hr>
-<h5 id="配置-C-语言环境-2">配置 C++ 语言环境</h5>
-<blockquote>
-<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
-</blockquote>
-<blockquote>
-<p>参考：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-</blockquote>
-<ol>
-<li>
-<p>安装必要扩展</p>
-<ul>
-<li>C/C++</li>
-<li>其他扩展：<br>
-待写。。。</li>
-</ul>
-</li>
-<li>
-<p>配置</p>
-<p>①新建项目仓库，比如 CPP 文件夹<br>
-②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
-<blockquote>
-<p>PS：请注意路径不能有中文</p>
-</blockquote>
-<p>将以下代码填入 Hello.cpp 文件中，保存</p>
- <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>③配置构建任务文件： tasks.json</p>
-<p>按 F5，按图示选择第一个：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/126f0h1-1.webp" alt="CPP-1"></p>
-<p>选择 g++</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/127nkg7-1.webp" alt="CPP-2"></p>
-<p>④配置编译器路径文件： c_cpp_properties.json</p>
-<ul>
-<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
-<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
-</ul>
-<blockquote>
-<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
-</blockquote>
-<p>⑤配置调试设置文件：launch.json<br>
-参考上面 “<code>配置 C 语言环境</code>” 部分</p>
- <details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
-<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
-</blockquote>
-<p>tasks.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>c_cpp_properties.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>launch.json：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
-</div></details>
-</li>
-</ol>
-<h5 id="参考">参考</h5>
-<ul>
-<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
-<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
-<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
-<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
-</ul>
-<hr>
-<h2 id="配置-PHP-环境">配置 PHP 环境</h2>
-<h3 id="安装-PHP">安装 PHP</h3>
-<p>见安装 PHP 部分：</p>
-<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
-<h3 id="设置-vscode-里的环境-2">设置 vscode 里的环境</h3>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>vs code</category>
-      </categories>
-      <tags>
-        <tag>vs</tag>
-        <tag>vs code</tag>
-        <tag>配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>Ubuntu 美化</title>
@@ -2484,12 +2146,12 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br><span class="line">sudo apt install gnome-tweaks chrome-gnome-shell gnome-shell-extensions</span><br></pre></td></tr></table></figure>
 <h3 id="安装浏览器插件：gnome">安装浏览器插件：gnome</h3>
 <p>进入火狐浏览器后，ctrl + shift + a 打开扩展与插件，搜索 gnome shell 安装并启用插件</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11be5ml-1.webp" alt="ubuntu1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bdtlv-1.webp" alt="ubuntu2"></p>
 <h3 id="安装-User-Themes-插件">安装 User Themes 插件</h3>
 <p>打开网址插件官网：<a href="https://extensions.gnome.org/">https://extensions.gnome.org/</a><br>
 搜索 User Themes 插件，点击进入插件界面进行安装。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bd8bt-1.webp" alt="ubuntu3"></p>
 <h3 id="安装主题">安装主题</h3>
 <p>主题 Github 地址： <a href="https://github.com/vinceliuice/WhiteSur-gtk-theme">https://github.com/vinceliuice/WhiteSur-gtk-theme</a></p>
 <blockquote>
@@ -2518,23 +2180,23 @@ if 语句可以单独使用，但是 else 不可以单独使用，必须在 if �
 <li>为所有用户安装：/usr/share/icons</li>
 </ul>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bdhyg-1.webp" alt="ubuntu4"></p>
 </li>
 <li>
 <p>应用主题和图标</p>
 <p>搜索打开 <code>tweaks / 美化</code> （优化）应用，调整 <code>Icons / 图标</code>、<code>Shell</code>、<code>Legacy Applications / 过时应用程序</code> 三个配置。本文的配置如下：</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bdlz5-1.webp" alt="ubuntu5"></p>
 </li>
 <li>
 <p>元素位置调整</p>
 <ul>
 <li>将标题栏的操作按钮从右侧移动到左侧</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bdc1v-1.webp" alt="ubuntu6"></p>
 <ul>
 <li>调整桌面图标的大小和新图标的位置，将 <code>Dock</code> 栏从左侧调整到底部，并设置自动隐藏，取消 <code>Dock</code> 延伸到屏幕边缘的选项，调整 <code>Dock</code> 图标的大小。</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11bdy7d-1.webp" alt="ubuntu7"></p>
 <ul>
 <li>更换壁纸<br>
 <code>Mac</code> 壁纸可以从这个存储库中下载： <a href="https://github.com/vinceliuice/WhiteSur-wallpapers">https://github.com/vinceliuice/WhiteSur-wallpapers</a></li>
@@ -2637,16 +2299,407 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
       </tags>
   </entry>
   <entry>
+    <title>VMware Workstation Pro教程二：安装Ubuntu desktop</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%85Ubuntu-desktop/</url>
+    <content><![CDATA[<h2 id="前言">前言</h2>
+<p>Ubuntu 是一种广受欢迎的开源操作系统，基于 Linux 内核。它以稳定性、易用性和强大的社区支持而闻名。本文介绍了在 VMware 虚拟机上的安装 Ubuntu 最新发布版本 <code>Ubuntu 22.04.1 LTS</code>，LTS 意为“长期支持”，一般为5年。该 LTS 版本将提供免费安全和维护更新至 2027年4月。有需要了解更多的，可以到 <a href="https://cn.ubuntu.com/desktop">Ubuntu官网</a> 了解。</p>
+<h2 id="下载-Ubuntu22-04-镜像">下载 Ubuntu22.04 镜像</h2>
+<p>ubuntu22.04.2-desktop-amd64.iso：<a href="https://ubuntu.com/download/desktop">点击下载</a></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11d0xj9-1.webp" alt="VM-ubuntu1"></p>
+<h2 id="创建虚拟机">创建虚拟机</h2>
+<h3 id="创建">创建</h3>
+<p>打开 VMware 虚拟机—&gt;点击文件—&gt;新建虚拟机</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11d8nal-1.webp" alt="VM-ubuntu2"></p>
+<h3 id="选择硬件兼容性">选择硬件兼容性</h3>
+<p>默认点击下一步</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11czaye-1.webp" alt="VM-ubuntu3"></p>
+<h3 id="选择安装来源">选择安装来源</h3>
+<p>选择 【稍后安装系统】，点击下一步</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11d0ql3-1.webp" alt="VM-ubuntu4"></p>
+<h3 id="选择系统类型">选择系统类型</h3>
+<p>选择“Linux（L）”和“Ubuntu 64 位”，点击“下一步”。</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11cyo65-1.webp" alt="VM-ubuntu5"></p>
+<h3 id="虚拟机命名">虚拟机命名</h3>
+<p>自定义虚拟机名称和存储位置</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11cz8n0-1.webp" alt="VM-ubuntu6"></p>
+<h3 id="一些配置">一些配置</h3>
+<h4 id="处理器配置">处理器配置</h4>
+<blockquote>
+<p>处理器个数至少为 1 个，可根据自己需求进行选择。</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11czhiy-1.webp" alt="VM-ubuntu7"></p>
+<h4 id="虚拟机内存配置">虚拟机内存配置</h4>
+<blockquote>
+<p>根据自己物理机进行分配内存，最多不能大于物理机内存。</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11cyye1-1.webp" alt="VM-ubuntu8"></p>
+<h4 id="网络和-I-O-类型">网络和 I/O 类型</h4>
+<blockquote>
+<p>我一般使用 NAT</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11cznru-1.webp" alt="VM-ubuntu9"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/11czfxl-1.webp" alt="VM-ubuntu10"></p>
+<h4 id="磁盘类型">磁盘类型</h4>
+<p>默认即可</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122utvl-1.webp" alt="VM-ubuntu11"></p>
+<h4 id="创建磁盘">创建磁盘</h4>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122uwal-1.webp" alt="VM-ubuntu12"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122und6-1.webp" alt="VM-ubuntu13"></p>
+<h4 id="自定义硬件">自定义硬件</h4>
+<p>选择自己镜像的存储位置，然后点击“关闭”、“完成”（虚拟机基础操作完毕后可取消）</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122uoxu-1.webp" alt="VM-ubuntu14"></p>
+<h2 id="启动虚拟机">启动虚拟机</h2>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122umi9-1.webp" alt="VM-ubuntu15"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122uxgk-1.webp" alt="VM-ubuntu16"></p>
+<blockquote>
+<p>默认点击继续</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122v9fs-1.webp" alt="VM-ubuntu17"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122vey4-1.webp" alt="VM-ubuntu18"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122vf1k-1.webp" alt="VM-ubuntu19"></p>
+<blockquote>
+<p>选择时区</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122vj5h-1.webp" alt="VM-ubuntu20"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/125uc8x-1.webp" alt="VM-ubuntu21"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122vlf9-1.webp" alt="VM-ubuntu22"></p>
+<p><strong>完成安装</strong></p>
+<h2 id="基础配置">基础配置</h2>
+<h3 id="更换国内源"><strong>更换国内源</strong></h3>
+<p>打开&quot;软件和更新&quot;</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/122vsu4-1.webp" alt="VM-ubuntu23"></p>
+<p>可自行百度选择，我这里选择的阿里云的。</p>
+<h3 id="安装常用软件">安装常用软件</h3>
+<p><code>apt-get install curl wget lrzsz vim cron unzip screen</code></p>
+<details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ol>
+<li><code>curl</code>：用于在终端中进行网络请求和数据传输，支持各种协议（如 HTTP、HTTPS、FTP 等）。</li>
+<li><code>wget</code>：用于从 Web 服务器下载文件，支持 HTTP、HTTPS 和 FTP 协议，具有断点续传功能。</li>
+<li><code>lrzsz</code>：提供了 Xmodem、Ymodem 和 Zmodem 等协议的文件传输功能，用于通过终端与远程主机进行文件传输。</li>
+<li><code>vim</code>：一种强大的文本编辑器，常用于命令行环境下编辑文本文件。</li>
+<li><code>cron</code>：用于在预定时间自动运行命令或脚本的任务调度程序。</li>
+<li><code>unzip</code>：用于解压缩 ZIP 格式的压缩文件。</li>
+<li><code>screen</code>：用于在终端中创建和管理多个会话，允许在不同的终端窗口或会话之间切换。</li>
+</ol>
+</div></details>
+<h3 id="其他">其他</h3>
+<ul>
+<li>查看是否有网：ping <a href="http://baidu.com">baidu.com</a></li>
+<li>查看 ip：ifconfig</li>
+</ul>
+<h2 id="美化">美化</h2>
+<p><a href="https://fkcc.me/2023/10/21/Ubuntu-%E7%BE%8E%E5%8C%96/">Ubuntu 美化 | ZのBlog (fkcc.me)</a></p>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VMware Workstation Pro教程三：安装Debian</title>
+    <url>/2023/10/18/VMware-Workstation-Pro%E6%95%99%E7%A8%8B%E4%B8%89%EF%BC%9A%E5%AE%89%E8%A3%85Debian/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>VMware虚拟机</category>
+      </categories>
+      <tags>
+        <tag>VMware</tag>
+        <tag>虚拟机</tag>
+        <tag>Debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS Code配置</title>
+    <url>/2023/10/21/VS-Code%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<div class="note orange icon-padding modern"><i class="note-icon fas fa-bullhorn"></i><p>简单记录一下我VS code的配置，不保证准确性</p>
+</div>
+<blockquote>
+<p>vs 配置参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/62913725">第一次使用VS Code时你应该知道的一切配置 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/wkd_007/article/details/131407330">【VSCode | 主题】推荐几个适合看 C/C++ 代码的 VSCode 主题-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/639196010">VSCode C/C++开发配置都在这里了 - 知乎</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>首先先安装中文扩展：搜索 Chinese</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126f1xx-1.webp" alt="vs"></p>
+<h2 id="配置-C-C-语言环境">配置 C/C++ 语言环境</h2>
+<h3 id="安装MinGW-w64">安装MinGW-w64</h3>
+<p>见安装 MinGW-w64部分：</p>
+<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h3 id="设置-vscode-里的环境">设置 vscode 里的环境</h3>
+<blockquote>
+<p>配置文件有三个，分别为：①构建任务文件： tasks.json，②编译器路径文件： c_cpp_properties.json，③调试设置文件：launch.json</p>
+<p>// launch.json可以不创建</p>
+</blockquote>
+<blockquote>
+<p>可以按照下方教程手动配置，也可以直接复制我提供的文件（每个教程后面会给出，注意更改路径）</p>
+</blockquote>
+<h4 id="配置-C-C-语言环境-2">配置 C/C++ 语言环境</h4>
+<h5 id="配置-C-语言环境">配置 C 语言环境</h5>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://blog.csdn.net/incredibleimpact/article/details/109733494">VS Code C语言开发环境配置附图版保姆教程</a></li>
+<li><a href="https://www.cnblogs.com/xiaml/articles/17391759.html">VS Code配置C语言开发与调试环境(超详细) - Arthur古德曼 - 博客园</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>安装必要扩展</p>
+<ul>
+<li>C/C++</li>
+</ul>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126f6vf-1.webp" alt="C-1"></p>
+<ul>
+<li>其他扩展<br>
+待写。。。</li>
+</ul>
+</li>
+<li>
+<p>配置</p>
+<p>①新建项目仓库，比如  <code>C </code> 文件夹<br>
+②使用 vs code 打开 <code>C</code> 文件夹并在里面创建 Hello.c 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello. c 文件中，保存</p>
+ <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json<br>
+按 F5，按图示选择第一个：</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126ew0a-1.png" alt="C-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations (UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/gcc.exe</code> )以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>然后会自动创建文件</p>
+<p>⑤配置调试设置文件：launch.json<br>
+点击左边调试，点击创建 launch.json 文件</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126f2ov-1.webp" alt="C-3"></p>
+<p>选择 C++(GDB/LLDB)</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126euxn-1.webp" alt="C-4"></p>
+<p>紧接着会产生一个 launch.json 的文件，里面没什么东西，可以参考我的（后面会给出代码）</p>
+ <details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,     //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;detail&quot;: &quot;调试器生成的任务。&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:\\mingw-w64\\bin\\gcc.exe&quot;,    //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,          // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,        // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: gcc.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>来自Chatgpt的解释：</strong></p>
+<ol>
+<li>
+<p>program变量</p>
+<ul>
+<li><code>&quot;program&quot;: &quot;${workspaceFolder}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>始终使用 <code>${workspaceFolder}</code> 中的可执行文件。</li>
+<li>适合在整个工作区内使用相同的可执行文件的情况。</li>
+</ul>
+</li>
+<li><code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code>：
+<ul>
+<li>自动使用当前活动文件所在文件夹中的可执行文件。</li>
+<li>更适合在不同文件夹中编写代码并希望在当前文件夹中查找可执行文件的情况。</li>
+</ul>
+</li>
+</ul>
+<p>如果你的项目结构中不同文件夹中都有各自的可执行文件，使用 <code>&quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;</code> 更灵活，因为它会根据当前活动文件的位置自动查找相关的可执行文件，而不需要在不同文件夹中手动切换配置。</p>
+</li>
+<li>
+<p>cwd变量</p>
+<ul>
+<li><code>&quot;cwd&quot;: &quot;${workspaceFolder}&quot;</code> 将工作目录设置为你的 VS Code 项目的根目录，即打开的文件夹的根目录。这通常是你的整个项目的根目录。当你需要在整个项目中执行或调试任务时，这是一个常见的设置。</li>
+<li><code>&quot;cwd&quot;: &quot;${fileDirname}&quot;</code> 将工作目录设置为当前打开文件的目录。这对于执行或调试与当前打开文件直接相关的任务非常有用，例如，如果你需要在与当前文件相关的特定子目录中执行任务，可以使用 <code>${fileDirname}</code>。</li>
+</ul>
+<p>你可以根据具体需求选择使用哪个工作目录设置。如果你想要在整个项目中运行任务，通常使用 <code>&quot;workspaceFolder&quot;</code> 是一个好的选择。如果你只想针对当前打开的文件运行任务，那么使用 <code>&quot;fileDirname&quot;</code> 更合适。</p>
+<p>使用 <code>${workspaceFolder}</code> 通常对于整个项目的任务非常有用，而 <code>${fileDirname}</code> 对于与单个文件关联的任务更合适。</p>
+</li>
+</ol>
+</div></details>
+</li>
+</ol>
+<hr>
+<h5 id="配置-C-语言环境-2">配置 C++ 语言环境</h5>
+<blockquote>
+<p>和“<font color="#ff0000">配置 C 语言环境</font>”这一步基本一样，就几个地方有点区别，需要把一些地方出现的gcc换成g++</p>
+</blockquote>
+<blockquote>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87864677">VSCode配置C/C++环境 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/weixin_44996090/article/details/104432593">【精选】vscode配置c/c++编译环境（最终解决办法）_未配置编译器。除非设置自己的配置,否则 intellisense 可能无法正常工作。-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>
+<p>安装必要扩展</p>
+<ul>
+<li>C/C++</li>
+<li>其他扩展：<br>
+待写。。。</li>
+</ul>
+</li>
+<li>
+<p>配置</p>
+<p>①新建项目仓库，比如 CPP 文件夹<br>
+②使用 vs code 打开 CPP 文件夹并在里面创建 Hello.cpp 文件</p>
+<blockquote>
+<p>PS：请注意路径不能有中文</p>
+</blockquote>
+<p>将以下代码填入 Hello.cpp 文件中，保存</p>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Hello World\n&quot;</span>);</span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>③配置构建任务文件： tasks.json</p>
+<p>按 F5，按图示选择第一个：</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/126f0h1-1.webp" alt="CPP-1"></p>
+<p>选择 g++</p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/127nkg7-1.webp" alt="CPP-2"></p>
+<p>④配置编译器路径文件： c_cpp_properties.json</p>
+<ul>
+<li>按快捷键 Ctrl+Shift+P 调出命令面板，输入 <code>C/C++</code>，选择“<code>Edit Configurations(UI)</code>”进入配置。</li>
+<li>这里的路径根据大家自己安装的 Mingw 编译器位置和配置的环境变量位置所决定。</li>
+</ul>
+<blockquote>
+<p>配置“编译器路径”(写自己的编译器下载路径，例如：<code>D:/mingw-w64/bin/g++.exe</code>)以及“IntelliSense 模式”(设为：<code>gcc-x64</code>)</p>
+</blockquote>
+<p>⑤配置调试设置文件：launch.json<br>
+参考上面 “<code>配置 C 语言环境</code>” 部分</p>
+ <details class="toggle" ><summary class="toggle-button" style="">点击查看文件代码</summary><div class="toggle-content"><blockquote>
+<p>此处为我的配置文件，可以直接复制粘贴，但不保证准确性</p>
+</blockquote>
+<p>tasks.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;cppbuild&quot;,</span><br><span class="line">            &quot;label&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, </span><br><span class="line">            &quot;command&quot;: &quot;D:\\mingw-w64\\bin\\g++.exe&quot;,         //换成你的路径</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;-fdiagnostics-color=always&quot;,</span><br><span class="line">                &quot;-g&quot;,</span><br><span class="line">                &quot;$&#123;file&#125;&quot;,</span><br><span class="line">                &quot;-o&quot;,</span><br><span class="line">                &quot;$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;problemMatcher&quot;: [</span><br><span class="line">                &quot;$gcc&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;group&quot;: &quot;build&quot;,</span><br><span class="line">            &quot;detail&quot;: &quot;编译器: D:\\mingw-w64\\bin\\g++.exe&quot;      //换成你的路径</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c_cpp_properties.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;Win32&quot;,</span><br><span class="line">            &quot;includePath&quot;: [</span><br><span class="line">                &quot;$&#123;workspaceFolder&#125;/**&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;defines&quot;: [</span><br><span class="line">                &quot;_DEBUG&quot;,</span><br><span class="line">                &quot;UNICODE&quot;,</span><br><span class="line">                &quot;_UNICODE&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;compilerPath&quot;: &quot;D:/mingw-w64/bin/g++.exe&quot;,           //换成你的路径</span><br><span class="line">            &quot;cStandard&quot;: &quot;c17&quot;,</span><br><span class="line">            &quot;cppStandard&quot;: &quot;gnu++14&quot;,</span><br><span class="line">            &quot;intelliSenseMode&quot;: &quot;windows-gcc-x64&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;version&quot;: 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>launch.json：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">        &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">        &quot;configurations&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;name&quot;: &quot;C/C++ Debug&quot;,      // 配置名称，将会在启动配置的下拉菜单中显示</span><br><span class="line">            &quot;type&quot;: &quot;cppdbg&quot;,           // 配置类型，这里只能为cppdbg</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,        // 请求配置类型，可以为launch（启动）或attach（附加）  </span><br><span class="line">            &quot;program&quot;: &quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;,          // 将要进行调试的程序的路径，详细见下方注释</span><br><span class="line">            &quot;args&quot;: [],                                               // 程序调试时传递给程序的命令行参数，一般设为空即可  </span><br><span class="line">            &quot;stopAtEntry&quot;: false,                                     // 设为true时程序将暂停在程序入口处，一般设置为false  </span><br><span class="line">            &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot;,                              // 调试程序时的工作目录，详细见下方注释</span><br><span class="line">            &quot;environment&quot;: [],</span><br><span class="line">            &quot;externalConsole&quot;: false,                             // 调试时是否显示控制台窗口，一般设置为false即在控制台显示，true则弹出终端</span><br><span class="line">            &quot;MIMode&quot;: &quot;gdb&quot;,                                          </span><br><span class="line">            &quot;miDebuggerPath&quot;: &quot;D:\\mingw-w64\\bin\\gdb.exe&quot;,   // miDebugger的路径，注意这里要与自己电脑安装的MinGw的路径对应</span><br><span class="line">            &quot;preLaunchTask&quot;: &quot;C/C++: g++.exe 生成活动文件&quot;, // 调试会话开始前执行的任务，一般为编译程序，和tasks.json文件中的&quot;label&quot;一样</span><br><span class="line">            &quot;setupCommands&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,</span><br><span class="line">                &quot;text&quot;: &quot;-enable-pretty-printing&quot;,</span><br><span class="line">                &quot;ignoreFailures&quot;: true</span><br><span class="line">              &#125;</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&quot;program&quot;和&quot;cwd&quot;的注释请参考上方“配置 C 语言环境” 这一步骤</p>
+</div></details>
+</li>
+</ol>
+<h5 id="参考">参考</h5>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1725753-1-1.html">C/C++编译器 离线安装包、便携版 有TDM-GCC MinGW-GCC Clang等 - 『精品软件区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://www.cnblogs.com/ggg-327931457/p/9694516.html">MinGW-w64安装教程——著名C/C++编译器GCC的Windows版本 - 『潇洒の背影』 - 博客园</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/180438950">VScode安装配置C语言运行环境（踩坑贴） - 知乎</a></li>
+<li><a href="https://blog.csdn.net/B11050729/article/details/132176767">MinGW-W64 下载、安装与配置（支持最新版的GCC，目前 GCC 13.2.0）_mingw 最新-CSDN博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/354400717">VS Code配置C语言开发环境的超详细教程 - 知乎</a></li>
+<li><a href="https://blog.csdn.net/qq_45807140/article/details/112862592">【精选】从零开始的vscode安装及环境配置教程(C/C++)(Windows系统)_从零开始的vscode安装及环境配置教程(c/c++)(windows系统)_vscode环境配置_-CSDN博客</a></li>
+</ul>
+<hr>
+<h2 id="配置-PHP-环境">配置 PHP 环境</h2>
+<h3 id="安装-PHP">安装 PHP</h3>
+<p>见安装 PHP 部分：</p>
+<p><a href="https://fkcc.me/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">windows常用运行环境的安装 | Z の Blog (fkcc.me)</a></p>
+<h3 id="设置-vscode-里的环境-2">设置 vscode 里的环境</h3>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>vs code</category>
+      </categories>
+      <tags>
+        <tag>vs</tag>
+        <tag>vs code</tag>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cloudflare 配置</title>
+    <url>/2024/02/18/cloudflare-%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="安全性">安全性</h2>
+<h3 id="WAF">WAF</h3>
+<blockquote>
+<p>waf的五个规则，也可以不用管，属于进阶玩法，把后面的基础配置完也差不多够了</p>
+</blockquote>
+<h4 id="Allow-允许">Allow 允许</h4>
+<p>表达式预览：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(cf.client.bot)</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/x3ybmm-1.webp" alt="cloudflare-rule1"></p>
+<h4 id="Bypass-绕过">Bypass 绕过</h4>
+<p>表达式预览：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(cf.tls_client_auth.cert_verified)</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/x58gba-1.webp" alt="cloudflare-rule2"></p>
+<h4 id="Managed-Challenge-托管质询">Managed Challenge 托管质询</h4>
+<p>表达式预览：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 3) or (ip.geoip.country in &#123;&quot;RU&quot; &quot;UA&quot; &quot;T1&quot;&#125;) or (http.x_forwarded_for eq &quot;.&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/x6d0bd-1.webp" alt="cloudflare-rule3"></p>
+<h4 id="JavaScript-质询">JavaScript 质询</h4>
+<p>表达式预览：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 10) or (http.user_agent eq &quot;&quot;) or (http.user_agent eq &quot;&quot;) or (http.user_agent contains &quot;fuck&quot;) or (http.user_agent contains &quot;lient&quot; and http.user_agent contains &quot;ttp&quot;) or (http.user_agent contains &quot;java&quot;) or (http.user_agent contains &quot;Joomla&quot;) or (http.user_agent contains &quot;libweb&quot;) or (http.user_agent contains &quot;libwww&quot;) or (http.user_agent contains &quot;PHPCrawl&quot;) or (http.user_agent contains &quot;PyCurl&quot;) or (http.user_agent contains &quot;python&quot;) or (http.user_agent contains &quot;wrk&quot;) or (http.user_agent contains &quot;hey/&quot;) or (http.user_agent contains &quot;Acunetix&quot;) or (http.user_agent contains &quot;apache&quot;) or (http.user_agent contains &quot;BackDoorBot&quot;) or (http.user_agent contains &quot;cobion&quot;) or (http.user_agent contains &quot;masscan&quot;) or (http.user_agent contains &quot;FHscan&quot;) or (http.user_agent contains &quot;scanbot&quot;) or (http.user_agent contains &quot;Gscan&quot;) or (http.user_agent contains &quot;Researchscan&quot;) or (http.user_agent contains &quot;WPScan&quot;) or (http.user_agent contains &quot;ScanAlert&quot;) or (http.user_agent contains &quot;Wprecon&quot;) or (http.user_agent contains &quot;virusdie&quot;) or (http.user_agent contains &quot;VoidEYE&quot;) or (http.user_agent contains &quot;WebShag&quot;) or (http.user_agent contains &quot;Zeus&quot;) or (http.user_agent contains &quot;zgrab&quot;) or (http.user_agent contains &quot;zmap&quot;) or (http.user_agent contains &quot;nmap&quot;) or (http.user_agent contains &quot;fimap&quot;) or (http.user_agent contains &quot;ZmEu&quot;) or (http.user_agent contains &quot;ZumBot&quot;) or (http.user_agent contains &quot;Zyborg&quot;) or (http.user_agent contains &quot;attachment&quot;) or (http.user_agent eq &quot;undefined&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/xg0eto-1.webp" alt="cloudflare-rule4"></p>
+<h4 id="Block-阻止">Block 阻止</h4>
+<p>表达式预览：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 15) or (ip.geoip.asnum in &#123;59055 59054 59053 59052 59051 59028 45104 45103 45102 37963 34947 211914 134963 63727 63655 61348 55990 269939 265443 206798 206204 200756 149167 141180 140723 139144 139124 136907 131444 45090 137876 133478 132591 132203&#125;) or (http.user_agent contains &quot;80legs&quot;) or (http.user_agent contains &quot;Abonti&quot;) or (http.user_agent contains &quot;admantx&quot;) or (http.user_agent contains &quot;aipbot&quot;) or (http.user_agent contains &quot;AllSubmitter&quot;) or (http.user_agent contains &quot;Backlink&quot;) or (http.user_agent contains &quot;backlink&quot;) or (http.user_agent contains &quot;Badass&quot;) or (http.user_agent contains &quot;Bigfoot&quot;) or (http.user_agent contains &quot;blexbot&quot;) or (http.user_agent contains &quot;Buddy&quot;) or (http.user_agent contains &quot;CherryPicker&quot;) or (http.user_agent contains &quot;cloudsystemnetwork&quot;) or (http.user_agent contains &quot;cognitiveseo&quot;) or (http.user_agent contains &quot;Collector&quot;) or (http.user_agent contains &quot;cosmos&quot;) or (http.user_agent contains &quot;CrazyWebCrawler&quot;) or (http.user_agent contains &quot;Crescent&quot;) or (http.user_agent contains &quot;Devil&quot;) or (http.user_agent contains &quot;spider&quot;) or (http.user_agent contains &quot;stat&quot;) or (http.user_agent contains &quot;Appender&quot;) or (http.user_agent contains &quot;Crawler&quot;) or (http.user_agent contains &quot;DittoSpyder&quot;) or (http.user_agent contains &quot;Konqueror&quot;) or (http.user_agent contains &quot;Easou&quot;) or (http.user_agent contains &quot;Yisou&quot;) or (http.user_agent contains &quot;Etao&quot;) or (http.user_agent contains &quot;mail&quot; and http.user_agent contains &quot;olf&quot;) or (http.user_agent contains &quot;exabot.com&quot;) or (http.user_agent contains &quot;getintent&quot;) or (http.user_agent contains &quot;Grabber&quot;) or (http.user_agent contains &quot;GrabNet&quot;) or (http.user_agent contains &quot;HEADMasterSEO&quot;) or (http.user_agent contains &quot;heritrix&quot;) or (http.user_agent contains &quot;htmlparser&quot;) or (http.user_agent contains &quot;hubspot&quot;) or (http.user_agent contains &quot;Jyxobot&quot;) or (http.user_agent contains &quot;kraken&quot;) or (http.user_agent contains &quot;larbin&quot;) or (http.user_agent contains &quot;ltx71&quot;) or (http.user_agent contains &quot;leiki&quot;) or (http.user_agent contains &quot;LinkScan&quot;) or (http.user_agent contains &quot;Magnet&quot;) or (http.user_agent contains &quot;Mag-Net&quot;) or (http.user_agent contains &quot;Mechanize&quot;) or (http.user_agent contains &quot;MegaIndex&quot;) or (http.user_agent contains &quot;Metasearch&quot;) or (http.user_agent contains &quot;MJ12bot&quot;) or (http.user_agent contains &quot;moz.com&quot;) or (http.user_agent contains &quot;Navroad&quot;) or (http.user_agent contains &quot;Netcraft&quot;) or (http.user_agent contains &quot;niki-bot&quot;) or (http.user_agent contains &quot;NimbleCrawler&quot;) or (http.user_agent contains &quot;Nimbostratus&quot;) or (http.user_agent contains &quot;Ninja&quot;) or (http.user_agent contains &quot;Openfind&quot;) or (http.user_agent contains &quot;Analyzer&quot;) or (http.user_agent contains &quot;Pixray&quot;) or (http.user_agent contains &quot;probethenet&quot;) or (http.user_agent contains &quot;proximic&quot;) or (http.user_agent contains &quot;psbot&quot;) or (http.user_agent contains &quot;RankActive&quot;) or (http.user_agent contains &quot;RankingBot&quot;) or (http.user_agent contains &quot;RankurBot&quot;) or (http.user_agent contains &quot;Reaper&quot;) or (http.user_agent contains &quot;SalesIntelligent&quot;) or (http.user_agent contains &quot;Semrush&quot;) or (http.user_agent contains &quot;SEOkicks&quot;) or (http.user_agent contains &quot;spbot&quot;) or (http.user_agent contains &quot;SEOstats&quot;) or (http.user_agent contains &quot;Snapbot&quot;) or (http.user_agent contains &quot;Stripper&quot;) or (http.user_agent contains &quot;Siteimprove&quot;) or (http.user_agent contains &quot;sitesell&quot;) or (http.user_agent contains &quot;Siphon&quot;) or (http.user_agent contains &quot;Sucker&quot;) or (http.user_agent contains &quot;TenFourFox&quot;) or (http.user_agent contains &quot;TurnitinBot&quot;) or (http.user_agent contains &quot;trendiction&quot;) or (http.user_agent contains &quot;twingly&quot;) or (http.user_agent contains &quot;VidibleScraper&quot;) or (http.user_agent contains &quot;WebLeacher&quot;) or (http.user_agent contains &quot;WebmasterWorldForum&quot;) or (http.user_agent contains &quot;webmeup&quot;) or (http.user_agent contains &quot;Webster&quot;) or (http.user_agent contains &quot;Widow&quot;) or (http.user_agent contains &quot;Xaldon&quot;) or (http.user_agent contains &quot;Xenu&quot;) or (http.user_agent contains &quot;xtractor&quot;) or (http.user_agent contains &quot;Zermelo&quot;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/xluo29-1.webp" alt="cloudflare-rule5"></p>
+<blockquote>
+<p>图片太长，中间没有截取</p>
+</blockquote>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/xm0v7r-1.webp" alt="cloudflare-rule6"></p>
+<h4 id="速率限制规则">速率限制规则</h4>
+<blockquote>
+<p>除了上方五个自定义规则外，还可以设置一条速率限制规则，这个是防止CC</p>
+</blockquote>
+<p>针对免费用户来说可以配置的参数比较少，主要实现的是同个 IP（10 秒内请求数&gt;n）时对其返回 429 阻止访问。</p>
+<p>正常情况下<code>请求</code>建议设置为 50 以上，资源更多的站点可以考虑适当放大（以不影响正常访问为准）。最好不要低于20。如果太低了，用户正常访问都会被阻止。如果网站类型有文字、有图片、有视频，这里不要低。如果你是CF付费版，建议用托管质询，而不是直接阻止。</p>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/yzi8bw-1.webp" alt="cloudflare-rule10"></p>
+<h3 id="自动程序">自动程序</h3>
+<p>自动程序攻击模式打开</p>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/xq6zf8-1.webp" alt="cloudflare-rule7"></p>
+<h3 id="DDoS">DDoS</h3>
+<p>.<img src="https://tc.381183.xyz/i/1/2024/02/18/xt0r0h-1.webp" alt="cloudflare-rule8"></p>
+<h3 id="设置">设置</h3>
+<p>安全级别可以设置为高，然后可以使用页面规则为域的任意部分设置自定义安全级别。（如果直接打开I’m Under Attack!我受到攻击，这样就是任何请求会做人机验证，等待5秒钟，也就是所说的CF五秒盾：会掉收录，API无法通讯，需要写防火墙规则排除。）</p>
+<p>质询通过期设置成：15分钟或者30分钟，严重可以设置5分钟（这里慎重设置，不要太低，不要太高！）<br>
+浏览器完整性检查：打开</p>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/yvcftq-1.webp" alt="cloudflare-rule9"></p>
+<h2 id="网络">网络</h2>
+<p>有些攻击会通过TOR节点绕开CF质询，这里建议关掉洋葱路由</p>
+<p><img src="https://tc.381183.xyz/i/1/2024/02/18/z7li71-1.webp" alt="cloudflare-rule11"></p>
+<h2 id="进阶玩法">进阶玩法</h2>
+<p>待完善。。。</p>
+<p>下方是在网上看见别人发的，还没具体查看</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在GitHub上,有一些开源项目可以通过监控服务器CPU负载来实现CC/DDoS防御,推荐几个:</span><br><span class="line"></span><br><span class="line">ddosploit/ddos-deflate</span><br><span class="line">一个Linux应用防火墙,可以检测DDoS和阻止DDoS攻击。它可以监控流量并在检测到攻击时自动应用iptables规则。</span><br><span class="line"></span><br><span class="line">jgmdev/ddos-deflate</span><br><span class="line">一个shell脚本,当检测到DDoS攻击时,它可以限制流入服务器的连接。可以自定义触发阈值如CPU负载。</span><br><span class="line"></span><br><span class="line">dotpy3/ddosCoffee</span><br><span class="line">一个用Python编写的轻量级DDoS防御系统,可以检测SYN flood等常见DDoS攻击,并应用iptables规则做限速。</span><br><span class="line"></span><br><span class="line">yuanbq/dataBase-Se</span><br><span class="line">一个检测数据库高负载并应对的Java应用,可以监控CPU、内存等参数,在超过阈值时触发增强数据库配置。</span><br><span class="line"></span><br><span class="line">kyl191/antiddos</span><br><span class="line">轻量级的Python网络应用防火墙,结合了fail2ban来根据流量异常和错误请求封禁IP。</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://hostloc.com/thread-1094822-1-1.html">【最新】免费版cloudflare如何防CC攻击？不需要动手写规则！-美国VPS综合讨论-全球主机交流论坛 - Powered by Discuz! (hostloc.com)</a></li>
+<li><a href="https://blog.tanglu.me/cloudflare-configure">cloudflare配置详解 | tanglu’s blog</a></li>
+<li><a href="https://www.nodeseek.com/post-17576-1">求个CF抗CC抗DD的规则 (nodeseek.com)</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>配置</tag>
+        <tag>cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows 安装Git</title>
     <url>/2023/10/17/Windows-%E5%AE%89%E8%A3%85Git/</url>
     <content><![CDATA[<h2 id="windows-安装">windows 安装</h2>
 <h3 id="官网下载安装包：-Git-Downloading-Package"><strong>官网下载安装包：</strong> <a href="https://git-scm.com/download/win">Git - Downloading Package</a></h3>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w19tn-1.webp" alt="git1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10w19tn-1.webp" alt="git1"></p>
 <h3 id="安装："><strong>安装：</strong></h3>
 <h4 id="选择-Git-的安装路径：">选择 Git 的安装路径：</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10w0tou-1.webp" alt="git2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10w0tou-1.webp" alt="git2"></p>
 <h4 id="选择安装组件">选择安装组件</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y53pa-1.webp" alt="git3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y53pa-1.webp" alt="git3"></p>
 <ul>
 <li>Additional Icons、On the Desktop  添加桌面图标推荐选择推荐选择</li>
 <li>Windows Explorer integration、Git Bash Here、Git GUI Here<br>
@@ -2659,7 +2712,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <li>(NEW!)Scalar (Git add-on to manage large-scale repositories) Windows 新开发的一种大规模仓库管理，视情况而定</li>
 </ul>
 <h4 id="创建菜单文件夹">创建菜单文件夹</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y59st-1.webp" alt="git4"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y59st-1.webp" alt="git4"></p>
 <blockquote>
 <p>在开始菜单栏创建 Git 文件夹，可以修改“Git”来重新命名文件夹，也可以点击“Browser”添加到别的已有文件夹，也可以勾选“Don’t create a Start Menu folder”来选择不创建文件夹</p>
 </blockquote>
@@ -2668,9 +2721,9 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <blockquote>
 <p>本教程选择 Vim 编辑器</p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y54jx-1.webp" alt="git5"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y54jx-1.webp" alt="git5"></p>
 <h4 id="决定初始化新项目（仓库）的主干名字">决定初始化新项目（仓库）的主干名字</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y52s9-1.webp" alt="git6"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y52s9-1.webp" alt="git6"></p>
 <blockquote>
 <p>注： 第二个选项下面有个 NEW！ ，说很多团队已经重命名他们的默认主干名为 main . 这是因为2020 年非裔男子乔治·弗洛伊德因白人警察暴力执法惨死而掀起的 Black Lives Matter(黑人的命也是命)运动，很多人认为 master 不尊重黑人，呼吁改为 main.</p>
 </blockquote>
@@ -2680,17 +2733,17 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 <li>第二种是从命令行以及第三方软件进行 Git。这个就是在第一种基础上进行第三方支持，你将能够从 Git Bash，命令提示符 (cmd) 和 Windows PowerShell 以及可以从 Windows 系统环境变量中寻找 Git 的任何第三方软件中使用 Git。推荐使用这个。</li>
 <li>第三种是从命令提示符使用 Git 和可选的 Unix 工具。选择这种将覆盖 Windows 工具，如 “ find 和 sort ”。只有在了解其含义后才使用此选项。一句话，适合比较懂的人折腾。</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y50rg-1.webp" alt="git7"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y50rg-1.webp" alt="git7"></p>
 <details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">Use Git from Git Bash only </span><br><span class="line">This is the most cautious choice as your PATH will not be modified at all. You w only be able to use the Git command line tools from Git Bash.</span><br><span class="line">仅从 Git Bash 使用 Git</span><br><span class="line">这是最谨慎的选择，因为您的 PATH 根本不会被修改。您将只能使用 Git Bash 中的 Git 命令行工具。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Git from the command line and also from 3 rd-party software</span><br><span class="line">(Recommended) This option adds only some minimal Git wrappers to your PATH to avoid cluttering your environment with optional Unix tools.</span><br><span class="line">You will be able to use Git from Git Bash，the Command Prompt and the Windov PowerShell as well as any third-party software looking for Git in PATH.</span><br><span class="line">从命令行以及第三方软件进行 Git</span><br><span class="line">（推荐）此选项仅将一些最小的 Git 包装器添加到 PATH 中，以避免使用可选的 Unix 工具使环境混乱。</span><br><span class="line">您将能够使用 Git Bash 中的 Git，命令提示符和 Windov PowerShell 以及在 PATH 中寻找 Git 的任何第三方软件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Use Git and optional Unix tools from the Command Prompt </span><br><span class="line">Both Git and the optional Unix tools will be added to your PATH.</span><br><span class="line">Warning: This will override Windows tools like &quot;find&quot;and &quot;sort&quot;. Only use this option if you understand the implications.</span><br><span class="line">使用命令提示符中的 Git 和可选的 Unix 工具</span><br><span class="line">Git 和可选的 Unix 工具都将添加到您的 PATH 中。</span><br><span class="line">警告：这将覆盖 Windows 工具，例如 &quot;find&quot; and &quot;sort&quot;. 仅在了解其含义后使用此选项。</span><br></pre></td></tr></table></figure>
 </div></details>
 <h4 id="选择-SSH-执行文件">选择 SSH 执行文件</h4>
 <blockquote>
 <p>勾选默认即可</p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y4taa-1.webp" alt="git8"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y4taa-1.webp" alt="git8"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Use bundled OpenSSH </span><br><span class="line">This uses ssh. Exe that comes with Git.</span><br><span class="line">使用捆绑的 OpenSSH</span><br><span class="line">这使用的 ssh. Exe 是 Git 自带的 </span><br><span class="line"></span><br><span class="line">Use external OpenSSH </span><br><span class="line">NEW! This uses an external ssh. Exe. Git will not install its own OpenSSH</span><br><span class="line">(and related) binaries but use them as found on the PATH.</span><br><span class="line">使用外部 OpenSSH</span><br><span class="line">新！这使用外部 ssh. Exe 文件。 </span><br><span class="line">Git 不会安装自己的 OpenSSH（和相关）二进制文件，而是使用在环境变量 PATH 中找到的它们。</span><br></pre></td></tr></table></figure>
 <h4 id="选择-HTTPS-后端传输">选择 HTTPS 后端传输</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y88zz-1.webp" alt="git9"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y88zz-1.webp" alt="git9"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">翻译如下：</span><br><span class="line"></span><br><span class="line">use the OpenSSL library </span><br><span class="line">Server certificates will be validated using the ca-bundle. crt file.</span><br><span class="line">使用 OpenSSL 库</span><br><span class="line">服务器证书将使用 ca-bundle.crt 文件进行验证。</span><br><span class="line">    </span><br><span class="line">Use the native Windows Secure Channel library </span><br><span class="line">Server certificates will be validated using Windows Certificate Stores.</span><br><span class="line">This option also allows you to use your company&#x27;s internal Root CA certificates distributed e.g. via Active Directory Domain Services.</span><br><span class="line">使用本机 Windows 安全通道库</span><br><span class="line">服务器证书将使用 Windows 证书存储进行验证。</span><br><span class="line">此选项还允许您使用公司内部分发的内部根 CA 证书，例如通过 Active Directory 域服务。</span><br></pre></td></tr></table></figure>
 <p>这两种选项有什么区别：<br>
 来自：<a href="https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr">https://stackoverflow.com/questions/62456484/whats-the-difference-between-openssl-and-the-native-windows-secure-channel-libr</a></p>
@@ -2699,7 +2752,7 @@ zsh 官方自带了很多不同风格的主题，可以自定义设定，在~/.z
 </blockquote>
 <p>也就是说，作为普通用户，只是用 Git 来访问 Github、GitLab 等网站，选择前者就行了。</p>
 <h4 id="配置行尾符号转换">配置行尾符号转换</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyuj7-1.webp" alt="git10"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10zyuj7-1.webp" alt="git10"></p>
 <details class="toggle" ><summary class="toggle-button" style="">点击查看相关解释</summary><div class="toggle-content"><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Checkout Windows-style, commit Unix-style line endings </span><br><span class="line">Git will convert LF to CRLF when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Windows(&quot;core. autocrif&quot;is set to &quot;true&quot;).</span><br><span class="line">签出 Windows 样式，提交 Unix 样式的行结尾</span><br><span class="line">Git 签出文本文件时，会将 LF 转换为 CRLF。</span><br><span class="line">提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是 Windows 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;true&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit Unix-style line endings </span><br><span class="line">Git will not perform any conversion when checking out text files. </span><br><span class="line">When committing text files, CRLF will be converted to LF. For cross-platform projects, this is the recommended setting on Unix(&quot;core.autocrif&quot; is set to &quot;input&quot;).</span><br><span class="line">按原样签出，提交 Unix 样式的行结尾</span><br><span class="line">Git 在签出文本文件时不会执行任何转换。提交文本文件时，CRLF 将转换为 LF。</span><br><span class="line">对于跨平台项目，这是在 Unix 上的建议设置（&quot;core.autocrif&quot; 设置为 &quot;input&quot;）。</span><br><span class="line"></span><br><span class="line">Checkout as-is, commit as-is </span><br><span class="line">Git will not perform any conversions when checking out or committing text files. </span><br><span class="line">Choosing this option is not recommended for cross-platform projects(&quot;core. autocrif&quot;is set to &quot;false&quot;).</span><br><span class="line">按原样签出，按原样提交</span><br><span class="line">Git 在签出或提交文本文件时不会执行任何转换。</span><br><span class="line">不建议跨平台项目选择此选项（&quot;core.autocrif&quot; 设置为 &quot;false&quot;）。</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>这三种选择分别是：</strong><br>
@@ -2730,14 +2783,14 @@ Stackoverflow - What are carriage return, linefeed, and form feed?[ <a href="htt
 点击 next 到下一步。</p>
 </div></details>
 <h4 id="配置终端模拟器以与-Git-Bash-一起使用">配置终端模拟器以与 Git Bash 一起使用</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10zyzl6-1.webp" alt="git11"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10zyzl6-1.webp" alt="git11"></p>
 <ul>
 <li>建议选择第一种，MinTTY 3功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
 <li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击next到下一步。建议选择第一种，MinTTY 3 功能比 cmd 多，cmd 只不过比 MinTTY 更适合处理 Windows 的一些接口问题，这个对 Git 用处不大，除此之外 Windows 的默认控制台窗口（cmd）有很多劣势，比如 cmd 具有非常有限的默认历史记录回滚堆栈和糟糕的字体编码等等。</li>
 <li>相比之下，MinTTY 具有可调整大小的窗口和其他有用的可配置选项，可以通过右键单击的工具栏来打开它们 git-bash 。点击 next 到下一步。</li>
 </ul>
 <h4 id="选择默认的-“git-pull”-行为">选择默认的 “git pull” 行为</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y5xa4-1.webp" alt="git12"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y5xa4-1.webp" alt="git12"></p>
 <ul>
 <li>Git pull 就是获取最新的远程仓库分支到本地，并与本地分支合并<br>
 上面给了三个 “git pull” 的行为：
@@ -2764,19 +2817,19 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 </ul>
 </div></details>
 <h4 id="选择一个凭证帮助程序">选择一个凭证帮助程序</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y656i-1.webp" alt="git13"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y656i-1.webp" alt="git13"></p>
 <p><strong>一共两个选项：</strong><br>
 <code>Git 凭证管理</code><br>
 <code>不使用凭证助手</code></p>
 <p>第一个选项是提供<code>登录凭证</code>帮助的，Git 有时需要用户的凭据才能执行操作；例如，可能需要输入<code>用户名</code>和<code>密码</code>才能通过 HTTP 访问远程存储库（GitHub，GItLab 等等）。</p>
 <h4 id="配置额外的选项">配置额外的选项</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y63fm-1.webp" alt="git14"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y63fm-1.webp" alt="git14"></p>
 <p><strong>有两个选项：</strong><br>
 <code>启用文件系统缓存 </code> 和 <code>启用符号链接</code><br>
 启用文件系统缓存就是将批量读取文件系统数据并将其缓存在内存中以进行某些操作，可以显著提升性能。这个选项默认开启。</p>
 <p>启用符号链接，符号链接是一类特殊的文件，其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用，类似于 Windows 的快捷方式，不完全等同类Unix（如 Linux的符号链接。因为该功能的支持需要一些条件，所以默认不开启。</p>
 <h4 id="配置实验性选项">配置实验性选项</h4>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/10y6y2b-1.webp" alt="git15"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/10y6y2b-1.webp" alt="git15"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enable experimental support for pseudo consoles.</span><br><span class="line">(NEW!) This allows running native console programs like Node or Python in a Git Bash window without using winpty, </span><br><span class="line">but it still has known bugs.</span><br><span class="line">启用对伪控制台的实验性支持。</span><br><span class="line">(新功能!) 这允许在不使用 winpty 的情况下在 Git Bash 窗口中运行诸如 Node 或 Python 之类的本机控制台程序，</span><br><span class="line">但是它仍然存在已知的 bug。</span><br><span class="line"></span><br><span class="line">Enable experimental built-in file system monitor</span><br><span class="line">(NEW!) Automatically run a built-in file system watcher, to speed up common operations such as &#x27; git status&#x27;, &#x27; git add&#x27;, &#x27; git commit&#x27;, etc in worktrees containing many files.</span><br><span class="line">启用实验性内置文件系统监视器</span><br><span class="line">（新！）自动运行内置文件系统监视器，以加快包含许多文件的工作树中的常见操作，例如 &#x27;git status&#x27;、&#x27;git add&#x27;、&#x27;git commit&#x27; 等.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这是实验性功能，可能会有一些小错误之类的，建议不用开启。<br>
@@ -2833,78 +2886,6 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </tags>
   </entry>
   <entry>
-    <title>cloudflare 配置</title>
-    <url>/2024/02/18/cloudflare-%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="安全性">安全性</h2>
-<h3 id="WAF">WAF</h3>
-<blockquote>
-<p>waf的五个规则，也可以不用管，属于进阶玩法，把后面的基础配置完也差不多够了</p>
-</blockquote>
-<h4 id="Allow-允许">Allow 允许</h4>
-<p>表达式预览：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(cf.client.bot)</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/x3ybmm-1.webp" alt="cloudflare-rule1"></p>
-<h4 id="Bypass-绕过">Bypass 绕过</h4>
-<p>表达式预览：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(cf.tls_client_auth.cert_verified)</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/x58gba-1.webp" alt="cloudflare-rule2"></p>
-<h4 id="Managed-Challenge-托管质询">Managed Challenge 托管质询</h4>
-<p>表达式预览：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 3) or (ip.geoip.country in &#123;&quot;RU&quot; &quot;UA&quot; &quot;T1&quot;&#125;) or (http.x_forwarded_for eq &quot;.&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/x6d0bd-1.webp" alt="cloudflare-rule3"></p>
-<h4 id="JavaScript-质询">JavaScript 质询</h4>
-<p>表达式预览：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 10) or (http.user_agent eq &quot;&quot;) or (http.user_agent eq &quot;&quot;) or (http.user_agent contains &quot;fuck&quot;) or (http.user_agent contains &quot;lient&quot; and http.user_agent contains &quot;ttp&quot;) or (http.user_agent contains &quot;java&quot;) or (http.user_agent contains &quot;Joomla&quot;) or (http.user_agent contains &quot;libweb&quot;) or (http.user_agent contains &quot;libwww&quot;) or (http.user_agent contains &quot;PHPCrawl&quot;) or (http.user_agent contains &quot;PyCurl&quot;) or (http.user_agent contains &quot;python&quot;) or (http.user_agent contains &quot;wrk&quot;) or (http.user_agent contains &quot;hey/&quot;) or (http.user_agent contains &quot;Acunetix&quot;) or (http.user_agent contains &quot;apache&quot;) or (http.user_agent contains &quot;BackDoorBot&quot;) or (http.user_agent contains &quot;cobion&quot;) or (http.user_agent contains &quot;masscan&quot;) or (http.user_agent contains &quot;FHscan&quot;) or (http.user_agent contains &quot;scanbot&quot;) or (http.user_agent contains &quot;Gscan&quot;) or (http.user_agent contains &quot;Researchscan&quot;) or (http.user_agent contains &quot;WPScan&quot;) or (http.user_agent contains &quot;ScanAlert&quot;) or (http.user_agent contains &quot;Wprecon&quot;) or (http.user_agent contains &quot;virusdie&quot;) or (http.user_agent contains &quot;VoidEYE&quot;) or (http.user_agent contains &quot;WebShag&quot;) or (http.user_agent contains &quot;Zeus&quot;) or (http.user_agent contains &quot;zgrab&quot;) or (http.user_agent contains &quot;zmap&quot;) or (http.user_agent contains &quot;nmap&quot;) or (http.user_agent contains &quot;fimap&quot;) or (http.user_agent contains &quot;ZmEu&quot;) or (http.user_agent contains &quot;ZumBot&quot;) or (http.user_agent contains &quot;Zyborg&quot;) or (http.user_agent contains &quot;attachment&quot;) or (http.user_agent eq &quot;undefined&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/xg0eto-1.webp" alt="cloudflare-rule4"></p>
-<h4 id="Block-阻止">Block 阻止</h4>
-<p>表达式预览：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(not cf.client.bot and cf.threat_score gt 15) or (ip.geoip.asnum in &#123;59055 59054 59053 59052 59051 59028 45104 45103 45102 37963 34947 211914 134963 63727 63655 61348 55990 269939 265443 206798 206204 200756 149167 141180 140723 139144 139124 136907 131444 45090 137876 133478 132591 132203&#125;) or (http.user_agent contains &quot;80legs&quot;) or (http.user_agent contains &quot;Abonti&quot;) or (http.user_agent contains &quot;admantx&quot;) or (http.user_agent contains &quot;aipbot&quot;) or (http.user_agent contains &quot;AllSubmitter&quot;) or (http.user_agent contains &quot;Backlink&quot;) or (http.user_agent contains &quot;backlink&quot;) or (http.user_agent contains &quot;Badass&quot;) or (http.user_agent contains &quot;Bigfoot&quot;) or (http.user_agent contains &quot;blexbot&quot;) or (http.user_agent contains &quot;Buddy&quot;) or (http.user_agent contains &quot;CherryPicker&quot;) or (http.user_agent contains &quot;cloudsystemnetwork&quot;) or (http.user_agent contains &quot;cognitiveseo&quot;) or (http.user_agent contains &quot;Collector&quot;) or (http.user_agent contains &quot;cosmos&quot;) or (http.user_agent contains &quot;CrazyWebCrawler&quot;) or (http.user_agent contains &quot;Crescent&quot;) or (http.user_agent contains &quot;Devil&quot;) or (http.user_agent contains &quot;spider&quot;) or (http.user_agent contains &quot;stat&quot;) or (http.user_agent contains &quot;Appender&quot;) or (http.user_agent contains &quot;Crawler&quot;) or (http.user_agent contains &quot;DittoSpyder&quot;) or (http.user_agent contains &quot;Konqueror&quot;) or (http.user_agent contains &quot;Easou&quot;) or (http.user_agent contains &quot;Yisou&quot;) or (http.user_agent contains &quot;Etao&quot;) or (http.user_agent contains &quot;mail&quot; and http.user_agent contains &quot;olf&quot;) or (http.user_agent contains &quot;exabot.com&quot;) or (http.user_agent contains &quot;getintent&quot;) or (http.user_agent contains &quot;Grabber&quot;) or (http.user_agent contains &quot;GrabNet&quot;) or (http.user_agent contains &quot;HEADMasterSEO&quot;) or (http.user_agent contains &quot;heritrix&quot;) or (http.user_agent contains &quot;htmlparser&quot;) or (http.user_agent contains &quot;hubspot&quot;) or (http.user_agent contains &quot;Jyxobot&quot;) or (http.user_agent contains &quot;kraken&quot;) or (http.user_agent contains &quot;larbin&quot;) or (http.user_agent contains &quot;ltx71&quot;) or (http.user_agent contains &quot;leiki&quot;) or (http.user_agent contains &quot;LinkScan&quot;) or (http.user_agent contains &quot;Magnet&quot;) or (http.user_agent contains &quot;Mag-Net&quot;) or (http.user_agent contains &quot;Mechanize&quot;) or (http.user_agent contains &quot;MegaIndex&quot;) or (http.user_agent contains &quot;Metasearch&quot;) or (http.user_agent contains &quot;MJ12bot&quot;) or (http.user_agent contains &quot;moz.com&quot;) or (http.user_agent contains &quot;Navroad&quot;) or (http.user_agent contains &quot;Netcraft&quot;) or (http.user_agent contains &quot;niki-bot&quot;) or (http.user_agent contains &quot;NimbleCrawler&quot;) or (http.user_agent contains &quot;Nimbostratus&quot;) or (http.user_agent contains &quot;Ninja&quot;) or (http.user_agent contains &quot;Openfind&quot;) or (http.user_agent contains &quot;Analyzer&quot;) or (http.user_agent contains &quot;Pixray&quot;) or (http.user_agent contains &quot;probethenet&quot;) or (http.user_agent contains &quot;proximic&quot;) or (http.user_agent contains &quot;psbot&quot;) or (http.user_agent contains &quot;RankActive&quot;) or (http.user_agent contains &quot;RankingBot&quot;) or (http.user_agent contains &quot;RankurBot&quot;) or (http.user_agent contains &quot;Reaper&quot;) or (http.user_agent contains &quot;SalesIntelligent&quot;) or (http.user_agent contains &quot;Semrush&quot;) or (http.user_agent contains &quot;SEOkicks&quot;) or (http.user_agent contains &quot;spbot&quot;) or (http.user_agent contains &quot;SEOstats&quot;) or (http.user_agent contains &quot;Snapbot&quot;) or (http.user_agent contains &quot;Stripper&quot;) or (http.user_agent contains &quot;Siteimprove&quot;) or (http.user_agent contains &quot;sitesell&quot;) or (http.user_agent contains &quot;Siphon&quot;) or (http.user_agent contains &quot;Sucker&quot;) or (http.user_agent contains &quot;TenFourFox&quot;) or (http.user_agent contains &quot;TurnitinBot&quot;) or (http.user_agent contains &quot;trendiction&quot;) or (http.user_agent contains &quot;twingly&quot;) or (http.user_agent contains &quot;VidibleScraper&quot;) or (http.user_agent contains &quot;WebLeacher&quot;) or (http.user_agent contains &quot;WebmasterWorldForum&quot;) or (http.user_agent contains &quot;webmeup&quot;) or (http.user_agent contains &quot;Webster&quot;) or (http.user_agent contains &quot;Widow&quot;) or (http.user_agent contains &quot;Xaldon&quot;) or (http.user_agent contains &quot;Xenu&quot;) or (http.user_agent contains &quot;xtractor&quot;) or (http.user_agent contains &quot;Zermelo&quot;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/xluo29-1.webp" alt="cloudflare-rule5"></p>
-<blockquote>
-<p>图片太长，中间没有截取</p>
-</blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/xm0v7r-1.webp" alt="cloudflare-rule6"></p>
-<h4 id="速率限制规则">速率限制规则</h4>
-<blockquote>
-<p>除了上方五个自定义规则外，还可以设置一条速率限制规则，这个是防止CC</p>
-</blockquote>
-<p>针对免费用户来说可以配置的参数比较少，主要实现的是同个 IP（10 秒内请求数&gt;n）时对其返回 429 阻止访问。</p>
-<p>正常情况下<code>请求</code>建议设置为 50 以上，资源更多的站点可以考虑适当放大（以不影响正常访问为准）。最好不要低于20。如果太低了，用户正常访问都会被阻止。如果网站类型有文字、有图片、有视频，这里不要低。如果你是CF付费版，建议用托管质询，而不是直接阻止。</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/yzi8bw-1.webp" alt="cloudflare-rule10"></p>
-<h3 id="自动程序">自动程序</h3>
-<p>自动程序攻击模式打开</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/xq6zf8-1.webp" alt="cloudflare-rule7"></p>
-<h3 id="DDoS">DDoS</h3>
-<p>.<img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/xt0r0h-1.webp" alt="cloudflare-rule8"></p>
-<h3 id="设置">设置</h3>
-<p>安全级别也可以设置为高（如果打开I’m Under Attack!我受到攻击，这样就是任何请求会做人机验证，等待5秒钟，也就是所说的CF五秒盾：会掉收录，API无法通讯，需要写防火墙规则排除。）</p>
-<p>质询通过期设置成：15分钟或者30分钟，严重可以设置5分钟（这里慎重设置，不要太低，不要太高！）<br>
-浏览器完整性检查：打开</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/yvcftq-1.webp" alt="cloudflare-rule9"></p>
-<h2 id="网络">网络</h2>
-<p>有些攻击会通过TOR节点绕开CF质询，这里建议关掉洋葱路由</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2024/02/18/z7li71-1.webp" alt="cloudflare-rule11"></p>
-<h2 id="进阶玩法">进阶玩法</h2>
-<p>待完善。。。</p>
-<p>下方是在网上看见别人发的，还没具体查看</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在GitHub上,有一些开源项目可以通过监控服务器CPU负载来实现CC/DDoS防御,推荐几个:</span><br><span class="line"></span><br><span class="line">ddosploit/ddos-deflate</span><br><span class="line">一个Linux应用防火墙,可以检测DDoS和阻止DDoS攻击。它可以监控流量并在检测到攻击时自动应用iptables规则。</span><br><span class="line"></span><br><span class="line">jgmdev/ddos-deflate</span><br><span class="line">一个shell脚本,当检测到DDoS攻击时,它可以限制流入服务器的连接。可以自定义触发阈值如CPU负载。</span><br><span class="line"></span><br><span class="line">dotpy3/ddosCoffee</span><br><span class="line">一个用Python编写的轻量级DDoS防御系统,可以检测SYN flood等常见DDoS攻击,并应用iptables规则做限速。</span><br><span class="line"></span><br><span class="line">yuanbq/dataBase-Se</span><br><span class="line">一个检测数据库高负载并应对的Java应用,可以监控CPU、内存等参数,在超过阈值时触发增强数据库配置。</span><br><span class="line"></span><br><span class="line">kyl191/antiddos</span><br><span class="line">轻量级的Python网络应用防火墙,结合了fail2ban来根据流量异常和错误请求封禁IP。</span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="https://hostloc.com/thread-1094822-1-1.html">【最新】免费版cloudflare如何防CC攻击？不需要动手写规则！-美国VPS综合讨论-全球主机交流论坛 - Powered by Discuz! (hostloc.com)</a></li>
-<li><a href="https://blog.tanglu.me/cloudflare-configure">cloudflare配置详解 | tanglu’s blog</a></li>
-<li><a href="https://www.nodeseek.com/post-17576-1">求个CF抗CC抗DD的规则 (nodeseek.com)</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>Cloudflare</category>
-      </categories>
-      <tags>
-        <tag>配置</tag>
-        <tag>cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>windows 常用运行环境的安装</title>
     <url>/2023/10/17/windows%E5%B8%B8%E7%94%A8%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h2 id="Git">Git</h2>
@@ -2927,7 +2908,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 </ul>
 </blockquote>
 <p><a href="https://nodejs.org/zh-cn/download/">点击下载 | Node.js</a></p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12877q4-1.webp" alt="nodejs1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/12877q4-1.webp" alt="nodejs1"></p>
 <h3 id="安装程序">安装程序</h3>
 <ol>
 <li>
@@ -2941,11 +2922,11 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <li><code>online documentation shortcuts</code> ：在线文档快捷方式</li>
 <li><code>Add to PATH</code>：添加到环境变量</li>
 </ul>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286xv5-1.webp" alt="nodejs2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/1286xv5-1.webp" alt="nodejs2"></p>
 </li>
 <li>
 <p>下图框中所示，不用选</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287g2j-1.webp" alt="nodejs3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/1287g2j-1.webp" alt="nodejs3"></p>
 </li>
 <li>
 <p>点击 Install，完成安装</p>
@@ -3036,7 +3017,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <p>链接 1： <a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64 - for 32 and 64 bit Windows - Browse Files at SourceForge.net</a><br>
 链接 2： <a href="https://www.mingw-w64.org/downloads/">Downloads - MinGW-w64</a></p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/12870m1-1.webp" alt="mingw64-1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/12870m1-1.webp" alt="mingw64-1"></p>
 <ul>
 <li>X86_64 是指 64 位的操作系统，i686 是指 32 位的操作系统</li>
 <li>Win32 是开发 windows 系统程序的协议，posix 是其他系统的协议（例如 Linux、Unix、Mac OS）</li>
@@ -3046,7 +3027,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <ol>
 <li>
 <p>方法一：在线安装（网络问题，很炸裂）</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286n5u-1.webp" alt="mingw64-2"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/1286n5u-1.webp" alt="mingw64-2"></p>
 <ul>
 <li>Version 是版本，一般选最高版本；</li>
 <li>Architecture 是系统架构，电脑系统是 64 位的选择 x 86_64，是 32 位的则选择 i 686；</li>
@@ -3062,7 +3043,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <li>
 <p>方法二：直接下载对应的压缩包</p>
 <p>下载后解压压缩包，右击“此电脑”——“属性”——“高级系统设置”——“环境变量”——找到“系统变量”中的“Path”条目——“编辑”——“新建”——将你的 MinGW-w64 安装路径复制到新条目中(格式形如 D:\mingw-w64\bin，一定要写到 bin 这个文件夹)——完成</p>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1286rox-1.webp" alt="mingw64-3"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/1286rox-1.webp" alt="mingw64-3"></p>
 <p>打开命令提示符(直接在 Windows 搜索框输入 cmd 即可找到)，输入 gcc -v，然后回车，验证是否成功(如果出现十几行乱码一样的东西，则配置环境变量成功)(<strong>注意：gcc 与 -v 之间有一个空格！</strong>)</p>
 </li>
 </ol>
@@ -3072,7 +3053,7 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
 <blockquote>
 <p>下载地址：<a href="https://windows.php.net/download">https://windows.php.net/download</a></p>
 </blockquote>
-<p><img src="https://v3.wmnzsx.eu.org/i/1/2023/11/24/1287eey-1.png" alt="php1"></p>
+<p><img src="https://tc.381183.xyz/i/1/2023/11/24/1287eey-1.png" alt="php1"></p>
 <details class="toggle" ><summary class="toggle-button" style="">点击此处展开/收起内容，来自 chatgpt 的解释</summary><div class="toggle-content"><ul>
 <li>“VS16 x64 Thread Safe” 和 “VS16 x64 Non Thread Safe” 是指针对 Windows 平台上的 PHP 编译版本。</li>
 <li>“VS16” 表示使用的是 Visual Studio 2019 编译器（版本号为 16）。</li>
@@ -3208,6 +3189,93 @@ Git pull 只是拉取远程分支并与本地分支合并，而 git fetch 只是
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>搭建图床系列</title>
+    <url>/2023/10/31/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E5%88%97/</url>
+    <content><![CDATA[<h2 id="搭建简单图床-EasyImage">搭建简单图床 EasyImage</h2>
+<p>注意：注意定时压缩下载进行备份</p>
+<ul>
+<li><a href="https://github.com/icret/EasyImages2.0">GitHub - icret/EasyImages2.0: 简单图床 - 一款功能强大无数据库的图床 2.0版</a></li>
+<li><a href="https://icret.github.io/EasyImages2.0/#/">EasyImage2.0 简单图床</a></li>
+<li><a href="https://iwanlab.com/aapanel-install-easyimage/">【宝塔面板系列】10分钟搭建一个简单图床——EasyImage 简单到无需数据库！ | 爱玩实验室 (iwanlab.com)</a></li>
+</ul>
+<h2 id="搭建-Telegraph-Image-图床">搭建 Telegraph-Image 图床</h2>
+<p>注意：①上传后的文件删除不了，但可以设置黑白名单使其不能被正常访问，但文件实际还储存在tg的服务器上，②只要知道图片文件名，别人使用相同程序搭建该图床，别人也能通过他的域名+你的图片文件名访问图片</p>
+<ul>
+<li><a href="https://github.com/cf-pages/Telegraph-Image">GitHub - cf-pages/Telegraph-Image: Image Hosting solution, Flickr/imgur alternative, make it easy for users to share their images. Using Cloudflare Pages and Telegraph.</a></li>
+<li><a href="https://www.nodeseek.com/post-734-1">【更新】Telegraph-Image免费自建图床新增后台图片管理功能</a></li>
+</ul>
+<h2 id="搭建-tgState-图床">搭建 tgState 图床</h2>
+<p>注意：上传后的文件删除不了，就算你把频道啥的里面的文件删了，也没有用，文件实际还储存在tg的服务器上</p>
+<ul>
+<li><a href="https://github.com/csznet/tgState">GitHub - csznet/tgState: 使用Telegram作为存储的文件外链系统，可以作为图床使用，也可以作为网盘使用。</a></li>
+</ul>
+<h2 id="其他">其他</h2>
+<h3 id="已使用">已使用</h3>
+<ul>
+<li>
+<p>PicGo-图床工具</p>
+<ul>
+<li>
+<p><a href="https://github.com/Molunerfinn/PicGo">GitHub - Molunerfinn/PicGo: :rocket:A simple &amp; beautiful tool for pictures uploading built by vue-cli-electron-builder</a></p>
+</li>
+<li>
+<p><a href="https://picgo.github.io/PicGo-Doc/">PicGo</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="未验证（暂未使用）">未验证（暂未使用）</h3>
+<ul>
+<li>
+<p>盘络上传-图床上传扩展程序</p>
+<ul>
+<li><a href="https://fileup.dev/">盘络上传扩展 (fileup.dev)</a></li>
+<li><a href="https://github.com/ZenEcho/PLExtension">GitHub - ZenEcho/PLExtension: 盘络上传，是一款免费的上传扩展程序提供兰空图床,简单图床,chevereto,阿里云oss,AWS S3,GitHub等程序的文件上传</a></li>
+</ul>
+</li>
+<li>
+<p>PicX-一款基于 GitHub API 开发的图床工具</p>
+<ul>
+<li><a href="https://github.com/XPoet/picx">GitHub - XPoet/picx: 🏞️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</a></li>
+</ul>
+</li>
+<li>
+<p>其他</p>
+<ul>
+<li><a href="https://github.com/tdouguo/pic">GitHub - tdouguo/pic: 多合一图床 - Cdn图床,百度图床,阿里图床,京东图床,搜狗图床,搜狐图床,QQ图床,58图床,头条图床,网易图床,360图床,葫芦侠图床-OLEOU</a></li>
+<li><a href="https://gist.github.com/BlueSkyXN/8d261d13d79e7a7672999f9935acdfe9">tgphimgbed.js · GitHub</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术折腾</category>
+        <category>图床</category>
+      </categories>
+      <tags>
+        <tag>图床</tag>
       </tags>
   </entry>
   <entry>
@@ -3465,103 +3533,6 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
       </tags>
   </entry>
   <entry>
-    <title>搭建图床系列</title>
-    <url>/2023/10/31/%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A%E7%B3%BB%E5%88%97/</url>
-    <content><![CDATA[<h2 id="搭建简单图床-EasyImage">搭建简单图床 EasyImage</h2>
-<p>注意：注意定时压缩下载进行备份</p>
-<ul>
-<li><a href="https://github.com/icret/EasyImages2.0">GitHub - icret/EasyImages2.0: 简单图床 - 一款功能强大无数据库的图床 2.0版</a></li>
-<li><a href="https://icret.github.io/EasyImages2.0/#/">EasyImage2.0 简单图床</a></li>
-<li><a href="https://iwanlab.com/aapanel-install-easyimage/">【宝塔面板系列】10分钟搭建一个简单图床——EasyImage 简单到无需数据库！ | 爱玩实验室 (iwanlab.com)</a></li>
-</ul>
-<h2 id="搭建-Telegraph-Image-图床">搭建 Telegraph-Image 图床</h2>
-<p>注意：①上传后的文件删除不了，但可以设置黑白名单使其不能被正常访问，但文件实际还储存在tg的服务器上，②只要知道图片文件名，别人使用相同程序搭建该图床，别人也能通过他的域名+你的图片文件名访问图片</p>
-<ul>
-<li><a href="https://github.com/cf-pages/Telegraph-Image">GitHub - cf-pages/Telegraph-Image: Image Hosting solution, Flickr/imgur alternative, make it easy for users to share their images. Using Cloudflare Pages and Telegraph.</a></li>
-<li><a href="https://www.nodeseek.com/post-734-1">【更新】Telegraph-Image免费自建图床新增后台图片管理功能</a></li>
-</ul>
-<h2 id="搭建-tgState-图床">搭建 tgState 图床</h2>
-<p>注意：上传后的文件删除不了，就算你把频道啥的里面的文件删了，也没有用，文件实际还储存在tg的服务器上</p>
-<ul>
-<li><a href="https://github.com/csznet/tgState">GitHub - csznet/tgState: 使用Telegram作为存储的文件外链系统，可以作为图床使用，也可以作为网盘使用。</a></li>
-</ul>
-<h2 id="其他">其他</h2>
-<h3 id="已使用">已使用</h3>
-<ul>
-<li>
-<p>PicGo-图床工具</p>
-<ul>
-<li>
-<p><a href="https://github.com/Molunerfinn/PicGo">GitHub - Molunerfinn/PicGo: :rocket:A simple &amp; beautiful tool for pictures uploading built by vue-cli-electron-builder</a></p>
-</li>
-<li>
-<p><a href="https://picgo.github.io/PicGo-Doc/">PicGo</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="未验证（暂未使用）">未验证（暂未使用）</h3>
-<ul>
-<li>
-<p>盘络上传-图床上传扩展程序</p>
-<ul>
-<li><a href="https://fileup.dev/">盘络上传扩展 (fileup.dev)</a></li>
-<li><a href="https://github.com/ZenEcho/PLExtension">GitHub - ZenEcho/PLExtension: 盘络上传，是一款免费的上传扩展程序提供兰空图床,简单图床,chevereto,阿里云oss,AWS S3,GitHub等程序的文件上传</a></li>
-</ul>
-</li>
-<li>
-<p>PicX-一款基于 GitHub API 开发的图床工具</p>
-<ul>
-<li><a href="https://github.com/XPoet/picx">GitHub - XPoet/picx: 🏞️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</a></li>
-</ul>
-</li>
-<li>
-<p>其他</p>
-<ul>
-<li><a href="https://github.com/tdouguo/pic">GitHub - tdouguo/pic: 多合一图床 - Cdn图床,百度图床,阿里图床,京东图床,搜狗图床,搜狐图床,QQ图床,58图床,头条图床,网易图床,360图床,葫芦侠图床-OLEOU</a></li>
-<li><a href="https://gist.github.com/BlueSkyXN/8d261d13d79e7a7672999f9935acdfe9">tgphimgbed.js · GitHub</a></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术折腾</category>
-        <category>图床</category>
-      </categories>
-      <tags>
-        <tag>图床</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>未完成</title>
-    <url>/2024/02/24/%E6%9C%AA%E5%AE%8C%E6%88%90/</url>
-    <content><![CDATA[<ul>
-<li>
-<p><a href="https://fkcc.me/2024/02/18/cloudflare-%E9%85%8D%E7%BD%AE/">cloudflare 配置 | ZのBlog (fkcc.me)</a></p>
-</li>
-<li>
-<p><a href="https://fkcc.me/2024/02/08/Git-%E5%AD%A6%E4%B9%A0/">Git 学习 | ZのBlog (fkcc.me)</a></p>
-</li>
-<li>
-<p><a href="https://fkcc.me/2024/02/08/Alist-Rclone/">Alist &amp; Rclone （待完成） | ZのBlog (fkcc.me)</a></p>
-</li>
-<li>
-<p><a href="https://fkcc.me/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/">Cloudflare Workers反代系列 | ZのBlog (fkcc.me)</a></p>
-</li>
-<li>
-<p><a href="https://fkcc.me/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">Linux 学习系列 | ZのBlog (fkcc.me)</a></p>
-</li>
-<li>
-<p><a href="https://fkcc.me/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/">N1盒子刷armbian | ZのBlog (fkcc.me)</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>随想随笔</category>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
     <title>记录使用Hexo时遇到的问题</title>
     <url>/2023/10/17/%E8%AE%B0%E5%BD%95%E4%BD%BF%E7%94%A8Hexo%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="问题一：解决-ssh-connect-to-host-github-com-port-22-Connection-timed-out">问题一：解决 ssh: connect to host <a href="http://github.com">github.com</a> port 22: Connection timed out</h2>
@@ -3607,6 +3578,35 @@ themes是主题文件夹，Hexo会根据此文件夹生成静态页面</p>
       <tags>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>未完成</title>
+    <url>/2024/02/24/%E6%9C%AA%E5%AE%8C%E6%88%90/</url>
+    <content><![CDATA[<ul>
+<li>
+<p><a href="https://fkcc.me/2024/02/18/cloudflare-%E9%85%8D%E7%BD%AE/">cloudflare 配置 | ZのBlog (fkcc.me)</a></p>
+</li>
+<li>
+<p><a href="https://fkcc.me/2024/02/08/Git-%E5%AD%A6%E4%B9%A0/">Git 学习 | ZのBlog (fkcc.me)</a></p>
+</li>
+<li>
+<p><a href="https://fkcc.me/2024/02/08/Alist-Rclone/">Alist &amp; Rclone （待完成） | ZのBlog (fkcc.me)</a></p>
+</li>
+<li>
+<p><a href="https://fkcc.me/2023/11/17/Cloudflare-Workers%E5%8F%8D%E4%BB%A3%E7%B3%BB%E5%88%97/">Cloudflare Workers反代系列 | ZのBlog (fkcc.me)</a></p>
+</li>
+<li>
+<p><a href="https://fkcc.me/2023/12/11/Linux-%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97/">Linux 学习系列 | ZのBlog (fkcc.me)</a></p>
+</li>
+<li>
+<p><a href="https://fkcc.me/2023/10/31/N1%E7%9B%92%E5%AD%90%E5%88%B7armbian/">N1盒子刷armbian | ZのBlog (fkcc.me)</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>随想随笔</category>
+        <category>其他</category>
+      </categories>
   </entry>
   <entry>
     <title>随身WiFi刷debian</title>
