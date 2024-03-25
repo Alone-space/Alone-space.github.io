@@ -166,3 +166,12 @@ transform: rotate(360deg)
 
 
 /* 去掉导航栏项目底下的蓝色长条 */
+
+/* 图标 */
+svg.icon {
+    width: 1.15em; height: 1.15em;
+    /* width和height定义图标的默认宽度和高度*/
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
