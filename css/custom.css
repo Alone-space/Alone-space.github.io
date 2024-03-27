@@ -1,171 +1,93 @@
 /* 自建css 美化 */
 
-/* 修改标题样式 */
-#article-container h1:before,
-#article-container h2:before,
-#article-container h3:before,
-#article-container h4:before,
-#article-container h5:before,
-#article-container h6:before,
-#post .post-outdate-notice:before,
-.fontawesomeIcon,
-.note:not(.no-icon)::before,
-hr:before {
-    display: inline-block;
-    font-weight: 600;
-    font-style: normal;
-    font-variant: normal;
-    font-family: 'Font Awesome 5 Free';
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased
+/* 文章页H1-H6图标样式效果 */
+/* 控制风车转动速度 4s那里可以自己调节快慢 */
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  -webkit-animation: ccc 4s linear infinite;
+  animation: ccc 4s linear infinite;
 }
-#article-container h1:before,
-#article-container h2:before,
-#article-container h3:before,
-#article-container h4:before,
-#article-container h5:before,
-#article-container h6:before {
-    position: absolute;
-    color: #f47466;
-    /* 回形针 */
-    /*content: '\f0c1';  */
-    line-height: 1;
-    -webkit-transition: all .2s ease-out;
-    -moz-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    -ms-transition: all .2s ease-out;
-    transition: all .2s ease-out;
-    /* 若要使用风车效果，请去掉下面的注释 */
-    content: '\f863'; 
-    animation: avatar_turn_around 1s linear infinite;
+/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */
+@-webkit-keyframes ccc {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-1turn);
+    transform: rotate(-1turn);
+  }
 }
-#article-container h1 {
-    padding-left: 1.4rem
+@keyframes ccc {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-1turn);
+    transform: rotate(-1turn);
+  }
 }
-
-#article-container h1 code {
-    font-size: 1rem
+/* 设置风车颜色 */
+#content-inner.layout h1::before {
+  color: #ef50a8;
+  margin-left: -1.55rem;
+  font-size: 1.3rem;
+  margin-top: -0.23rem;
 }
-
-#article-container h1:before {
-    margin-left: -1.3rem;
-    top: calc(50% - .5rem);
-    font-size: 1rem
+#content-inner.layout h2::before {
+  color: #fb7061;
+  margin-left: -1.35rem;
+  font-size: 1.1rem;
+  margin-top: -0.12rem;
 }
-
-#article-container h1:hover {
-    padding-left: 1.6rem
+#content-inner.layout h3::before {
+  color: #ffbf00;
+  margin-left: -1.22rem;
+  font-size: 0.95rem;
+  margin-top: -0.09rem;
 }
-
-#article-container h2 {
-    padding-left: 1.3rem
+#content-inner.layout h4::before {
+  color: #a9e000;
+  margin-left: -1.05rem;
+  font-size: 0.8rem;
+  margin-top: -0.09rem;
 }
-
-#article-container h2 code {
-    font-size: .9rem
+#content-inner.layout h5::before {
+  color: #57c850;
+  margin-left: -0.9rem;
+  font-size: 0.7rem;
+  margin-top: 0rem;
 }
-
-#article-container h2:before {
-    margin-left: -1.4rem;
-    top: calc(50% - .45rem);
-    font-size: .9rem
+#content-inner.layout h6::before {
+  color: #5ec1e0;
+  margin-left: -0.9rem;
+  font-size: 0.66rem;
+  margin-top: 0rem;
 }
-
-#article-container h2:hover {
-    padding-left: 1.5rem
+/* s设置风车hover动效 6s那里可以自己调节快慢*/
+#content-inner.layout h1:hover,
+#content-inner.layout h2:hover,
+#content-inner.layout h3:hover,
+#content-inner.layout h4:hover,
+#content-inner.layout h5:hover,
+#content-inner.layout h6:hover {
+  color: var(--theme-color);
 }
-
-#article-container h3 {
-    padding-left: 1.2rem
+#content-inner.layout h1:hover::before,
+#content-inner.layout h2:hover::before,
+#content-inner.layout h3:hover::before,
+#content-inner.layout h4:hover::before,
+#content-inner.layout h5:hover::before,
+#content-inner.layout h6:hover::before {
+  color: var(--theme-color);
+  -webkit-animation: ccc 6s linear infinite;
+  animation: ccc 6s linear infinite;
 }
-
-#article-container h3 code {
-    font-size: .8rem;
-    top: calc(50% - .4rem);
-
-}
-
-#article-container h3:before {
-    margin-left: -1.2rem;
-    top: calc(50% - .4rem);
-    font-size: .8rem
-}
-
-#article-container h3:hover {
-    padding-left: 1.4rem
-}
-
-#article-container h4 {
-    padding-left: 1.1rem
-}
-
-#article-container h4 code {
-    font-size: .7rem
-}
-
-#article-container h4:before {
-    margin-left: -1rem;
-    top: calc(50% - .35rem);
-    font-size: .7rem
-}
-
-#article-container h4:hover {
-    padding-left: 1.3rem
-}
-
-#article-container h5 {
-    padding-left: 1rem
-}
-
-#article-container h5 code {
-    font-size: .6rem
-}
-
-#article-container h5:before {
-    margin-left: -.8rem;
-    top: calc(50% - .3rem);
-    font-size: .6rem
-}
-
-#article-container h5:hover {
-    padding-left: 1.2rem
-}
-
-#article-container h6 {
-    padding-left: 1rem
-}
-
-#article-container h6 code {
-    font-size: .6rem
-}
-
-#article-container h6:before {
-    margin-left: -.8rem;
-    top: calc(50% - .3rem);
-    font-size: .6rem
-}
-
-#article-container h6:hover {
-    padding-left: 1.2rem
-}
-
-/* 鼠标在有序标签上会旋转 */
-#article-container ol li:hover:before
-{
--webkit-transform: rotate(360deg);
--moz-transform: rotate(360deg);
--o-transform: rotate(360deg);
--ms-transform: rotate(360deg);
-transform: rotate(360deg)
-}
-
-/* 导航栏居中 */
-
-
-/* 子菜单横向布局 */
-
-
-/* 去掉导航栏项目底下的蓝色长条 */
 
 /* 图标 */
 svg.icon {
@@ -175,3 +97,127 @@ svg.icon {
     fill: currentColor;
     overflow: hidden;
   }
+  
+
+  /* 背景透明度 */
+  :root {
+	--trans-light: rgba(255, 255, 255, 0.8);
+	--trans-dark: rgba(25, 25, 25, 0.8);
+  }
+  
+  /* 首页文章卡片 */
+  #recent-posts > .recent-post-item {
+	background: var(--trans-light);
+  }
+  
+  /* 首页侧栏卡片 */
+  #aside-content .card-widget {
+	background: var(--trans-light);
+  }
+  
+  /* 文章页、归档页、普通页面 */
+  div#post,
+  div#page,
+  div#archive {
+	background: var(--trans-light);
+  }
+  
+  /* 导航栏 */
+  #page-header.nav-fixed #nav {
+	background: rgba(255, 255, 255, 0.88);
+  }
+  
+  [data-theme="dark"] #page-header.nav-fixed #nav {
+	background: rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  /* 夜间模式遮罩 */
+  [data-theme="dark"] #recent-posts > .recent-post-item,
+  [data-theme="dark"] #aside-content .card-widget,
+  [data-theme="dark"] div#post,
+  [data-theme="dark"] div#archive,
+  [data-theme="dark"] div#page {
+	background: var(--trans-dark);
+  }
+  
+  
+  /* 夜间模式页脚页头遮罩透明 */
+  [data-theme="dark"] #footer::before {
+	background: transparent !important;
+  }
+  [data-theme="dark"] #page-header::before {
+	background: transparent !important;
+  }
+  
+  /* 阅读模式 */
+  .read-mode #aside-content .card-widget {
+	background: rgba(249, 245, 233, 0.9) !important;
+  }
+  .read-mode div#post {
+	background: rgba(249, 245, 233, 0.9) !important;
+  }
+  
+  /* 夜间模式下的阅读模式 */
+  [data-theme="dark"] .read-mode #aside-content .card-widget {
+	background: rgba(25, 25, 25, 0.9) !important;
+	color: #ffffff;
+  }
+  [data-theme="dark"] .read-mode div#post {
+	background: rgba(25, 25, 25, 0.9) !important;
+	color: #ffffff;
+  }
+
+
+/* 全局默认鼠标指针 */
+body,
+html {
+	cursor: url('./mouse/ShaR/normal.cur'), auto !important;
+}
+
+/* 悬停图片时的鼠标指针 */
+img {
+	
+	cursor: url('./mouse/ShaR/move.cur'), auto !important;
+}
+
+/* 选择链接标签时的鼠标指针 */
+a:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+/* 选中输入框时的鼠标指针 */
+input:hover {
+	cursor: url('./mouse/ShaR/text.cur'), auto;
+}
+
+/* 悬停按钮时的鼠标指针 */
+button:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+/* 悬停列表标签时的鼠标指针 */
+i:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+/* 悬停页脚链接标签（例如页脚徽标）时的鼠标指针 */
+#footer-wrap a:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+/* 悬停页码时的鼠标指针 */
+#pagination .page-number:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+/* 悬停菜单栏时的鼠标指针 */
+#nav .site-page:hover {
+	cursor: url('./mouse/ShaR/link.cur'), auto;
+}
+
+
+
+
+
+
+
